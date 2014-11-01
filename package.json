@@ -1,0 +1,20 @@
+{
+	"name": "renting.js",
+	"description": "Renting portal written in node.js",
+	"version": "0.0.1",
+	"private": true,
+	"author": "Daniel Rodríguez <daniel@dpstudios.es>",
+	"main": "server.js",
+	"dependencies": {
+		"express": "latest",
+		"mongoose": "latest",
+		"async": "latest",
+		"ejs": "latest"
+	},
+	"devDependencies": {
+		"bower": "latest",
+		"nodemon": "latest",
+		"grunt": "latest",
+		"mocha": "latest"
+	}
+}
