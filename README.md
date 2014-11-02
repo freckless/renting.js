@@ -12,13 +12,14 @@ Librerias utilizadas
 * Mongoose [http://mongoosejs.com] - Driver de MongoDB para node.js
 * Asyc [https://github.com/caolan/async] - Axudarános a unha mellor organización do código.
 * Lodash [https://lodash.com] - Librería JS con moitas utilidades básicas con arrays, strings...
-* EJS [https://github.com/tj/ejs] - ([EJS Language](http://www.embeddedjs.com)) - Lenguaxe que utilizaremos para as plantillas da web
+* EJS [https://github.com/tj/ejs] - ([EJS Language](http://www.embeddedjs.com)) - Lenguaxe que utilizaremos para as plantillas
 
 **Para desenrolo:**
 * Nodemon [http://nodemon.io] - Recarga automaticamente o atopar cambios
 * Grunt [http://gruntjs.com] - Accións automatizadas
 * Mocha [http://mochajs.org] - Unit Testing
 * Bower [http://bower.io] - Xestión de librerias
+* JSHint [http://www.jshint.com] - Control de calidade do código
 
 Autores
 -------

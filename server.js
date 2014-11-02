@@ -1,33 +1,32 @@
+// Modulo do servidor
+// ==================
+// Modulo que inicia a escoita do servidor web, carga as configuracións
+// e inicializa a conexión coa base de datos, os modelos, etc...
+
 'use strict';
 
-/**
- * Modulo do servidor
- * ------------------------
- * Modulo que inicia a escoita do servidor web, carga as configuracións
- * e inicializa a conexión coa base de datos, os modelos, etc...
- */
-
-/**
- * Dependencias
- */
+// Dependencias do módulo
+// ----------------------
 var express = require('express'),
     fs = require('fs'),
     mongoose = require('mongoose');
 
+// Bootstrap
+// ---------
 // Configuramos o entorno se non está configurado
-process.env.NODE_ENV = process.env.NODE_ENV ||  'development';
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Cargamos as configuracións
 var config = require('./config/config.js');
 
 // Inizializamos a conexión a base de datos
-// var db = mongoose.connect(config.db);
+var db = mongoose.connect(config.db);
 
 // Cargamos os modelos da base de datos
 var models_path = __dirname + '/app/models';
 // Función para a carga dos modelos, buscará os modelos no directorio de forma recursiva.
-var walk = function (path) {
-    fs.readdirSync(path).foreach(function (file) {
+var walk = function(path) {
+    fs.readdirSync(path).forEach(function(file) {
         // Obtemos a ruta completa do arquivo
         var model_file = path + '/' + file;
 
@@ -43,8 +42,8 @@ var walk = function (path) {
         } else if (stat.isDirectory()) {
             walk(model_file);
         }
-    })
-}
+    });
+};
 // Comezamos a carga dende o directorio base dos modelos
 walk(models_path);
 
@@ -52,12 +51,12 @@ walk(models_path);
 var app = express();
 
 // Cargamos a configuración do servidor
-require('./config/express')(app, db);
+require('./config/express.js')(app, db);
 
 // Lanzamos o servidor pondoo a escoita no porto elexido
 var port = process.env.PORT ||  config.port;
 app.listen(port);
-console.log('App started on port ' + port);
+console.log('App ' + config.app.name + ' started on port ' + port);
 
 // Exportamos a app
 module.exports = app;

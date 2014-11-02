@@ -7,15 +7,25 @@
 	"main": "server.js",
 	"dependencies": {
 		"express": "latest",
+		"connect-multiparty": "latest",
+		"cookie-parser": "latest",
+		"cookie-session": "latest",
+		"body-parser": "latest",
+		"method-override": "latest",
+		"morgan": "latest",
+		"express-partials": "latest",
+		"compression": "latest",
 		"mongoose": "latest",
 		"async": "latest",
 		"lodash": "latest",
-		"ejs": "latest"
+		"ejs": "latest",
+		"moment": "latest"
 	},
 	"devDependencies": {
 		"bower": "latest",
 		"nodemon": "latest",
 		"grunt": "latest",
-		"mocha": "latest"
+		"mocha": "latest",
+		"docco": "latest"
 	}
 }
