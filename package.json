@@ -9,6 +9,7 @@
 		"express": "latest",
 		"mongoose": "latest",
 		"async": "latest",
+		"lodash": "latest",
 		"ejs": "latest"
 	},
 	"devDependencies": {
