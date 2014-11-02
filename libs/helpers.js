@@ -5,12 +5,14 @@
 
 // Dependencias do módulo
 // ----------------------
-var config = global.root_path + '/config.js',
+var config = require(global.root_path + '/libs/config.js'),
     _ = require('lodash');
 
 var helpers = {
     // Pasamos a configuración da app
-    config: config.app
+    config: {
+        app: config.app
+    }
 };
 
 // Engadimos todos os helpers a resposta para acceder

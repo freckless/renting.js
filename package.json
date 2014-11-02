@@ -1,31 +1,33 @@
 {
-	"name": "renting.js",
-	"description": "Renting portal written in node.js",
-	"version": "0.0.1",
-	"private": true,
-	"author": "Daniel Rodríguez <daniel@dpstudios.es>",
-	"main": "server.js",
-	"dependencies": {
-		"express": "latest",
-		"connect-multiparty": "latest",
-		"cookie-parser": "latest",
-		"cookie-session": "latest",
-		"body-parser": "latest",
-		"method-override": "latest",
-		"morgan": "latest",
-		"express-partials": "latest",
-		"compression": "latest",
-		"mongoose": "latest",
-		"async": "latest",
-		"lodash": "latest",
-		"ejs": "latest",
-		"moment": "latest"
-	},
-	"devDependencies": {
-		"bower": "latest",
-		"nodemon": "latest",
-		"grunt": "latest",
-		"mocha": "latest",
-		"docco": "latest"
-	}
+    "name": "renting.js",
+    "description": "Renting portal written in node.js",
+    "version": "0.0.1",
+    "private": true,
+    "author": "Daniel Rodríguez <daniel@dpstudios.es>",
+    "main": "server.js",
+    "dependencies": {
+        "express": "latest",
+        "connect-multiparty": "latest",
+        "cookie-parser": "latest",
+        "cookie-session": "latest",
+        "serve-static": "latest",
+        "serve-favicon": "latest",
+        "body-parser": "latest",
+        "method-override": "latest",
+        "morgan": "latest",
+        "express-partials": "latest",
+        "compression": "latest",
+        "mongoose": "latest",
+        "async": "latest",
+        "lodash": "latest",
+        "ejs": "latest",
+        "moment": "latest"
+    },
+    "devDependencies": {
+        "bower": "latest",
+        "grunt": "latest",
+        "mocha": "latest",
+        "assert": "latest",
+        "docco": "latest"
+    }
 }

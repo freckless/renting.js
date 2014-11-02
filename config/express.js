@@ -16,13 +16,20 @@ var config = require(global.root_path + '/libs/config.js'),
     method_override = require('method-override'),
     cookie_parser = require('cookie-parser'),
     cookie_session = require('cookie-session'),
-    helpers = require(config.paths.libs + '/helpers.js');
+    helpers = require(config.paths.libs + '/helpers.js'),
+    auth = require(config.paths.components + '/auth.js'),
+    router = require(config.paths.components + '/router.js'),
+    serve_static = require('serve-static'),
+    serve_favicon = require('serve-favicon');
 
 // Configuración
 // -------------
 module.exports = function(app) {
     // Configuramos o servidor para que mostre o stack en caso de error
     app.set('showStackError', true);
+
+    // Configuramos o porto
+    app.set('port', config.port);
 
     // Prettify HTML.
     app.locals.pretty = true;
@@ -50,7 +57,7 @@ module.exports = function(app) {
 
     // Configuramos o directorio das vistas e o motor de plantilla que vamos a utilizar.
     app.set('views', config.paths.root + '/app/views');
-    app.engine('html', require('ejs').renderFile);
+    app.engine('ejs', require('ejs').renderFile);
 
     // Configuramos os middlewares dos que vai a facer uso o servidor.
     // ---------------------------------------------------------------
@@ -63,7 +70,7 @@ module.exports = function(app) {
 
     // Activamos a opción de recoller arquivos enviados dende formularios
     // é decir datos enviados mediante enctype multipart/form-data.
-    app.use(multiparty);
+    app.use(multiparty());
 
     // MethodOverride é realmente útil para enviar datos mediante métodos non soportados
     // polo navegador como PUT, DELETE... simplemente engadindo ?_method=PUT a URL.
@@ -82,5 +89,15 @@ module.exports = function(app) {
     });
 
     // Helpers, os axudantes que utilizaremos para a xeneración de vistas e máis cousas.
-    app.use(helpers);
+    app.use(helpers());
+
+    // Sistema de autenticación de usuarios
+    app.use(auth.init());
+
+    // Buscamos recursos státicos que podan responder a consulta.
+    app.use(serve_favicon(config.paths.webroot + '/favicon.ico'));
+    app.use(serve_static(config.paths.webroot));
+
+    // No caso de que non existan, lanzamos o enrutador para redireccionar cada consulta o controlador correspondente
+    app.use(router.init(app));
 };
