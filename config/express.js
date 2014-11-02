@@ -82,6 +82,5 @@ module.exports = function(app) {
     });
 
     // Helpers, os axudantes que utilizaremos para a xeneración de vistas e máis cousas.
-    console.log(helpers);
     app.use(helpers);
 };

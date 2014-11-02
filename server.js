@@ -21,7 +21,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 global.root_path = path.normalize(__dirname);
 
 // Cargamos as configuracións
-var config = require('./config/config.js');
+var config = require(global.root_path + '/libs/config.js');
 
 // Inizializamos a conexión a base de datos
 var db = mongoose.connect(config.db);
@@ -58,9 +58,9 @@ var app = express();
 require('./config/express.js')(app, db);
 
 // Lanzamos o servidor pondoo a escoita no porto elexido
-var port = process.env.PORT ||  config.port;
+var port = process.env.PORT || config.port;
 app.listen(port);
-console.log('App ' + config.app.name + ' started on port ' + port);
+console.log(config.app.name + ' started on port ' + port);
 
 // Exportamos a app
 module.exports = app;
