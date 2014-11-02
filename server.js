@@ -9,12 +9,16 @@
 // ----------------------
 var express = require('express'),
     fs = require('fs'),
+    path = require('path'),
     mongoose = require('mongoose');
 
 // Bootstrap
 // ---------
 // Configuramos o entorno se non está configurado
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+// Configuramos a carpeta raiz no ambito global
+global.root_path = path.normalize(__dirname);
 
 // Cargamos as configuracións
 var config = require('./config/config.js');
