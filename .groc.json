@@ -1,0 +1,4 @@
+{
+    "glob": ["**/*.js"],
+    "except": ["node_modules/**/*.js", "config/env/*.js"]
+}

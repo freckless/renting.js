@@ -1,12 +1,11 @@
-// Módulo de configuración de express
-// ==================================
+// #Módulo de configuración de express
+
 // Neste arquivo ocuparémonos de configurar o framework express
 // para que funcione o noso gusto.
 
 'use strict';
 
-// Dependencias do módulo
-// ----------------------
+// ##Dependencias do módulo
 var config = require(global.root_path + '/libs/config.js'),
     partials = require('express-partials'),
     multiparty = require('connect-multiparty'),
@@ -22,8 +21,7 @@ var config = require(global.root_path + '/libs/config.js'),
     serve_static = require('serve-static'),
     serve_favicon = require('serve-favicon');
 
-// Configuración
-// -------------
+// ##Configuración
 module.exports = function(app) {
     // Configuramos o servidor para que mostre o stack en caso de error
     app.set('showStackError', true);
@@ -59,8 +57,7 @@ module.exports = function(app) {
     app.set('views', config.paths.root + '/app/views');
     app.engine('ejs', require('ejs').renderFile);
 
-    // Configuramos os middlewares dos que vai a facer uso o servidor.
-    // ---------------------------------------------------------------
+    // ##Configuramos os middlewares dos que vai a facer uso o servidor.
     // CookieParser para manexar as cookies dunha forma máis sinxela.
     app.use(cookie_parser());
 

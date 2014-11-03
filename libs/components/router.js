@@ -39,20 +39,26 @@ var RouterComponent = {
             res.type('txt').send('Not found');
         };
     },
+    // Función para cargar as rutas da configuración na app
     loadRoutes: function(app) {
+        // Exploramos os método declarados en cada ruta
         _.forEach(routes, function(methods, route) {
+            // Cargamos cada acción no seu correspondente método e ruta.
             _.forEach(methods, function(raw_action, method) {
+                // Recollemos as partes da acción sabendo que dase en formato controlador#acción
                 var parts = raw_action.split('#');
                 var controller = parts[0];
                 var action = 'action_' + parts[1];
 
+                // Se o controlador aínda non se cargóu, cargámolo
                 if ( ! controllers[controller])
                     controllers[controller] = require(config.paths.controllers + '/' + controller + '.js');
 
+                // Engadimos a ruta a app
                 app[method](route, controllers[controller][action]);
             });
         });
-    },
+    }
 };
 
 module.exports = RouterComponent;

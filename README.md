@@ -22,7 +22,7 @@ Librerias utilizadas
 * Bower [http://bower.io] - Xestión de librerias
 * Grunt [http://gruntjs.com] - Accións automatizadas
 * Mocha [http://mochajs.org] - Unit Testing
-* Docco - Documentación
+* Groc - Documentación
 
 **Outras utilidades:**
 * Nodemon [http://nodemon.io] - Recarga automaticamente o atopar cambios

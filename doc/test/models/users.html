@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="en"><head><title>test/models/users</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="test/models/users"><meta name="groc-project-path" content="test/models/users.js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">test/models/users.js</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="auth-test">Auth test</h1></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-pi">
+'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Configuramos o entorno a &quot;testing&quot;</p></div></div><div class="code"><div class="wrapper">process.env.NODE_ENV = <span class="hljs-string">'testing'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Lanzamos a app</p></div></div><div class="code"><div class="wrapper"><span class="hljs-built_in">require</span>(<span class="hljs-string">'../../server.js'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="dependencias-do-modulo">Dependencias do modulo</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>),
+    assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>),
+    _ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'lodash'</span>),
+    User = mongoose.model(<span class="hljs-string">'User'</span>);
+
+<span class="hljs-keyword">var</span> user_data = {
+    <span class="hljs-string">'username'</span>: <span class="hljs-string">'test_data'</span>,
+    <span class="hljs-string">'mail'</span>: <span class="hljs-string">'test_data'</span>,
+    <span class="hljs-string">'password'</span>: <span class="hljs-string">'test_password'</span>,
+    <span class="hljs-string">'firstname'</span>: <span class="hljs-string">'test_data'</span>,
+    <span class="hljs-string">'lastname'</span>: <span class="hljs-string">'test_data'</span>,
+    <span class="hljs-string">'phone'</span>: <span class="hljs-string">'test_data'</span>,
+    <span class="hljs-string">'city'</span>: <span class="hljs-string">'test_data'</span>,
+    <span class="hljs-string">'zipcode'</span>: <span class="hljs-string">'test_data'</span>,
+    <span class="hljs-string">'address'</span>: <span class="hljs-string">'test_data'</span>,
+    <span class="hljs-string">'company'</span>: <span class="hljs-string">'test_data'</span>,
+    <span class="hljs-string">'born_at'</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(),
+    <span class="hljs-string">'sex'</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-string">'picture'</span>: <span class="hljs-string">'test_data'</span>,
+    <span class="hljs-string">'document'</span>: {
+        type: <span class="hljs-string">'test_data'</span>,
+        number: <span class="hljs-string">'test_data'</span>
+    },
+    <span class="hljs-string">'newsletter'</span>: <span class="hljs-literal">true</span>
+};</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Clear collections</p></div></div><div class="code"><div class="wrapper">before(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span> {</span>
+    <span class="hljs-keyword">var</span> callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>};
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i <span class="hljs-keyword">in</span> mongoose.connection.collections) {
+        mongoose.connection.collections[i].remove(callback);
+    }
+    <span class="hljs-keyword">return</span> done();
+});
+
+describe(<span class="hljs-string">'Usuarios'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+    describe(<span class="hljs-string">'Creacion'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        it(<span class="hljs-string">'Un usuario non pode ser creado se falla unha das validacións (required)'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span> {</span>
+            <span class="hljs-keyword">var</span> user = <span class="hljs-keyword">new</span> User(user_data);
+            user.username = <span class="hljs-literal">null</span>;
+            user.save(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span> {</span>
+                <span class="hljs-keyword">if</span> (err) {
+                    done();
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'O usuario creouse sen cumprir as validacións'</span>);
+                }
+            });
+        });
+        it(<span class="hljs-string">'Un usuario deberia de ser creado se se cumpren todas as validacións'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span> {</span>
+            <span class="hljs-keyword">var</span> user = <span class="hljs-keyword">new</span> User(_.cloneDeep(user_data));
+            user.save(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span> {</span>
+                <span class="hljs-keyword">if</span> (err) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'O usuario non se puido crear'</span>);
+                } <span class="hljs-keyword">else</span> {
+                    done();
+                }
+            });
+        });
+        it(<span class="hljs-string">'Un usuario non pode ser creado se existe un có mesmo username'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span> {</span>
+            <span class="hljs-keyword">var</span> user = <span class="hljs-keyword">new</span> User(_.cloneDeep(user_data));
+            user.mail = <span class="hljs-string">'other_mail'</span>;
+            user.save(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span> {</span>
+                <span class="hljs-keyword">if</span> (err) {
+                    done();
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'O usuario creuse sen problemas'</span>);
+                }
+            });
+        });
+        it(<span class="hljs-string">'Un usuario non pode ser creado se existe un có mesmo mail'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span> {</span>
+            <span class="hljs-keyword">var</span> user = <span class="hljs-keyword">new</span> User(_.cloneDeep(user_data));
+            user.mail = <span class="hljs-string">'other_username'</span>;
+            user.save(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span> {</span>
+                <span class="hljs-keyword">if</span> (err) {
+                    done();
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'O usuario creuse sen problemas'</span>);
+                }
+            });
+        });
+    });
+    describe(<span class="hljs-string">'Autenticación'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        it(<span class="hljs-string">'Autenticación con credenciais incorrectas debe de devolver false'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span> {</span>
+            User.findOne({username: user_data.username}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, user)</span> {</span>
+                <span class="hljs-keyword">if</span> (err)
+                    <span class="hljs-keyword">throw</span> err;
+                assert.equal(user.authenticate(<span class="hljs-string">'bad_password'</span>), <span class="hljs-literal">false</span>, <span class="hljs-string">'Autenticado con datos incorrectos'</span>);
+                done();
+            });
+        });
+        it(<span class="hljs-string">'Autenticación con credenciais correctas debe de devolver true'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span> {</span>
+            User.findOne({username: user_data.username}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, user)</span> {</span>
+                <span class="hljs-keyword">if</span> (err)
+                    <span class="hljs-keyword">throw</span> err;
+                assert.equal(user.authenticate(user_data.password), <span class="hljs-literal">true</span>, <span class="hljs-string">'Autenticado con datos incorrectos'</span>);
+                done();
+            });
+        });
+    });
+});</div></div></div></div></body></html>

@@ -21,14 +21,14 @@ global.root_path = path.normalize(__dirname);
 // Cargamos as configuracións
 var config = require(global.root_path + '/libs/config.js');
 
+// Iniciamos a conexión da base de datos e cargamos os módulos
+require(config.paths.components + '/database.js');
+
 // Inizializamos o servidor
 var app = express();
 
 // Cargamos a configuración do servidor
 require('./config/express.js')(app);
-
-// Iniciamos a conexión da base de datos e cargamos os módulos
-require(config.paths.components + '/database.js');
 
 // Lanzamos o servidor pondoo a escoita no porto elexido
 app.listen(app.get('port'), function() {

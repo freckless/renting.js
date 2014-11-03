@@ -1,15 +1,13 @@
-// Modulo de configuracións
-// ========================
+// #Modulo de configuracións
+
 // Este módulo crease para poder cargalas configuracións dende calqueira parte
 // da aplicación sen a necesidade de crear variables globales.
 'use strict';
 
-// Dependencias do módulo
-// ----------------------
+// ##Dependencias do módulo
 var _ = require('lodash');
 
-// Exportamos a configuración
-// --------------------------
+// ##Exportamos a configuración
 // Configuramos todos os cartafols da app por defecto que engadiremos á configuración
 var root_path = global.root_path;
 var libs_path = root_path + '/libs';
@@ -36,7 +34,7 @@ var paths = {
     assets: webroot_path + '/assets',
 };
 
-// Extendemos a configuración base coa configuración propia do entorno
+// ##Extendemos a configuración base coa configuración propia do entorno e a exportamos
 module.exports = _.extend(
     {paths: paths},
     require(paths.config + '/config.js'),

@@ -1,20 +1,18 @@
-// User Model
-// ==========
+// #User Model
+
 // Este modelo é o encargado de relacionar os usuarios cós seus respectivos
 // datos na base de datos e tamén de xestionar as suas relacións.
 
 'use strict';
 
-// Dependencias do módulo
-// ----------------------
+// ##Dependencias do módulo
 var config = require(global.root_path + '/libs/config.js'),
     mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     DBUtils = require(config.paths.utils + '/database.js'),
     crypto = require('crypto');
 
-// Esquema de datos do modelo
-// --------------------------
+// ##Esquema de datos do modelo
 var UserSchema = new Schema({
     'username': { 'type': String, 'required': true, 'index': true },
     'hashed_password': { 'type': String, 'required': true },
@@ -27,6 +25,7 @@ var UserSchema = new Schema({
     'city': String,
     'zipcode': String,
     'address': String,
+    'country': String,
     'company': String,
     'born_at': { 'type': Date, 'required': true },
     'sex': String,
@@ -36,12 +35,10 @@ var UserSchema = new Schema({
     'created_at': Date,
     'modified_at': Date,
     // Relations
-    'role': { 'type': Schema.Types.ObjectId, ref: 'Role' },
-    'country': { 'type': Schema.Types.ObjectId, ref: 'Country' }
+    'role': { 'type': Schema.Types.ObjectId, ref: 'Role' }
 });
 
-// Campos virtuais
-// ---------------
+// ##Campos virtuais
 // O campo password non existe na base de datos xa que este se garda
 // como unha cadena encriptada polo tanto, esta función serve para
 // encriptar o password é gardalo no campo hashed_password sen ter que
@@ -53,22 +50,20 @@ UserSchema.virtual('password').set(function(password) {
     this.hashed_password = this.encryptPassword(password);
 });
 
-// Validations
-// -----------
+// ##Validacións
 // Configuramos as validacións adicionais necesarias
 
-// Username debe ser único
+// ###O nome de usuario debe ser único
 UserSchema.path('username').validate(function(val, callback) {
     DBUtils.validate_uniqueness('User', 'username', val, callback);
 }, 'Username should be unique');
 
-// Mail debe ser único
+// ###O e-mail debe ser único
 UserSchema.path('mail').validate(function(val, callback) {
     DBUtils.validate_uniqueness('User', 'mail', val, callback);
 }, 'Mail should be unique');
 
-// Métodos
-// -------
+// ##Métodos
 // Definimos os métodos utilizados polo modelo
 UserSchema.methods = {
     // Función para crear unha nova cadea para usar de frase secreta.
@@ -86,4 +81,5 @@ UserSchema.methods = {
     }
 };
 
+// Exportamos o modelo
 module.exports = mongoose.model('User', UserSchema);
