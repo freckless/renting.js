@@ -8,7 +8,7 @@
 // ##Accións do controlador
 var HomeController = {
     action_index: function(req, res) {
-        res.end('Wow!');
+        res.render('template.ejs')
     }
 };
 

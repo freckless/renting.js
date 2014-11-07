@@ -28,7 +28,7 @@ require(config.paths.components + '/database.js');
 var app = express();
 
 // Cargamos a configuración do servidor
-require('./config/express.js')(app);
+require('./app/config/express.js')(app);
 
 // Lanzamos o servidor pondoo a escoita no porto elexido
 app.listen(app.get('port'), function() {

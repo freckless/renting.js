@@ -16,6 +16,8 @@ var mongoose = require('mongoose'),
     _ = require('lodash'),
     User = mongoose.model('User');
 
+
+// Creamos un obxeto cos datos do usuario de proba
 var user_data = {
     'username': 'test_data',
     'mail': 'test_data',

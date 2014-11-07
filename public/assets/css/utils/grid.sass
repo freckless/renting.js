@@ -1,0 +1,142 @@
+// Axustes da grid
+
+// Número de columnas
+$grid-columns: 12
+
+// Marxes
+$grid-gutter: 10px // Marxe entre as columnas
+$grid-row-margin: 10px // Marxe inferior de cada liña
+
+// Ancho do container por dispositivo
+$grid-sm-width: 750px // Dispositivos pequenos (maiores cós mobiles, coma tablets)
+$grid-md-width: 970px // Equipos de escritoro
+$grid-lg-width: 1170px // Dispositivos widescreen
+
+// Ancho para distinguires os dispositivos
+$grid-sm-min: 768px
+$grid-md-min: 992px
+$grid-lg-min: 1170px
+
+// Opcions
+$grid-push: false
+$grid-pull: false
+$grid-offset: true
+
+// Operacións de cálculo
+@function calculate-col-width($col)
+  @return 100% / $grid-columns * $col
+
+=generate_cols($prefix: false)
+  $col-name: 'col'
+  @if $prefix
+    $col-name: 'col-' + $prefix
+
+  [class^="#{$col-name}-"]
+    float: left
+
+  @for $i from 1 through $grid-columns
+    .#{$col-name}-#{$i}
+      width: calculate-col-width($i)
+
+    @if $grid-push
+      .#{$col-name}-push-#{$i}
+        left: calculate-col-width($i)
+
+    @if $grid-pull
+      .#{$col-name}-pull-#{$i}
+        right: calculate-col-width($i)
+
+    @if $grid-offset
+      .#{$col-name}-offset-#{$i}
+        margin-left: calculate-col-width($i)
+
+// Creación
+.container, .container-fluid
+  margin-left: auto
+  margin-right: auto
+  padding-left: $grid-gutter
+  padding-right: $grid-gutter
+
+.row
+  margin-left: -$grid-gutter
+  margin-right: -$grid-gutter
+  margin-bottom: $grid-row-margin
+
+[class^="col-"]
+  position: relative
+  min-height: 1px
+  padding-left: $grid-gutter
+  padding-right: $grid-gutter
+
+[class^="col-xs"]
+  float: left
+
++generate-cols('xs')
+
+@media screen and (max-width: $grid-sm-min)
+  .hide-xs
+    display: none
+
+  .show-xs
+    display: auto
+
+@media screen and (min-width: $grid-sm-min)
+  .container
+    width: $grid-sm-width
+
+  +generate-cols('sm')
+
+  .hide-sm
+    display: none
+
+  .show-sm
+    display: auto
+
+@media screen and (min-width: $grid-md-min)
+  .container
+    width: $grid-md-width
+
+  +generate-cols('md')
+
+  .hide-md
+    display: none
+
+  .show-md
+    display: auto
+
+@media screen and (min-width: $grid-lg-min)
+  .container
+    width: $grid-lg-width
+
+  +generate-cols('lg')
+
+  .hide-lg
+    display: none
+
+  .show-lg
+    display: auto
+
+.clearfix, .container, .container-fluid, .row
+  &:before, &:after
+    content: " "
+    display: table
+
+  &:after
+    clear: both
+
+.center-block
+  display: block
+  margin-left: auto
+  margin-right: auto
+
+.pull-left
+  float: left !important
+
+.pull-right
+  float: right !important
+
+.hide
+  display: none !important
+
+.show
+  display: block !important

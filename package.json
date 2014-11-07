@@ -25,9 +25,11 @@
     },
     "devDependencies": {
         "bower": "latest",
-        "grunt": "latest",
         "mocha": "latest",
         "assert": "latest",
-        "docco": "latest"
+        "docco": "latest",
+        "grunt": "latest",
+        "grunt-contrib-sass": "latest",
+        "grunt-contrib-watch": "latest"
     }
 }
