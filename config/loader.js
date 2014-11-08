@@ -18,7 +18,7 @@ var paths = {
     root: root_path,
     app: app_path,
     // config
-    config: app_path + '/config',
+    config: root_path + '/config',
     // libraries
     utils: app_path + '/utils',
     helpers: app_path + '/helpers',

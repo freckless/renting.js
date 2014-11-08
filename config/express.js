@@ -6,7 +6,7 @@
 'use strict';
 
 // ##Dependencias do módulo
-var config = require(global.root_path + '/app/config/loader.js'),
+var config = require(global.root_path + '/config/loader.js'),
     partials = require('express-partials'),
     multiparty = require('connect-multiparty'),
     compression = require('compression'),

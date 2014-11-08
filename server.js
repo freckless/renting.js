@@ -19,7 +19,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 global.root_path = path.normalize(__dirname);
 
 // Cargamos as configuracións
-var config = require(global.root_path + '/app/config/loader.js');
+var config = require(global.root_path + '/config/loader.js');
 
 // Iniciamos a conexión da base de datos e cargamos os módulos
 require(config.paths.components + '/database.js');
@@ -28,7 +28,7 @@ require(config.paths.components + '/database.js');
 var app = express();
 
 // Cargamos a configuración do servidor
-require('./app/config/express.js')(app);
+require(config.paths.config + '/express.js')(app);
 
 // Lanzamos o servidor pondoo a escoita no porto elexido
 app.listen(app.get('port'), function() {

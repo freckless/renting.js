@@ -7,7 +7,7 @@
 
 // Dependencias do módulo
 // ----------------------
-var config = require(global.root_path + '/app/config/loader.js'),
+var config = require(global.root_path + '/config/loader.js'),
     fs = require('fs'),
     mongoose = require('mongoose');
 
