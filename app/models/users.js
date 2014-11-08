@@ -6,7 +6,7 @@
 'use strict';
 
 // ##Dependencias do módulo
-var config = require(global.root_path + '/libs/config.js'),
+var config = require(global.root_path + '/app/config/loader.js'),
     mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     DBUtils = require(config.paths.utils + '/database.js'),

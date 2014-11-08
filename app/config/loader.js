@@ -10,7 +10,6 @@ var _ = require('lodash');
 // ##Exportamos a configuración
 // Configuramos todos os cartafols da app por defecto que engadiremos á configuración
 var root_path = global.root_path;
-var libs_path = root_path + '/libs';
 var app_path = root_path + '/app';
 var webroot_path = root_path + '/public';
 
@@ -18,13 +17,12 @@ var paths = {
     // common paths
     root: root_path,
     app: app_path,
-    libs: libs_path,
     // config
     config: app_path + '/config',
     // libraries
-    utils: libs_path + '/utils',
-    helpers: libs_path + '/helpers',
-    components: libs_path + '/components',
+    utils: app_path + '/utils',
+    helpers: app_path + '/helpers',
+    components: app_path + '/components',
     // app
     controllers: app_path + '/controllers',
     models: app_path + '/models',

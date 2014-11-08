@@ -16,6 +16,497 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         {
           "type": "folder",
           "data": {
+            "path": "app/components",
+            "title": "components"
+          },
+          "depth": 2,
+          "children": [
+            {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/components/auth.js",
+                "projectPath": "app/components/auth.js",
+                "targetPath": "app/components/auth",
+                "pageTitle": "app/components/auth",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Auth component",
+                    "slug": "auth-component",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "Auth component"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/components/database.js",
+                "projectPath": "app/components/database.js",
+                "targetPath": "app/components/database",
+                "pageTitle": "app/components/database",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Database component",
+                    "slug": "database-component",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "Database component"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/components/router.js",
+                "projectPath": "app/components/router.js",
+                "targetPath": "app/components/router",
+                "pageTitle": "app/components/router",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Router component",
+                    "slug": "router-component",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "Router component"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "folder",
+          "data": {
+            "path": "app/config",
+            "title": "config"
+          },
+          "depth": 2,
+          "children": [
+            {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/config/config.js",
+                "projectPath": "app/config/config.js",
+                "targetPath": "app/config/config",
+                "pageTitle": "app/config/config",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Configuracións",
+                    "slug": "configuracins",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Exportamos o obxecto coas configuracións",
+                        "slug": "exportamos-o-obxecto-coas-configuracins"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "Configuracións"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Exportamos o obxecto coas configuracións",
+                    "slug": "exportamos-o-obxecto-coas-configuracins"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "folder",
+              "data": {
+                "path": "app/config/env",
+                "title": "env"
+              },
+              "depth": 3,
+              "children": [
+                {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/config/env/development.js",
+                    "projectPath": "app/config/env/development.js",
+                    "targetPath": "app/config/env/development",
+                    "pageTitle": "app/config/env/development",
+                    "title": "development"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/config/env/testing.js",
+                    "projectPath": "app/config/env/testing.js",
+                    "targetPath": "app/config/env/testing",
+                    "pageTitle": "app/config/env/testing",
+                    "title": "testing"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/config/express.js",
+                "projectPath": "app/config/express.js",
+                "targetPath": "app/config/express",
+                "pageTitle": "app/config/express",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Módulo de configuración de express",
+                    "slug": "mdulo-de-configuracin-de-express",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Configuración",
+                        "slug": "configuracin"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Configuramos os middlewares dos que vai a facer uso o servidor.",
+                        "slug": "configuramos-os-middlewares-dos-que-vai-a-facer-uso-o-servidor"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "Módulo de configuración de express"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Configuración",
+                    "slug": "configuracin"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Configuramos os middlewares dos que vai a facer uso o servidor.",
+                    "slug": "configuramos-os-middlewares-dos-que-vai-a-facer-uso-o-servidor"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/config/loader.js",
+                "projectPath": "app/config/loader.js",
+                "targetPath": "app/config/loader",
+                "pageTitle": "app/config/loader",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Modulo de configuracións",
+                    "slug": "modulo-de-configuracins",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Exportamos a configuración",
+                        "slug": "exportamos-a-configuracin"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Extendemos a configuración base coa configuración propia do entorno e a exportamos",
+                        "slug": "extendemos-a-configuracin-base-coa-configuracin-propia-do-entorno-e-a-exportamos"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "Modulo de configuracións"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Exportamos a configuración",
+                    "slug": "exportamos-a-configuracin"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Extendemos a configuración base coa configuración propia do entorno e a exportamos",
+                    "slug": "extendemos-a-configuracin-base-coa-configuracin-propia-do-entorno-e-a-exportamos"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/config/routes.js",
+                "projectPath": "app/config/routes.js",
+                "targetPath": "app/config/routes",
+                "pageTitle": "app/config/routes",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Rutas",
+                    "slug": "rutas",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Rutas da app",
+                        "slug": "rutas-da-app"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "Rutas"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Rutas da app",
+                    "slug": "rutas-da-app"
+                  },
+                  "depth": 2
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "folder",
+          "data": {
             "path": "app/controllers",
             "title": "controllers"
           },
@@ -84,6 +575,221 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "level": 2,
                     "title": "Accións do controlador",
                     "slug": "accins-do-controlador"
+                  },
+                  "depth": 2
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "folder",
+          "data": {
+            "path": "app/helpers",
+            "title": "helpers"
+          },
+          "depth": 2,
+          "children": [
+            {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/helpers/asset.js",
+                "projectPath": "app/helpers/asset.js",
+                "targetPath": "app/helpers/asset",
+                "pageTitle": "app/helpers/asset",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Helper para os Assets",
+                    "slug": "helper-para-os-assets",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Lóxica do helper",
+                        "slug": "lxica-do-helper"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "Helper para os Assets"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Lóxica do helper",
+                    "slug": "lxica-do-helper"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/helpers/html.js",
+                "projectPath": "app/helpers/html.js",
+                "targetPath": "app/helpers/html",
+                "pageTitle": "app/helpers/html",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Helper para HTML",
+                    "slug": "helper-para-html",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Lóxica do helper",
+                        "slug": "lxica-do-helper"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "Helper para HTML"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Lóxica do helper",
+                    "slug": "lxica-do-helper"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/helpers/i18n.js",
+                "projectPath": "app/helpers/i18n.js",
+                "targetPath": "app/helpers/i18n",
+                "pageTitle": "app/helpers/i18n",
+                "title": "i18n"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/helpers/loader.js",
+                "projectPath": "app/helpers/loader.js",
+                "targetPath": "app/helpers/loader",
+                "pageTitle": "app/helpers/loader",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Cargador dos &quot;Helpers&quot; Axudantes",
+                    "slug": "cargador-dos-quothelpersquot-axudantes",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "Cargador dos &quot;Helpers&quot; Axudantes"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
                   },
                   "depth": 2
                 }
@@ -358,93 +1064,63 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               ]
             }
           ]
-        }
-      ]
-    }, {
-      "type": "folder",
-      "data": {
-        "path": "config",
-        "title": "config"
-      },
-      "depth": 1,
-      "children": [
-        {
-          "type": "file",
+        }, {
+          "type": "folder",
           "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/Users/daniel/Sites/Renting.js/config/config.js",
-            "projectPath": "config/config.js",
-            "targetPath": "config/config",
-            "pageTitle": "config/config",
-            "firstHeader": {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Configuracións",
-                "slug": "configuracins",
-                "isFileHeader": true
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Exportamos o obxecto coas configuracións",
-                    "slug": "exportamos-o-obxecto-coas-configuracins"
-                  },
-                  "depth": 2
-                }
-              ]
-            },
-            "title": "Configuracións"
+            "path": "app/utils",
+            "title": "utils"
           },
           "depth": 2,
-          "outline": [
+          "children": [
             {
-              "type": "heading",
+              "type": "file",
               "data": {
-                "level": 2,
-                "title": "Exportamos o obxecto coas configuracións",
-                "slug": "exportamos-o-obxecto-coas-configuracins"
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/utils/database.js",
+                "projectPath": "app/utils/database.js",
+                "targetPath": "app/utils/database",
+                "pageTitle": "app/utils/database",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Database Helpers",
+                    "slug": "database-helpers",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Utilidades",
+                        "slug": "utilidades"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "Database Helpers"
               },
-              "depth": 2
-            }
-          ]
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/Users/daniel/Sites/Renting.js/config/express.js",
-            "projectPath": "config/express.js",
-            "targetPath": "config/express",
-            "pageTitle": "config/express",
-            "firstHeader": {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Módulo de configuración de express",
-                "slug": "mdulo-de-configuracin-de-express",
-                "isFileHeader": true
-              },
-              "depth": 1,
-              "children": [
+              "depth": 3,
+              "outline": [
                 {
                   "type": "heading",
                   "data": {
@@ -457,100 +1133,12 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 2,
-                    "title": "Configuración",
-                    "slug": "configuracin"
-                  },
-                  "depth": 2
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Configuramos os middlewares dos que vai a facer uso o servidor.",
-                    "slug": "configuramos-os-middlewares-dos-que-vai-a-facer-uso-o-servidor"
+                    "title": "Utilidades",
+                    "slug": "utilidades"
                   },
                   "depth": 2
                 }
               ]
-            },
-            "title": "Módulo de configuración de express"
-          },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Dependencias do módulo",
-                "slug": "dependencias-do-mdulo"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Configuración",
-                "slug": "configuracin"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Configuramos os middlewares dos que vai a facer uso o servidor.",
-                "slug": "configuramos-os-middlewares-dos-que-vai-a-facer-uso-o-servidor"
-              },
-              "depth": 2
-            }
-          ]
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/Users/daniel/Sites/Renting.js/config/routes.js",
-            "projectPath": "config/routes.js",
-            "targetPath": "config/routes",
-            "pageTitle": "config/routes",
-            "firstHeader": {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Rutas",
-                "slug": "rutas",
-                "isFileHeader": true
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Rutas da app",
-                    "slug": "rutas-da-app"
-                  },
-                  "depth": 2
-                }
-              ]
-            },
-            "title": "Rutas"
-          },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Rutas da app",
-                "slug": "rutas-da-app"
-              },
-              "depth": 2
             }
           ]
         }
@@ -596,308 +1184,71 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         }
       ]
     }, {
+      "type": "file",
+      "data": {
+        "language": {
+          "nameMatchers": [".js"],
+          "pygmentsLexer": "javascript",
+          "multiLineComment": ["/*", "*", "*/"],
+          "singleLineComment": ["//"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
+          "name": "JavaScript"
+        },
+        "sourcePath": "/Users/daniel/Sites/Renting.js/gruntfile.js",
+        "projectPath": "gruntfile.js",
+        "targetPath": "gruntfile",
+        "pageTitle": "gruntfile",
+        "title": "gruntfile"
+      },
+      "depth": 1,
+      "outline": []
+    }, {
       "type": "folder",
       "data": {
-        "path": "libs",
-        "title": "libs"
+        "path": "public",
+        "title": "public"
       },
       "depth": 1,
       "children": [
         {
           "type": "folder",
           "data": {
-            "path": "libs/components",
-            "title": "components"
+            "path": "public/assets",
+            "title": "assets"
           },
           "depth": 2,
           "children": [
             {
-              "type": "file",
+              "type": "folder",
               "data": {
-                "language": {
-                  "nameMatchers": [".js"],
-                  "pygmentsLexer": "javascript",
-                  "multiLineComment": ["/*", "*", "*/"],
-                  "singleLineComment": ["//"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "^",
-                  "name": "JavaScript"
-                },
-                "sourcePath": "/Users/daniel/Sites/Renting.js/libs/components/auth.js",
-                "projectPath": "libs/components/auth.js",
-                "targetPath": "libs/components/auth",
-                "pageTitle": "libs/components/auth",
-                "firstHeader": {
-                  "type": "heading",
-                  "data": {
-                    "level": 1,
-                    "title": "Auth component",
-                    "slug": "auth-component",
-                    "isFileHeader": true
-                  },
-                  "depth": 1,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 2,
-                        "title": "Dependencias do módulo",
-                        "slug": "dependencias-do-mdulo"
-                      },
-                      "depth": 2
-                    }
-                  ]
-                },
-                "title": "Auth component"
+                "path": "public/assets/js",
+                "title": "js"
               },
               "depth": 3,
-              "outline": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Dependencias do módulo",
-                    "slug": "dependencias-do-mdulo"
-                  },
-                  "depth": 2
-                }
-              ]
-            }, {
-              "type": "file",
-              "data": {
-                "language": {
-                  "nameMatchers": [".js"],
-                  "pygmentsLexer": "javascript",
-                  "multiLineComment": ["/*", "*", "*/"],
-                  "singleLineComment": ["//"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "^",
-                  "name": "JavaScript"
-                },
-                "sourcePath": "/Users/daniel/Sites/Renting.js/libs/components/database.js",
-                "projectPath": "libs/components/database.js",
-                "targetPath": "libs/components/database",
-                "pageTitle": "libs/components/database",
-                "firstHeader": {
-                  "type": "heading",
-                  "data": {
-                    "level": 1,
-                    "title": "Database component",
-                    "slug": "database-component",
-                    "isFileHeader": true
-                  },
-                  "depth": 1,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 2,
-                        "title": "Dependencias do módulo",
-                        "slug": "dependencias-do-mdulo"
-                      },
-                      "depth": 2
-                    }
-                  ]
-                },
-                "title": "Database component"
-              },
-              "depth": 3,
-              "outline": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Dependencias do módulo",
-                    "slug": "dependencias-do-mdulo"
-                  },
-                  "depth": 2
-                }
-              ]
-            }, {
-              "type": "file",
-              "data": {
-                "language": {
-                  "nameMatchers": [".js"],
-                  "pygmentsLexer": "javascript",
-                  "multiLineComment": ["/*", "*", "*/"],
-                  "singleLineComment": ["//"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "^",
-                  "name": "JavaScript"
-                },
-                "sourcePath": "/Users/daniel/Sites/Renting.js/libs/components/router.js",
-                "projectPath": "libs/components/router.js",
-                "targetPath": "libs/components/router",
-                "pageTitle": "libs/components/router",
-                "firstHeader": {
-                  "type": "heading",
-                  "data": {
-                    "level": 1,
-                    "title": "Router component",
-                    "slug": "router-component",
-                    "isFileHeader": true
-                  },
-                  "depth": 1,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 2,
-                        "title": "Dependencias do módulo",
-                        "slug": "dependencias-do-mdulo"
-                      },
-                      "depth": 2
-                    }
-                  ]
-                },
-                "title": "Router component"
-              },
-              "depth": 3,
-              "outline": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Dependencias do módulo",
-                    "slug": "dependencias-do-mdulo"
-                  },
-                  "depth": 2
-                }
-              ]
-            }
-          ]
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/Users/daniel/Sites/Renting.js/libs/config.js",
-            "projectPath": "libs/config.js",
-            "targetPath": "libs/config",
-            "pageTitle": "libs/config",
-            "firstHeader": {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Modulo de configuracións",
-                "slug": "modulo-de-configuracins",
-                "isFileHeader": true
-              },
-              "depth": 1,
               "children": [
                 {
-                  "type": "heading",
+                  "type": "file",
                   "data": {
-                    "level": 2,
-                    "title": "Dependencias do módulo",
-                    "slug": "dependencias-do-mdulo"
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/test.js",
+                    "projectPath": "public/assets/js/test.js",
+                    "targetPath": "public/assets/js/test",
+                    "pageTitle": "public/assets/js/test",
+                    "title": "test"
                   },
-                  "depth": 2
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Exportamos a configuración",
-                    "slug": "exportamos-a-configuracin"
-                  },
-                  "depth": 2
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Extendemos a configuración base coa configuración propia do entorno e a exportamos",
-                    "slug": "extendemos-a-configuracin-base-coa-configuracin-propia-do-entorno-e-a-exportamos"
-                  },
-                  "depth": 2
+                  "depth": 4,
+                  "outline": []
                 }
               ]
-            },
-            "title": "Modulo de configuracións"
-          },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Dependencias do módulo",
-                "slug": "dependencias-do-mdulo"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Exportamos a configuración",
-                "slug": "exportamos-a-configuracin"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Extendemos a configuración base coa configuración propia do entorno e a exportamos",
-                "slug": "extendemos-a-configuracin-base-coa-configuracin-propia-do-entorno-e-a-exportamos"
-              },
-              "depth": 2
-            }
-          ]
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/Users/daniel/Sites/Renting.js/libs/helpers.js",
-            "projectPath": "libs/helpers.js",
-            "targetPath": "libs/helpers",
-            "pageTitle": "libs/helpers",
-            "firstHeader": {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Cargador dos &quot;Helpers&quot; Axudantes",
-                "slug": "cargador-dos-quothelpersquot-axudantes",
-                "isFileHeader": true
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Dependencias do módulo",
-                    "slug": "dependencias-do-mdulo"
-                  },
-                  "depth": 2
-                }
-              ]
-            },
-            "title": "Cargador dos &quot;Helpers&quot; Axudantes"
-          },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Dependencias do módulo",
-                "slug": "dependencias-do-mdulo"
-              },
-              "depth": 2
             }
           ]
         }
@@ -1036,83 +1387,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "depth": 2
                 }
               ]
-            }
-          ]
-        }
-      ]
-    }, {
-      "type": "folder",
-      "data": {
-        "path": "utils",
-        "title": "utils"
-      },
-      "depth": 1,
-      "children": [
-        {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/Users/daniel/Sites/Renting.js/utils/database.js",
-            "projectPath": "utils/database.js",
-            "targetPath": "utils/database",
-            "pageTitle": "utils/database",
-            "firstHeader": {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Database Helpers",
-                "slug": "database-helpers",
-                "isFileHeader": true
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Dependencias do módulo",
-                    "slug": "dependencias-do-mdulo"
-                  },
-                  "depth": 2
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Utilidades",
-                    "slug": "utilidades"
-                  },
-                  "depth": 2
-                }
-              ]
-            },
-            "title": "Database Helpers"
-          },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Dependencias do módulo",
-                "slug": "dependencias-do-mdulo"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Utilidades",
-                "slug": "utilidades"
-              },
-              "depth": 2
             }
           ]
         }

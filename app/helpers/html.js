@@ -6,8 +6,7 @@
 'use strict';
 
 // ##Dependencias do módulo
-var config = require(global.root_path + '/libs/config.js'),
-    _ = require('lodash');
+var _ = require('lodash');
 
 // ##Lóxica do helper
 var helper = {
@@ -23,11 +22,11 @@ var helper = {
         options = _.assign({
             href: link
         }, options);
-        return this.tag_builder('a', options, inner)
+        return this.tag_builder('a', options, inner);
     },
     // Javascript
     js: function(files) {
-        if (typeof(files) == 'string') files = [files];
+        if (typeof(files) === 'string') files = [files];
         var code = '';
         for (var x = 0; x < files.length; x++) {
             var options = {
@@ -40,7 +39,7 @@ var helper = {
     },
     // Stylesheets
     css: function(files) {
-        if (typeof(files) == 'string') files = [files];
+        if (typeof(files) === 'string') files = [files];
         var code = '';
         for (var x = 0; x < files.length; x++) {
             var options = {

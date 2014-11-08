@@ -6,7 +6,7 @@
 'use strict';
 
 // ##Dependencias do módulo
-var config = require(global.root_path + '/libs/config.js'),
+var config = require(global.root_path + '/app/config/loader.js'),
     _ = require('lodash'),
     html = require(config.paths.helpers + '/html.js');
 
@@ -14,11 +14,11 @@ var config = require(global.root_path + '/libs/config.js'),
 var helper = {
     // Creación de imaxes
     img: function(src, options) {
-        html.img('/assets/img/' + src, options)
+        return html.img('/assets/img/' + src, options);
     },
     // Javascript
     js: function(files) {
-        if (typeof(files) == 'string') files = [files];
+        if (typeof(files) === 'string') files = [files];
         _.forEach(files, function(v, index) {
             files[index] = '/assets/js/' + files[index];
         });
@@ -27,7 +27,7 @@ var helper = {
     },
     // Stylesheets
     css: function(files) {
-        if (typeof(files) == 'string') files = [files];
+        if (typeof(files) === 'string') files = [files];
         _.forEach(files, function(v, index) {
             files[index] = '/assets/css/' + files[index];
         });

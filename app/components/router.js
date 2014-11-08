@@ -7,7 +7,7 @@
 
 // Dependencias do módulo
 // ----------------------
-var config = require(global.root_path + '/libs/config.js'),
+var config = require(global.root_path + '/app/config/loader.js'),
     _ = require('lodash'),
     routes = require(config.paths.config + '/routes.js');
 

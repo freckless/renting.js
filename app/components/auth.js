@@ -8,7 +8,6 @@
 // Dependencias do módulo
 // ----------------------
 var mongoose = require('mongoose'),
-    crypto = require('crypto'),
     User = mongoose.model('User');
 
 
@@ -37,7 +36,7 @@ var AuthComponent = {
             this.loginRequired(options, req, res);
         }
     },
-    loginRequired: function(options, req, res) {
+    loginRequired: function(options, req) {
         req.flash('error', 'Yout need to be logged in.');
     }
 };

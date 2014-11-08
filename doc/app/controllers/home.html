@@ -2,6 +2,6 @@
 <p>Controlador que utilizaremos para a páxina principal do portal</p></div></div><div class="code"><div class="wrapper"><span class="hljs-pi">
 'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="dependencias-do-mdulo">Dependencias do módulo</h2></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="accins-do-controlador">Accións do controlador</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> HomeController = {
     action_index: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
-        res.end(<span class="hljs-string">'Wow!'</span>);
+        res.render(<span class="hljs-string">'template.ejs'</span>)
     }
 };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Exportamos o controlador</p></div></div><div class="code"><div class="wrapper">module.exports = HomeController;</div></div></div></div></body></html>

@@ -19,7 +19,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 global.root_path = path.normalize(__dirname);
 
 // Cargamos as configuracións
-var config = require(global.root_path + '/libs/config.js');
+var config = require(global.root_path + '/app/config/loader.js');
 
 // Iniciamos a conexión da base de datos e cargamos os módulos
 require(config.paths.components + '/database.js');

@@ -6,7 +6,7 @@
 'use strict';
 
 // ##Dependencias do módulo
-var config = require(global.root_path + '/libs/config.js'),
+var config = require(global.root_path + '/app/config/loader.js'),
     partials = require('express-partials'),
     multiparty = require('connect-multiparty'),
     compression = require('compression'),
@@ -15,7 +15,7 @@ var config = require(global.root_path + '/libs/config.js'),
     method_override = require('method-override'),
     cookie_parser = require('cookie-parser'),
     cookie_session = require('cookie-session'),
-    helpers = require(config.paths.libs + '/helpers.js'),
+    helpers = require(config.paths.helpers + '/loader.js'),
     auth = require(config.paths.components + '/auth.js'),
     router = require(config.paths.components + '/router.js'),
     serve_static = require('serve-static'),

@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(grunt) {
     // Cargamos as dependencias das tarefas
     grunt.loadNpmTasks('grunt-contrib-sass');
@@ -7,18 +9,24 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         watch: {
-            options: {
-                livereload: true
-            },
             sass: {
                 files: ['public/assets/css/**/*.sass'],
                 tasks: ['sass:dev']
             },
-            js: {
-                files: ['public/assets/js/**/*.js']
-            },
             views: {
-                files: ['app/views/**/*.ejs']
+                files: ['app/views/**/*.ejs'],
+                options: {
+                    livereload: true
+                }
+            },
+            livereload: {
+                files: [
+                    'public/assets/css/*.css',
+                    'public/assets/js/**/*.js'
+                ],
+                options: {
+                    livereload: true
+                }
             }
         },
         sass: {
