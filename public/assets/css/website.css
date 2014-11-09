@@ -382,18 +382,55 @@
 
 body {
   font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
-  font-size: em(14px, 16px);
-  font-weight: 300; }
-  body h1 {
-    font-size: em(30px, 14px);
-    font-weight: 300;
-    color: #333; }
-
-div.col {
-  background-color: #0078ff;
-  height: 30px;
-  text-align: center;
-  color: white;
-  line-height: 30px; }
+  font-size: 0.875em;
+  font-weight: 300;
+  color: #444; }
+  body header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 70px;
+    -webkit-box-shadow: 0 2px 2px #DDD;
+    -moz-box-shadow: 0 2px 2px #DDD;
+    box-shadow: 0 2px 2px #DDD; }
+    body header div#logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 50px; }
+      body header div#logo img {
+        height: 100%; }
+    body header div#languages {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      color: #000; }
+      body header div#languages a {
+        color: #888;
+        text-decoration: none; }
+        body header div#languages a:hover {
+          color: black; }
+    body header nav#main-nav {
+      position: absolute;
+      right: 10px;
+      top: 35px;
+      height: 20px;
+      line-height: 20px; }
+      body header nav#main-nav ul {
+        padding: 0px;
+        margin: 0px;
+        list-style-type: none; }
+        body header nav#main-nav ul li {
+          display: inline; }
+          body header nav#main-nav ul li a {
+            display: block;
+            height: 20px;
+            line-height: 20px;
+            text-decoration: none;
+            margin: 0 10px;
+            color: #555; }
+            body header nav#main-nav ul li a:hover {
+              text-decoration: underline; }
 
 /*# sourceMappingURL=website.css.map */

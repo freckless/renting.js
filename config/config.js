@@ -15,7 +15,7 @@ module.exports = {
     // Configuración da lingua do portal
     language: {
       default: 'es',
-      availables: ['es']
+      availables: ['es', 'en', 'ga']
     },
     // Porto para lanzar o servidor
     port: process.env.PORT || 3000,

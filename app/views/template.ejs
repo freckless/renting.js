@@ -10,12 +10,17 @@
     <div id="logo">
       <%- asset.img('renting-logo.png') %>
     </div>
-    <nav>
+    <div id="languages">
+      [ <%- html.anchor('/language/ga', 'GA') %> |
+      <%- html.anchor('/language/es', 'ES') %> |
+      <%- html.anchor('/language/en', 'EN') %> ]
+    </div>
+    <nav id="main-nav">
       <ul>
         <li></li>
         <li></li>
         <li></li>
-        <li><%- _('register_your_apartment') %></li>
+        <li><%- html.anchor('#', _('register_your_apartment')) %></li>
       </ul>
     </nav>
   </header>
