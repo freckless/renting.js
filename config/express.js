@@ -18,6 +18,7 @@ var config = require(global.root_path + '/config/loader.js'),
     helpers = require(config.paths.helpers + '/loader.js'),
     auth = require(config.paths.components + '/auth.js'),
     router = require(config.paths.components + '/router.js'),
+    i18n = require(config.paths.components + '/i18n.js'),
     serve_static = require('serve-static'),
     serve_favicon = require('serve-favicon');
 
@@ -57,6 +58,11 @@ module.exports = function(app) {
     app.set('views', config.paths.root + '/app/views');
     app.engine('ejs', require('ejs').renderFile);
 
+    // Buscamos recursos státicos que podan responder a consulta e se non cargamos
+    // todo o necesario para tratar de responder a consulta
+    app.use(serve_favicon(config.paths.webroot + '/favicon.ico'));
+    app.use(serve_static(config.paths.webroot));
+
     // ##Configuramos os middlewares dos que vai a facer uso o servidor.
     // CookieParser para manexar as cookies dunha forma máis sinxela.
     app.use(cookie_parser());
@@ -88,13 +94,12 @@ module.exports = function(app) {
     // Helpers, os axudantes que utilizaremos para a xeneración de vistas e máis cousas.
     app.use(helpers());
 
+    // Sistema de internacionalización
+    app.use(i18n.init());
+
     // Sistema de autenticación de usuarios
     app.use(auth.init());
 
-    // Buscamos recursos státicos que podan responder a consulta.
-    app.use(serve_favicon(config.paths.webroot + '/favicon.ico'));
-    app.use(serve_static(config.paths.webroot));
-
-    // No caso de que non existan, lanzamos o enrutador para redireccionar cada consulta o controlador correspondente
+    // Lanzamos o enrutador para redireccionar cada consulta o controlador correspondente
     app.use(router.init(app));
 };

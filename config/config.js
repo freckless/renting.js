@@ -12,6 +12,11 @@ module.exports = {
     app: {
         name: 'Renting.js'
     },
+    // Configuración da lingua do portal
+    language: {
+      default: 'es',
+      availables: ['es']
+    },
     // Porto para lanzar o servidor
     port: process.env.PORT || 3000,
     // Conexión a base de datos (esta configurarase en cada entorno)

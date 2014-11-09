@@ -10,7 +10,7 @@
 var mongoose = require('mongoose'),
     User = mongoose.model('User');
 
-
+// Lóxica do compoñente
 var AuthComponent = {
     init: function() {
         return function(req, res, next) {

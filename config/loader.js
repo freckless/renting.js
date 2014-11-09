@@ -19,6 +19,8 @@ var paths = {
     app: app_path,
     // config
     config: root_path + '/config',
+    // languages
+    lang: app_path + '/lang',
     // libraries
     utils: app_path + '/utils',
     helpers: app_path + '/helpers',
