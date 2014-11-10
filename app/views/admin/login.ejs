@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="<%- i18n.language %>">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login - <%- config.name %></title>
+</head>
+<body>
+    <h1>Login form</h1>
+    <%- include ../widgets/flash_messages %>
+    <form action="/admin/login" method="post">
+        <label for="username">Username</label>
+        <input type="text" name="username" />
+        <label for="password">Password</label>
+        <input type="password" name="password" />
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>

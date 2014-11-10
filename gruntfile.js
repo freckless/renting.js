@@ -44,4 +44,17 @@ module.exports = function(grunt) {
 
     // Rexistramos as tarefas a executar
     grunt.registerTask('default', ['watch']);
+    grunt.registerTask('console', 'Launch a console', function() {
+        var done = this.async();
+
+        var repl = require('repl');
+        var shell = repl.start({
+            prompt: 'renting.js > ',
+            useColors: true
+        });
+        process.console = true;
+        require('./server.js');
+
+        shell.on('exit', done);
+    });
 };

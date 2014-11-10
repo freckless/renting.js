@@ -3,16 +3,14 @@
 'use strict';
 
 // ##Dependencias do módulo
-var config = require(global.root_path + '/config/loader.js'),
+var config = global.config,
     _ = require('lodash'),
-    html_helper = require(config.paths.helpers + '/html.js'),
-    asset_helper = require(config.paths.helpers + '/asset.js');
+    html_helper = require(config.paths.helpers + 'html.js'),
+    asset_helper = require(config.paths.helpers + 'asset.js');
 
 var helpers = {
     // Pasamos a configuración da app
-    config: {
-        app: config.app
-    },
+    config: config.app,
     html: html_helper,
     asset: asset_helper
 };

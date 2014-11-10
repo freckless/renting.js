@@ -3,29 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Renting.js</title>
+  <%- html.js(['/libs/jquery/dist/jquery.min.js', '/libs/retinajs/dist/retina.min.js']) %>
   <%- asset.css('website.css') %>
+  <%- asset.js([
+    'website/plugins/animated_sprite.js', // Sprites animados
+    'website/plugins/loader.js', // Animación de carga
+    'website/plugins/parallax.js', // Efecto parallax
+    'website/plugins/svg_injector.js', // Iconos en formato SVG
+    'website/layout.js', // Scripts para o deseño en xeral
+    'website/home.js', // Home
+  ]) %>
 </head>
 <body>
   <header>
-    <div id="logo">
-      <%- asset.img('renting-logo.png') %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="logo">
+            <%- asset.img('renting-logo.png') %>
+          </div>
+          <div id="languages">
+            <% for (var x = 0; x < config.languages.length; x++) { var language = config.languages[x]; %>
+              <%- html.anchor('/language/'+language, language.toUpperCase(), { class: i18n.language == language ? 'active' : '' }) %>
+            <% } %>
+          </div>
+          <nav id="main-nav">
+            <ul>
+              <li><%- html.anchor('#', _('register_your_apartment')) %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
-    <div id="languages">
-      [ <%- html.anchor('/language/ga', 'GA') %> |
-      <%- html.anchor('/language/es', 'ES') %> |
-      <%- html.anchor('/language/en', 'EN') %> ]
-    </div>
-    <nav id="main-nav">
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li><%- html.anchor('#', _('register_your_apartment')) %></li>
-      </ul>
-    </nav>
   </header>
   <div id="page">
-    
+    <%- body %>
   </div>
   <footer>
     

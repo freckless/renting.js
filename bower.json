@@ -1,0 +1,9 @@
+{
+  "name": "Renting",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "latest",
+    "retinajs": "latest"
+  }
+}

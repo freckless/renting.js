@@ -6,14 +6,15 @@
 'use strict';
 
 // ##Dependencias do módulo
-var config = require(global.root_path + '/config/loader.js'),
+var config = global.config,
     mongoose = require('mongoose'),
     Schema = mongoose.Schema,
-    DBUtils = require(config.paths.utils + '/database.js'),
+    DBUtils = require(config.paths.utils + 'database.js'),
     crypto = require('crypto');
 
 // ##Esquema de datos do modelo
 var UserSchema = new Schema({
+    'group': { 'type': Number, 'requires': true },
     'username': { 'type': String, 'required': true, 'index': true },
     'hashed_password': { 'type': String, 'required': true },
     'salt': { 'type': String, 'required': true },
@@ -33,9 +34,7 @@ var UserSchema = new Schema({
     'document': { 'type': String, 'number': String },
     'newsletter': Boolean,
     'created_at': Date,
-    'modified_at': Date,
-    // Relations
-    'role': { 'type': Schema.Types.ObjectId, ref: 'Role' }
+    'modified_at': Date
 });
 
 // ##Campos virtuais
@@ -55,12 +54,12 @@ UserSchema.virtual('password').set(function(password) {
 
 // ###O nome de usuario debe ser único
 UserSchema.path('username').validate(function(val, callback) {
-    DBUtils.validate_uniqueness('User', 'username', val, callback);
+    DBUtils.validate_uniqueness.apply(this, ['User', 'username', val, callback]);
 }, 'Username should be unique');
 
 // ###O e-mail debe ser único
 UserSchema.path('mail').validate(function(val, callback) {
-    DBUtils.validate_uniqueness('User', 'mail', val, callback);
+    DBUtils.validate_uniqueness.apply(this, ['User', 'username', val, callback]);
 }, 'Mail should be unique');
 
 // ##Métodos

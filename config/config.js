@@ -10,12 +10,15 @@
 module.exports = {
     // Configuracións da app que se poderán utilizar nas vistas.
     app: {
-        name: 'Renting.js'
-    },
-    // Configuración da lingua do portal
-    language: {
-      default: 'es',
-      availables: ['es', 'en', 'ga']
+        name: 'Renting.js',
+        default_language: 'es',
+        languages: ['es', 'en', 'ga'],
+        groups: {
+            1: 'Administrator',
+            2: 'Moderator',
+            3: 'Host',
+            4: 'Customer'
+        }
     },
     // Porto para lanzar o servidor
     port: process.env.PORT || 3000,

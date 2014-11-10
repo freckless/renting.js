@@ -5,14 +5,14 @@
 
 // ##Dependencias do módulo
 var config = global.config,
-    ControllerBase = require(config.paths.controllers + 'base.js');
+    AdminControllerBase = require(config.paths.controllers + 'admin/base.js');
 
 // ##Accións do controlador
-var HomeController = new ControllerBase({
+var AdminDashboardController = new AdminControllerBase({
     action_index: function(req, res) {
-        res.render('home/index', { layout: 'template' });
+        res.render('admin/dashboard/index', { layout: 'admin/template' });
     }
 });
 
 // Exportamos o controlador
-module.exports = HomeController;
+module.exports = AdminDashboardController;

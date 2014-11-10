@@ -6,9 +6,9 @@
 'use strict';
 
 // ##Dependencias do módulo
-var config = require(global.root_path + '/config/loader.js'),
+var config = global.config,
     _ = require('lodash'),
-    html = require(config.paths.helpers + '/html.js');
+    html = require(config.paths.helpers + 'html.js');
 
 // ##Lóxica do helper
 var helper = {

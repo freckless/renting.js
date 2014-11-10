@@ -15,7 +15,9 @@ var DatabaseHelpers = {
     validate_uniqueness: function(model, field, value, callback) {
         var Model = mongoose.model(model);
 
-        var query = {};
+        var query = {
+            '_id': { '$ne': this._id }
+        };
         query[field] = value;
         
         Model.findOne(query, function(err, data) {

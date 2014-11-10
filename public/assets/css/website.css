@@ -380,20 +380,84 @@
 .show {
   display: block !important; }
 
+.animatedSprite {
+  overflow: hidden;
+  position: relative; }
+  .animatedSprite img.sprite {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transition: all 0s;
+    -webkit-transition: all 0s;
+    -moz-transition: all 0s; }
+
+div.parallax {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden; }
+  div.parallax div.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    z-index: 2; }
+  div.parallax div.content {
+    display: none; }
+  div.parallax div.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1; }
+    div.parallax div.background img {
+      position: absolute; }
+      div.parallax div.background img.ready {
+        transition: all 0.2s ease-in;
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in; }
+
+div.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px; }
+
+svg.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px; }
+  svg.icon.xs {
+    width: 16px;
+    height: 16px; }
+  svg.icon.sm {
+    width: 20px;
+    height: 20px; }
+  svg.icon.lg {
+    width: 32px;
+    height: 32px; }
+  svg.icon.white *.main-color {
+    fill: white; }
+
 body {
   font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
   font-size: 0.875em;
   font-weight: 300;
-  color: #444; }
+  color: #444;
+  margin: 0px;
+  padding: 0px; }
   body header {
     position: fixed;
+    z-index: 100;
     top: 0px;
     left: 0px;
     right: 0px;
     height: 70px;
-    -webkit-box-shadow: 0 2px 2px #DDD;
-    -moz-box-shadow: 0 2px 2px #DDD;
-    box-shadow: 0 2px 2px #DDD; }
+    background-color: white;
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); }
     body header div#logo {
       position: absolute;
       top: 10px;
@@ -405,16 +469,28 @@ body {
       position: absolute;
       right: 20px;
       top: 10px;
-      color: #000; }
+      color: #000;
+      font-size: 1em; }
       body header div#languages a {
+        display: block;
+        float: right;
+        background-color: #EEE;
         color: #888;
-        text-decoration: none; }
+        text-decoration: none;
+        width: 30px;
+        margin: 0 2px;
+        text-align: center; }
+        body header div#languages a.active {
+          background-color: #444 !important;
+          color: #fff;
+          cursor: default; }
         body header div#languages a:hover {
-          color: black; }
+          background-color: #3393ff;
+          color: white; }
     body header nav#main-nav {
       position: absolute;
       right: 10px;
-      top: 35px;
+      top: 38px;
       height: 20px;
       line-height: 20px; }
       body header nav#main-nav ul {
@@ -432,5 +508,35 @@ body {
             color: #555; }
             body header nav#main-nav ul li a:hover {
               text-decoration: underline; }
+
+div#page {
+  margin-top: 70px; }
+
+section#home div#top-image {
+  height: 400px; }
+  section#home div#top-image div#slogan {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    right: 0px;
+    margin-top: -50px;
+    height: 100px;
+    width: 100%;
+    line-height: 50px;
+    z-index: 2;
+    text-align: center;
+    font-size: 2.71429em;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    font-weight: 600; }
+    section#home div#top-image div#slogan span.hl {
+      color: #3393ff; }
+section#home div#apartments-list {
+  height: 1000px;
+  position: relative;
+  z-index: 1;
+  -webkit-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1); }
 
 /*# sourceMappingURL=website.css.map */

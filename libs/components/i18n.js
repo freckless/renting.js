@@ -4,13 +4,14 @@
 'use strict';
 
 // ##Dependencias do módulo
-var config = require(global.root_path + '/config/loader.js'),
+var config = global.config,
     _ = require('lodash');
 
 // #Lóxica do compoñente
 // Iniciamos a "clase"
 var i18nComponent = function(req, res, next) {
   this.init(req, res, next);
+  return this;
 };
 
 // Definimos as varibles e mailos métodos
@@ -35,6 +36,9 @@ i18nComponent.prototype = {
       // Gardamos o obxeto no ámbito global para acceden dende calque lado
       global.i18n = this;
 
+      // Tamén nos locals por se se necesita acceder
+      res.locals.i18n = global.i18n;
+
       // Creamos un alias nos "locals" o que nomeamos "_" para traduccir dende as vistas
       res.locals._ = global.i18n.translate;
 
@@ -44,7 +48,7 @@ i18nComponent.prototype = {
   },
   load: function() {
     // Cargamos as traduccións (só se cargará unha vez cada arquivo xa que "require" gardao na memoria)
-    this.translations = require(config.paths.lang + '/' + this.language + '.json');
+    this.translations = require(config.paths.lang + '/' + this.language + '.js');
   },
   detect: function() {    
     if (this.request.cookies.language) {
@@ -52,11 +56,13 @@ i18nComponent.prototype = {
       this.language = this.request.cookies.language;
     } else {
       // Se non a ten obtemos o idioma do navegador e se este non é válido usamos o idioma por defecto
-      var lang = this.request.headers['accept-language'].slice(0, 2).toLowerCase();
-      if (config.language.availables.indexOf(lang) > -1) {
-        this.language = lang;
-      } else {
-        this.language = config.language.default;
+      this.language = config.app.default_language;
+
+      if (this.request.headers['accept-language']) {
+        var lang = this.request.headers['accept-language'].slice(0, 2).toLowerCase();
+        if (config.app.languages.indexOf(lang) > -1) {
+          this.language = lang;
+        }
       }
     }
     // Gardamos o idioma nunha cookie para non detectalo nas proximas entradas (Unha semana dende a última visita)
@@ -67,7 +73,7 @@ i18nComponent.prototype = {
     // a última páxina vista ou a home
     if (this.request.path.match('^/language/')) {
       var language = this.request.path.replace('/language/', '');
-      if (config.language.availables.indexOf(language) > -1) {
+      if (config.app.languages.indexOf(language) > -1) {
         this.response.cookie('language', language, { maxAge: 604800000 });
         this.response.redirect(this.request.headers.referer || '/');
         return true;
@@ -85,8 +91,9 @@ i18nComponent.prototype = {
       // Comprobamos se existen variables
       if (vars) {
         // Substituimos cada unha de elas polo seu valor
-        _.each(vars, function(key) {
-          string = string.replace(':'+key. vars[key]);
+        _.each(vars, function(value, key) {
+          var regexp = new RegExp(':'+key, 'g');
+          string = string.replace(regexp, value);
         });
       }
     }

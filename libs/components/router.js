@@ -7,9 +7,9 @@
 
 // Dependencias do módulo
 // ----------------------
-var config = require(global.root_path + '/config/loader.js'),
+var config = global.config,
     _ = require('lodash'),
-    routes = require(config.paths.config + '/routes.js');
+    routes = require(config.paths.config + 'routes.js');
 
 // Variables do módulo
 var controllers = {};
@@ -26,7 +26,7 @@ var RouterComponent = {
 
             // Respondemos a consulta co erro 404 no formato indicado
             if (req.accepts('html')) {
-                res.render('404.ejs', { url: req.url });
+                res.render('404.ejs', { url: req.url, layout: false });
                 return;
             }
 
@@ -43,6 +43,7 @@ var RouterComponent = {
     loadRoutes: function(app) {
         // Exploramos os método declarados en cada ruta
         _.forEach(routes, function(methods, route) {
+            var routeObject = app.route(route);
             // Cargamos cada acción no seu correspondente método e ruta.
             _.forEach(methods, function(raw_action, method) {
                 // Recollemos as partes da acción sabendo que dase en formato controlador#acción
@@ -51,11 +52,16 @@ var RouterComponent = {
                 var action = 'action_' + parts[1];
 
                 // Se o controlador aínda non se cargóu, cargámolo
-                if ( ! controllers[controller])
-                    controllers[controller] = require(config.paths.controllers + '/' + controller + '.js');
+                var ControllerClass = require(config.paths.controllers + '/' + controller + '.js');
 
                 // Engadimos a ruta a app
-                app[method](route, controllers[controller][action]);
+                routeObject[method](function(req, res, next) {
+                    ControllerClass.before(req, res, function() {
+                        ControllerClass[action](req, res, function() {
+                            ControllerClass.after(req, res, next);
+                        });
+                    });
+                });
             });
         });
     }

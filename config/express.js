@@ -6,8 +6,7 @@
 'use strict';
 
 // ##Dependencias do módulo
-var config = require(global.root_path + '/config/loader.js'),
-    partials = require('express-partials'),
+var config = global.config,
     multiparty = require('connect-multiparty'),
     compression = require('compression'),
     morgan = require('morgan'),
@@ -15,10 +14,13 @@ var config = require(global.root_path + '/config/loader.js'),
     method_override = require('method-override'),
     cookie_parser = require('cookie-parser'),
     cookie_session = require('cookie-session'),
-    helpers = require(config.paths.helpers + '/loader.js'),
-    auth = require(config.paths.components + '/auth.js'),
-    router = require(config.paths.components + '/router.js'),
-    i18n = require(config.paths.components + '/i18n.js'),
+    flash = require('connect-flash'),
+    ejs = require('ejs'),
+    ejs_layouts = require('express-ejs-layouts'),
+    helpers = require(config.paths.helpers + 'loader.js'),
+    router = require(config.paths.components + 'router.js'),
+    i18n = require(config.paths.components + 'i18n.js'),
+    auth = require(config.paths.components + 'auth.js'),
     serve_static = require('serve-static'),
     serve_favicon = require('serve-favicon');
 
@@ -32,9 +34,6 @@ module.exports = function(app) {
 
     // Prettify HTML.
     app.locals.pretty = true;
-
-    // Usaremos partials para poder utilizar plantillas parciales.
-    app.use(partials());
 
     // Configuramos express para que comprima os arquivos antes
     // de envialos ó cliente.
@@ -54,14 +53,16 @@ module.exports = function(app) {
         app.use(morgan('dev'));
     }
 
-    // Configuramos o directorio das vistas e o motor de plantilla que vamos a utilizar.
-    app.set('views', config.paths.root + '/app/views');
-    app.engine('ejs', require('ejs').renderFile);
-
     // Buscamos recursos státicos que podan responder a consulta e se non cargamos
-    // todo o necesario para tratar de responder a consulta
+    // o necesario para tratar de responder a consulta
     app.use(serve_favicon(config.paths.webroot + '/favicon.ico'));
     app.use(serve_static(config.paths.webroot));
+
+    // Configuramos o directorio das vistas e o motor de plantilla que vamos a utilizar.
+    app.set('views', config.paths.root + '/app/views');
+    app.engine('ejs', ejs.renderFile);
+    app.set('view engine', 'ejs');
+    app.use(ejs_layouts);
 
     // ##Configuramos os middlewares dos que vai a facer uso o servidor.
     // CookieParser para manexar as cookies dunha forma máis sinxela.
@@ -85,6 +86,13 @@ module.exports = function(app) {
         name: config.sessions.name
     }));
 
+    // Activamos o uso de mensaxes "flash" para notificacións
+    app.use(flash());
+    app.use(function(req, res, next) {
+        res.locals.flash = req.flash();
+        next();
+    });
+
     // Engadimos a consulta á resposta para poder acceder a ela dende as vistas ou controladores.
     app.use(function(req, res, next) {
         res.locals.req = req;
@@ -97,7 +105,7 @@ module.exports = function(app) {
     // Sistema de internacionalización
     app.use(i18n.init());
 
-    // Sistema de autenticación de usuarios
+    // Sistema de autenticación
     app.use(auth.init());
 
     // Lanzamos o enrutador para redireccionar cada consulta o controlador correspondente

@@ -1,0 +1,82 @@
+// Functions
+@function em($target, $context)
+  @return ($target / $context) * 1em
+
+@function img-path($file)
+  @return '../img/' + $file
+
+@function img-url($file)
+  @return url(img-path($file))
+
+// Mixins
+=border-radius($radius: 2px)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+=border-corner-radius($vert, $horz, $radius: 2px)
+  #{'border-'+$vert+'-'+$horz+'-radius'}: $radius
+  #{'-moz-border-radius-'+$vert+$horz}: $radius
+  #{'-webkit-border-'+$vert+'-'+$horz+'-radius'}: $radius
+
+=border-top-left-radius($radius: 2)
+  +border-corner-radius(top, left, $radius)
+
+=border-top-right-radius($radius: 2)
+  +border-corner-radius(top, right, $radius)
+
+=border-bottom-left-radius($radius: 2)
+  +border-corner-radius(bottom, left, $radius)
+
+=border-bottom-right-radius($radius: 2)
+  +border-corner-radius(bottom, right, $radius)
+
+=border-radius-right($radius: 2px)
+  +border-top-right-radius($radius)
+  +border-bottom-right-radius($radius)
+
+=border-radius-left($radius: 2px)
+  +border-bottom-left-radius($radius)
+  +border-bottom-right-radius($radius)
+
+=sizing-box($type: border-box)
+  -webkit-box-sizing: $type
+  -moz-box-sizing: $type
+  box-sizing: $type
+
+=opacity($op: 0.5)
+  $op_ie: $op*100
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$op_ie+")"
+  filter: alpha(opacity=$op_ie)
+  -moz-opacity: $op
+  -khtml-opacity: $op
+  opacity: $op
+
+=transition($properties)
+  transition: $properties
+  -webkit-transition: $properties
+  -moz-transition: $properties
+
+=transition-delay($properties)
+  transition-delay: $properties
+  -webkit-transition-delay: $properties
+  -moz-transition-delay: $properties
+
+=blur($pixels: 5px)
+  filter: blur($pixels) /* Someday, sigh ... */
+  -webkit-filter: blur($pixels) /* Prefixed CSS3 blur filters */
+  -moz-filter: blur($pixels)
+  -o-filter: blur($pixels)
+  -ms-filter: blur($pixels)
+
+=drop-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $alpha: 0.1)
+  -webkit-box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha)
+  -moz-box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha)
+  box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha)
+
+=at2x($path, $ext: "jpg", $w: auto, $h: auto)
+  background-image: url($path + "." + $ext)
+  $at2x_path: $path + "@2x" + "." + $ext
+  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5)
+    background-image: url($at2x_path)
+    background-size: $w $h

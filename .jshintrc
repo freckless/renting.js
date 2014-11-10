@@ -32,7 +32,8 @@
         "angular",
         "expect",
         "$",
-        "google"
+        "google",
+        "jQuery"
     ],
     "indent": 4,
     "devel": true,
