@@ -19,20 +19,20 @@ var paths = {
     root: root_path,
     app: app_path,
     // config
-    config: root_path + '/config/',
+    config: root_path + 'config/',
     // languages
-    lang: app_path + '/lang/',
+    lang: app_path + 'lang/',
     // libraries
-    utils: libs_path + '/utils/',
-    helpers: libs_path + '/helpers/',
-    components: libs_path + '/components/',
+    utils: libs_path + 'utils/',
+    helpers: libs_path + 'helpers/',
+    components: libs_path + 'components/',
     // app
-    controllers: app_path + '/controllers/',
-    models: app_path + '/models/',
-    views: app_path + '/views/',
+    controllers: app_path + 'controllers/',
+    models: app_path + 'models/',
+    views: app_path + 'views/',
     // public
     webroot: webroot_path,
-    assets: webroot_path + '/assets/'
+    assets: webroot_path + 'assets/'
 };
 
 var config = _.extend(
