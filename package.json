@@ -5,6 +5,9 @@
     "private": true,
     "author": "Daniel Rodríguez <daniel@dpstudios.es>",
     "main": "server.js",
+    "scripts": {
+	"start": "server.js"
+    },
     "dependencies": {
         "express": "latest",
         "connect-multiparty": "latest",
