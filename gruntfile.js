@@ -36,7 +36,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'public/assets/css/website.css': 'public/assets/css/website.sass',
-                    'public/assets/css/backend.css': 'public/assets/css/backend.sass'
+                    'public/assets/css/admin.css': 'public/assets/css/admin.sass'
                 }
             }
         }

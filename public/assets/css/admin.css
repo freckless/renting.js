@@ -1,0 +1,19 @@
+section#login {
+  padding-top: 60px; }
+  section#login div#account-wall {
+    margin-top: 30px;
+    border: 1px solid #DDD;
+    padding: 10px;
+    text-align: center;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px; }
+    section#login div#account-wall img {
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      border-radius: 100px;
+      margin: 20px auto 30px; }
+    section#login div#account-wall button {
+      margin-top: 10px; }
+
+/*# sourceMappingURL=admin.css.map */

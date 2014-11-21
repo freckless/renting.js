@@ -6,7 +6,8 @@
     "author": "Daniel Rodríguez <daniel@dpstudios.es>",
     "main": "server.js",
     "scripts": {
-	"start": "server.js"
+        "start": "server.js",
+        "postinstall": "./node_modules/bower/bin/bower install"
     },
     "dependencies": {
         "express": "latest",

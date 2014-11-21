@@ -3,16 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Login - <%- config.name %></title>
+    <!-- Bower -->
+    <%- html.js('/libs/bootstrap/dist/js/bootstrap.min.js') %>
+    <%- html.css('/libs/bootstrap/dist/css/bootstrap.min.css') %>
+
+    <!-- Assets -->
+    <%- asset.css('admin.css') %>
 </head>
 <body>
-    <h1>Login form</h1>
-    <%- include ../widgets/flash_messages %>
-    <form action="/admin/login" method="post">
-        <label for="username">Username</label>
-        <input type="text" name="username" />
-        <label for="password">Password</label>
-        <input type="password" name="password" />
-        <button type="submit">Login</button>
-    </form>
+    <section id="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-md-offset-4">
+                    <h1 class="text-center login-title"><%= _('admin.admin_pane') %></h1>
+                    <div id="account-wall">
+                        <img src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" class="profile-img">
+                        <form action="/admin/login" method="post" class="form-signin">
+                            <input type="text" name="username" class="form-control input-lg" placeholder="<%= _('admin.username') %>" required autofocus>
+                            <input type="password" name="password" class="form-control input-lg" placeholder="<%= _('admin.password') %>">
+                            <button class="btn btn-lg btn-primary btn-block" type="submit"><%= _('admin.sign_in') %></button>
+                            <label class="checkbox pull-left">
+                              <input type="checkbox" value="remember-me">
+                              <%= _('admin.remember_me') %>
+                            </label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

@@ -6,6 +6,7 @@
 
 // ##Dependencias do módulo
 var config = global.config,
+    i18n = global.i18n,
     _ = require('lodash'),
     AuthComponent = require(config.paths.components + 'auth.js');
 

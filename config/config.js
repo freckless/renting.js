@@ -11,8 +11,11 @@ module.exports = {
     // Configuracións da app que se poderán utilizar nas vistas.
     app: {
         name: 'Renting.js',
-        default_language: 'es',
-        languages: ['es', 'en', 'ga'],
+        language: {
+            default: 'es',
+            available: ['es', 'en'],
+            autoload: ['website', 'admin']
+        },
         groups: {
             1: 'Administrator',
             2: 'Moderator',

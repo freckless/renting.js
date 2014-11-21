@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "dependencies": {
     "jquery": "latest",
-    "retinajs": "latest"
+    "retinajs": "latest",
+    "bootstrap": "latest"
   }
 }

@@ -46,9 +46,18 @@ i18nComponent.prototype = {
       next();
     }
   },
-  load: function() {
-    // Cargamos as traduccións (só se cargará unha vez cada arquivo xa que "require" gardao na memoria)
-    this.translations = require(config.paths.lang + '/' + this.language + '.js');
+  load: function(file) {
+    // Se se pasa o arquivo como parámetro tan so cargamos ese arquivo
+    if (typeof(file) !== 'undefined') {
+        this.translations[file] = require(config.paths.lang + this.language + '/'+ file + '.js');
+    } else {
+        // Cargamos as traduccións configuradas na app como "autoload" se non se indica o ficheiro
+        var files = config.app.language.autoload;
+        for (var x = 0; x < files.length; x++) {
+            file = files[x];
+            this.translations[file] = require(config.paths.lang + this.language + '/'+ file + '.js');
+        }
+    }
   },
   detect: function() {    
     if (this.request.cookies.language) {
@@ -56,11 +65,11 @@ i18nComponent.prototype = {
       this.language = this.request.cookies.language;
     } else {
       // Se non a ten obtemos o idioma do navegador e se este non é válido usamos o idioma por defecto
-      this.language = config.app.default_language;
+      this.language = config.app.language.default;
 
       if (this.request.headers['accept-language']) {
         var lang = this.request.headers['accept-language'].slice(0, 2).toLowerCase();
-        if (config.app.languages.indexOf(lang) > -1) {
+        if (config.app.language.available.indexOf(lang) > -1) {
           this.language = lang;
         }
       }
@@ -73,7 +82,7 @@ i18nComponent.prototype = {
     // a última páxina vista ou a home
     if (this.request.path.match('^/language/')) {
       var language = this.request.path.replace('/language/', '');
-      if (config.app.languages.indexOf(language) > -1) {
+      if (config.app.language.available.indexOf(language) > -1) {
         this.response.cookie('language', language, { maxAge: 604800000 });
         this.response.redirect(this.request.headers.referer || '/');
         return true;
@@ -86,8 +95,22 @@ i18nComponent.prototype = {
     var i18n = global.i18n;
 
     // Comprobamos se existen traduccións para a cadea
-    if (i18n.translations[string]) {
-      string = i18n.translations[string];
+    var translation = i18n.translations;
+
+    // Partimos a cadea polos puntos para detectar o obxecto que garda a tradución
+    var parts = [];
+    var str = string;
+    while (str.indexOf('.') > -1) {
+        parts = str.split('.');
+        str = parts.splice(1, 1).join('.');
+        translation = translation[parts[0]];
+        if (typeof(translation) === 'undefined') {
+            return string;
+        }
+    }
+
+    if (typeof(translation[str]) !== 'undefined') {
+      string = translation[str];
       // Comprobamos se existen variables
       if (vars) {
         // Substituimos cada unha de elas polo seu valor
