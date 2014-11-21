@@ -26,10 +26,10 @@
         "lodash": "latest",
         "ejs": "latest",
         "express-ejs-layouts": "latest",
-        "moment": "latest"
+        "moment": "latest",
+        "bower": "latest"
     },
     "devDependencies": {
-        "bower": "latest",
         "mocha": "latest",
         "assert": "latest",
         "docco": "latest",
