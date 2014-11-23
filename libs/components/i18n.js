@@ -59,7 +59,7 @@ i18nComponent.prototype = {
         }
     }
   },
-  detect: function() {    
+  detect: function() {
     if (this.request.cookies.language) {
       // Detectamos se o usuario ten unha cookie co idioma
       this.language = this.request.cookies.language;

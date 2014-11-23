@@ -8,11 +8,12 @@ var config = global.config,
     AdminControllerBase = require(config.paths.controllers + 'admin/base.js');
 
 // ##Accións do controlador
-var AdminDashboardController = new AdminControllerBase({
+var AdminAppController = new AdminControllerBase({
+    // Soamente mostramos a vista da app, ela é a encargada de cargar toda a lóxica do panel de xestión.
     action_index: function(req, res) {
-        res.render('admin/dashboard/index', { layout: 'admin/template' });
+        res.render('admin/app', { layout: false });
     }
 });
 
 // Exportamos o controlador
-module.exports = AdminDashboardController;
+module.exports = AdminAppController;

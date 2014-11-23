@@ -5,6 +5,7 @@
   "dependencies": {
     "jquery": "latest",
     "retinajs": "latest",
-    "bootstrap": "latest"
+    "bootstrap": "latest",
+    "angularjs": "latest"
   }
 }

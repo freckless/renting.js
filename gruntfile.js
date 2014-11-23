@@ -4,6 +4,7 @@ module.exports = function(grunt) {
     // Cargamos as dependencias das tarefas
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Configuramos as tarefas
     grunt.initConfig({
@@ -26,6 +27,25 @@ module.exports = function(grunt) {
                 ],
                 options: {
                     livereload: true
+                }
+            },
+            apps: {
+                files: 'public/assets/js/apps/**/*.js',
+                tasks: ['uglify'],
+                options: {
+                    livereload: true
+                }
+            }
+        },
+        uglify: {
+            admin_app: {
+                files: {
+                    'public/assets/js/apps/admin.js': [
+                        'public/assets/js/apps/admin/*.js',
+                        'public/assets/js/apps/admin/directives/*.js',
+                        'public/assets/js/apps/admin/services/*.js',
+                        'public/assets/js/apps/admin/controllers/*.js',
+                    ],
                 }
             }
         },

@@ -6,7 +6,6 @@
 
 // ##Dependencias do módulo
 var config = global.config,
-    i18n = global.i18n,
     _ = require('lodash'),
     AuthComponent = require(config.paths.components + 'auth.js');
 
@@ -23,11 +22,11 @@ AdminControllerBase.prototype = {
             } else {
                 if (user) {
                     // Si é un usuario sen privilexios diriximolo ó index
-                    req.flash(i18n.translate('access_not_granted'));
+                    req.flash(global.i18n.translate('access_not_granted'));
                     res.redirect('/');
                 } else {
                     // En caso de non estar logueado, dirixímolo o formulario de aceso
-                    req.flash(i18n.translate('access_not_granted'));
+                    req.flash(global.i18n.translate('access_not_granted'));
                     res.redirect('/admin/login');
                 }
             }

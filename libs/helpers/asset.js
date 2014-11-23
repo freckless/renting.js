@@ -33,6 +33,12 @@ var helper = {
         });
 
         return html.css(files);
+    },
+    // SVG Icons
+    icon: function(symbol, file, extra_css) {
+        if (typeof(extra_css) === 'undefined') extra_css = [];
+        var html = '<svg xlink:href="'+file+'#'+symbol+'" class="icon '+extra_css.join(' ')+'">';
+        return html;
     }
 };
 

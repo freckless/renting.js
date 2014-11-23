@@ -23,13 +23,13 @@
             <%- asset.img('renting-logo.png') %>
           </div>
           <div id="languages">
-            <% for (var x = 0; x < config.languages.length; x++) { var language = config.languages[x]; %>
+            <% for (var x = 0; x < config.language.available.length; x++) { var language = config.language.available[x]; %>
               <%- html.anchor('/language/'+language, language.toUpperCase(), { class: i18n.language == language ? 'active' : '' }) %>
             <% } %>
           </div>
           <nav id="main-nav">
             <ul>
-              <li><%- html.anchor('#', _('register_your_apartment')) %></li>
+              <li><%- html.anchor('#', _('website.register_your_apartment')) %></li>
             </ul>
           </nav>
         </div>
