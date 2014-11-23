@@ -6,6 +6,9 @@
     "jquery": "latest",
     "retinajs": "latest",
     "bootstrap": "latest",
-    "angularjs": "latest"
+    "normalize.css": "latest",
+    "angularjs": "latest",
+    "angular-route": "latest",
+    "angular-touch": "latest"
   }
 }

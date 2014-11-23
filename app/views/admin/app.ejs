@@ -3,10 +3,17 @@
 <head>
     <title>Admin App</title>
     <meta charset="UTF-8">
-    <%- html.js('/libs/angularjs/angularjs.min.js') %>
-    <%- asset.js('apps/admin.js') %>
+    <%- html.js(
+        '/libs/angular/angular.min.js',
+        /* Requisitos */
+        '/libs/angular-touch/angular-touch.min.js',
+        '/libs/angular-route/angular-route.min.js',
+        /* App */
+        '/apps/admin/js/app.js'
+    ) %>
 </head>
 <body>
-<%- body %>
+    <!-- Launch the app -->
+    <div id="app" ng-view></div>
 </body>
 </html>

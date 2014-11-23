@@ -13,31 +13,41 @@ var config = global.config,
 // ##Lóxica do helper
 var helper = {
     // Creación de imaxes
-    img: function(src, options) {
-        return html.img('/assets/img/' + src, options);
+    img: function() {
+        return html.img('/assets/img/' + arguments[0], arguments[1] || {});
     },
     // Javascript
-    js: function(files) {
-        if (typeof(files) === 'string') files = [files];
-        _.forEach(files, function(v, index) {
-            files[index] = '/assets/js/' + files[index];
+    js: function() {
+        var files = [];
+        _.forEach(arguments, function(file, index) {
+            files[index] = '/assets/js/' + file;
         });
 
-        return html.js(files);
+        return html.js.apply(null, files);
     },
     // Stylesheets
-    css: function(files) {
-        if (typeof(files) === 'string') files = [files];
-        _.forEach(files, function(v, index) {
-            files[index] = '/assets/css/' + files[index];
+    css: function() {
+        var files = [];
+        _.forEach(arguments, function(file, index) {
+            files[index] = '/assets/css/' + file;
         });
 
-        return html.css(files);
+        return html.css.apply(null, files);
     },
     // SVG Icons
-    icon: function(symbol, file, extra_css) {
-        if (typeof(extra_css) === 'undefined') extra_css = [];
-        var html = '<svg xlink:href="'+file+'#'+symbol+'" class="icon '+extra_css.join(' ')+'">';
+    icon: function(symbol, file, classes) {
+        var extra_css = '';
+        if (typeof classes !== 'undefined') {
+            if (typeof classes === 'string') {
+                extra_css = ' '+classes;
+            } else {
+                extra_css = ' '+classes.join(' ');
+            }
+        }
+
+        var html = '<svg class="icon'+extra_css+'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">'+
+                   '<use xlink:href="/assets/img/'+file+'#'+symbol+'"></use>'+
+                   '</svg>';
         return html;
     }
 };

@@ -1,9 +1,69 @@
 @import '../resources/utils'
 
+$blue: #4A90E2
+$grey: #EFEFEF
+
 section#login
     padding-top: 60px
 
-    div#loggin-pane
+    div#login-pane
         width: 320px
-        margin: auto
+        height: 322px
+        position: absolute
+        top: 50%
+        left: 50%
+        margin-left: -160px
+        margin-top: -161px
+        border: 1px solid $blue
+        +border-radius(6px)
+
         div.header
+            text-align: center
+            padding: 6px
+            background-color: $blue
+            +border-radius-top(4px)
+
+            h2
+                color: white
+                font-weight: 400
+                text-transform: uppercase
+                font-size: em(18px, 14px)
+                margin: 0px
+                padding-top: 4px
+                padding-bottom: 4px
+
+        div.content
+            padding: 20px
+
+            input
+                width: 100%
+                margin-bottom: 10px
+                border: 0px
+                background-color: $grey
+                border: 2px solid darken($grey, 5%)
+                padding: 8px
+                color: darken($grey, 30%)
+                +border-radius(4px)
+
+            label.checkbox
+                display: block
+                padding: 8px
+                margin-bottom: 10px
+
+                input[type=checkbox]
+                    margin-bottom: 0px
+                    margin-right: 4px
+                    width: auto
+
+            button
+                color: white
+                width: 100%
+                padding: 8px
+                background-color: $blue
+                text-transform: uppercase
+                border: 2px solid darken($blue, 5%)
+                +border-radius(4px)
+
+                &:hover, &:active
+                    background-color: darken($blue, 5%)
+

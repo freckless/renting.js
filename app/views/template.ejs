@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Renting.js</title>
-  <%- html.js(['/libs/jquery/dist/jquery.min.js', '/libs/retinajs/dist/retina.min.js']) %>
+  <%- html.js('/libs/jquery/dist/jquery.min.js', '/libs/retinajs/dist/retina.min.js') %>
   <%- asset.css('website.css') %>
-  <%- asset.js([
+  <%- asset.js(
     'website/plugins/animated_sprite.js', // Sprites animados
     'website/plugins/loader.js', // Animación de carga
     'website/plugins/parallax.js', // Efecto parallax
     'website/plugins/svg_injector.js', // Iconos en formato SVG
     'website/layout.js', // Scripts para o deseño en xeral
-    'website/home.js', // Home
-  ]) %>
+    'website/home.js' // Home
+  ) %>
 </head>
 <body>
   <header>

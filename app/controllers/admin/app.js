@@ -1,4 +1,4 @@
-// #Home Controller
+// #adminApp Controller
 // Controlador que utilizaremos para a páxina principal do portal
 
 'use strict';

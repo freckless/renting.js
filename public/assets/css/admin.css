@@ -1,7 +1,457 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700);
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.container, .container-fluid {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.row {
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-bottom: 10px; }
+
+[class^="col-"] {
+  position: relative;
+  min-height: 1px;
+  padding-left: 10px;
+  padding-right: 10px; }
+
+[class^="col-xs"] {
+  float: left; }
+
+[class^="col-xs-"] {
+  float: left; }
+
+.col-xs-1 {
+  width: 8.33333%; }
+
+.col-xs-offset-1 {
+  margin-left: 8.33333%; }
+
+.col-xs-2 {
+  width: 16.66667%; }
+
+.col-xs-offset-2 {
+  margin-left: 16.66667%; }
+
+.col-xs-3 {
+  width: 25%; }
+
+.col-xs-offset-3 {
+  margin-left: 25%; }
+
+.col-xs-4 {
+  width: 33.33333%; }
+
+.col-xs-offset-4 {
+  margin-left: 33.33333%; }
+
+.col-xs-5 {
+  width: 41.66667%; }
+
+.col-xs-offset-5 {
+  margin-left: 41.66667%; }
+
+.col-xs-6 {
+  width: 50%; }
+
+.col-xs-offset-6 {
+  margin-left: 50%; }
+
+.col-xs-7 {
+  width: 58.33333%; }
+
+.col-xs-offset-7 {
+  margin-left: 58.33333%; }
+
+.col-xs-8 {
+  width: 66.66667%; }
+
+.col-xs-offset-8 {
+  margin-left: 66.66667%; }
+
+.col-xs-9 {
+  width: 75%; }
+
+.col-xs-offset-9 {
+  margin-left: 75%; }
+
+.col-xs-10 {
+  width: 83.33333%; }
+
+.col-xs-offset-10 {
+  margin-left: 83.33333%; }
+
+.col-xs-11 {
+  width: 91.66667%; }
+
+.col-xs-offset-11 {
+  margin-left: 91.66667%; }
+
+.col-xs-12 {
+  width: 100%; }
+
+.col-xs-offset-12 {
+  margin-left: 100%; }
+
+@media screen and (max-width: 768px) {
+  .hide-xs {
+    display: none; }
+
+  .show-xs {
+    display: auto; } }
+@media screen and (min-width: 768px) {
+  .container {
+    width: 750px; }
+
+  [class^="col-sm-"] {
+    float: left; }
+
+  .col-sm-1 {
+    width: 8.33333%; }
+
+  .col-sm-offset-1 {
+    margin-left: 8.33333%; }
+
+  .col-sm-2 {
+    width: 16.66667%; }
+
+  .col-sm-offset-2 {
+    margin-left: 16.66667%; }
+
+  .col-sm-3 {
+    width: 25%; }
+
+  .col-sm-offset-3 {
+    margin-left: 25%; }
+
+  .col-sm-4 {
+    width: 33.33333%; }
+
+  .col-sm-offset-4 {
+    margin-left: 33.33333%; }
+
+  .col-sm-5 {
+    width: 41.66667%; }
+
+  .col-sm-offset-5 {
+    margin-left: 41.66667%; }
+
+  .col-sm-6 {
+    width: 50%; }
+
+  .col-sm-offset-6 {
+    margin-left: 50%; }
+
+  .col-sm-7 {
+    width: 58.33333%; }
+
+  .col-sm-offset-7 {
+    margin-left: 58.33333%; }
+
+  .col-sm-8 {
+    width: 66.66667%; }
+
+  .col-sm-offset-8 {
+    margin-left: 66.66667%; }
+
+  .col-sm-9 {
+    width: 75%; }
+
+  .col-sm-offset-9 {
+    margin-left: 75%; }
+
+  .col-sm-10 {
+    width: 83.33333%; }
+
+  .col-sm-offset-10 {
+    margin-left: 83.33333%; }
+
+  .col-sm-11 {
+    width: 91.66667%; }
+
+  .col-sm-offset-11 {
+    margin-left: 91.66667%; }
+
+  .col-sm-12 {
+    width: 100%; }
+
+  .col-sm-offset-12 {
+    margin-left: 100%; }
+
+  .hide-sm {
+    display: none; }
+
+  .show-sm {
+    display: auto; } }
+@media screen and (min-width: 992px) {
+  .container {
+    width: 970px; }
+
+  [class^="col-md-"] {
+    float: left; }
+
+  .col-md-1 {
+    width: 8.33333%; }
+
+  .col-md-offset-1 {
+    margin-left: 8.33333%; }
+
+  .col-md-2 {
+    width: 16.66667%; }
+
+  .col-md-offset-2 {
+    margin-left: 16.66667%; }
+
+  .col-md-3 {
+    width: 25%; }
+
+  .col-md-offset-3 {
+    margin-left: 25%; }
+
+  .col-md-4 {
+    width: 33.33333%; }
+
+  .col-md-offset-4 {
+    margin-left: 33.33333%; }
+
+  .col-md-5 {
+    width: 41.66667%; }
+
+  .col-md-offset-5 {
+    margin-left: 41.66667%; }
+
+  .col-md-6 {
+    width: 50%; }
+
+  .col-md-offset-6 {
+    margin-left: 50%; }
+
+  .col-md-7 {
+    width: 58.33333%; }
+
+  .col-md-offset-7 {
+    margin-left: 58.33333%; }
+
+  .col-md-8 {
+    width: 66.66667%; }
+
+  .col-md-offset-8 {
+    margin-left: 66.66667%; }
+
+  .col-md-9 {
+    width: 75%; }
+
+  .col-md-offset-9 {
+    margin-left: 75%; }
+
+  .col-md-10 {
+    width: 83.33333%; }
+
+  .col-md-offset-10 {
+    margin-left: 83.33333%; }
+
+  .col-md-11 {
+    width: 91.66667%; }
+
+  .col-md-offset-11 {
+    margin-left: 91.66667%; }
+
+  .col-md-12 {
+    width: 100%; }
+
+  .col-md-offset-12 {
+    margin-left: 100%; }
+
+  .hide-md {
+    display: none; }
+
+  .show-md {
+    display: auto; } }
+@media screen and (min-width: 1170px) {
+  .container {
+    width: 1170px; }
+
+  [class^="col-lg-"] {
+    float: left; }
+
+  .col-lg-1 {
+    width: 8.33333%; }
+
+  .col-lg-offset-1 {
+    margin-left: 8.33333%; }
+
+  .col-lg-2 {
+    width: 16.66667%; }
+
+  .col-lg-offset-2 {
+    margin-left: 16.66667%; }
+
+  .col-lg-3 {
+    width: 25%; }
+
+  .col-lg-offset-3 {
+    margin-left: 25%; }
+
+  .col-lg-4 {
+    width: 33.33333%; }
+
+  .col-lg-offset-4 {
+    margin-left: 33.33333%; }
+
+  .col-lg-5 {
+    width: 41.66667%; }
+
+  .col-lg-offset-5 {
+    margin-left: 41.66667%; }
+
+  .col-lg-6 {
+    width: 50%; }
+
+  .col-lg-offset-6 {
+    margin-left: 50%; }
+
+  .col-lg-7 {
+    width: 58.33333%; }
+
+  .col-lg-offset-7 {
+    margin-left: 58.33333%; }
+
+  .col-lg-8 {
+    width: 66.66667%; }
+
+  .col-lg-offset-8 {
+    margin-left: 66.66667%; }
+
+  .col-lg-9 {
+    width: 75%; }
+
+  .col-lg-offset-9 {
+    margin-left: 75%; }
+
+  .col-lg-10 {
+    width: 83.33333%; }
+
+  .col-lg-offset-10 {
+    margin-left: 83.33333%; }
+
+  .col-lg-11 {
+    width: 91.66667%; }
+
+  .col-lg-offset-11 {
+    margin-left: 91.66667%; }
+
+  .col-lg-12 {
+    width: 100%; }
+
+  .col-lg-offset-12 {
+    margin-left: 100%; }
+
+  .hide-lg {
+    display: none; }
+
+  .show-lg {
+    display: auto; } }
+.clearfix:before, .clearfix:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after {
+  content: " ";
+  display: table; }
+.clearfix:after, .container:after, .container-fluid:after, .row:after {
+  clear: both; }
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.pull-left {
+  float: left !important; }
+
+.pull-right {
+  float: right !important; }
+
+.hide {
+  display: none !important; }
+
+.show {
+  display: block !important; }
+
+input:focus {
+  outline: none; }
+
+body {
+  margin: 0px;
+  font-family: Lato;
+  font-size: 14px; }
+
 section#login {
   padding-top: 60px; }
-  section#login div#loggin-pane {
+  section#login div#login-pane {
     width: 320px;
-    margin: auto; }
+    height: 322px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -160px;
+    margin-top: -161px;
+    border: 1px solid #4A90E2;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px; }
+    section#login div#login-pane div.header {
+      text-align: center;
+      padding: 6px;
+      background-color: #4A90E2;
+      border-top-right-radius: 4px;
+      -moz-border-radius-topright: 4px;
+      -webkit-border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+      -moz-border-radius-topleft: 4px;
+      -webkit-border-top-left-radius: 4px; }
+      section#login div#login-pane div.header h2 {
+        color: white;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 1.28571em;
+        margin: 0px;
+        padding-top: 4px;
+        padding-bottom: 4px; }
+    section#login div#login-pane div.content {
+      padding: 20px; }
+      section#login div#login-pane div.content input {
+        width: 100%;
+        margin-bottom: 10px;
+        border: 0px;
+        background-color: #EFEFEF;
+        border: 2px solid #e2e2e2;
+        padding: 8px;
+        color: #a3a3a3;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px; }
+      section#login div#login-pane div.content label.checkbox {
+        display: block;
+        padding: 8px;
+        margin-bottom: 10px; }
+        section#login div#login-pane div.content label.checkbox input[type=checkbox] {
+          margin-bottom: 0px;
+          margin-right: 4px;
+          width: auto; }
+      section#login div#login-pane div.content button {
+        color: white;
+        width: 100%;
+        padding: 8px;
+        background-color: #4A90E2;
+        text-transform: uppercase;
+        border: 2px solid #3483de;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px; }
+        section#login div#login-pane div.content button:hover, section#login div#login-pane div.content button:active {
+          background-color: #3483de; }
 
 /*# sourceMappingURL=admin.css.map */

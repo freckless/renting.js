@@ -1,7 +1,7 @@
 'use strict';
 
 (function($){
-    var svgNS = "http://www.w3.org/2000/svg";
+    var svgNS = 'http://www.w3.org/2000/svg';
 
     /** animatedSprite plugin definition **/
     $.fn.svgInjector = function() {
@@ -57,7 +57,7 @@
             var that = this;
             if (Object.keys(window.cachedSVG).indexOf(source) > -1) {
                 that.svg_data = window.cachedSVG[source];
-                that.render()
+                that.render();
             } else {
                 // load
                 $.get(source, function(res) {

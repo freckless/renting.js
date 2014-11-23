@@ -25,30 +25,28 @@ var helper = {
         return this.tag_builder('a', options, inner);
     },
     // Javascript
-    js: function(files) {
-        if (typeof(files) === 'string') files = [files];
+    js: function() {
         var code = '';
-        for (var x = 0; x < files.length; x++) {
+        _.forEach(arguments, function(file) {
             var options = {
                 type: 'text/javascript',
-                src: files[x]
+                src: file
             };
-            code += this.tag_builder('script', options, '');
-        }
+            code += helper.tag_builder('script', options, '');
+        });
         return code;
     },
     // Stylesheets
-    css: function(files) {
-        if (typeof(files) === 'string') files = [files];
+    css: function() {
         var code = '';
-        for (var x = 0; x < files.length; x++) {
+        _.forEach(arguments, function(file) {
             var options = {
                 rel: 'stylesheet',
                 type: 'text/css',
-                href: files[x]
+                href: file
             };
-            code += this.tag_builder('link', options);
-        }
+            code += helper.tag_builder('link', options);
+        });
         return code;
     },
     // Creación xeral de etiquetas

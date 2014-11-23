@@ -23,6 +23,8 @@ var AuthComponent = {
                     }
                     next();
                 });
+            } else if (req.cookies.user_id && req.cookies.user_token) {
+                AuthComponent.loadRemember(req, res, next);
             } else {
                 next();
             }
@@ -61,6 +63,11 @@ var AuthComponent = {
                             id: user._id,
                             token: token
                         };
+                        if (req.body.remember_me) {
+                            var month = 30 * 24 * 60 * 60 * 1000;
+                            res.cookie('user_id', user._id, {maxAge: month});
+                            res.cookie('user_token', user.token, {maxAge: month});
+                        }
                         callback(user);
                     });
                 } else {
@@ -74,6 +81,26 @@ var AuthComponent = {
     deauthenticate: function(req, res, callback) {
         delete(req.session.user);
         callback();
+    },
+    loadRemember: function(req, res, callback) {
+        User.findOne({_id: req.cookies.user_id, token: req.cookies.user_token}, function(err, user) {
+            if (err) throw err;
+            if (user) {
+                req.session.user = {
+                    id: user._id,
+                    token: user.token
+                };
+
+                var month = 30 * 24 * 60 * 60 * 1000;
+                res.cookie('user_id', user._id, {maxAge: month});
+                res.cookie('user_token', user.token, {maxAge: month});
+                callback();
+            } else {
+                res.clearCookie('user_id');
+                res.clearCookie('user_token');
+                callback();
+            }
+        });
     }
 };
 

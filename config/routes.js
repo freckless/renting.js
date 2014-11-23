@@ -22,7 +22,7 @@ var routes = {
     },
     // Rutas do panel de xestion
     '/admin': {
-        get: 'admin/dashboard#index'
+        get: 'admin/app#index'
     },
     '/admin/login': {
         get: 'admin#login',

@@ -1,0 +1,15 @@
+svg.icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle; }
+  svg.icon.xs {
+    width: 16px;
+    height: 16px; }
+  svg.icon.lg {
+    width: 32px;
+    height: 32px; }
+  svg.icon.xl {
+    width: 64px;
+    height: 64px; }
+
+/*# sourceMappingURL=icons.css.map */
