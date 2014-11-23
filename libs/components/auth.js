@@ -19,7 +19,14 @@ var AuthComponent = {
             if (req.session.user) {
                 that.getUser(req, res, function(user) {
                     if (user) {
-                        res.locals.user = user;
+                        res.locals.user = {
+                            _id: user._id,
+                            token: user.token,
+                            group: user.group,
+                            firstname: user.firstname,
+                            lastname: user.lastname,
+                            username: user.username
+                        };
                     }
                     next();
                 });
@@ -35,7 +42,6 @@ var AuthComponent = {
             next(res.locals.user);
         } else {
             if (req.session.user) {
-                var that = this;
                 User.findOne({_id: req.session.user.id, token: req.session.user.token}).exec(function(err, user) {
                     if (err) throw err;
                     if (user) {

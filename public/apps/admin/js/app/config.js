@@ -12,7 +12,7 @@ angular.module('adminApp').config([
     }
 ]);
 
-// #Engadindo $location ó rootScope así poderemos acceder a esta variable dende as vistas.
-angular.module('adminApp').run(
-    function() {}
-);
+// #Configuramos a execución da app "adminApp"
+angular.module('adminApp').run(['$rootScope', '$location', function($rootScope, $location) {
+    $rootScope.$location = $location;
+}]);

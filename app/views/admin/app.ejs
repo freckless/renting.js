@@ -8,12 +8,15 @@
         /* Requisitos */
         '/libs/angular-touch/angular-touch.min.js',
         '/libs/angular-route/angular-route.min.js',
+        '/libs/angular-resource/angular-resource.min.js',
         /* App */
         '/apps/admin/js/app.js'
     ) %>
 </head>
 <body>
     <!-- Launch the app -->
-    <div id="app" ng-view></div>
+    <div id="app" ng-init="user=<%= JSON.stringify(user) %>">
+        <div id="wrapper" ng-view></div>
+    </div>
 </body>
 </html>

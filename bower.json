@@ -9,6 +9,7 @@
     "normalize.css": "latest",
     "angularjs": "latest",
     "angular-route": "latest",
-    "angular-touch": "latest"
+    "angular-touch": "latest",
+    "angular-resource": "latest"
   }
 }

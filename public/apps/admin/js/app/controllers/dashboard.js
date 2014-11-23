@@ -14,5 +14,4 @@ angular.module('adminApp').config(['$routeProvider',
 ]);
 
 angular.module('adminApp').controller('DashboardCtrl', ['$scope', function($scope) {
-    $scope.test = 'Aleluia!';
 }]);
