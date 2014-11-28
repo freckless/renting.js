@@ -7,7 +7,7 @@ angular.module('adminApp').config(['$routeProvider',
     function($routeProvider){
         $routeProvider.
             when('/users', {
-                templateUrl: '/apps/admin/views/users/index.html',
+                templateUrl: 'apps/admin/views/users/index.html',
                 controller: 'UsersCtrl'
             });
     }

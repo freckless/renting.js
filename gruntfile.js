@@ -30,7 +30,7 @@ module.exports = function(grunt) {
                 }
             },
             apps: {
-                files: 'public/apps/*/js/app/**/*.js',
+                files: 'public/apps/**/*.js',
                 tasks: ['uglify'],
                 options: {
                     livereload: true
@@ -40,13 +40,13 @@ module.exports = function(grunt) {
         uglify: {
             admin_app: {
                 files: {
-                    'public/apps/admin/js/app.js': [
-                        'public/apps/admin/js/app/app.js',
-                        'public/apps/admin/js/app/config.js',
-                        'public/apps/admin/js/app/directives/*.js',
-                        'public/apps/admin/js/app/services/*.js',
-                        'public/apps/admin/js/app/controllers/*.js',
-                    ],
+                    'public/apps/admin/app.js': [
+                        'public/apps/admin/app/app.js',
+                        'public/apps/admin/app/config.js',
+                        'public/apps/admin/app/directives/*.js',
+                        'public/apps/admin/app/services/*.js',
+                        'public/apps/admin/app/controllers/*.js'
+                    ]
                 }
             }
         },

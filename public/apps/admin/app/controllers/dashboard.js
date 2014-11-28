@@ -7,7 +7,7 @@ angular.module('adminApp').config(['$routeProvider',
     function($routeProvider){
         $routeProvider.
             when('/', {
-                templateUrl: '/apps/admin/views/dashboard/index.html',
+                templateUrl: 'apps/admin/views/dashboard/index.html',
                 controller: 'DashboardCtrl'
             });
     }
