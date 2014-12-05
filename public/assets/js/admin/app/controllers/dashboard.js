@@ -7,11 +7,12 @@ angular.module('adminApp').config(['$routeProvider',
     function($routeProvider){
         $routeProvider.
             when('/', {
-                templateUrl: 'apps/admin/views/dashboard/index.html',
+                templateUrl: 'assets/js/admin/views/dashboard/index.html',
                 controller: 'DashboardCtrl'
             });
     }
 ]);
 
-angular.module('adminApp').controller('DashboardCtrl', ['$scope', function($scope) {
+angular.module('adminApp').controller('DashboardCtrl', ['$rootScope', function($rootScope) {
+    $rootScope.current_section = 'dashboard';
 }]);

@@ -2,7 +2,7 @@
 
 angular.module('adminApp').factory('UserService', function($resource) {
     return $resource(
-        '/api/users/:user_id',
+        '/admin/users/:user_id',
         {
             user_id: '@_id'
         }, {

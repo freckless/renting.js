@@ -30,6 +30,14 @@ var routes = {
     },
     '/admin/logout': {
         get: 'admin#logout'
+    },
+    '/admin/users': {
+        get: 'admin/users#find_all',
+        post: 'admin/users#create'
+    },
+    '/admin/users/:id': {
+        get: 'admin/users#find_one',
+        put: 'admin/users#update'
     }
 };
 

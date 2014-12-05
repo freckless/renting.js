@@ -86,6 +86,8 @@ var AuthComponent = {
     },
     deauthenticate: function(req, res, callback) {
         delete(req.session.user);
+        res.clearCookie('user_id');
+        res.clearCookie('user_token');
         callback();
     },
     loadRemember: function(req, res, callback) {

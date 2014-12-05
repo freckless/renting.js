@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="<%- i18n.language %>">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>Admin Login - <%- config.name %></title>
     <!-- Normalize -->
@@ -8,26 +8,26 @@
 
     <!-- Assets -->
     <%- asset.css('admin.css', 'icons.css') %>
-</head>
-<body>
+  </head>
+  <body>
     <section id="login">
-        <div id="login-pane">
-            <div class="header">
-                <%- asset.icon('lock', 'apps/admin/icons.svg', 'xl') %>
-                <h2><%- _('admin.admin_pane') %></h2>
-            </div>
-            <div class="content">
-                <form action="/admin/login" method="post" class="form-signin">
-                    <input type="text" name="username" class="form-control input-lg" placeholder="<%= _('admin.username') %>" autofocus>
-                    <input type="password" name="password" class="form-control input-lg" placeholder="<%= _('admin.password') %>">
-                    <label class="checkbox">
-                        <input type="checkbox" name="remember_me" value="true">
-                        <%= _('admin.remember_me') %>
-                    </label>
-                    <button class="btn btn-primary btn-block" type="submit"><%= _('admin.sign_in') %></button>
-                </form>
-            </div>
+      <div id="login-pane">
+        <div class="header">
+          <%- asset.icon('lock', 'apps/admin/icons.svg', 'xl') %>
+          <h2><%- _('admin.admin_pane') %></h2>
         </div>
+        <div class="content">
+          <form action="/admin/login" method="post" class="form-signin">
+            <input type="text" name="username" class="form-control input-lg" placeholder="<%= _('admin.username') %>" autofocus>
+            <input type="password" name="password" class="form-control input-lg" placeholder="<%= _('admin.password') %>">
+            <label class="checkbox">
+              <input type="checkbox" name="remember_me" value="true">
+              <%= _('admin.remember_me') %>
+            </label>
+            <button class="btn btn-primary btn-block" type="submit"><%= _('admin.sign_in') %></button>
+          </form>
+        </div>
+      </div>
     </section>
-</body>
+  </body>
 </html>

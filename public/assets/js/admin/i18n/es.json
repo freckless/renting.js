@@ -1,0 +1,24 @@
+{
+  "admin": {
+    "_options": "Opciones",
+    "_edit": "Editar",
+    "_delete": "Eliminar",
+    "_add": "Crear"
+  },
+  "dashboard": {
+    "_title": "Dashboard"
+  },
+  "apartments": {
+    "_title": "Apartamentos"
+  },
+  "bookings": {
+    "_title": "Reservas"
+  },
+  "users": {
+    "_title": "Usuarios",
+    "_logout": "Cerrar sesión",
+    "_username": "Usuario",
+    "_name": "Nombre",
+    "_mail": "E-mail"
+  }
+}
