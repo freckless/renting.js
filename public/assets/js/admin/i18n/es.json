@@ -1,24 +1,33 @@
 {
   "admin": {
-    "_options": "Opciones",
-    "_edit": "Editar",
-    "_delete": "Eliminar",
-    "_add": "Crear"
+    "logout": "Cerrar sesión",
+    "options": "Opciones",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "add": "Crear",
+    "go_back": "Volver"
   },
   "dashboard": {
-    "_title": "Dashboard"
+    "title": "Dashboard"
   },
   "apartments": {
-    "_title": "Apartamentos"
+    "title": "Apartamentos"
   },
   "bookings": {
-    "_title": "Reservas"
+    "title": "Reservas"
   },
   "users": {
-    "_title": "Usuarios",
-    "_logout": "Cerrar sesión",
+    "title": "Usuarios",
+    "editing": "Editando usuario",
+    "creating": "Nuevo usuario",
+    "fill_just_for_change": "Solo es necesario rellenarla para cambiarla",
+    "_account_info": "Información de la cuenta",
+    "_personal_info": "Información personal",
     "_username": "Usuario",
     "_name": "Nombre",
-    "_mail": "E-mail"
+    "_mail": "E-mail",
+    "_password": "Contraseña",
+    "_password_confirmation": "Repite la contraseña",
+    "_group": "Tipo de usuario"
   }
 }

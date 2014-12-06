@@ -2,9 +2,9 @@
 
 angular.module('adminApp').factory('UserService', function($resource) {
     return $resource(
-        '/admin/users/:user_id',
+        '/admin/users/:id',
         {
-            user_id: '@_id'
+            id: '@_id'
         }, {
             update: { method: 'PUT' }
         }

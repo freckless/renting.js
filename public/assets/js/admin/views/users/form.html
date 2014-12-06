@@ -1,0 +1,31 @@
+<a href class="pull-left" back-button><i class="fa fa-2x fa-fw fa-angle-left"></i></a>
+<h1 class="page-header">{{'users.'+action | translate}}</h1>
+<div class="form">
+    <div class="col-sm-12 col-md-6">
+        <h3>{{'users._account_info' | translate}}</h3>
+        <div class="form-group">
+            <label for="input-username">{{'users._username' | translate}}</label>
+            <input type="text" class="form-control" id="input-username" ng-model="user.username"/>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <label for="input-password">{{'users._password' | translate}}</label>
+                <input type="password" class="form-control" id="input-password" ng-model="user.new_password"/>
+            </div>
+            <div class="col-xs-6">
+                <label for="input-password-confirmation">{{'users._password_confirmation' | translate}}</label>
+                <input type="password" class="form-control" id="input-password-confirmation" ng-model="user.new_password_confirmation"/>
+            </div>
+            <div class="col-xs-12" ng-show="action == 'editing'">
+                <p class="help-block">{{'users.fill_just_for_change'|translate}}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-group">{{'users._group' | translate}}</label>
+            <select ng-model="user.group" ng-options="key for (value, key) in groups" class="form-control" id="input-group"></select>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+        <h3>{{'users._personal_info' | translate}}</h3>
+    </div>
+</div>
