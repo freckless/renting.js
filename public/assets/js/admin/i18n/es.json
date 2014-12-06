@@ -28,6 +28,20 @@
     "_mail": "E-mail",
     "_password": "Contraseña",
     "_password_confirmation": "Repite la contraseña",
-    "_group": "Tipo de usuario"
+    "_group": "Tipo de usuario",
+    "_firstname": "Nombre",
+    "_lastname": "Apellidos",
+    "_phone": "Teléfono",
+    "_country": "Pais",
+    "_city": "Ciudad",
+    "_zip": "Cód. Postal",
+    "_address": "Dirección",
+    "_borndate": "Fecha de nacimiento",
+    "groups": {
+        "root": "Root",
+        "admin": "Administrador",
+        "owner": "Propietario",
+        "customer": "Cliente"
+    }
   }
 }

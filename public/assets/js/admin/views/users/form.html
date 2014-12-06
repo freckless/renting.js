@@ -22,10 +22,50 @@
         </div>
         <div class="form-group">
             <label for="input-group">{{'users._group' | translate}}</label>
-            <select ng-model="user.group" ng-options="key for (value, key) in groups" class="form-control" id="input-group"></select>
+            <select ng-model="user.group" ng-init="user.group=''+user.group" ng-options="key as 'users.groups.'+value | translate for (key, value) in groups" class="form-control" id="input-group"></select>
+        </div>
+        <div class="form-group">
+            <label for="input-mail">{{'users._mail' | translate}}</label>
+            <input type="text" class="form-control" id="input-mail" ng-model="user.mail"/>
         </div>
     </div>
     <div class="col-sm-12 col-md-6">
         <h3>{{'users._personal_info' | translate}}</h3>
+        <div class="row">
+            <div class="col-xs-4">
+                <label for="input-firstname">{{'users._firstname' | translate}}</label>
+                <input type="text" class="form-control" id="input-firstname" ng-model="user.firstname"/>
+            </div>
+            <div class="col-xs-8">
+                <label for="input-lastname">{{'users._lastname' | translate}}</label>
+                <input type="text" class="form-control" id="input-lastname" ng-model="user.lastname"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-phone">{{'users._phone' | translate}}</label>
+            <input type="text" class="form-control" id="input-phone" ng-model="user.phone"/>
+        </div>
+        <div class="form-group">
+            <label for="input-country">{{'users._country' | translate}}</label>
+            <input type="text" class="form-control" id="input-country" ng-model="user.country"/>
+        </div>
+        <div class="row">
+            <div class="col-xs-9">
+                <label for="input-city">{{'users._city' | translate}}</label>
+                <input type="text" class="form-control" id="input-city" ng-model="user.city"/>
+            </div>
+            <div class="col-xs-3">
+                <label for="input-zip">{{'users._zip' | translate}}</label>
+                <input type="text" class="form-control" id="input-zip" ng-model="user.zip"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-address">{{'users._address' | translate}}</label>
+            <input type="text" class="form-control" id="input-address" ng-model="user.address"/>
+        </div>
+        <div class="form-group">
+            <label for="input-borndate">{{'users._borndate' | translate}}</label>
+            <input autocomplete="off" id="input-borndate" class="form-control" ng-model="user.borndate" data-starting-day="1" data-show-weeks="false" data-show-button-bar="false" datepicker-popup="{{ $locale.DATETIME_FORMATS.mediumDate }}" required />
+        </div>
     </div>
 </div>
