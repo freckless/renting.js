@@ -1,5 +1,5 @@
-// #adminApp Controller
-// Controlador que utilizaremos para a páxina principal do portal
+// #AdminAppController
+// Controlador que utilizaremos para a lanzar a aplicación do panel de xestión
 
 'use strict';
 
@@ -15,5 +15,5 @@ var AdminAppController = new AdminControllerBase({
     }
 });
 
-// Exportamos o controlador
+// ###Exportamos o módulo
 module.exports = AdminAppController;

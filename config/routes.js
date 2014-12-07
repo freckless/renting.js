@@ -37,7 +37,8 @@ var routes = {
     },
     '/admin/users/:id': {
         get: 'admin/users#find_one',
-        put: 'admin/users#update'
+        put: 'admin/users#update',
+        delete: 'admin/users#remove'
     }
 };
 

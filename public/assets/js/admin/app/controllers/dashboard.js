@@ -1,8 +1,13 @@
+// Dashboard Controller
+// ====================
+// Este controlador é o encargado de mostrar a páxina principal do
+// panel de xestión onde nun futuro podense engadir estadísticas, etc..
+
 'use strict';
 
-/**
- * Definimos as rutas para este controlador
- */
+// Rutas
+// -----
+// Definimos as rutas para o controlador
 angular.module('adminApp').config(['$routeProvider',
     function($routeProvider){
         $routeProvider.
@@ -13,6 +18,11 @@ angular.module('adminApp').config(['$routeProvider',
     }
 ]);
 
+// ##Controladores
+// Creamos os controladores necesarios para manexar as vistas
+
+// ###Controlador da páxina inicial
+// Controlador encargado de mostrar a páxina inicial
 angular.module('adminApp').controller('DashboardCtrl', ['$rootScope', function($rootScope) {
     $rootScope.current_section = 'dashboard';
 }]);

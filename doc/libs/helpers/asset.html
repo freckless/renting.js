@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head><title>libs/helpers/asset</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="libs/helpers/asset"><meta name="groc-project-path" content="libs/helpers/asset.js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">libs/helpers/asset.js</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="helper-para-os-assets">Helper para os Assets</h1></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Este helper axudaranos a incluir os recursos como imaxes, scripts
+e follas de estilo da carpeta assets so indicando o seu nome</p></div></div><div class="code"><div class="wrapper"><span class="hljs-pi">
+'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="dependencias-do-mdulo">Dependencias do módulo</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> config = global.config,
+    _ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'lodash'</span>),
+    html = <span class="hljs-built_in">require</span>(config.paths.helpers + <span class="hljs-string">'html.js'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="lxica-do-helper">Lóxica do helper</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> helper = {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Creación de imaxes</p></div></div><div class="code"><div class="wrapper">    img: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        <span class="hljs-keyword">return</span> html.img(<span class="hljs-string">'/assets/img/'</span> + <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>], <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>] || {});
+    },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Javascript</p></div></div><div class="code"><div class="wrapper">    js: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        <span class="hljs-keyword">var</span> files = [];
+        _.forEach(<span class="hljs-built_in">arguments</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(file, index)</span> {</span>
+            files[index] = <span class="hljs-string">'/assets/js/'</span> + file;
+        });
+
+        <span class="hljs-keyword">return</span> html.js.apply(<span class="hljs-literal">null</span>, files);
+    },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Stylesheets</p></div></div><div class="code"><div class="wrapper">    css: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        <span class="hljs-keyword">var</span> files = [];
+        _.forEach(<span class="hljs-built_in">arguments</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(file, index)</span> {</span>
+            files[index] = <span class="hljs-string">'/assets/css/'</span> + file;
+        });
+
+        <span class="hljs-keyword">return</span> html.css.apply(<span class="hljs-literal">null</span>, files);
+    },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>SVG Icons</p></div></div><div class="code"><div class="wrapper">    icon: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(symbol, file, classes)</span> {</span>
+        <span class="hljs-keyword">var</span> extra_css = <span class="hljs-string">''</span>;
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> classes !== <span class="hljs-string">'undefined'</span>) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> classes === <span class="hljs-string">'string'</span>) {
+                extra_css = <span class="hljs-string">' '</span>+classes;
+            } <span class="hljs-keyword">else</span> {
+                extra_css = <span class="hljs-string">' '</span>+classes.join(<span class="hljs-string">' '</span>);
+            }
+        }
+
+        <span class="hljs-keyword">var</span> html = <span class="hljs-string">'&lt;svg class="icon'</span>+extra_css+<span class="hljs-string">'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"&gt;'</span>+
+                   <span class="hljs-string">'&lt;use xlink:href="/assets/img/'</span>+file+<span class="hljs-string">'#'</span>+symbol+<span class="hljs-string">'"&gt;&lt;/use&gt;'</span>+
+                   <span class="hljs-string">'&lt;/svg&gt;'</span>;
+        <span class="hljs-keyword">return</span> html;
+    }
+};
+
+module.exports = helper;</div></div></div></div></body></html>

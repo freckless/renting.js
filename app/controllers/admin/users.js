@@ -1,5 +1,11 @@
+// #AdminUsersController
+// Controlador que utilizaremos como API para a creción, modificación
+// e borrado de usuarios dende o panel de xestión.
+
 'use strict';
 
+// Dependencias do módulo
+// ----------------------
 var config = global.config,
     AdminControllerBase = require(config.paths.controllers + 'admin/base.js'),
     restComponent = require(config.paths.components + 'rest.js'),
@@ -8,10 +14,11 @@ var config = global.config,
 
 // ##Accións do controlador
 var AdminUsersController = new AdminControllerBase({
+
 });
 
-// ##Load REST actions
-AdminUsersController = restComponent.call(AdminUsersController, User, ['country']);
+// ##Facemos o controlador REST có modelo User
+AdminUsersController = restComponent.call(AdminUsersController, User);
 
-// Exportamos o controlador
+// ###Exportamos o modulo
 module.exports = AdminUsersController;

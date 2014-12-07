@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><title>app/controllers/admin</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="app/controllers/admin"><meta name="groc-project-path" content="app/controllers/admin.js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">app/controllers/admin.js</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="admincontroller">AdminController</h1>
+<p>Controlador que utilizaremos para o login e acceso o panel de xestión</p></div></div><div class="code"><div class="wrapper"><span class="hljs-pi">
+'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="dependencias-do-mdulo">Dependencias do módulo</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> config = global.config,
+    BaseController = <span class="hljs-built_in">require</span>(config.paths.controllers + <span class="hljs-string">'base.js'</span>),
+    AuthComponent = <span class="hljs-built_in">require</span>(config.paths.components + <span class="hljs-string">'auth.js'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="accins-do-controlador">Accións do controlador</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> AdminController = <span class="hljs-keyword">new</span> BaseController({
+    action_login: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+        res.render(<span class="hljs-string">'admin/login'</span>, { layout: <span class="hljs-literal">false</span> });
+    },
+    action_perform_login: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+        AuthComponent.authenticate(req, res, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(user)</span> {</span>
+            <span class="hljs-keyword">if</span> (user) {
+                req.flash(<span class="hljs-string">'info'</span>, global.i18n.translate(<span class="hljs-string">'welcome :user'</span>, { user: user.username }));
+                res.redirect(<span class="hljs-string">'/admin'</span>);
+            } <span class="hljs-keyword">else</span> {
+                req.flash(<span class="hljs-string">'info'</span>, global.i18n.translate(<span class="hljs-string">'username or password are wrong'</span>));
+                res.redirect(<span class="hljs-string">'/admin/login'</span>);
+            }
+        });
+    },
+    action_logout: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+        AuthComponent.deauthenticate(req, res, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            req.flash(<span class="hljs-string">'info'</span>, global.i18n.translate(<span class="hljs-string">'disconectect'</span>));
+            res.redirect(<span class="hljs-string">'/admin/login'</span>);
+        });
+    }
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="exportamos-o-mdulo">Exportamos o módulo</h3></div></div></div><div class="segment"><div class="code"><div class="wrapper">module.exports = AdminController;</div></div></div></div></body></html>

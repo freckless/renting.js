@@ -5,7 +5,13 @@
     "edit": "Editar",
     "delete": "Eliminar",
     "add": "Crear",
-    "go_back": "Volver"
+    "go_back": "Volver",
+    "cancel": "Cancelar",
+    "save": "Guardar cambios",
+    "are_you_sure": "¿Estás seguro/a?",
+    "changes_has_been_saved": "Los cambios han sido guardados",
+    "an_error_has_been_ocurred": "Ha ocurrido un error",
+    "object_has_been_removed": "Eliminado correctamente"
   },
   "dashboard": {
     "title": "Dashboard"

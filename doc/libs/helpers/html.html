@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="en"><head><title>libs/helpers/html</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="libs/helpers/html"><meta name="groc-project-path" content="libs/helpers/html.js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">libs/helpers/html.js</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="helper-para-html">Helper para HTML</h1></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Este helper será o encargado de facernos a vida máis doada á hora de
+crear as etiquetas HTML máis utilizadas</p></div></div><div class="code"><div class="wrapper"><span class="hljs-pi">
+'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="dependencias-do-mdulo">Dependencias do módulo</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> _ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'lodash'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="lxica-do-helper">Lóxica do helper</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> helper = {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Creación de imaxes</p></div></div><div class="code"><div class="wrapper">    img: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(src, options)</span> {</span>
+        options = _.assign({
+            src: src
+        }, options);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.tag_builder(<span class="hljs-string">'img'</span>, options);
+    },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Creación de links</p></div></div><div class="code"><div class="wrapper">    anchor: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(link, inner, options)</span> {</span>
+        options = _.assign({
+            href: link
+        }, options);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.tag_builder(<span class="hljs-string">'a'</span>, options, inner);
+    },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Javascript</p></div></div><div class="code"><div class="wrapper">    js: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        <span class="hljs-keyword">var</span> code = <span class="hljs-string">''</span>;
+        _.forEach(<span class="hljs-built_in">arguments</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(file)</span> {</span>
+            <span class="hljs-keyword">var</span> options = {
+                type: <span class="hljs-string">'text/javascript'</span>,
+                src: file
+            };
+            code += helper.tag_builder(<span class="hljs-string">'script'</span>, options, <span class="hljs-string">''</span>);
+        });
+        <span class="hljs-keyword">return</span> code;
+    },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Stylesheets</p></div></div><div class="code"><div class="wrapper">    css: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        <span class="hljs-keyword">var</span> code = <span class="hljs-string">''</span>;
+        _.forEach(<span class="hljs-built_in">arguments</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(file)</span> {</span>
+            <span class="hljs-keyword">var</span> options = {
+                rel: <span class="hljs-string">'stylesheet'</span>,
+                type: <span class="hljs-string">'text/css'</span>,
+                href: file
+            };
+            code += helper.tag_builder(<span class="hljs-string">'link'</span>, options);
+        });
+        <span class="hljs-keyword">return</span> code;
+    },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Creación xeral de etiquetas</p></div></div><div class="code"><div class="wrapper">    tag_builder: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(tag, params, inner)</span> {</span>
+        <span class="hljs-keyword">var</span> code = <span class="hljs-string">'&lt;'</span>+tag;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> params) {
+            <span class="hljs-keyword">var</span> value = params[key];
+            code += <span class="hljs-string">' '</span>+key+<span class="hljs-string">'="'</span>+value+<span class="hljs-string">'"'</span>;
+        }
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span>(inner) !== <span class="hljs-string">'undefined'</span>) {
+            code += <span class="hljs-string">'&gt;'</span>+inner+<span class="hljs-string">'&lt;/'</span>+tag+<span class="hljs-string">'&gt;'</span>;
+        } <span class="hljs-keyword">else</span> {
+            code += <span class="hljs-string">' /&gt;'</span>;
+        }
+
+        <span class="hljs-keyword">return</span> code;
+    }
+};
+
+module.exports = helper;</div></div></div></div></body></html>

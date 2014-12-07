@@ -1,4 +1,4 @@
-// #ControllerBase
+// #BaseController
 // Controlador que utilizaremos como interface para todos os
 // demais controladores xa que con el poderemos crear accións comúns
 // para todos os controladores seguindo un estandar.
@@ -9,11 +9,11 @@
 var _ = require('lodash');
 
 // Lóxica do módulo e funcións da inferface
-var ControllerBase = function(methods){
+var BaseController = function(methods){
     this.extend(methods);
 };
 
-ControllerBase.prototype = {
+BaseController.prototype = {
     before: function(req, res, next) { next(); },
     after: function(req, res, next) { next(); },
     extend: function(methods) {
@@ -21,5 +21,5 @@ ControllerBase.prototype = {
     }
 };
 
-// Exportamos o módulo
-module.exports = ControllerBase;
+// ###Exportamos o módulo
+module.exports = BaseController;

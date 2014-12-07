@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head><title>public/assets/js/website/plugins/parallax</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../../../"><meta name="groc-document-path" content="public/assets/js/website/plugins/parallax"><meta name="groc-project-path" content="public/assets/js/website/plugins/parallax.js"><link rel="stylesheet" type="text/css" media="all" href="../../../../../assets/style.css"><script type="text/javascript" src="../../../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">public/assets/js/website/plugins/parallax.js</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-pi">'use strict'</span>;
+
+(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($)</span>{</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Plugin definition *</p></div></div><div class="code"><div class="wrapper">  $.fn.parallax = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+    <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+      <span class="hljs-keyword">if</span> ($(<span class="hljs-keyword">this</span>).data(<span class="hljs-string">'parallax'</span>)) <span class="hljs-keyword">return</span> $(<span class="hljs-keyword">this</span>).data(<span class="hljs-string">'parallax'</span>);
+      <span class="hljs-keyword">var</span> container = $(<span class="hljs-keyword">this</span>);
+      <span class="hljs-keyword">var</span> options = {
+        image: container.data(<span class="hljs-string">'image'</span>),
+        width: container.data(<span class="hljs-string">'width'</span>) || <span class="hljs-number">1600</span>,
+        height: container.data(<span class="hljs-string">'height'</span>) || <span class="hljs-number">1000</span>,
+        gravity: container.data(<span class="hljs-string">'gravity'</span>) || <span class="hljs-string">'center'</span>
+      };
+
+      <span class="hljs-keyword">var</span> parallax = <span class="hljs-keyword">new</span> Parallax(container, options);
+      parallax.init();
+
+      container.data(<span class="hljs-string">'parallax'</span>, parallax);
+      <span class="hljs-keyword">return</span> parallax;
+    });
+  };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Class definition *</p></div></div><div class="code"><div class="wrapper">  <span class="hljs-keyword">var</span> Parallax = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(container, options)</span> {</span>
+    <span class="hljs-keyword">this</span>.container = container;
+    <span class="hljs-keyword">this</span>.options = options;
+  };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Class prototype *</p></div></div><div class="code"><div class="wrapper">  Parallax.prototype = {
+    init: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Setting vars</p></div></div><div class="code"><div class="wrapper">      <span class="hljs-keyword">this</span>.image_element = <span class="hljs-keyword">this</span>.timeout = <span class="hljs-literal">null</span>;
+
+      <span class="hljs-keyword">var</span> loader = window.Loader();
+      <span class="hljs-keyword">this</span>.container.append(loader.element);
+      <span class="hljs-keyword">this</span>.loader = loader;
+
+      <span class="hljs-keyword">var</span> image_container = $(<span class="hljs-string">'&lt;div /&gt;'</span>).addClass(<span class="hljs-string">'background'</span>);
+      <span class="hljs-keyword">this</span>.container.append(image_container);
+      <span class="hljs-keyword">this</span>.image_container = image_container;
+
+      <span class="hljs-keyword">var</span> image_element = $(<span class="hljs-string">'&lt;img class="background" /&gt;'</span>);
+      image_element.attr(<span class="hljs-string">'src'</span>, <span class="hljs-keyword">this</span>.options.image);
+      image_element.addClass(<span class="hljs-string">'gravity-'</span>+<span class="hljs-keyword">this</span>.options.gravity);
+      image_element.attr(<span class="hljs-string">'data-no-retina'</span>, <span class="hljs-literal">true</span>);
+      image_element.css({visibility: <span class="hljs-string">'hidden'</span>});
+
+      image_container.append(image_element);
+      <span class="hljs-keyword">this</span>.image_element = image_element;
+
+      <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>;
+      <span class="hljs-keyword">this</span>.image_element.load(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        that.resize();
+        that.scroll();
+        <span class="hljs-keyword">var</span> those = $(<span class="hljs-keyword">this</span>);
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+          image_element.hide().css({visibility: <span class="hljs-string">'visible'</span>});
+          those.fadeIn(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            that.container.find(<span class="hljs-string">'.content'</span>).fadeIn();
+            $(<span class="hljs-keyword">this</span>).addClass(<span class="hljs-string">'ready'</span>);
+            those.resize();
+          });
+          that.loader.remove();
+        }, <span class="hljs-number">100</span>);
+      });
+
+      $(window).resize(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+        <span class="hljs-keyword">if</span> (that.timeout) clearTimeout(that.timeout);
+        that.timeout = setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span> that.resize(); }, <span class="hljs-number">100</span>);
+      });
+
+      $(document).scroll(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        that.scroll();
+      });
+    },
+    scroll: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.shown()) {
+        <span class="hljs-keyword">var</span> Czero = <span class="hljs-keyword">this</span>.container.position().top;
+        <span class="hljs-keyword">var</span> scroll = $(document).scrollTop();
+        <span class="hljs-keyword">var</span> relativeScroll = scroll - Czero + <span class="hljs-number">70</span>;
+        <span class="hljs-keyword">var</span> marginTop = relativeScroll * <span class="hljs-number">0.4</span>;
+        <span class="hljs-keyword">var</span> style = {
+          <span class="hljs-string">'-webkit-transition-duration'</span>: <span class="hljs-string">'0'</span>,
+          <span class="hljs-string">'-webkit-transform'</span>: <span class="hljs-string">'translate3d(0, '</span> + marginTop + <span class="hljs-string">'px, 0)'</span>,
+          <span class="hljs-string">'-moz-transition-duration'</span>: <span class="hljs-string">'0'</span>,
+          <span class="hljs-string">'-moz-transform'</span>: <span class="hljs-string">'translate3d(0, '</span> + marginTop + <span class="hljs-string">'px, 0)'</span>,
+          <span class="hljs-string">'transition-duration'</span>: <span class="hljs-string">'0'</span>,
+          <span class="hljs-string">'transform'</span>: <span class="hljs-string">'translate3d(0, '</span> + marginTop + <span class="hljs-string">'px, 0)'</span>
+        };
+        <span class="hljs-keyword">this</span>.image_container.css(style);
+      }
+    },
+    shown: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+      <span class="hljs-keyword">var</span> Cheight = <span class="hljs-keyword">this</span>.container.height();
+      <span class="hljs-keyword">var</span> Czero = <span class="hljs-keyword">this</span>.container.position().top;
+      <span class="hljs-keyword">var</span> Wheight = $(window).height();
+      <span class="hljs-keyword">var</span> scroll = $(document).scrollTop();
+
+      <span class="hljs-keyword">if</span> ((Czero + Cheight) &gt;= scroll &amp;&amp; Czero &lt;= (scroll + Wheight)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+      }
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    },
+    resize: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+      <span class="hljs-keyword">var</span> Cwidth = <span class="hljs-keyword">this</span>.container.width();
+      <span class="hljs-keyword">var</span> Cheight = <span class="hljs-keyword">this</span>.container.height();
+      <span class="hljs-keyword">var</span> container_aspect_ratio = Cwidth / Cheight;
+      <span class="hljs-keyword">var</span> image_aspect_ratio = <span class="hljs-keyword">this</span>.options.width / <span class="hljs-keyword">this</span>.options.height;
+      <span class="hljs-keyword">var</span> style = {
+        width: <span class="hljs-number">0</span>,
+        height: <span class="hljs-number">0</span>,
+        left: <span class="hljs-string">'auto'</span>,
+        top: <span class="hljs-string">'auto'</span>,
+        bottom: <span class="hljs-string">'auto'</span>
+      };
+
+      <span class="hljs-keyword">if</span> (container_aspect_ratio &gt; image_aspect_ratio) {
+        style.width = Cwidth;
+        style.height = Cwidth / image_aspect_ratio;
+
+        <span class="hljs-keyword">if</span> (style.height &gt; Cheight) {
+          <span class="hljs-keyword">switch</span> (<span class="hljs-keyword">this</span>.options.gravity) {
+            <span class="hljs-keyword">case</span> <span class="hljs-string">'center'</span>:
+            style.top = (Cheight - style.height) / <span class="hljs-number">2</span>;
+            <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">'bottom'</span>:
+            style.bottom = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">'top'</span>:
+            style.top = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">break</span>;
+          }
+        }
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (container_aspect_ratio &lt; image_aspect_ratio) {
+        style.height = Cheight;
+        style.width = Cheight * image_aspect_ratio;
+
+        <span class="hljs-keyword">if</span> (style.width &gt; Cwidth) {
+          style.left = (Cwidth - style.width) / <span class="hljs-number">2</span>;
+        }
+      } <span class="hljs-keyword">else</span> {
+        style.width = Cwidth;
+        style.height = Cheight;
+      }
+      <span class="hljs-keyword">this</span>.image_element.css(style);
+    }
+  };
+
+})(jQuery);</div></div></div></div></body></html>

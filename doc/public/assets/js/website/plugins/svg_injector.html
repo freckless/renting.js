@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head><title>public/assets/js/website/plugins/svg_injector</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../../../"><meta name="groc-document-path" content="public/assets/js/website/plugins/svg_injector"><meta name="groc-project-path" content="public/assets/js/website/plugins/svg_injector.js"><link rel="stylesheet" type="text/css" media="all" href="../../../../../assets/style.css"><script type="text/javascript" src="../../../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">public/assets/js/website/plugins/svg_injector.js</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-pi">'use strict'</span>;
+
+(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($)</span>{</span>
+    <span class="hljs-keyword">var</span> svgNS = <span class="hljs-string">'http://www.w3.org/2000/svg'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>animatedSprite plugin definition *</p></div></div><div class="code"><div class="wrapper">    $.fn.svgInjector = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">if</span> ($(<span class="hljs-keyword">this</span>).data(<span class="hljs-string">'animatedSprite'</span>)) $(<span class="hljs-keyword">this</span>).data(<span class="hljs-string">'animatedSprite'</span>);
+            <span class="hljs-keyword">var</span> container = $(<span class="hljs-keyword">this</span>);
+            <span class="hljs-keyword">var</span> options = {
+                source: container.data(<span class="hljs-string">'src'</span>),
+                symbol: container.data(<span class="hljs-string">'symbol'</span>)
+            };
+
+            <span class="hljs-keyword">var</span> svgInjector = <span class="hljs-keyword">new</span> SVGInjector(container, options);
+            svgInjector.init();
+
+            container.data(<span class="hljs-string">'svgInjector'</span>, svgInjector);
+        });
+    };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Class definition *</p></div></div><div class="code"><div class="wrapper">    <span class="hljs-keyword">var</span> SVGInjector = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(container, options)</span> {</span>
+        <span class="hljs-keyword">this</span>.container = container;
+        <span class="hljs-keyword">this</span>.options = options;
+    };
+
+    window.cachedSVG = {};</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Class prototype *</p></div></div><div class="code"><div class="wrapper">    SVGInjector.prototype = {
+        render: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">var</span> svg = <span class="hljs-keyword">this</span>.svg_data;
+            <span class="hljs-keyword">var</span> symbol = svg.getElementById(<span class="hljs-keyword">this</span>.options.symbol);
+            <span class="hljs-keyword">var</span> view_box = symbol.getAttribute(<span class="hljs-string">'viewBox'</span>);
+            <span class="hljs-keyword">var</span> child_nodes = symbol.childNodes;
+            <span class="hljs-keyword">var</span> svg_element = <span class="hljs-keyword">this</span>.createSVG();
+            svg_element.setAttribute(<span class="hljs-string">'viewBox'</span>, view_box);
+            $.each(child_nodes, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                svg_element.appendChild(<span class="hljs-keyword">this</span>.cloneNode(<span class="hljs-literal">true</span>));
+            });
+            <span class="hljs-keyword">this</span>.container.replaceWith(svg_element);
+        },
+        init: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">this</span>.svg_data = <span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">this</span>.loadSVG(<span class="hljs-keyword">this</span>.render);
+        },
+        createSVG: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">var</span> svg = document.createElementNS(svgNS, <span class="hljs-string">'svg'</span>);
+            svg.setAttribute(<span class="hljs-string">'xmlns'</span>, <span class="hljs-string">'http://www.w3.org/2000/svg'</span>);
+            svg.setAttribute(<span class="hljs-string">'class'</span>, <span class="hljs-keyword">this</span>.container.get(<span class="hljs-number">0</span>).className);
+            <span class="hljs-keyword">return</span> svg;
+        },
+        loadSVG: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>.options.source;
+            <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>;
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Object</span>.keys(window.cachedSVG).indexOf(source) &gt; -<span class="hljs-number">1</span>) {
+                that.svg_data = window.cachedSVG[source];
+                that.render();
+            } <span class="hljs-keyword">else</span> {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>load</p></div></div><div class="code"><div class="wrapper">                $.get(source, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(res)</span> {</span>
+                    <span class="hljs-keyword">var</span> parser = <span class="hljs-keyword">new</span> DOMParser();
+                    <span class="hljs-keyword">var</span> svg = parser.parseFromString(res, <span class="hljs-string">'text/xml'</span>);
+                    that.svg_data = svg;
+                    window.cachedSVG[source] = svg;
+                    that.render();
+                }, <span class="hljs-string">'text'</span>);
+            }
+        }
+    };
+})(jQuery);</div></div></div></div></body></html>

@@ -1,4 +1,4 @@
-// #AdminControllerBase
+// #AdminBaseController
 // Controlador que utilizaremos como base para os controladores da
 // administración xa que proporciona autenticación.
 
@@ -10,11 +10,11 @@ var config = global.config,
     AuthComponent = require(config.paths.components + 'auth.js');
 
 // Lóxica do módulo e funcións da inferface
-var AdminControllerBase = function(methods){
+var AdminBaseController = function(methods){
     this.extend(methods);
 };
 
-AdminControllerBase.prototype = {
+AdminBaseController.prototype = {
     before: function(req, res, next) {
         AuthComponent.getUser(req, res, function (user) {
             if (user && [1, 2].indexOf(user.group) > -1) {
@@ -38,5 +38,5 @@ AdminControllerBase.prototype = {
     }
 };
 
-// Exportamos o módulo
-module.exports = AdminControllerBase;
+// ###Exportamos o módulo
+module.exports = AdminBaseController;

@@ -18,7 +18,7 @@ angular.module('adminApp').config(['$routeProvider',
             }).
             when('/users/create', {
                 templateUrl: 'assets/js/admin/views/users/form.html',
-                controller: 'UsersCreateCtrl',
+                controller: 'UsersFormCtrl',
                 resolve: {
                     // Creamos el nuevo Usuario
                     User: function(UserService) {
@@ -42,19 +42,30 @@ angular.module('adminApp').config(['$routeProvider',
 /**
  * Definimos el controlador encargado de mostrar el listado de usuarios
  */
-angular.module('adminApp').controller('UsersIndexCtrl', function($scope, $rootScope, Users) {
+angular.module('adminApp').controller('UsersIndexCtrl', function($scope, $rootScope, $filter, $flash, $timeout, Users) {
     // Definimos la sección actual
     $rootScope.current_section = 'users';
 
     // Definimos los usuarios en $scope
     $scope.users = Users;
+
+    // Definimos la función para eliminar a usuarios
+    $scope.deleteUser = function($index) {
+        if (confirm($filter('translate')('admin.are_you_sure'))) {
+            $scope.users[$index].$delete(function() {
+                $flash.set('success', 'admin.object_has_been_removed');
+                $flash.show();
+                $scope.users.splice($index, 1);
+            });
+        }
+    };
 });
 
 /**
  * Definimos el controlador encargado de mostrar los datos del usuario en un formulario
  * si estamos editandolo y guardarlos
  */
-angular.module('adminApp').controller('UsersFormCtrl', function($scope, $rootScope, User) {
+angular.module('adminApp').controller('UsersFormCtrl', function($scope, $rootScope, $filter, $location, $flash, User) {
     // Definimos la sección actual
     $rootScope.current_section = 'users';
 
@@ -68,11 +79,55 @@ angular.module('adminApp').controller('UsersFormCtrl', function($scope, $rootSco
         4: 'customer'
     };
 
+    // Añadimos el usuario a $scope
+    $scope.user = User;
+
+    // Datepicker
+    $scope.dateOptions = {
+        startingDay: 1,
+        showWeeks: false,
+        showButtonBar: false
+    };
+    $scope.openDatePicker = function() {
+        $scope.opened = true;
+    };
+
     // Si el usuario es Root, añadimos root al listado de grupos
     if (User.group === 1) {
         $scope.groups[1] = 'root';
     }
+    
+    // Enviamos os datos do usuario o servidor    
+    $scope.saveUser = function() {
+        // Gardamos a contraseña se se escribiu unha nova
+        if ($scope.password) {
+            $scope.user.password = $scope.password;
+        }
 
-    // Añadimos el usuario a $scope
-    $scope.user = User;
+        // Se é unha actualización executamos o método $update e se non, $save.
+        if ($scope.user._id) {
+            $scope.user.$update(function() {
+                $flash.set('success', 'admin.changes_has_been_saved');
+                $location.path('/users');
+            });
+        } else {
+            $scope.user.$save(function() {
+                $flash.set('success', 'admin.changes_has_been_saved');
+                $location.path('/users');
+            });
+        }
+        
+    };
+
+    // Cancelamos a acción e volvemos atrás sen gardar ningún cambio
+    $scope.cancel = function() {
+        // Se o formulario foi modificado preguntamos ó
+        // usuario se está seguro de cancelar.
+        if ( ! $scope.form.$pristine) {
+            if ( ! confirm($filter('translate')('admin.are_you_sure'))) {
+                return false;
+            }
+        }
+        window.history.back();
+    };
 });

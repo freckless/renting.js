@@ -1,18 +1,18 @@
-// #Home Controller
+// #HomeController
 // Controlador que utilizaremos para a páxina principal do portal
 
 'use strict';
 
 // ##Dependencias do módulo
 var config = global.config,
-    ControllerBase = require(config.paths.controllers + 'base.js');
+    BaseController = require(config.paths.controllers + 'base.js');
 
 // ##Accións do controlador
-var HomeController = new ControllerBase({
+var HomeController = new BaseController({
     action_index: function(req, res) {
         res.render('home/index', { layout: 'template' });
     }
 });
 
-// Exportamos o controlador
+// ###Exportamos o módulo
 module.exports = HomeController;

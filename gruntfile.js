@@ -48,6 +48,7 @@ module.exports = function(grunt) {
                         'public/assets/js/admin/app/app.js',
                         'public/assets/js/admin/app/config.js',
                         'public/assets/js/admin/app/services/*.js',
+                        'public/assets/js/admin/app/factories/*.js',
                         'public/assets/js/admin/app/directives/*.js',
                         'public/assets/js/admin/app/controllers/*.js'
                     ]

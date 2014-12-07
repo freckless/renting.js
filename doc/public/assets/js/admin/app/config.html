@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head><title>public/assets/js/admin/app/config</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../../../"><meta name="groc-document-path" content="public/assets/js/admin/app/config"><meta name="groc-project-path" content="public/assets/js/admin/app/config.js"><link rel="stylesheet" type="text/css" media="all" href="../../../../../assets/style.css"><script type="text/javascript" src="../../../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">public/assets/js/admin/app/config.js</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-pi">'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="configuracin-da-app-quotadminappquot">Configuración da app &quot;adminApp&quot;</h1></div></div></div><div class="segment"><div class="code"><div class="wrapper">angular.module(<span class="hljs-string">'adminApp'</span>).config([
+    <span class="hljs-string">'$locationProvider'</span>,
+    <span class="hljs-string">'$routeProvider'</span>,
+    <span class="hljs-string">'$translateProvider'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($locationProvider, $routeProvider, $translateProvider)</span> {</span>
+        $translateProvider.useStaticFilesLoader({
+            prefix: <span class="hljs-string">'/assets/js/admin/i18n/'</span>,
+            suffix: <span class="hljs-string">'.json'</span>
+        });
+
+        $translateProvider.preferredLanguage(<span class="hljs-string">'es'</span>);
+
+        $locationProvider.hashPrefix(<span class="hljs-string">'!'</span>);
+        
+        $routeProvider.otherwise({
+            redirectTo: <span class="hljs-string">'/'</span>
+        });
+    }
+]);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="configuramos-a-execucin-da-app-quotadminappquot">Configuramos a execución da app &quot;adminApp&quot;</h1></div></div></div><div class="segment"><div class="code"><div class="wrapper">angular.module(<span class="hljs-string">'adminApp'</span>).run([<span class="hljs-string">'$rootScope'</span>, <span class="hljs-string">'$location'</span>, <span class="hljs-string">'$translate'</span>, <span class="hljs-string">'$locale'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($rootScope, $location, $translate, $locale)</span> {</span>
+        $rootScope.$location = $location;
+        $rootScope.$translate = $translate;
+        $rootScope.$locale = $locale;
+    }
+]);</div></div></div></div></body></html>

@@ -1,15 +1,15 @@
-// #Home Controller
-// Controlador que utilizaremos para a páxina principal do portal
+// #AdminController
+// Controlador que utilizaremos para o login e acceso o panel de xestión
 
 'use strict';
 
 // ##Dependencias do módulo
 var config = global.config,
-    ControllerBase = require(config.paths.controllers + 'base.js'),
+    BaseController = require(config.paths.controllers + 'base.js'),
     AuthComponent = require(config.paths.components + 'auth.js');
 
 // ##Accións do controlador
-var AdminController = new ControllerBase({
+var AdminController = new BaseController({
     action_login: function(req, res) {
         res.render('admin/login', { layout: false });
     },
@@ -32,5 +32,5 @@ var AdminController = new ControllerBase({
     }
 });
 
-// Exportamos o controlador
+// ###Exportamos o módulo
 module.exports = AdminController;

@@ -1,4 +1,4 @@
 {
     "glob": ["**/*.js"],
-    "except": ["node_modules/**/*.js", "config/env/*.js"]
+    "except": ["node_modules/**/*.js", "config/env/*.js", "public/libs/**/*"]
 }

@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en"><head><title>gruntfile</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="gruntfile"><meta name="groc-project-path" content="gruntfile.js"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path">gruntfile.js</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-pi">'use strict'</span>;
+
+module.exports = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(grunt)</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Cargamos as dependencias das tarefas</p></div></div><div class="code"><div class="wrapper">    grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-sass'</span>);
+    grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-watch'</span>);
+    grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-uglify'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Configuramos as tarefas</p></div></div><div class="code"><div class="wrapper">    grunt.initConfig({
+        pkg: grunt.file.readJSON(<span class="hljs-string">'package.json'</span>),
+        watch: {
+            sass: {
+                files: [<span class="hljs-string">'public/assets/css/**/*.sass'</span>],
+                tasks: [<span class="hljs-string">'sass:dev'</span>]
+            },
+            views: {
+                files: [<span class="hljs-string">'app/views/**/*.ejs'</span>],
+                options: {
+                    livereload: <span class="hljs-literal">true</span>
+                }
+            },
+            livereload: {
+                files: [
+                    <span class="hljs-string">'public/assets/css/*.css'</span>,
+                    <span class="hljs-string">'public/assets/js/**/*.js'</span>,
+                    <span class="hljs-string">'!public/assets/js/admin/**/*.js'</span>
+                ],
+                options: {
+                    livereload: <span class="hljs-literal">true</span>
+                }
+            },
+            admin_app: {
+                files: [
+                    <span class="hljs-string">'public/assets/js/admin/**/*.js'</span>,
+                    <span class="hljs-string">'!public/assets/js/admin/app.js'</span>
+                ],
+                tasks: [<span class="hljs-string">'uglify'</span>],
+                options: {
+                    livereload: <span class="hljs-literal">true</span>
+                }
+            }
+        },
+        uglify: {
+            admin_app: {
+                files: {
+                    <span class="hljs-string">'public/assets/js/admin/app.js'</span>: [
+                        <span class="hljs-string">'public/assets/js/admin/app/app.js'</span>,
+                        <span class="hljs-string">'public/assets/js/admin/app/config.js'</span>,
+                        <span class="hljs-string">'public/assets/js/admin/app/services/*.js'</span>,
+                        <span class="hljs-string">'public/assets/js/admin/app/factories/*.js'</span>,
+                        <span class="hljs-string">'public/assets/js/admin/app/directives/*.js'</span>,
+                        <span class="hljs-string">'public/assets/js/admin/app/controllers/*.js'</span>
+                    ]
+                },
+                options: {
+                    mangle: <span class="hljs-literal">false</span>
+                }
+            }
+        },
+        sass: {
+            dev: {
+                options: {
+                    cacheLocation: <span class="hljs-string">'tmp/sass-cache'</span>
+                },
+                files: {
+                    <span class="hljs-string">'public/assets/css/website.css'</span>: <span class="hljs-string">'public/assets/css/website.sass'</span>,
+                    <span class="hljs-string">'public/assets/css/admin.css'</span>: <span class="hljs-string">'public/assets/css/admin.sass'</span>,
+                    <span class="hljs-string">'public/assets/css/icons.css'</span>: <span class="hljs-string">'public/assets/css/resources/icons.sass'</span>
+                }
+            }
+        }
+    });</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Rexistramos as tarefas a executar</p></div></div><div class="code"><div class="wrapper">    grunt.registerTask(<span class="hljs-string">'default'</span>, [<span class="hljs-string">'watch'</span>]);
+    grunt.registerTask(<span class="hljs-string">'console'</span>, <span class="hljs-string">'Launch a console'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        <span class="hljs-keyword">var</span> done = <span class="hljs-keyword">this</span>.async();
+
+        <span class="hljs-keyword">var</span> repl = <span class="hljs-built_in">require</span>(<span class="hljs-string">'repl'</span>);
+        <span class="hljs-keyword">var</span> shell = repl.start({
+            prompt: <span class="hljs-string">'renting.js &gt; '</span>,
+            useColors: <span class="hljs-literal">true</span>
+        });
+        process.console = <span class="hljs-literal">true</span>;
+        <span class="hljs-built_in">require</span>(<span class="hljs-string">'./server.js'</span>);
+
+        shell.on(<span class="hljs-string">'exit'</span>, done);
+    });
+};</div></div></div></div></body></html>

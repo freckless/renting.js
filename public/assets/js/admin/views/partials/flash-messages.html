@@ -1,0 +1,6 @@
+<div class="flash-message" ng-show="flash_message">
+    <div class="alert alert-dismissible alert-{{flash_message.type}}">
+        <button type="button" class="close" ng-click="$root.flash_message=null"><span aria-hidden="true">&times;</span></button>
+        {{flash_message.message | translate}}
+    </div>
+</div>

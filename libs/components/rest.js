@@ -1,7 +1,16 @@
+// Rest component
+// ==============
+// Este component ocuparase de engadir todas as accións necesarias para un
+// servicio REST ós controladores que sexa preciso.
+
 'use strict';
 
+// Dependencias do módulo
+// ----------------------
 var _ = require('lodash');
 
+
+// Lóxica do compoñente
 var restComponent = function(model, populate) {
     var restconfig = {
         model: model,
@@ -10,7 +19,12 @@ var restComponent = function(model, populate) {
 
     this.query = function(id) {
         if (typeof(id) === 'undefined') id = null;
-        var query = restconfig.model.find(id);
+        var query = restconfig.model;
+        if (id) {
+            query = query.findOne({_id: id});
+        } else {
+            query = query.find();
+        }
         if (this.populate) {
             _.each(populate, function(relation) {
                 query.populate(relation);
@@ -22,7 +36,7 @@ var restComponent = function(model, populate) {
     this.action_find_all = function(req, res) {
         this.query().exec(function(err, data) {
             if (err) {
-                res.json({error: 'Problem with users request'});
+                res.json({error: 'Problem with the request'});
             } else {
                 res.json(data);
             }
@@ -30,9 +44,9 @@ var restComponent = function(model, populate) {
     };
 
     this.action_find_one = function(req, res) {
-        restconfig.model.findById(req.params.id).populate('country').exec(function(err, data) {
+        this.query(req.params.id).exec(function(err, data) {
             if (err) {
-                res.json({error: 'We can\'t found this user'});
+                res.json({error: 'We can\'t found the object'});
             } else {
                 res.json(data);
             }
@@ -40,8 +54,8 @@ var restComponent = function(model, populate) {
     };
 
     this.action_create = function(req, res) {
-        var obj = new this.model(req.body);
-        obj.save(function(err) {
+        var obj = new restconfig.model(req.body);
+        obj.save(function(err, data) {
             if (err) {
                 res.json({
                     status: 'error',
@@ -49,16 +63,14 @@ var restComponent = function(model, populate) {
                     explanation: err
                 });
             } else {
-                res.json({
-                    status: 'OK'
-                });
+                res.json(data);
             }
         });
     };
 
     this.action_update = function(req, res) {
-        restconfig.model.findById(req.params.id).exec(function(err, user) {
-            var newdata = _.extend(user, req.body);
+        this.query(req.params.id).exec(function(err, data) {
+            var newdata = _.extend(data, req.body);
             newdata.save(function(err) {
                 if (err) {
                     res.json({
@@ -67,16 +79,14 @@ var restComponent = function(model, populate) {
                         explanation: err
                     });
                 } else {
-                    res.json({
-                        status: 'OK'
-                    });
+                    res.json(data);
                 }
             });
         });
     };
 
     this.action_remove = function(req, res) {
-        restconfig.model.findById(req.params.id).exec(function(err, user) {
+        this.query(req.params.id).exec(function(err, data) {
             if (err) {
                 res.json({
                     status: 'error',
@@ -84,7 +94,7 @@ var restComponent = function(model, populate) {
                     explanation: err
                 });
             } else {
-                user.remove(function() {
+                data.remove(function() {
                     res.json({
                         status: 'OK'
                     });
