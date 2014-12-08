@@ -55,6 +55,9 @@ var RouterComponent = {
 
                     // Engadimos a ruta a app
                     routeObject[method](function(req, res, next) {
+                        // Definimos a acción que se está a executar
+                        req.action = parts[1];
+                        // Lanzamos a acción
                         ControllerClass.before(req, res, function() {
                             ControllerClass[action](req, res, function() {
                                 ControllerClass.after(req, res, next);

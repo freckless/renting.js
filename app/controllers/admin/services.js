@@ -1,6 +1,6 @@
-// #AdminSpotsController
+// #AdminServicesController
 // Controlador que utilizaremos como API para a creción, modificación
-// e borrado de spots (emplazamentos) dende o panel de xestión.
+// e borrado de servizos dende o panel de xestión.
 
 'use strict';
 
@@ -10,14 +10,14 @@ var config = global.config,
     AdminControllerBase = require(config.paths.controllers + 'admin/base.js'),
     restComponent = require(config.paths.components + 'rest.js'),
     mongoose = require('mongoose'),
-    Spot = mongoose.model('Spot');
+    Service = mongoose.model('Service');
 
 // ##Accións do controlador
-var AdminSpotsController = new AdminControllerBase({
+var AdminServicesController = new AdminControllerBase({
 });
 
 // ##Facemos o controlador REST có modelo User
-AdminSpotsController = restComponent.call(AdminSpotsController, Spot, function(req, res, next) {
+AdminServicesController = restComponent.call(AdminServicesController, Service, function(req, res, next) {
     var sort = {};
     sort['name.'+global.i18n.language] = 1;
     this.sort(sort);
@@ -25,4 +25,4 @@ AdminSpotsController = restComponent.call(AdminSpotsController, Spot, function(r
 });
 
 // ###Exportamos o modulo
-module.exports = AdminSpotsController;
+module.exports = AdminServicesController;

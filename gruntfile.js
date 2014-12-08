@@ -17,7 +17,8 @@ module.exports = function(grunt) {
             views: {
                 files: ['app/views/**/*.ejs'],
                 options: {
-                    livereload: true
+                    livereload: true,
+                    debounceDelay: 2000
                 }
             },
             livereload: {

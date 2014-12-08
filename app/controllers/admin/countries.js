@@ -17,7 +17,18 @@ var AdminCountriesController = new AdminControllerBase({
 });
 
 // ##Facemos o controlador REST có modelo User
-AdminCountriesController = restComponent.call(AdminCountriesController, Country, {sort: {'name.es': 1}});
+AdminCountriesController = restComponent.call(
+    AdminCountriesController,
+    Country,
+    function(req, res, next) {
+        // Ordeamos os resultados polo nome no idioma actual
+        var sort = {};
+        sort['name.'+global.i18n.language] = 1;
+        this.sort(sort);
+        
+        next();
+    }
+);
 
 // ###Exportamos o modulo
 module.exports = AdminCountriesController;

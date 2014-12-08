@@ -24,6 +24,7 @@ angular.module('adminApp').run(['$rootScope', '$location', '$translate', '$local
         $rootScope.$location = $location;
         $rootScope.$translate = $translate;
         $rootScope.$locale = $locale;
+        $rootScope.$available_languages = ['es', 'en'];
 
         // Definimos eventos para saber dende as vistas se se están
         // a cargar datos, arquivos ou algunha ruta.

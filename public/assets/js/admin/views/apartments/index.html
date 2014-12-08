@@ -1,23 +1,31 @@
 <a class="btn btn-primary pull-right" ng-click="$location.path('/apartments/create')"><i class="fa fa-fw fa-plus"></i> {{ 'admin.apartments.creating_block' | translate }}</a>
 <h1 class="page-header">{{ 'admin.apartments.title' | translate }}</h1>
 <table class="table table-stripes">
-  <thead>
-    <tr>
-      <th>{{ 'admin.apartments._name' | translate }}</th>
-      <th style="width: 100px">{{ 'admin.apartments._town' | translate }}</th>
-      <th style="width: 80px; text-align: center">{{ 'admin.apartments._capacity' | translate }}</th>
-      <th style="width: 200px; text-align: right">{{ 'admin.options' | translate }}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="apartment in apartments">
-      <td>{{apartment.name}}</td>
-      <td>{{apartment.province}} <i class="fa fa-angle-right"></i> {{apartment.town}}</td>
-      <td>{{apartment.minimum}} - {{apartment.maximum}}</td>
-      <td style="width: 200px; text-align: right">
-        <a href ng-click="$location.path('/users/edit/{{user._id}}')" class="btn btn-xs btn-default"><i class="fa fa-fw fa-pencil"></i> {{ 'admin.edit' | translate }}</a>
-        <a href ng-click="deleteUser($index)" class="btn btn-xs btn-danger"><i class="fa fa-fw fa-times"></i> {{ 'admin.delete' | translate }}</a>
-      </td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>{{ 'admin.apartments._name' | translate }}</th>
+            <th style="width: 200px">{{ 'admin.apartments._town' | translate }}</th>
+            <th style="width: 120px; text-align: center">{{ 'admin.apartments._capacity' | translate }}</th>
+            <th style="width: 200px; text-align: right">{{ 'admin.options' | translate }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="apartment in apartments">
+            <td>{{apartment.name}}</td>
+            <td>{{apartment.province.name}} <i class="fa fa-angle-right"></i> {{apartment.town.name}}</td>
+            <td style="text-align: center;">
+                <span ng-show="apartment.minimum && apartment.maximum">
+                    {{apartment.minimum}} - {{apartment.maximum}}
+                </span>
+                <span ng-hide="apartment.minimum && apartment.maximum">
+                    {{'admin.not_available' | translate}}
+                </span>
+            </td>
+            <td style="width: 200px; text-align: right">
+                <a href ng-click="$location.path('/apartments/edit/{{apartment._id}}')" class="btn btn-xs btn-default"><i class="fa fa-fw fa-pencil"></i></a>
+                <a href ng-click="$location.path('/apartments/images/{{apartment._id}}')" class="btn btn-xs btn-default"><i class="fa fa-fw fa-picture-o"></i></a>
+                <a href ng-click="deleteApartment($index)" class="btn btn-xs btn-danger"><i class="fa fa-fw fa-trash-o"></i></a>
+            </td>
+        </tr>
+    </tbody>
 </table>

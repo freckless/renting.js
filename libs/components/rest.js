@@ -10,64 +10,51 @@
 var _ = require('lodash');
 
 // Lóxica do compoñente
-var restComponent = function(model, options) {
-    options = options || {};
-    
-    var restconfig = {
-        model: model,
-        populate: options.populate || [],
-        sort: options.sort || {_id: 1}
-    };
+var restComponent = function(Model, customize_query) {
+    this.query = function(req, res, callback) {
+        var query = Model;
 
-    this.query = function(id) {
-        if (typeof(id) === 'undefined') id = null;
-
-        var query = restconfig.model;
-        if (id) {
-            query = query.findOne({_id: id});
+        if (req.params.id) {
+            query = query.findOne({_id: req.params.id});
         } else {
             query = query.find();
         }
-        if (restconfig.populate) {
-            _.each(restconfig.populate, function(relation) {
-                query.populate(relation);
-            });
-        }
-        if (restconfig.sort) {
-            var key = Object.keys(restconfig.sort)[0];
-            var direction = restconfig.sort[key];
-            key = key.replace('$language', global.i18n.language);
 
-            var sort = {};
-            sort[key] = direction;
-            query.sort(sort);
+        if (typeof customize_query === 'function') {
+            customize_query.call(query, req, res, function() {
+                callback(query);
+            });
+        } else {
+            callback(query);
         }
-        
-        return query;
     };
 
     this.action_find_all = function(req, res) {
-        this.query().exec(function(err, data) {
-            if (err) {
-                res.json({error: 'Problem with the request'});
-            } else {
-                res.json(data);
-            }
+        this.query(req, res, function(query) {
+            query.exec(function(err, data) {
+                if (err) {
+                    res.json({error: 'Problem with the request'});
+                } else {
+                    res.json(data);
+                }
+            });
         });
     };
 
     this.action_find_one = function(req, res) {
-        this.query(req.params.id).exec(function(err, data) {
-            if (err) {
-                res.json({error: 'We can\'t found the object'});
-            } else {
-                res.json(data);
-            }
+        this.query(req, res, function(query) {
+            query.exec(function(err, data) {
+                if (err) {
+                    res.json({error: 'We can\'t found the object'});
+                } else {
+                    res.json(data);
+                }
+            });
         });
     };
 
     this.action_create = function(req, res) {
-        var obj = new restconfig.model(req.body);
+        var obj = new Model(req.body);
         obj.save(function(err, data) {
             if (err) {
                 res.json({
@@ -82,37 +69,41 @@ var restComponent = function(model, options) {
     };
 
     this.action_update = function(req, res) {
-        this.query(req.params.id).exec(function(err, data) {
-            var newdata = _.extend(data, req.body);
-            newdata.save(function(err) {
-                if (err) {
-                    res.json({
-                        status: 'error',
-                        message: 'Some problem has been ocurred updating data',
-                        explanation: err
-                    });
-                } else {
-                    res.json(data);
-                }
+        this.query(req, res, function(query) {
+            query.exec(function(err, data) {
+                var newdata = _.extend(data, req.body);
+                newdata.save(function(err) {
+                    if (err) {
+                        res.json({
+                            status: 'error',
+                            message: 'Some problem has been ocurred updating data',
+                            explanation: err
+                        });
+                    } else {
+                        res.json(data);
+                    }
+                });
             });
         });
     };
 
     this.action_remove = function(req, res) {
-        this.query(req.params.id).exec(function(err, data) {
-            if (err) {
-                res.json({
-                    status: 'error',
-                    message: 'Some problem has been ocurred deleting object',
-                    explanation: err
-                });
-            } else {
-                data.remove(function() {
+        this.query(req, res, function(query) {
+            query.exec(function(err, data) {
+                if (err) {
                     res.json({
-                        status: 'OK'
+                        status: 'error',
+                        message: 'Some problem has been ocurred deleting object',
+                        explanation: err
                     });
-                });
-            }
+                } else {
+                    data.remove(function() {
+                        res.json({
+                            status: 'OK'
+                        });
+                    });
+                }
+            });
         });
     };
 

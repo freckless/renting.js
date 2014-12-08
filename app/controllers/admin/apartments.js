@@ -17,7 +17,14 @@ var AdminApartmentsController = new AdminControllerBase({
 });
 
 // ##Facemos o controlador REST có modelo User
-AdminApartmentsController = restComponent.call(AdminApartmentsController, Apartment);
+AdminApartmentsController = restComponent.call(AdminApartmentsController, Apartment, function(req, res, next) {
+    if (req.action === 'find_all') {
+        this.populate('country').populate('province').populate('town');
+        next();
+    } else {
+        next();
+    }
+});
 
 // ###Exportamos o modulo
 module.exports = AdminApartmentsController;

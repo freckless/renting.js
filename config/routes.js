@@ -51,5 +51,6 @@ routes = rest.addRoutes('admin/spots', routes);
 routes = rest.addRoutes('admin/countries', routes);
 routes = rest.addRoutes('admin/provinces', routes);
 routes = rest.addRoutes('admin/towns', routes);
+routes = rest.addRoutes('admin/services', routes);
 
 module.exports = routes;

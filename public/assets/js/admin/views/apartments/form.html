@@ -12,21 +12,72 @@
             </div>
             <div class="form-group">
                 <label for="input-spot">{{'admin.apartments._spot' | translate}}</label>
-                <select class="form-control" id="input-spot" ng-model="apartment.spot" ng-options="spot._id as spot.name[$translate.use()] for (key, spot) in spots"></select>
+                <select class="form-control" id="input-spot" ng-model="apartment.spot" ng-options="spot._id as spot.name[$translate.use()] for (key, spot) in spots" required>
+                    <option value="">{{'admin.select_one' | translate}}</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="input-country">{{'admin.apartments._country' | translate}}</label>
-                <select class="form-control" id="input-country" ng-model="apartment.country" ng-options="country._id as country.name[$translate.use()] for country in countries" ng-change="loadProvinces()"></select>
+                <select class="form-control" id="input-country" ng-model="apartment.country" ng-options="country._id as country.name[$translate.use()] for country in countries" ng-change="loadProvinces()" required>
+                    <option value="">{{'admin.select_one' | translate}}</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="input-province">{{'admin.apartments._province' | translate}}</label>
-                {{provinces}}
-                <select class="form-control" id="input-province" ng-model="apartment.province" ng-options="province._id as province.name[$translate.use()] for (key, province) in provinces" ng-change="loadTowns()"></select>
+                <select class="form-control" id="input-province" ng-model="apartment.province" ng-options="province._id as province.name for province in provinces" ng-disabled="provinces.length < 1" ng-change="loadTowns()" required>
+                    <option value="">{{'admin.select_one' | translate}}</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="input-town">{{'admin.apartments._town' | translate}}</label>
-                <select class="form-control" id="input-town" ng-model="apartment.town" ng-options="town._id as town.name[$translate.use()] for (key, town) in towns"></select>
+                <select class="form-control" id="input-town" ng-model="apartment.town" ng-options="town._id as town.name for town in towns"  ng-disabled="towns.length < 1" required>
+                    <option value="">{{'admin.select_one' | translate}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="input-address">{{'admin.apartments._address' | translate}}</label>
+                <input type="text" class="form-control" id="input-address" ng-model="apartment.address" required/>
+                <div class="help-block">
+                    {{'admin.apartments.address_not_be_shown_on_the_website' | translate}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-description">{{'admin.apartments._description' | translate}}</label>
+                <div class="languages-bar">
+                    <a href ng-click="setActiveLanguage(language)" ng-class="{active: language==active_language}" ng-repeat="language in $available_languages" class="btn btn-default btn-xs">{{'languages.'+language | translate}}</a>
+                </div>
+                <textarea id="input-description" class="form-control" ng-repeat="language in $available_languages" ng-show="active_language==language" ng-model="apartment.description[language]" rows="6"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="input-location">{{'admin.apartments._location' | translate}}</label>
+                <div class="languages-bar">
+                    <a href ng-click="setActiveLanguage(language)" ng-class="{active: language==active_language}" ng-repeat="language in $available_languages" class="btn btn-default btn-xs">{{'languages.'+language | translate}}</a>
+                </div>
+                <textarea id="input-location" class="form-control" ng-repeat="language in $available_languages" ng-show="active_language==language" ng-model="apartment.location[language]" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label>{{ 'admin.apartments._geoposition' | translate }}</label>
+                <input type="hidden" id="geoposition-input" ng-model="apartment.geoposition"/>
+                <div id="map" style="height: 0px; padding-top: 55.6%"></div>
+                <div class="input-group search-address">
+                    <input ng-model="search_address" class="form-control" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" ng-click="centerAndSetMarkerOnAddress()" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{'admin.apartments._services' | translate}}</label>
+                <ul class="row services">
+                    <li class="col-xs-6 col-md-3" ng-class="{active: activedService(service._id)}" ng-click="toggleService(service._id)" ng-repeat="service in services">
+                        <span>{{service.name[$translate.use()]}}</span>
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
+    <div class="pull-right">
+        <a class="btn btn-danger" ng-click="cancel()"><i class="fa fa-times"></i> {{ 'admin.cancel' | translate }}</a>
+        <a class="btn btn-primary" ng-disabled="!form.$valid || form.$pristine" ng-click="saveApartment()"><i class="fa fa-save"></i> {{ 'admin.save' | translate }}</a>
     </div>
 </form>

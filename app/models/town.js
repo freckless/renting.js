@@ -7,13 +7,12 @@
 // ##Dependencias do módulo
 var config = global.config,
     mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    DBUtils = require(config.paths.utils + 'database.js');
+    Schema = mongoose.Schema;
 
 // ##Esquema de datos do modelo
 var TownSchema = new Schema({
     key: {type: String, required: true},
-    name: DBUtils.localized_field(), // Campo localizable
+    name: {type: String, required: true},
 
     // Relacións
     province: {type: Schema.Types.ObjectId, ref: 'Province'}

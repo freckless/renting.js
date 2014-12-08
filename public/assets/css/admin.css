@@ -380,6 +380,72 @@
 .show {
   display: block !important; }
 
+section#login {
+  padding-top: 60px; }
+  section#login div#login-pane {
+    width: 320px;
+    height: 322px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -160px;
+    margin-top: -161px;
+    border: 1px solid #4A90E2;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px; }
+    section#login div#login-pane div.header {
+      text-align: center;
+      padding: 6px;
+      background-color: #4A90E2;
+      border-top-right-radius: 4px;
+      -moz-border-radius-topright: 4px;
+      -webkit-border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+      -moz-border-radius-topleft: 4px;
+      -webkit-border-top-left-radius: 4px; }
+      section#login div#login-pane div.header h2 {
+        color: white;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 1.28571em;
+        margin: 0px;
+        padding-top: 4px;
+        padding-bottom: 4px; }
+    section#login div#login-pane div.content {
+      padding: 20px; }
+      section#login div#login-pane div.content input {
+        width: 100%;
+        margin-bottom: 10px;
+        border: 0px;
+        background-color: #EFEFEF;
+        border: 2px solid #e2e2e2;
+        padding: 8px;
+        color: #a3a3a3;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px; }
+      section#login div#login-pane div.content label.checkbox {
+        display: block;
+        padding: 8px;
+        margin-bottom: 10px; }
+        section#login div#login-pane div.content label.checkbox input[type=checkbox] {
+          margin-bottom: 0px;
+          margin-right: 4px;
+          width: auto; }
+      section#login div#login-pane div.content button {
+        color: white;
+        width: 100%;
+        padding: 8px;
+        background-color: #4A90E2;
+        text-transform: uppercase;
+        border: 2px solid #3483de;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px; }
+        section#login div#login-pane div.content button:hover, section#login div#login-pane div.content button:active {
+          background-color: #3483de; }
+
 input:focus {
   outline: none; }
 
@@ -448,6 +514,11 @@ div.main {
   div.main .page-header {
     margin-top: 0px; }
 
+.languages-bar {
+  padding: 0 0 6px; }
+  .languages-bar a {
+    margin-right: 6px; }
+
 .no-padding-bottom {
   padding-bottom: 5px; }
 
@@ -475,70 +546,25 @@ div.datepicker ul.dropdown-menu {
 @media (min-width: 768px) {
   div.aside {
     display: block; } }
-section#login {
-  padding-top: 60px; }
-  section#login div#login-pane {
-    width: 320px;
-    height: 322px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -160px;
-    margin-top: -161px;
-    border: 1px solid #4A90E2;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px; }
-    section#login div#login-pane div.header {
-      text-align: center;
-      padding: 6px;
-      background-color: #4A90E2;
-      border-top-right-radius: 4px;
-      -moz-border-radius-topright: 4px;
-      -webkit-border-top-right-radius: 4px;
-      border-top-left-radius: 4px;
-      -moz-border-radius-topleft: 4px;
-      -webkit-border-top-left-radius: 4px; }
-      section#login div#login-pane div.header h2 {
-        color: white;
-        font-weight: 400;
-        text-transform: uppercase;
-        font-size: 1.28571em;
-        margin: 0px;
-        padding-top: 4px;
-        padding-bottom: 4px; }
-    section#login div#login-pane div.content {
-      padding: 20px; }
-      section#login div#login-pane div.content input {
-        width: 100%;
-        margin-bottom: 10px;
-        border: 0px;
-        background-color: #EFEFEF;
-        border: 2px solid #e2e2e2;
-        padding: 8px;
-        color: #a3a3a3;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius: 4px; }
-      section#login div#login-pane div.content label.checkbox {
-        display: block;
-        padding: 8px;
-        margin-bottom: 10px; }
-        section#login div#login-pane div.content label.checkbox input[type=checkbox] {
-          margin-bottom: 0px;
-          margin-right: 4px;
-          width: auto; }
-      section#login div#login-pane div.content button {
-        color: white;
-        width: 100%;
-        padding: 8px;
-        background-color: #4A90E2;
-        text-transform: uppercase;
-        border: 2px solid #3483de;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius: 4px; }
-        section#login div#login-pane div.content button:hover, section#login div#login-pane div.content button:active {
-          background-color: #3483de; }
+div.search-address {
+  margin-top: 10px; }
+
+ul.services {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px; }
+  ul.services li {
+    padding: 0px;
+    margin: 0px; }
+    ul.services li.active span {
+      background-color: #3576be;
+      color: white; }
+    ul.services li span {
+      cursor: pointer;
+      margin: 2px;
+      line-height: 32px;
+      display: block;
+      background-color: #EEE;
+      text-align: center; }
 
 /*# sourceMappingURL=admin.css.map */

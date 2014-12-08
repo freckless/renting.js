@@ -18,6 +18,8 @@ module.exports = {
     'changes_has_been_saved': 'Los cambios han sido guardados',
     'an_error_has_been_ocurred': 'Ha ocurrido un error',
     'object_has_been_removed': 'Eliminado correctamente',
+    'select_one': 'Elije una opción de la lista',
+    'not_available': 'No disponible',
     'users': {
         'title': 'Usuarios',
         'editing': 'Editando usuario',
@@ -53,11 +55,19 @@ module.exports = {
         'editing_block': 'Editando bloque de apartamentos',
         'creating_block': 'Nuevo bloque de apartamentos',
         'apartments_block_info': 'Información del bloque de apartamentos',
+        'address_not_be_shown_on_the_website': 'La dirección no será mostrada en la página web',
         '_name': 'Nombre',
+        '_country': 'Pais',
+        '_province': 'Provincia',
+        '_address': 'Dirección',
         '_town': 'Ciudad',
         '_capacity': 'Capacidad',
         '_localization': 'Localización',
-        '_spot': 'Emplazamiento'
+        '_location': 'Información sobre la ubicación',
+        '_spot': 'Emplazamiento',
+        '_services': 'Servicios',
+        '_description': 'Descripción',
+        '_geoposition': 'Geoposición'
     },
     'dashboard': {
         'title': 'Dashboard'

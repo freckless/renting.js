@@ -15,7 +15,7 @@ module.exports = {
             default: 'es',
             fallback: 'es',
             available: ['es', 'en'],
-            autoload: ['website', 'admin']
+            autoload: ['website', 'admin', 'languages']
         },
         groups: {
             1: 'Administrator',
