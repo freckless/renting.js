@@ -1,5 +1,5 @@
 <a class="btn btn-primary pull-right" ng-click="$location.path('/apartments/create')"><i class="fa fa-fw fa-plus"></i> {{ 'admin.apartments.creating_block' | translate }}</a>
-<h1 class="page-header">{{ 'admin.apartments.title' | translate }}</h1>
+<h1 class="page-header">{{ 'admin.apartments.title_block' | translate }}</h1>
 <table class="table table-stripes">
     <thead>
         <tr>
@@ -22,9 +22,10 @@
                 </span>
             </td>
             <td style="width: 200px; text-align: right">
-                <a href ng-click="$location.path('/apartments/edit/{{apartment._id}}')" class="btn btn-xs btn-default"><i class="fa fa-fw fa-pencil"></i></a>
-                <a href ng-click="$location.path('/apartments/images/{{apartment._id}}')" class="btn btn-xs btn-default"><i class="fa fa-fw fa-picture-o"></i></a>
-                <a href ng-click="deleteApartment($index)" class="btn btn-xs btn-danger"><i class="fa fa-fw fa-trash-o"></i></a>
+                <a href ng-click="$location.path('/apartments/edit/{{apartment._id}}')" class="btn btn-xs btn-default" tooltip="{{'admin.edit' | translate}}"><i class="fa fa-fw fa-pencil"></i></a>
+                <a href ng-click="$location.path('/apartments/images/{{apartment._id}}')" class="btn btn-xs btn-default" tooltip="{{'admin.apartments.pictures' | translate}}"><i class="fa fa-fw fa-picture-o"></i></a>
+                <a href ng-click="$location.path('/apartments/apartments/{{apartment._id}}')" class="btn btn-xs btn-default" tooltip="{{'admin.apartments.title' | translate}}"><i class="fa fa-fw fa-home"></i></a>
+                <a href ng-click="deleteApartment($index)" class="btn btn-xs btn-danger" tooltip="{{'admin.delete' | translate}}"><i class="fa fa-fw fa-trash-o"></i></a>
             </td>
         </tr>
     </tbody>

@@ -56,6 +56,23 @@ angular.module('adminApp').config(['$routeProvider',
                         return ServiceService.query().$promise;
                     }
                 }
+            }).
+            when('/apartments/images/:id', {
+                templateUrl: 'assets/js/admin/views/apartments/form.html',
+                controller: 'ApartmentsFormCtrl',
+                resolve: {
+                    Apartment: function(ApartmentService, $route) {
+                        return ApartmentService.get({id: $route.current.params.id});
+                    },
+                    Spots: function(SpotService) {
+                        return SpotService.query().$promise;
+                    },
+                    Countries: function(CountryService) {
+                        return CountryService.query().$promise;
+                    },
+                    Services: function(ServiceService) {
+                        return ServiceService.query().$promise;
+                    
             });
     }
 ]);
