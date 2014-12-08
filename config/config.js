@@ -13,6 +13,7 @@ module.exports = {
         name: 'Renting.js',
         language: {
             default: 'es',
+            fallback: 'es',
             available: ['es', 'en'],
             autoload: ['website', 'admin']
         },

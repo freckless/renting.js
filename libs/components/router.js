@@ -12,8 +12,6 @@ var config = global.config,
     routes = require(config.paths.config + 'routes.js');
 
 // Variables do módulo
-var controllers = {};
-
 var RouterComponent = {
     // Usaremos esta función para lanzar a carga das rutas existentes no arquivo de configuración routes.js
     // e crearemos un sistema dinámico para as direccións que non existan.
@@ -46,22 +44,26 @@ var RouterComponent = {
             var routeObject = app.route(route);
             // Cargamos cada acción no seu correspondente método e ruta.
             _.forEach(methods, function(raw_action, method) {
-                // Recollemos as partes da acción sabendo que dase en formato controlador#acción
-                var parts = raw_action.split('#');
-                var controller = parts[0];
-                var action = 'action_' + parts[1];
+                if (typeof raw_action === 'string') {
+                    // Recollemos as partes da acción sabendo que dase en formato controlador#acción
+                    var parts = raw_action.split('#');
+                    var controller = parts[0];
+                    var action = 'action_' + parts[1];
 
-                // Se o controlador aínda non se cargóu, cargámolo
-                var ControllerClass = require(config.paths.controllers + '/' + controller + '.js');
+                    // Se o controlador aínda non se cargóu, cargámolo
+                    var ControllerClass = require(config.paths.controllers + controller + '.js');
 
-                // Engadimos a ruta a app
-                routeObject[method](function(req, res, next) {
-                    ControllerClass.before(req, res, function() {
-                        ControllerClass[action](req, res, function() {
-                            ControllerClass.after(req, res, next);
+                    // Engadimos a ruta a app
+                    routeObject[method](function(req, res, next) {
+                        ControllerClass.before(req, res, function() {
+                            ControllerClass[action](req, res, function() {
+                                ControllerClass.after(req, res, next);
+                            });
                         });
                     });
-                });
+                } else {
+                    routeObject[method](raw_action);
+                }
             });
         });
     }

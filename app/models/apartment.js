@@ -1,5 +1,5 @@
-// #User Model
-
+// ApartmentModel
+// ==============
 // Este modelo é o encargado de relacionar os usuarios cós seus respectivos
 // datos na base de datos e tamén de xestionar as suas relacións.
 
@@ -19,14 +19,8 @@ var ApartmentSchema = new Schema({
     'featured': {type: Boolean, default: false},
     'address': String,
     'geoposition': String,
-    'description': [{
-        'locale': String,
-        'value': String
-    }],
-    'location': [{
-        'locale': String,
-        'value': String
-    }],
+    'description': DBUtils.localized_field(), // Campo localizable
+    'location': DBUtils.localized_field(), // Campo localizable
     'apartments': [{
         'quantity': Number,
         'rooms': Number,
@@ -41,8 +35,7 @@ var ApartmentSchema = new Schema({
             'end_at': Date,
             'quantity': Number,
             'on_demand': Boolean,
-            'minimum_stay': Number,
-            'use_as_default': Boolean
+            'minimum_stay': Number
         }],
         'closed': [{
             'start_at': Date,
@@ -56,7 +49,13 @@ var ApartmentSchema = new Schema({
             'locale': String,
             'value': String
         }]
-    }]
+    }],
+    /* Relacións */
+    'country': {'type': Schema.Types.ObjectId, ref: 'Country'},
+    'town': {'type': Schema.Types.ObjectId, ref: 'Town'},
+    'province': {'type': Schema.Types.ObjectId, ref: 'Province'},
+    'spot': {type: Schema.Types.ObjectId, ref: 'Spot'},
+    'services': [{type: Schema.Types.ObjectId, ref: 'Service'}]
 });
 
 // Exportamos o modelo

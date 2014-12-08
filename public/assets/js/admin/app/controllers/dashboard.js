@@ -1,4 +1,4 @@
-// Dashboard Controller
+// DashboardController
 // ====================
 // Este controlador é o encargado de mostrar a páxina principal do
 // panel de xestión onde nun futuro podense engadir estadísticas, etc..

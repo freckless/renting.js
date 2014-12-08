@@ -390,6 +390,24 @@ body {
   body.app {
     padding-top: 60px; }
 
+div.page-loader {
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1050;
+  color: white;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px; }
+  div.page-loader i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36px;
+    height: 26px;
+    margin-left: -18px;
+    margin-top: -13px; }
+
 div.aside {
   position: fixed;
   top: 51px;
@@ -429,6 +447,22 @@ div.main {
       background-color: #b92c28; }
   div.main .page-header {
     margin-top: 0px; }
+
+.no-padding-bottom {
+  padding-bottom: 5px; }
+
+.fade-show {
+  opacity: 1;
+  transition: z-index 0s opacity 0.5s ease;
+  -webkit-transition: z-index 0s opacity 0.5s ease;
+  -moz-transition: z-index 0s opacity 0.5s ease; }
+
+.fade-hide {
+  opacity: 0;
+  z-index: -1 !important;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease; }
 
 input.ng-invalid.ng-touched {
   border-color: #b92c28; }

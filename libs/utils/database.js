@@ -7,7 +7,9 @@
 
 // Dependencias do módulo
 // ----------------------
-var mongoose = require('mongoose');
+var config = global.config,
+    mongoose = require('mongoose'),
+    _ = require('lodash');
 
 // Utilidades
 // ----------
@@ -31,6 +33,14 @@ var DatabaseHelpers = {
                 }
             }
         });
+    },
+    localized_field: function() {
+        var fields = {};
+        _.each(config.app.language.available, function(language) {
+            fields[language] = String
+        });
+
+        return fields;
     }
 };
 

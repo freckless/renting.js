@@ -1,4 +1,4 @@
-// Rest component
+// RestComponent
 // ==============
 // Este component ocuparase de engadir todas as accións necesarias para un
 // servicio REST ós controladores que sexa preciso.
@@ -9,27 +9,40 @@
 // ----------------------
 var _ = require('lodash');
 
-
 // Lóxica do compoñente
-var restComponent = function(model, populate) {
+var restComponent = function(model, options) {
+    options = options || {};
+    
     var restconfig = {
         model: model,
-        populate: populate || []
+        populate: options.populate || [],
+        sort: options.sort || {_id: 1}
     };
 
     this.query = function(id) {
         if (typeof(id) === 'undefined') id = null;
+
         var query = restconfig.model;
         if (id) {
             query = query.findOne({_id: id});
         } else {
             query = query.find();
         }
-        if (this.populate) {
-            _.each(populate, function(relation) {
+        if (restconfig.populate) {
+            _.each(restconfig.populate, function(relation) {
                 query.populate(relation);
             });
         }
+        if (restconfig.sort) {
+            var key = Object.keys(restconfig.sort)[0];
+            var direction = restconfig.sort[key];
+            key = key.replace('$language', global.i18n.language);
+
+            var sort = {};
+            sort[key] = direction;
+            query.sort(sort);
+        }
+        
         return query;
     };
 

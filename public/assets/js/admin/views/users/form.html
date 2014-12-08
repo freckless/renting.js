@@ -1,83 +1,97 @@
 <a href class="pull-left" back-button><i class="fa fa-2x fa-fw fa-angle-left"></i></a>
-<h1 class="page-header">{{'users.'+action | translate}}</h1>
+<h1 class="page-header">{{'admin.users.'+action | translate}}</h1>
 <form name="form" class="form">
-    <div class="col-sm-12 col-md-6">
-        <h3>{{'users._account_info' | translate}}</h3>
-        <div class="form-group">
-            <label for="input-username">{{'users._username' | translate}}</label>
-            <input type="text" class="form-control" id="input-username" ng-model="user.username" ng-minlength="3" required/>
-        </div>
-        <div class="row">
-            <div class="col-xs-6">
-                <label for="input-password">{{'users._password' | translate}}</label>
-                <input type="password" class="form-control" id="input-password" ng-model="password" ng-minlength="4" ng-required="action == 'creating'"/>
-            </div>
-            <div class="col-xs-6">
-                <label for="input-password-confirmation">{{'users._password_confirmation' | translate}}</label>
-                <input type="password" class="form-control" name="password_confirmation" id="input-password-confirmation" ng-model="password_confirmation" ng-required="action=='creating'" ui-validate="'$value==password'" ui-validate-watch="'password'"/>
-            </div>
-            <div class="col-xs-12" ng-show="action == 'editing'">
-                <p class="help-block">{{'users.fill_just_for_change'|translate}}</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="input-group">{{'users._group' | translate}}</label>
-            <select ng-model="user.group" ng-init="user.group=''+user.group" ng-options="key as 'users.groups.'+value | translate for (key, value) in groups" class="form-control" id="input-group" required></select>
-        </div>
-        <div class="form-group">
-            <label for="input-mail">{{'users._mail' | translate}}</label>
-            <input type="email" class="form-control" id="input-mail" ng-model="user.mail" required/>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-6">
-        <h3>{{'users._personal_info' | translate}}</h3>
-        <div class="row">
-            <div class="col-xs-4">
-                <label for="input-firstname">{{'users._firstname' | translate}}</label>
-                <input type="text" class="form-control" id="input-firstname" ng-model="user.firstname" required/>
-            </div>
-            <div class="col-xs-8">
-                <label for="input-lastname">{{'users._lastname' | translate}}</label>
-                <input type="text" class="form-control" id="input-lastname" ng-model="user.lastname" required/>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{'admin.users._account_info' | translate}}</h3>
+                </div>
+                <div class="panel-body no-padding-bottom">
+                    <div class="form-group">
+                        <label for="input-username">{{'admin.users._username' | translate}}</label>
+                        <input type="text" class="form-control" id="input-username" ng-model="user.username" ng-minlength="3" required/>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label for="input-password">{{'admin.users._password' | translate}}</label>
+                            <input type="password" class="form-control" id="input-password" ng-model="password" ng-minlength="4" ng-required="action == 'creating'"/>
+                        </div>
+                        <div class="col-xs-6">
+                            <label for="input-password-confirmation">{{'admin.users._password_confirmation' | translate}}</label>
+                            <input type="password" class="form-control" name="password_confirmation" id="input-password-confirmation" ng-model="password_confirmation" ng-required="action=='creating'" ui-validate="'$value==password'" ui-validate-watch="'password'"/>
+                        </div>
+                        <div class="col-xs-12" ng-show="action == 'editing'">
+                            <p class="help-block">{{'admin.users.fill_just_for_change'|translate}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-group">{{'admin.users._group' | translate}}</label>
+                        <select ng-model="user.group" ng-init="user.group=''+user.group" ng-options="key as 'admin.users.groups.'+value | translate for (key, value) in groups" class="form-control" id="input-group" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-mail">{{'admin.users._mail' | translate}}</label>
+                        <input type="email" class="form-control" id="input-mail" ng-model="user.mail" required/>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="input-phone">{{'users._phone' | translate}}</label>
-            <input type="text" class="form-control" id="input-phone" ng-model="user.phone"/>
-        </div>
-        <div class="form-group">
-            <label for="input-country">{{'users._country' | translate}}</label>
-            <input type="text" class="form-control" id="input-country" ng-model="user.country" required/>
-        </div>
-        <div class="row">
-            <div class="col-xs-9">
-                <label for="input-city">{{'users._city' | translate}}</label>
-                <input type="text" class="form-control" id="input-city" ng-model="user.city" required/>
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{'admin.users._personal_info' | translate}}</h3>
+                </div>
+                <div class="panel-body no-padding-bottom">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label for="input-firstname">{{'admin.users._firstname' | translate}}</label>
+                            <input type="text" class="form-control" id="input-firstname" ng-model="user.firstname" required/>
+                        </div>
+                        <div class="col-xs-8">
+                            <label for="input-lastname">{{'admin.users._lastname' | translate}}</label>
+                            <input type="text" class="form-control" id="input-lastname" ng-model="user.lastname" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-phone">{{'admin.users._phone' | translate}}</label>
+                        <input type="text" class="form-control" id="input-phone" ng-model="user.phone"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-country">{{'admin.users._country' | translate}}</label>
+                        <input type="text" class="form-control" id="input-country" ng-model="user.country" required/>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <label for="input-city">{{'admin.users._city' | translate}}</label>
+                            <input type="text" class="form-control" id="input-city" ng-model="user.city" required/>
+                        </div>
+                        <div class="col-xs-3">
+                            <label for="input-zip">{{'admin.users._zip' | translate}}</label>
+                            <input type="text" class="form-control" id="input-zip" ng-model="user.zipcode" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-address">{{'admin.users._address' | translate}}</label>
+                        <input type="text" class="form-control" id="input-address" ng-model="user.address" required/>
+                    </div>
+                    <div class="form-group datepicker">
+                        <label for="input-borndate">{{'admin.users._borndate' | translate}}</label>
+                        <input type="text" id="input-borndate" class="form-control"
+                               ng-model="user.born_at"
+                               is-open="opened"
+                               datepicker-popup="{{ $locale.DATETIME_FORMATS.mediumDate }}"
+                               datepicker-options="dateOptions"
+                               show-button-bar="false"
+                               close-text="date.close | translate"
+                               ng-focus="openDatePicker()"
+                               required/>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-3">
-                <label for="input-zip">{{'users._zip' | translate}}</label>
-                <input type="text" class="form-control" id="input-zip" ng-model="user.zipcode" required/>
+            <div class="pull-right">
+                <a class="btn btn-danger" ng-click="cancel()"><i class="fa fa-times"></i> {{ 'admin.cancel' | translate }}</a>
+                <a class="btn btn-primary" ng-disabled="!form.$valid || form.$pristine" ng-click="saveUser()"><i class="fa fa-save"></i> {{ 'admin.save' | translate }}</a>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="input-address">{{'users._address' | translate}}</label>
-            <input type="text" class="form-control" id="input-address" ng-model="user.address" required/>
-        </div>
-        <div class="form-group datepicker">
-            <label for="input-borndate">{{'users._borndate' | translate}}</label>
-            <input type="text" id="input-borndate" class="form-control"
-                   ng-model="user.born_at"
-                   is-open="opened"
-                   datepicker-popup="{{ $locale.DATETIME_FORMATS.mediumDate }}"
-                   datepicker-options="dateOptions"
-                   show-button-bar="false"
-                   close-text="date.close | translate"
-                   ng-focus="openDatePicker()"
-                   required/>
-        </div>
-        <div class="form-group pull-right">
-            <a class="btn btn-danger" ng-click="cancel()"><i class="fa fa-times"></i> {{ 'admin.cancel' | translate }}</a>
-            <a class="btn btn-primary" ng-disabled="!form.$valid || form.$pristine" ng-click="saveUser()"><i class="fa fa-save"></i> {{ 'admin.save' | translate }}</a>
         </div>
     </div>
 </form>

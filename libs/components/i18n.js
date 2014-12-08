@@ -19,6 +19,7 @@ i18nComponent.prototype = {
   request: null, // Gardaremos a consulta
   response: null, // A resposta
   language: null, // A lingua en uso
+  fallback: null, // A lingua en caso de faltar unha traducción
   translations: {}, // As traduccións
   init: function(req, res, next) {
     // Gardamos os datos da consulta e da resposta
@@ -60,6 +61,7 @@ i18nComponent.prototype = {
     }
   },
   detect: function() {
+    this.fallback = config.app.language.fallback;
     if (this.request.cookies.language) {
       // Detectamos se o usuario ten unha cookie co idioma
       this.language = this.request.cookies.language;

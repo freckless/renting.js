@@ -1,5 +1,5 @@
-// #User Model
-
+// UserModel
+// =========
 // Este modelo é o encargado de relacionar os usuarios cós seus respectivos
 // datos na base de datos e tamén de xestionar as suas relacións.
 

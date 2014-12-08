@@ -6,10 +6,7 @@ angular.module('adminApp').config([
     '$routeProvider',
     '$translateProvider',
     function($locationProvider, $routeProvider, $translateProvider) {
-        $translateProvider.useStaticFilesLoader({
-            prefix: '/assets/js/admin/i18n/',
-            suffix: '.json'
-        });
+        $translateProvider.useUrlLoader('/locale');
 
         $translateProvider.preferredLanguage('es');
 
@@ -27,5 +24,14 @@ angular.module('adminApp').run(['$rootScope', '$location', '$translate', '$local
         $rootScope.$location = $location;
         $rootScope.$translate = $translate;
         $rootScope.$locale = $locale;
+
+        // Definimos eventos para saber dende as vistas se se están
+        // a cargar datos, arquivos ou algunha ruta.
+        $rootScope.$on('$routeChangeStart', function() {
+            $rootScope.is_loading = true;
+        });
+        $rootScope.$on('$routeChangeSuccess', function() {
+            $rootScope.is_loading = false;
+        });
     }
 ]);

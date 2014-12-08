@@ -1,8 +1,8 @@
-// Bookings Controller
+// BookingsController
 // ====================
-// Este controlador é o encargado de mostrar o listado dos apartamentos
-// de cada usuario así como de manexar cada un de eses apartamentos,
-// tarifas, imaxes, etc...
+// Este controlador é o encargado de mostrar o listado das reservas
+// que se han realizado en cada un dos apartamentos do usuario e
+// xestionalas (confirmar, cancelar...)
 
 'use strict';
 

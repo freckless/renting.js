@@ -1,0 +1,32 @@
+<a href class="pull-left" back-button><i class="fa fa-2x fa-fw fa-angle-left"></i></a>
+<h1 class="page-header">{{'admin.apartments.'+action+'_block' | translate}}</h1>
+<form name="form" class="form">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{'admin.apartments.apartments_block_info' | translate}}</h3>
+        </div>
+        <div class="panel-body no-padding-bottom">
+            <div class="form-group">
+                <label for="input-name">{{'admin.apartments._name' | translate}}</label>
+                <input type="text" class="form-control" id="input-name" ng-model="apartment.name" required/>
+            </div>
+            <div class="form-group">
+                <label for="input-spot">{{'admin.apartments._spot' | translate}}</label>
+                <select class="form-control" id="input-spot" ng-model="apartment.spot" ng-options="spot._id as spot.name[$translate.use()] for (key, spot) in spots"></select>
+            </div>
+            <div class="form-group">
+                <label for="input-country">{{'admin.apartments._country' | translate}}</label>
+                <select class="form-control" id="input-country" ng-model="apartment.country" ng-options="country._id as country.name[$translate.use()] for country in countries" ng-change="loadProvinces()"></select>
+            </div>
+            <div class="form-group">
+                <label for="input-province">{{'admin.apartments._province' | translate}}</label>
+                {{provinces}}
+                <select class="form-control" id="input-province" ng-model="apartment.province" ng-options="province._id as province.name[$translate.use()] for (key, province) in provinces" ng-change="loadTowns()"></select>
+            </div>
+            <div class="form-group">
+                <label for="input-town">{{'admin.apartments._town' | translate}}</label>
+                <select class="form-control" id="input-town" ng-model="apartment.town" ng-options="town._id as town.name[$translate.use()] for (key, town) in towns"></select>
+            </div>
+        </div>
+    </div>
+</form>

@@ -6,6 +6,10 @@
 
 'use strict';
 
+// ##Dependencias do módulo
+var config = global.config,
+    rest = require(config.paths.utils + 'rest.js');
+
 // ##Rutas da app
 // Para que a acción do controlador poda ser executada debe nomearse action_{{acción}}<br>
 // Ex. a acción index deberá nomearse action_index no controlador.
@@ -30,16 +34,22 @@ var routes = {
     },
     '/admin/logout': {
         get: 'admin#logout'
-    },
-    '/admin/users': {
-        get: 'admin/users#find_all',
-        post: 'admin/users#create'
-    },
-    '/admin/users/:id': {
-        get: 'admin/users#find_one',
-        put: 'admin/users#update',
-        delete: 'admin/users#remove'
     }
 };
+
+// ##Compartindo as traduccións entre cliente e servidor
+routes['/locale'] = {
+    get: function(req, res) {
+        res.json(global.i18n.translations);
+    }
+};
+
+// ##REST routes
+routes = rest.addRoutes('admin/users', routes);
+routes = rest.addRoutes('admin/apartments', routes);
+routes = rest.addRoutes('admin/spots', routes);
+routes = rest.addRoutes('admin/countries', routes);
+routes = rest.addRoutes('admin/provinces', routes);
+routes = rest.addRoutes('admin/towns', routes);
 
 module.exports = routes;
