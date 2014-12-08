@@ -10,7 +10,7 @@ module.exports = {
     'options': 'Opciones',
     'edit': 'Editar',
     'delete': 'Eliminar',
-    'add': 'Crear',
+    'add': 'Añadir',
     'go_back': 'Volver',
     'cancel': 'Cancelar',
     'save': 'Guardar cambios',
@@ -58,6 +58,8 @@ module.exports = {
         'apartments_block_info': 'Información del bloque de apartamentos',
         'address_not_be_shown_on_the_website': 'La dirección no será mostrada en la página web',
         'pictures': 'Imágenes',
+        'apartments_types': 'Tipos de apartamento en el bloque',
+        'apartment_info': 'Información del apartamento',
         '_name': 'Nombre',
         '_country': 'Pais',
         '_province': 'Provincia',
@@ -69,7 +71,11 @@ module.exports = {
         '_spot': 'Emplazamiento',
         '_services': 'Servicios',
         '_description': 'Descripción',
-        '_geoposition': 'Geoposición'
+        '_geoposition': 'Geoposición',
+        '_quantity': 'Nº de apartamentos',
+        '_minimum': 'Personas mínimo',
+        '_maximum': 'Personas máximo',
+        '_rooms': 'Nº de habitaciones'
     },
     'dashboard': {
         'title': 'Dashboard'

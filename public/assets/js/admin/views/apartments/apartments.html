@@ -1,0 +1,51 @@
+<a href class="pull-left" back-button><i class="fa fa-2x fa-fw fa-angle-left"></i></a>
+<h1 class="page-header">{{ 'admin.apartments.title' | translate }}</h1>
+<form name="form">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+             <h3 class="panel-title">{{ 'admin.apartments.apartments_types' | translate }}</h3>
+         </div> 
+         <div class="panel-body">
+            <a href ng-click="addApartment()" class="btn btn-primary"><i class="fa fa-fw fa-plus"></i> {{ 'admin.add' | translate }}</a>
+            <div class="apartment" ng-show="apartment_index !== null">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            {{ 'admin.apartments.apartment_info' | translate }}
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-xs-12 col-md-3">
+                            <div class="form-group">
+                                <label for="input-quantity">{{'admin.apartments._quantity' | translate}}</label>
+                                <input id="input-quantity" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div class="form-group">
+                                <label for="input-minimum">{{'admin.apartments._minimum' | translate}}</label>
+                                <input id="input-minimum" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div class="form-group">
+                                <label for="input-maximum">{{'admin.apartments._maximum' | translate}}</label>
+                                <input id="input-maximum" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div class="form-group">
+                                <label for="input-rooms">{{'admin.apartments._rooms' | translate}}</label>
+                                <input id="input-rooms" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+    <div class="pull-right">
+        <a class="btn btn-danger" ng-click="cancel()"><i class="fa fa-times"></i> {{ 'admin.cancel' | translate }}</a>
+        <a class="btn btn-primary" ng-disabled="!form.$valid || form.$pristine" ng-click="saveApartment()"><i class="fa fa-save"></i> {{ 'admin.save' | translate }}</a>
+    </div>
+</form>

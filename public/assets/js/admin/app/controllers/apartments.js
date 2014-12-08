@@ -57,22 +57,14 @@ angular.module('adminApp').config(['$routeProvider',
                     }
                 }
             }).
-            when('/apartments/images/:id', {
-                templateUrl: 'assets/js/admin/views/apartments/form.html',
-                controller: 'ApartmentsFormCtrl',
+            when('/apartments/apartments/:id', {
+                templateUrl: 'assets/js/admin/views/apartments/apartments.html',
+                controller: 'ApartmentsApartmentsCtrl',
                 resolve: {
                     Apartment: function(ApartmentService, $route) {
                         return ApartmentService.get({id: $route.current.params.id});
-                    },
-                    Spots: function(SpotService) {
-                        return SpotService.query().$promise;
-                    },
-                    Countries: function(CountryService) {
-                        return CountryService.query().$promise;
-                    },
-                    Services: function(ServiceService) {
-                        return ServiceService.query().$promise;
-                    
+                    }
+                }
             });
     }
 ]);
@@ -200,6 +192,7 @@ angular.module('adminApp').controller('ApartmentsFormCtrl', function($rootScope,
     // Mapa
     var map = null;
     var marker = null;
+    // Coordenadas por defecto en España
     var coords = [40.41153868,-3.70362707];
     var zoom = 6;
     if ($scope.apartment.geoposition) {
@@ -232,6 +225,9 @@ angular.module('adminApp').controller('ApartmentsFormCtrl', function($rootScope,
     };
 
     $scope.centerAndSetMarkerOnAddress = function() {
+        // Se o usuario introduciu unha dirección na barra de busqueda,
+        // buscamos esa dirección e se non, creamos a dirección a partir
+        // dos datos do apartamento.
         var search_address = $scope.search_address;
         if ( ! search_address) {
             var country = $('#input-country option:selected').html();
@@ -261,4 +257,23 @@ angular.module('adminApp').controller('ApartmentsFormCtrl', function($rootScope,
     };
 
     initMap();
+});
+
+angular.module('adminApp').controller('ApartmentsApartmentsCtrl', function($rootScope, $scope, Apartment) {
+    // Definimos a sección actual
+    $rootScope.current_section = 'apartments';
+
+    // Definimos o index do apartamento actual
+    $scope.apartment_index = null;
+
+    // Seteamos o bloque de apartamentos no scope
+    $scope.apartment = Apartment;
+    // E tamén os apartamentos do bloque de apartamentos
+    $scope.apartments = Apartment.apartments || [];
+
+    // Función para engadir un novo apartamento
+    $scope.addApartment = function() {
+        $scope.apartments.push({});
+        $scope.apartment_index = $scope.apartments.length - 1;
+    };
 });
