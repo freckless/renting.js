@@ -290,10 +290,10 @@ angular.module('adminApp').controller('ApartmentsApartmentsCtrl', function($root
         // Cargamos o bloque de apartamentos de novo por se sufriu algún cambio exterior
         ApartmentService.get({id: Apartment._id}).$promise.then(function(Apartment) {
             Apartment.apartments = $scope.apartments;
-            /*Apartment.$update(function() {
+            Apartment.$update(function() {
                 $flash.set('success', 'admin.changes_has_been_saved');
-                $location.path('/apartments');
-            })*/
+                window.history.back();
+            });
         });
     };
 
@@ -473,16 +473,19 @@ angular.module('adminApp').controller('ApartmentsImagesCtrl', function($rootScop
     $scope.images = Apartment.images || [];
     $scope.uploading = [];
 
+    // Gardamos os arquivos que se van a subir nun array para mostralos
     $scope.uploadStart = function(files) {
-        $scope.uploading.push(files);
+        $scope.uploading = files;
     };
 
+    // Función para eliminar unha imaxe
     $scope.deleteImage = function($index) {
         if (confirm($filter('translate')('admin.are_you_sure'))) {
             $scope.images.splice($index, 1);
         }
     };
 
+    // Callback para cando termina de subir unha imaxe
     $scope.uploadComplete = function(response) {
         var images = [];
         $.each(response.data, function(index, item) {
@@ -491,5 +494,25 @@ angular.module('adminApp').controller('ApartmentsImagesCtrl', function($rootScop
             });
         });
         $scope.images = $scope.images.concat(images);
+    };
+
+    // Función para gardar os datos na base de datos
+    $scope.saveImages = function() {
+        // Cargamos o bloque de apartamentos de novo por se sufriu algún cambio exterior
+        ApartmentService.get({id: Apartment._id}).$promise.then(function(Apartment) {
+            Apartment.images = $scope.images;
+            Apartment.$update(function() {
+                $flash.set('success', 'admin.changes_has_been_saved');
+                window.history.back();
+            })
+        });
+    };
+
+    // Función para cancelar e voltar atrás
+    $scope.cancel = function() {
+        if ( ! confirm($filter('translate')('admin.are_you_sure'))) {
+            return false;
+        }
+        window.history.back();
     };
 });
