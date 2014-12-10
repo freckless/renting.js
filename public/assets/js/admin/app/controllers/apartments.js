@@ -62,7 +62,16 @@ angular.module('adminApp').config(['$routeProvider',
                 controller: 'ApartmentsApartmentsCtrl',
                 resolve: {
                     Apartment: function(ApartmentService, $route) {
-                        return ApartmentService.get({id: $route.current.params.id});
+                        return ApartmentService.get({id: $route.current.params.id}).$promise;
+                    }
+                }
+            }).
+            when('/apartments/images/:id', {
+                templateUrl: 'assets/js/admin/views/apartments/images.html',
+                controller: 'ApartmentsImagesCtrl',
+                resolve: {
+                    Apartment: function(ApartmentService, $route) {
+                        return ApartmentService.get({id: $route.current.params.id}).$promise;
                     }
                 }
             });
@@ -259,21 +268,222 @@ angular.module('adminApp').controller('ApartmentsFormCtrl', function($rootScope,
     initMap();
 });
 
-angular.module('adminApp').controller('ApartmentsApartmentsCtrl', function($rootScope, $scope, Apartment) {
+angular.module('adminApp').controller('ApartmentsApartmentsCtrl', function($rootScope, $timeout, $filter, $flash, $location, $scope, Apartment, ApartmentService) {
     // Definimos a sección actual
     $rootScope.current_section = 'apartments';
 
+    // Definimos a variable hasChanges para notificar a vista cando hay cambios.
+    $scope.hasChanges = false;
+
     // Definimos o index do apartamento actual
     $scope.apartment_index = null;
+    $scope.apartment = null;
 
-    // Seteamos o bloque de apartamentos no scope
-    $scope.apartment = Apartment;
+    // Definimos o bloque de apartamentos
+    $scope.apartment_block = Apartment;
+
     // E tamén os apartamentos do bloque de apartamentos
     $scope.apartments = Apartment.apartments || [];
 
+    // Función para gardar o bloque de apartamentos na base de datos
+    $scope.saveApartmentsBlock = function() {
+        // Cargamos o bloque de apartamentos de novo por se sufriu algún cambio exterior
+        ApartmentService.get({id: Apartment._id}).$promise.then(function(Apartment) {
+            Apartment.apartments = $scope.apartments;
+            /*Apartment.$update(function() {
+                $flash.set('success', 'admin.changes_has_been_saved');
+                $location.path('/apartments');
+            })*/
+        });
+    };
+
     // Función para engadir un novo apartamento
     $scope.addApartment = function() {
-        $scope.apartments.push({});
-        $scope.apartment_index = $scope.apartments.length - 1;
+        $scope.apartment = {
+            seasons:[],
+            closed:[]
+        };
+    };
+
+    // Función para cancelar a creación / edición dun apartamento
+    $scope.cancelApartment = function() {
+        if (confirm($filter('translate')('admin.are_you_sure'))) {
+            $scope.apartment = $scope.apartment_index = null;
+        }
+    };
+
+    // Función para gardar o apartamento
+    $scope.saveApartment = function() {
+        if ($scope.apartment_index !== null) {
+            $scope.apartments[$scope.apartment_index] = angular.copy($scope.apartment);
+        } else {
+            $scope.apartments.push(angular.copy($scope.apartment));
+        }
+        $scope.apartment = $scope.apartment_index = null;
+        $scope.apartmentForm.$setPristine();
+        $scope.hasChanges = true;
+    };
+
+    // Función para editar un apartamento
+    $scope.editApartment = function($index) {
+        $scope.apartment = angular.copy($scope.apartments[$index]);
+        $scope.apartment_index = $index;
+    };
+
+    // Función para eliminar un apartamento
+    $scope.deleteApartment = function() {
+        if (confirm($filter('translate')('admin.are_you_sure'))) {
+            $scope.apartments.splice($scope.apartment_index, 1);
+            $scope.apartment = $scope.apartment_index = null;
+        }
+    };
+
+    // Función para duplicar un apartamento (moi util para as tarifas)
+    $scope.duplicateApartment = function() {
+        var apartment = angular.copy($scope.apartment);
+        $scope.apartment_index = null;
+        $scope.apartment = null;
+        $timeout(function(){
+            $scope.apartment = apartment;
+            $scope.$apply();
+        }, 100);
+    };
+
+
+    // Definimos que non se está a engadir ningunha data de peche ou ningunha tarifa
+    $scope.season_index = $scope.closed_index = null;
+    $scope.season = $scope.closed = null;
+
+    // Engadimos unha nova tarifa
+    $scope.addSeason = function() {
+        $scope.season = {};
+    };
+
+    // Cancelamos a creación / edición dunha temporada
+    $scope.cancelSeason = function() {
+        $scope.season = null;
+        $scope.season_index = null;
+    };
+
+    // Gardar os datos da temporada no apartamento
+    $scope.saveSeason = function() {
+        if ($scope.season_index !== null) {
+            $scope.apartment.seasons[$scope.season_index] = angular.copy($scope.season);
+        } else {
+            $scope.apartment.seasons.push($scope.season);
+        }
+        $scope.season = $scope.season_index = null;
+        $scope.apartmentForm.$setDirty();
+    };
+
+    // Editamos unha temporada
+    $scope.editSeason = function($index) {
+        $scope.season_index = $index;
+        $scope.season = {};
+        $scope.season = angular.copy($scope.apartment.seasons[$index]);
+        $scope.renderSeasonDates();
+    };
+
+    // Eliminar unha temporada existente
+    $scope.deleteSeason = function($index) {
+        if (confirm($filter('translate')('admin.are_you_sure'))) {
+            $scope.apartment.seasons.splice($index, 1);
+        }
+    };
+
+    // Engadimos unha nova data de peche
+    $scope.addClosed = function() {
+        $scope.closed = {};
+    };
+
+    // Cancelamos a creación / edición dunha data de peche
+    $scope.cancelClosed = function() {
+        $scope.closed = null;
+        $scope.closed_index = null;
+    };
+
+    // Gardar os datos da temporada de peche no apartamento
+    $scope.saveClosed = function() {
+        if ($scope.closed_index !== null) {
+            $scope.apartment.closed[$scope.closed_index] = angular.copy($scope.closed);
+        } else {
+            $scope.apartment.closed.push($scope.closed);
+        }
+        $scope.closed = $scope.closed_index = null;
+        $scope.apartmentForm.$setDirty();
+    };
+
+    // Editamos unha data de peche
+    $scope.editClosed = function($index) {
+        $scope.closed_index = $index;
+        $scope.closed = {};
+        $scope.closed = angular.copy($scope.apartment.closed[$index]);
+        $scope.renderClosedDates();
+    };
+
+    // Eliminar unha data de peche existente
+    $scope.deleteClosed = function($index) {
+        if (confirm($filter('translate')('admin.are_you_sure'))) {
+            $scope.apartment.closed.splice($index, 1);
+        }
+    };
+
+    // Datepicker
+    $scope.dateOptions = {
+        startingDay: 1,
+        showWeeks: false,
+        showButtonBar: false
+    };
+
+    // Fix para o render das datas a hora de editar as temporadas
+    $scope.renderSeasonDates = function() {
+        angular.element($('#input-season-from')).controller('ngModel').$setViewValue(new Date($scope.season.from));
+        angular.element($('#input-season-from')).controller('ngModel').$render();
+        angular.element($('#input-season-to')).controller('ngModel').$setViewValue(new Date($scope.season.to));
+        angular.element($('#input-season-to')).controller('ngModel').$render();
+    };
+
+    // Fix para o render das datas a hora de editar as datas de peche
+    $scope.renderClosedDates = function() {
+        angular.element($('#input-closed-from')).controller('ngModel').$setViewValue(new Date($scope.closed.from));
+        angular.element($('#input-closed-from')).controller('ngModel').$render();
+        angular.element($('#input-closed-to')).controller('ngModel').$setViewValue(new Date($scope.closed.to));
+        angular.element($('#input-closed-to')).controller('ngModel').$render();
+    };
+
+    // Cancelamos a acción e voltamos atrás sen gardar ningún cambio
+    $scope.cancel = function() {
+        // Se o formulario foi modificado preguntamos ó
+        // usuario se está seguro de cancelar.
+        if ($scope.hasChanges) {
+            if ( ! confirm($filter('translate')('admin.are_you_sure'))) {
+                return false;
+            }
+        }
+        window.history.back();
+    };
+});
+
+angular.module('adminApp').controller('ApartmentsImagesCtrl', function($rootScope, $scope, $flash, $location, Apartment, ApartmentService) {
+    // Definimos a sección actual
+    $rootScope.current_section = 'apartments';
+
+    // Definimos o apartamento e as imaxes
+    $scope.apartment = Apartment;
+    $scope.images = Apartment.images || [];
+    $scope.uploading = [];
+
+    $scope.uploadStart = function(files) {
+        $scope.uploading.push(files);
+    };
+
+    $scope.uploadComplete = function(response) {
+        var images = [];
+        $.each(response.data, function(index, item) {
+            images.push({
+                file: item
+            });
+        });
+        $scope.images = $scope.images.concat(images);
     };
 });

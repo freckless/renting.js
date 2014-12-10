@@ -34,6 +34,10 @@ var routes = {
     },
     '/admin/logout': {
         get: 'admin#logout'
+    },
+    // Rutas extra para os apartamentos no panel de xestión
+    '/admin/apartments/upload': {
+        post: 'admin/apartments#upload'
     }
 };
 

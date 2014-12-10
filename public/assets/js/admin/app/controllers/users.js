@@ -119,7 +119,7 @@ angular.module('adminApp').controller('UsersFormCtrl', function($scope, $rootSco
         
     };
 
-    // Cancelamos a acción e volvemos atrás sen gardar ningún cambio
+    // Cancelamos a acción e voltamos atrás sen gardar ningún cambio
     $scope.cancel = function() {
         // Se o formulario foi modificado preguntamos ó
         // usuario se está seguro de cancelar.

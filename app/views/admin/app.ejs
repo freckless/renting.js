@@ -25,15 +25,15 @@
             '/libs/angular-resource/angular-resource.min.js',
             '/libs/angular-translate/angular-translate.min.js',
             '/libs/angular-translate-loader-url/angular-translate-loader-url.min.js',
+            '/libs/angular-upload/angular-upload.js',
             /* Locale */
             '/assets/js/resources/locale-es.js',
             /* App */
             '/assets/js/admin/app.js'
     ) %>
 </head>
-<body class="app">
-<!-- Launch the app -->
-<div id="app" ng-init="user=<%= JSON.stringify(user) %>;config=<%= JSON.stringify(config) %>">
+<body class="app" ng-init="user=<%= JSON.stringify(user) %>;config=<%= JSON.stringify(config) %>">
+    <!-- Launch the app -->
     <header ng-include="'/assets/js/admin/views/partials/header.html'"></header>
     <div class="container-fluid">
         <div class="row">
@@ -46,6 +46,5 @@
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>

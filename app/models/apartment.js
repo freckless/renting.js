@@ -31,24 +31,20 @@ var ApartmentSchema = new Schema({
         'on_demand': Boolean,
         'seasons': [{
             'price': Number,
-            'start_at': Date,
-            'end_at': Date,
-            'quantity': Number,
+            'from': Date,
+            'to': Date,
             'on_demand': Boolean,
             'minimum_stay': Number
         }],
         'closed': [{
-            'start_at': Date,
-            'end_at': Date,
+            'from': Date,
+            'to': Date,
             'quantity': Number
         }]
     }],
     'images': [{
         'file': String,
-        'description': [{
-            'locale': String,
-            'value': String
-        }]
+        'description': DBUtils.localized_field() // Campo localizable
     }],
     /* Relacións */
     'country': {'type': Schema.Types.ObjectId, ref: 'Country'},

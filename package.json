@@ -25,7 +25,9 @@
         "lodash": "latest",
         "ejs": "latest",
         "express-ejs-layouts": "latest",
-        "moment": "latest"
+        "moment": "latest",
+        "imagemagick": "latest",
+        "async": "latest"
     },
     "devDependencies": {
         "bower": "latest",

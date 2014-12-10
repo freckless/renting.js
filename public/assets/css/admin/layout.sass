@@ -14,23 +14,21 @@ body
         padding-top: 60px
 
 div.page-loader
-    background-color: rgba(0, 0, 0, 0.2)
-    z-index: 1050
     color: white
-    position: fixed
-    top: 0px
-    left: 0px
-    right: 0px
-    bottom: 0px
-    
-    i
-        position: absolute
-        top: 50%
-        left: 50%
-        width: 36px
+    text-align: center
+    width: 100px
+    position: absolute
+    margin-left: -50px
+    left: 50%
+    top: 14px
+
+    i.fa
+        width: 28px
         height: 26px
-        margin-left: -18px
-        margin-top: -13px
+        -webkit-animation: spin .8s infinite linear
+        -moz-animation: spin .8s infinite linear
+        -o-animation: spin .8s infinite linear
+        animation: spin .8s infinite linear
 
 div.aside
     position: fixed
@@ -113,3 +111,22 @@ div.datepicker
 @media (min-width: 768px)
     div.aside
         display: block
+
+
+// Animations
+@-moz-keyframes spin
+    from
+        -moz-transform: rotate(0deg)
+    to
+        -moz-transform: rotate(360deg)
+
+@-webkit-keyframes spin
+    from
+        -webkit-transform: rotate(0deg)
+    to
+        -webkit-transform: rotate(360deg)
+@keyframes spin
+    from
+        transform: rotate(0deg)
+    to
+        transform: rotate(360deg)

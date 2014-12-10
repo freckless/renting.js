@@ -1,51 +1,242 @@
 <a href class="pull-left" back-button><i class="fa fa-2x fa-fw fa-angle-left"></i></a>
-<h1 class="page-header">{{ 'admin.apartments.title' | translate }}</h1>
-<form name="form">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-             <h3 class="panel-title">{{ 'admin.apartments.apartments_types' | translate }}</h3>
-         </div> 
-         <div class="panel-body">
-            <a href ng-click="addApartment()" class="btn btn-primary"><i class="fa fa-fw fa-plus"></i> {{ 'admin.add' | translate }}</a>
-            <div class="apartment" ng-show="apartment_index !== null">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            {{ 'admin.apartments.apartment_info' | translate }}
-                        </h3>
-                    </div>
-                    <div class="panel-body">
+<h1 class="page-header">{{apartment_block.name}}</h1>
+<div class="panel panel-default">
+    <div class="panel-heading">
+         <h3 class="panel-title">{{ 'admin.apartments.apartments_types' | translate }}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="apartments-types">
+            <a href ng-class="{active: apartment_index == $index}" ng-click="editApartment($index)" class="btn btn-default" ng-repeat="apartment in apartments">{{apartment.minimum}}-{{apartment.maximum}}{{apartment.comment ? ' ('+apartment.comment+')' : ''}}</a>
+        </div>
+        <a href ng-click="addApartment()" class="btn btn-primary"><i class="fa fa-fw fa-plus"></i> {{ 'admin.add' | translate }}</a>
+        <div class="apartment" ng-show="apartment !== null">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        {{ 'admin.apartments.apartment_info' | translate }}
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div ng-form="apartmentForm">
+                        <div class="col-xs-12">
+                            <h4>{{'admin.apartments.apartment_basic_info' | translate}}</h4>
+                        </div>
                         <div class="col-xs-12 col-md-3">
                             <div class="form-group">
                                 <label for="input-quantity">{{'admin.apartments._quantity' | translate}}</label>
-                                <input id="input-quantity" type="text" class="form-control">
+                                <input ng-model="apartment.quantity" id="input-quantity" type="text" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-3">
                             <div class="form-group">
                                 <label for="input-minimum">{{'admin.apartments._minimum' | translate}}</label>
-                                <input id="input-minimum" type="text" class="form-control">
+                                <input ng-model="apartment.minimum" id="input-minimum" type="text" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-3">
                             <div class="form-group">
                                 <label for="input-maximum">{{'admin.apartments._maximum' | translate}}</label>
-                                <input id="input-maximum" type="text" class="form-control">
+                                <input ng-model="apartment.maximum" id="input-maximum" type="text" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-3">
                             <div class="form-group">
                                 <label for="input-rooms">{{'admin.apartments._rooms' | translate}}</label>
-                                <input id="input-rooms" type="text" class="form-control">
+                                <input ng-model="apartment.rooms" id="input-rooms" type="text" class="form-control" required>
                             </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="form-group">
+                                <label for="input-comment">{{'admin.apartments._comment' | translate}}</label>
+                                <input ng-model="apartment.comment" type="text" id="input-comment" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div class="form-group">
+                                <label for="input-minimum_stay">{{'admin.apartments._minimum_stay' | translate}}</label>
+                                <input type="text" ng-model="apartment.minimum_stay" id="input-minimum_stay" class="form-control" required/>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div class="form-group">
+                                <label for="input-on_demand">{{'admin.apartments._on_demand' | translate}}</label>
+                                <input ng-model="apartment.on_demand" type="checkbox" id="input-on_demand" class="checkbox"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" style="margin-top: -10px">
+                        <hr/>
+                    </div>
+                    <div class="col-xs-12">
+                        <h4>{{'admin.apartments.apartment_not_available' | translate}}</h4>
+                        <div class="alert alert-info">
+                            {{'admin.apartments.not_fill_if_available_all_year' | translate}}
+                        </div>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>{{'admin.apartments._from' | translate}}</th>
+                                <th>{{'admin.apartments._to' | translate}}</th>
+                                <th>{{'admin.apartments._quantity_closed' | translate}}</th>
+                                <th style="width: 160px; text-align: right;">{{'admin.options' | translate}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-show="apartment.closed.length < 1">
+                                <td colspan="3">{{'admin.apartments.not_closed_dates'|translate}}</td>
+                            </tr>
+                            <tr ng-show="apartment.closed.length > 0" ng-repeat="closed in apartment.closed">
+                                <td>{{closed.from|date}}</td>
+                                <td>{{closed.to|date}}</td>
+                                <td>{{closed.quantity}}</td>
+                                <td style="text-align: right;">
+                                    <a href class="btn btn-xs btn-primary" ng-click="editClosed($index)"><i class="fa fa-pencil fa-fw" tooltip="{{'admin.edit' | translate}}"></i></a>
+                                    <a href class="btn btn-xs btn-danger" ng-click="deleteClosed($index)"><i class="fa fa-trash-o fa-fw" tooltip="{{'admin.delete' | translate}}"></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a class="btn btn-sm btn-primary" href ng-click="addClosed()" ng-hide="closed"><i class="fa fa-plus fa-fw"></i> {{'admin.add'|translate}}</a>
+                        <div class="panel panel-default" ng-show="closed">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{'admin.apartments.new_closed_dates'|translate}}</h3>
+                            </div>
+                            <div class="panel-body" ng-form="closedForm">
+                                <div class="col-xs-4">
+                                    <div class="form-group datepicker">
+                                        <label for="input-closed-from">{{'admin.apartments._from'|translate}}</label>
+                                        <input id="input-closed-from" ng-model="closed.from" class="form-control" type="text"
+                                               datepicker-popup="{{ $locale.DATETIME_FORMATS.mediumDate }}"
+                                               datepicker-options="dateOptions" show-button-bar="false"
+                                               is-open="closed_from_open" ng-focus="closed_from_open = true" required/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group datepicker">
+                                        <label for="input-closed-to">{{'admin.apartments._to'|translate}}</label>
+                                        <input id="input-closed-to" ng-model="closed.to" class="form-control" type="text"
+                                               datepicker-popup="{{ $locale.DATETIME_FORMATS.mediumDate }}"
+                                               datepicker-options="dateOptions" show-button-bar="false"
+                                               is-open="closed_to_open" ng-focus="closed_to_open = true" required/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        <label for="input-closed-quantity">{{'admin.apartments._quantity_closed'|translate}}</label>
+                                        <input ng-model="closed.quantity" id="input-closed-quantity" class="form-control" type="text" required/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <button class="btn btn-sm btn-default" ng-disabled="!closedForm.$valid && closedForm.$pristine" ng-click="saveClosed()">{{'admin.save'|translate}}</button>
+                                    <button class="btn btn-sm btn-danger" ng-click="cancelClosed()">{{'admin.cancel'|translate}}</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                    </div>
+                    <div class="col-xs-12">
+                        <h4>{{'admin.apartments.apartment_seasons' | translate}}</h4>
+                        <div class="alert alert-info">
+                            {{'admin.apartments.highest_season_will_be_chosen' | translate}}
+                        </div>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>{{'admin.apartments._from' | translate}}</th>
+                                <th>{{'admin.apartments._to' | translate}}</th>
+                                <th>{{'admin.apartments._price' | translate}}</th>
+                                <th>{{'admin.apartments._minimum_stay' | translate}}</th>
+                                <th style="width: 100px; text-align: center;">{{'admin.apartments._on_demand' | translate}}</th>
+                                <th style="width: 160px; text-align: right;">{{'admin.options' | translate}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-show="apartment.seasons.length < 1">
+                                <td colspan="6">{{'admin.apartments.not_seasons'|translate}}</td>
+                            </tr>
+                            <tr ng-repeat="season in apartment.seasons">
+                                <td>{{season.from|date}}</td>
+                                <td>{{season.to|date}}</td>
+                                <td>{{season.price | currency:'€'}}</td>
+                                <td>{{season.minimum_stay || (('admin.apartments.default_minimum_stay' | translate) + ' ('+apartment.minimum_stay+')')}}</td>
+                                <td style="text-align: center;">
+                                    <i ng-show="season.on_demand || apartment.on_demand" class="fa fa-check"></i>
+                                    <i ng-hide="season.on_demand || apartment.on_demand" class="fa fa-times"></i>
+                                </td>
+                                <td style="text-align: right">
+                                    <a href class="btn btn-xs btn-primary" ng-click="editSeason($index)"><i class="fa fa-pencil fa-fw" tooltip="{{'admin.edit' | translate}}"></i></a>
+                                    <a href class="btn btn-xs btn-danger" ng-click="deleteSeason($index)"><i class="fa fa-trash-o fa-fw" tooltip="{{'admin.delete' | translate}}"></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a class="btn btn-sm btn-primary" href ng-click="addSeason()" ng-hide="season != null"><i class="fa fa-plus fa-fw"></i> {{'admin.add'|translate}}</a>
+                        <div class="panel panel-default" ng-show="season != null">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{'admin.apartments.new_season'|translate}}</h3>
+                            </div>
+                            <div class="panel-body" ng-form="seasonForm">
+                                <div class="col-xs-3">
+                                    <div class="form-group datepicker">
+                                        <label for="input-season-from">{{'admin.apartments._from'|translate}}</label>
+                                        <input ng-model="season.from" id="input-season-from" class="form-control" type="text"
+                                               is-open="season_from_opened"
+                                               datepicker-popup="{{ $locale.DATETIME_FORMATS.mediumDate }}"
+                                               datepicker-options="dateOptions" show-button-bar="false"
+                                               ng-focus="season_from_opened=true" required/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div class="form-group datepicker">
+                                        <label for="input-season-to">{{'admin.apartments._to'|translate}}</label>
+                                        <input ng-model="season.to" id="input-season-to" class="form-control" type="text"
+                                               datepicker-popup="{{ $locale.DATETIME_FORMATS.mediumDate }}"
+                                               datepicker-options="dateOptions" show-button-bar="false"
+                                               is-open="season_to_opened" ng-focus="season_to_opened = true" required/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="form-group">
+                                        <label for="input-season-price">{{'admin.apartments._price'|translate}}</label>
+                                        <input ng-model="season.price" id="input-season-price" class="form-control" type="text" required/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="form-group">
+                                        <label for="input-season-minimum_stay">{{'admin.apartments._minimum_stay'|translate}}</label>
+                                        <input ng-model="season.minimum_stay" placeholder="{{apartment.minimum_stay}}" id="input-season-minimum_stay" class="form-control" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="form-group">
+                                        <label for="input-season-on_demand">{{'admin.apartments._on_demand'|translate}}</label>
+                                        <input ng-model="season.on_demand" id="input-season-on_demand" class="checkbox" type="checkbox"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <button class="btn btn-sm btn-default" ng-disabled="!seasonForm.$valid || seasonForm.$pristine" ng-click="saveSeason()">{{'admin.save'|translate}}</button>
+                                    <button class="btn btn-sm btn-danger" ng-click="cancelSeason()">{{'admin.cancel'|translate}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <hr/>
+                        <div class="pull-right">
+                            <a class="btn btn-danger" ng-click="cancelApartment()"><i class="fa fa-times"></i> {{ 'admin.cancel' | translate }}</a>
+                            <a class="btn btn-primary" ng-disabled="!apartmentForm.$valid || apartmentForm.$pristine" ng-click="saveApartment()"><i class="fa fa-save"></i> {{ 'admin.save' | translate }}</a>
+                        </div>
+                        <div class="pull-left">
+                            <a class="btn btn-danger" ng-disabled="apartment_index === null" ng-click="deleteApartment()"><i class="fa fa-trash-o"></i> {{ 'admin.delete' | translate }}</a>
+                            <a class="btn btn-success" ng-disabled="apartment_index === null || apartmentForm.$dirty" ng-click="duplicateApartment()"><i class="fa fa-clipboard"></i> {{ 'admin.duplicate' | translate }}</a>
                         </div>
                     </div>
                 </div>
             </div>
-         </div>
+        </div>
     </div>
-    <div class="pull-right">
-        <a class="btn btn-danger" ng-click="cancel()"><i class="fa fa-times"></i> {{ 'admin.cancel' | translate }}</a>
-        <a class="btn btn-primary" ng-disabled="!form.$valid || form.$pristine" ng-click="saveApartment()"><i class="fa fa-save"></i> {{ 'admin.save' | translate }}</a>
-    </div>
-</form>
+</div>
+<div class="pull-right">
+    <a class="btn btn-danger" ng-click="cancel()"><i class="fa fa-times"></i> {{ 'admin.cancel' | translate }}</a>
+    <a class="btn btn-primary" ng-disabled="!hasChanges" ng-click="saveApartmentsBlock()"><i class="fa fa-save"></i> {{ 'admin.save' | translate }}</a>
+</div>

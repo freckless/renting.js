@@ -1,3 +1,5 @@
+@import '../resources/utils'
+
 div.search-address
     margin-top: 10px
 
@@ -26,3 +28,60 @@ ul.services
 div.apartment
     margin-top: 10px
     margin-bottom: -18px
+
+div.apartments-types
+    display: inline-block
+
+    a
+        margin-right: 6px
+
+input[type=checkbox]
+    margin: 4px 0
+    width: 24px
+    height: 24px
+
+.btn-upload
+    position: relative
+    overflow: hidden
+
+.btn-upload input
+    position: absolute
+    top: 0
+    right: 0
+    margin: 0
+    opacity: 0
+    filter: alpha(opacity=0)
+    transform: translate(-300px, 0) scale(4)
+    -webkit-transform: translate(-300px, 0) scale(4)
+    -ms-transform: translate(-300px, 0) scale(4)
+    -o-transform: translate(-300px, 0) scale(4)
+    font-size: 23px
+    direction: ltr
+    cursor: pointer
+
+* html .btn-upload
+    line-height: 24px
+    margin: 1px -3px 0 0
+
+* + html .btn-upload
+    padding: 2px 15px
+    margin: 1px 0 0 0
+
+div.images
+    padding-bottom: 6px
+    div.image
+        +border-radius(6px)
+
+        img
+            width: 100%
+            +border-radius(6px)
+
+        div.inputs
+            margin-top: 6px
+            input
+                margin-bottom: 2px
+
+        div.buttons
+            position: absolute
+            margin-top: -26px
+            margin-left: 4px

@@ -17,7 +17,8 @@
     "angular-resource": "latest",
     "angular-translate": "latest",
     "angular-translate-loader-url": "latest",
-    "angular-translate-loader-static-files": "latest"
+    "angular-translate-loader-static-files": "latest",
+    "angular-upload": "~1.0.11"
   },
   "resolutions": {
     "angular": "1.3.5"

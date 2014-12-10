@@ -457,22 +457,20 @@ body {
     padding-top: 60px; }
 
 div.page-loader {
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 1050;
   color: white;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px; }
-  div.page-loader i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 36px;
+  text-align: center;
+  width: 100px;
+  position: absolute;
+  margin-left: -50px;
+  left: 50%;
+  top: 14px; }
+  div.page-loader i.fa {
+    width: 28px;
     height: 26px;
-    margin-left: -18px;
-    margin-top: -13px; }
+    -webkit-animation: spin 0.8s infinite linear;
+    -moz-animation: spin 0.8s infinite linear;
+    -o-animation: spin 0.8s infinite linear;
+    animation: spin 0.8s infinite linear; }
 
 div.aside {
   position: fixed;
@@ -546,6 +544,21 @@ div.datepicker ul.dropdown-menu {
 @media (min-width: 768px) {
   div.aside {
     display: block; } }
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg); }
+  to {
+    -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
 div.search-address {
   margin-top: 10px; }
 
@@ -570,5 +583,62 @@ ul.services {
 div.apartment {
   margin-top: 10px;
   margin-bottom: -18px; }
+
+div.apartments-types {
+  display: inline-block; }
+  div.apartments-types a {
+    margin-right: 6px; }
+
+input[type=checkbox] {
+  margin: 4px 0;
+  width: 24px;
+  height: 24px; }
+
+.btn-upload {
+  position: relative;
+  overflow: hidden; }
+
+.btn-upload input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transform: translate(-300px, 0) scale(4);
+  -webkit-transform: translate(-300px, 0) scale(4);
+  -ms-transform: translate(-300px, 0) scale(4);
+  -o-transform: translate(-300px, 0) scale(4);
+  font-size: 23px;
+  direction: ltr;
+  cursor: pointer; }
+
+* html .btn-upload {
+  line-height: 24px;
+  margin: 1px -3px 0 0; }
+
+* + html .btn-upload {
+  padding: 2px 15px;
+  margin: 1px 0 0 0; }
+
+div.images {
+  padding-bottom: 6px; }
+  div.images div.image {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px; }
+    div.images div.image img {
+      width: 100%;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px; }
+    div.images div.image div.inputs {
+      margin-top: 6px; }
+      div.images div.image div.inputs input {
+        margin-bottom: 2px; }
+    div.images div.image div.buttons {
+      position: absolute;
+      margin-top: -26px;
+      margin-left: 4px; }
 
 /*# sourceMappingURL=admin.css.map */
