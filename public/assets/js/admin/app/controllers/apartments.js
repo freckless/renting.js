@@ -464,7 +464,7 @@ angular.module('adminApp').controller('ApartmentsApartmentsCtrl', function($root
     };
 });
 
-angular.module('adminApp').controller('ApartmentsImagesCtrl', function($rootScope, $scope, $flash, $location, Apartment, ApartmentService) {
+angular.module('adminApp').controller('ApartmentsImagesCtrl', function($rootScope, $scope, $filter, $flash, $location, Apartment, ApartmentService) {
     // Definimos a sección actual
     $rootScope.current_section = 'apartments';
 
@@ -475,6 +475,12 @@ angular.module('adminApp').controller('ApartmentsImagesCtrl', function($rootScop
 
     $scope.uploadStart = function(files) {
         $scope.uploading.push(files);
+    };
+
+    $scope.deleteImage = function($index) {
+        if (confirm($filter('translate')('admin.are_you_sure'))) {
+            $scope.images.splice($index, 1);
+        }
     };
 
     $scope.uploadComplete = function(response) {

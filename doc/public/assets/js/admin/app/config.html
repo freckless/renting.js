@@ -3,10 +3,7 @@
     <span class="hljs-string">'$routeProvider'</span>,
     <span class="hljs-string">'$translateProvider'</span>,
     <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($locationProvider, $routeProvider, $translateProvider)</span> {</span>
-        $translateProvider.useStaticFilesLoader({
-            prefix: <span class="hljs-string">'/assets/js/admin/i18n/'</span>,
-            suffix: <span class="hljs-string">'.json'</span>
-        });
+        $translateProvider.useUrlLoader(<span class="hljs-string">'/locale'</span>);
 
         $translateProvider.preferredLanguage(<span class="hljs-string">'es'</span>);
 
@@ -21,5 +18,12 @@
         $rootScope.$location = $location;
         $rootScope.$translate = $translate;
         $rootScope.$locale = $locale;
+        $rootScope.$available_languages = [<span class="hljs-string">'es'</span>, <span class="hljs-string">'en'</span>];</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos eventos para saber dende as vistas se se están
+a cargar datos, arquivos ou algunha ruta.</p></div></div><div class="code"><div class="wrapper">        $rootScope.$on(<span class="hljs-string">'$routeChangeStart'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            $rootScope.is_loading = <span class="hljs-literal">true</span>;
+        });
+        $rootScope.$on(<span class="hljs-string">'$routeChangeSuccess'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            $rootScope.is_loading = <span class="hljs-literal">false</span>;
+        });
     }
 ]);</div></div></div></div></body></html>

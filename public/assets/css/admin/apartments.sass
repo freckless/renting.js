@@ -70,6 +70,10 @@ input[type=checkbox]
 div.images
     padding-bottom: 6px
     div.image
+        width: 200px
+        height: 210px
+        padding: 10px
+        float: left
         +border-radius(6px)
 
         img
@@ -85,3 +89,24 @@ div.images
             position: absolute
             margin-top: -26px
             margin-left: 4px
+
+// Sortable
+
+.as-sortable-item, .as-sortable-placeholder
+
+.as-sortable-item
+
+.as-sortable-item-handle
+
+.as-sortable-placeholder
+    float: left
+    background-color: #ddd
+    +border-radius(10px)
+    height: 206px
+    width: 200px
+
+.as-sortable-drag
+    opacity: 0
+
+.as-sortable-hidden
+    display: none

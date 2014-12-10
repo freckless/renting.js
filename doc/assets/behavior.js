@@ -123,6 +123,127 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/controllers/admin/apartments.js",
+                    "projectPath": "app/controllers/admin/apartments.js",
+                    "targetPath": "app/controllers/admin/apartments",
+                    "pageTitle": "app/controllers/admin/apartments",
+                    "firstHeader": {
+                      "type": "heading",
+                      "data": {
+                        "level": 1,
+                        "title": "AdminApartmentsController",
+                        "slug": "adminapartmentscontroller",
+                        "isFileHeader": true
+                      },
+                      "depth": 1,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Dependencias do módulo",
+                            "slug": "dependencias-do-mdulo"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Accións do controlador",
+                            "slug": "accins-do-controlador"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Dependencias da acción upload",
+                            "slug": "dependencias-da-accin-upload"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Facemos o controlador REST có modelo User",
+                            "slug": "facemos-o-controlador-rest-c-modelo-user"
+                          },
+                          "depth": 2,
+                          "children": [
+                            {
+                              "type": "heading",
+                              "data": {
+                                "level": 3,
+                                "title": "Exportamos o modulo",
+                                "slug": "exportamos-o-modulo"
+                              },
+                              "depth": 3
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "title": "AdminApartmentsController"
+                  },
+                  "depth": 4,
+                  "outline": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Accións do controlador",
+                        "slug": "accins-do-controlador"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias da acción upload",
+                        "slug": "dependencias-da-accin-upload"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Facemos o controlador REST có modelo User",
+                        "slug": "facemos-o-controlador-rest-c-modelo-user"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Exportamos o modulo",
+                            "slug": "exportamos-o-modulo"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }
+                  ]
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
                     "sourcePath": "/Users/daniel/Sites/Renting.js/app/controllers/admin/app.js",
                     "projectPath": "app/controllers/admin/app.js",
                     "targetPath": "app/controllers/admin/app",
@@ -267,6 +388,531 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                             "level": 3,
                             "title": "Exportamos o módulo",
                             "slug": "exportamos-o-mdulo"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }
+                  ]
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/controllers/admin/countries.js",
+                    "projectPath": "app/controllers/admin/countries.js",
+                    "targetPath": "app/controllers/admin/countries",
+                    "pageTitle": "app/controllers/admin/countries",
+                    "firstHeader": {
+                      "type": "heading",
+                      "data": {
+                        "level": 1,
+                        "title": "AdminCountriesController",
+                        "slug": "admincountriescontroller",
+                        "isFileHeader": true
+                      },
+                      "depth": 1,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Dependencias do módulo",
+                            "slug": "dependencias-do-mdulo"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Accións do controlador",
+                            "slug": "accins-do-controlador"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Facemos o controlador REST có modelo User",
+                            "slug": "facemos-o-controlador-rest-c-modelo-user"
+                          },
+                          "depth": 2,
+                          "children": [
+                            {
+                              "type": "heading",
+                              "data": {
+                                "level": 3,
+                                "title": "Exportamos o modulo",
+                                "slug": "exportamos-o-modulo"
+                              },
+                              "depth": 3
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "title": "AdminCountriesController"
+                  },
+                  "depth": 4,
+                  "outline": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Accións do controlador",
+                        "slug": "accins-do-controlador"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Facemos o controlador REST có modelo User",
+                        "slug": "facemos-o-controlador-rest-c-modelo-user"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Exportamos o modulo",
+                            "slug": "exportamos-o-modulo"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }
+                  ]
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/controllers/admin/provinces.js",
+                    "projectPath": "app/controllers/admin/provinces.js",
+                    "targetPath": "app/controllers/admin/provinces",
+                    "pageTitle": "app/controllers/admin/provinces",
+                    "firstHeader": {
+                      "type": "heading",
+                      "data": {
+                        "level": 1,
+                        "title": "AdminProvincesController",
+                        "slug": "adminprovincescontroller",
+                        "isFileHeader": true
+                      },
+                      "depth": 1,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Dependencias do módulo",
+                            "slug": "dependencias-do-mdulo"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Accións do controlador",
+                            "slug": "accins-do-controlador"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Facemos o controlador REST có modelo User",
+                            "slug": "facemos-o-controlador-rest-c-modelo-user"
+                          },
+                          "depth": 2,
+                          "children": [
+                            {
+                              "type": "heading",
+                              "data": {
+                                "level": 3,
+                                "title": "Exportamos o modulo",
+                                "slug": "exportamos-o-modulo"
+                              },
+                              "depth": 3
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "title": "AdminProvincesController"
+                  },
+                  "depth": 4,
+                  "outline": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Accións do controlador",
+                        "slug": "accins-do-controlador"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Facemos o controlador REST có modelo User",
+                        "slug": "facemos-o-controlador-rest-c-modelo-user"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Exportamos o modulo",
+                            "slug": "exportamos-o-modulo"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }
+                  ]
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/controllers/admin/services.js",
+                    "projectPath": "app/controllers/admin/services.js",
+                    "targetPath": "app/controllers/admin/services",
+                    "pageTitle": "app/controllers/admin/services",
+                    "firstHeader": {
+                      "type": "heading",
+                      "data": {
+                        "level": 1,
+                        "title": "AdminServicesController",
+                        "slug": "adminservicescontroller",
+                        "isFileHeader": true
+                      },
+                      "depth": 1,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Dependencias do módulo",
+                            "slug": "dependencias-do-mdulo"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Accións do controlador",
+                            "slug": "accins-do-controlador"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Facemos o controlador REST có modelo User",
+                            "slug": "facemos-o-controlador-rest-c-modelo-user"
+                          },
+                          "depth": 2,
+                          "children": [
+                            {
+                              "type": "heading",
+                              "data": {
+                                "level": 3,
+                                "title": "Exportamos o modulo",
+                                "slug": "exportamos-o-modulo"
+                              },
+                              "depth": 3
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "title": "AdminServicesController"
+                  },
+                  "depth": 4,
+                  "outline": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Accións do controlador",
+                        "slug": "accins-do-controlador"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Facemos o controlador REST có modelo User",
+                        "slug": "facemos-o-controlador-rest-c-modelo-user"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Exportamos o modulo",
+                            "slug": "exportamos-o-modulo"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }
+                  ]
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/controllers/admin/spots.js",
+                    "projectPath": "app/controllers/admin/spots.js",
+                    "targetPath": "app/controllers/admin/spots",
+                    "pageTitle": "app/controllers/admin/spots",
+                    "firstHeader": {
+                      "type": "heading",
+                      "data": {
+                        "level": 1,
+                        "title": "AdminSpotsController",
+                        "slug": "adminspotscontroller",
+                        "isFileHeader": true
+                      },
+                      "depth": 1,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Dependencias do módulo",
+                            "slug": "dependencias-do-mdulo"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Accións do controlador",
+                            "slug": "accins-do-controlador"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Facemos o controlador REST có modelo User",
+                            "slug": "facemos-o-controlador-rest-c-modelo-user"
+                          },
+                          "depth": 2,
+                          "children": [
+                            {
+                              "type": "heading",
+                              "data": {
+                                "level": 3,
+                                "title": "Exportamos o modulo",
+                                "slug": "exportamos-o-modulo"
+                              },
+                              "depth": 3
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "title": "AdminSpotsController"
+                  },
+                  "depth": 4,
+                  "outline": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Accións do controlador",
+                        "slug": "accins-do-controlador"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Facemos o controlador REST có modelo User",
+                        "slug": "facemos-o-controlador-rest-c-modelo-user"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Exportamos o modulo",
+                            "slug": "exportamos-o-modulo"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }
+                  ]
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/controllers/admin/towns.js",
+                    "projectPath": "app/controllers/admin/towns.js",
+                    "targetPath": "app/controllers/admin/towns",
+                    "pageTitle": "app/controllers/admin/towns",
+                    "firstHeader": {
+                      "type": "heading",
+                      "data": {
+                        "level": 1,
+                        "title": "AdminTownsController",
+                        "slug": "admintownscontroller",
+                        "isFileHeader": true
+                      },
+                      "depth": 1,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Dependencias do módulo",
+                            "slug": "dependencias-do-mdulo"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Accións do controlador",
+                            "slug": "accins-do-controlador"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Facemos o controlador REST có modelo User",
+                            "slug": "facemos-o-controlador-rest-c-modelo-user"
+                          },
+                          "depth": 2,
+                          "children": [
+                            {
+                              "type": "heading",
+                              "data": {
+                                "level": 3,
+                                "title": "Exportamos o modulo",
+                                "slug": "exportamos-o-modulo"
+                              },
+                              "depth": 3
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "title": "AdminTownsController"
+                  },
+                  "depth": 4,
+                  "outline": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Accións do controlador",
+                        "slug": "accins-do-controlador"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Facemos o controlador REST có modelo User",
+                        "slug": "facemos-o-controlador-rest-c-modelo-user"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Exportamos o modulo",
+                            "slug": "exportamos-o-modulo"
                           },
                           "depth": 3
                         }
@@ -642,6 +1288,26 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/lang/es/languages.js",
+                    "projectPath": "app/lang/es/languages.js",
+                    "targetPath": "app/lang/es/languages",
+                    "pageTitle": "app/lang/es/languages",
+                    "title": "languages"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
                     "sourcePath": "/Users/daniel/Sites/Renting.js/app/lang/es/website.js",
                     "projectPath": "app/lang/es/website.js",
                     "targetPath": "app/lang/es/website",
@@ -674,16 +1340,418 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "^",
                   "name": "JavaScript"
                 },
-                "sourcePath": "/Users/daniel/Sites/Renting.js/app/models/users.js",
-                "projectPath": "app/models/users.js",
-                "targetPath": "app/models/users",
-                "pageTitle": "app/models/users",
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/models/apartment.js",
+                "projectPath": "app/models/apartment.js",
+                "targetPath": "app/models/apartment",
+                "pageTitle": "app/models/apartment",
                 "firstHeader": {
                   "type": "heading",
                   "data": {
                     "level": 1,
-                    "title": "User Model",
-                    "slug": "user-model",
+                    "title": "ApartmentModel",
+                    "slug": "apartmentmodel",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Esquema de datos do modelo",
+                        "slug": "esquema-de-datos-do-modelo"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "ApartmentModel"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Esquema de datos do modelo",
+                    "slug": "esquema-de-datos-do-modelo"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/models/country.js",
+                "projectPath": "app/models/country.js",
+                "targetPath": "app/models/country",
+                "pageTitle": "app/models/country",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "CountryModel",
+                    "slug": "countrymodel",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Esquema de datos do modelo",
+                        "slug": "esquema-de-datos-do-modelo"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "CountryModel"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Esquema de datos do modelo",
+                    "slug": "esquema-de-datos-do-modelo"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/models/province.js",
+                "projectPath": "app/models/province.js",
+                "targetPath": "app/models/province",
+                "pageTitle": "app/models/province",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "ProvinceModel",
+                    "slug": "provincemodel",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Esquema de datos do modelo",
+                        "slug": "esquema-de-datos-do-modelo"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "ProvinceModel"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Esquema de datos do modelo",
+                    "slug": "esquema-de-datos-do-modelo"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/models/service.js",
+                "projectPath": "app/models/service.js",
+                "targetPath": "app/models/service",
+                "pageTitle": "app/models/service",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "ServiceModel",
+                    "slug": "servicemodel",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Esquema de datos do modelo",
+                        "slug": "esquema-de-datos-do-modelo"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "ServiceModel"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Esquema de datos do modelo",
+                    "slug": "esquema-de-datos-do-modelo"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/models/spot.js",
+                "projectPath": "app/models/spot.js",
+                "targetPath": "app/models/spot",
+                "pageTitle": "app/models/spot",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "SpotModel",
+                    "slug": "spotmodel",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Esquema de datos do modelo",
+                        "slug": "esquema-de-datos-do-modelo"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "SpotModel"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Esquema de datos do modelo",
+                    "slug": "esquema-de-datos-do-modelo"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/models/town.js",
+                "projectPath": "app/models/town.js",
+                "targetPath": "app/models/town",
+                "pageTitle": "app/models/town",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "TownModel",
+                    "slug": "townmodel",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Esquema de datos do modelo",
+                        "slug": "esquema-de-datos-do-modelo"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "TownModel"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Esquema de datos do modelo",
+                    "slug": "esquema-de-datos-do-modelo"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/models/user.js",
+                "projectPath": "app/models/user.js",
+                "targetPath": "app/models/user",
+                "pageTitle": "app/models/user",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "UserModel",
+                    "slug": "usermodel",
                     "isFileHeader": true
                   },
                   "depth": 1,
@@ -750,7 +1818,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     }
                   ]
                 },
-                "title": "User Model"
+                "title": "UserModel"
               },
               "depth": 3,
               "outline": [
@@ -1074,8 +2142,32 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
                     "title": "Rutas da app",
                     "slug": "rutas-da-app"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Compartindo as traduccións entre cliente e servidor",
+                    "slug": "compartindo-as-traduccins-entre-cliente-e-servidor"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "REST routes",
+                    "slug": "rest-routes"
                   },
                   "depth": 2
                 }
@@ -1089,8 +2181,32 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 2,
+                "title": "Dependencias do módulo",
+                "slug": "dependencias-do-mdulo"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
                 "title": "Rutas da app",
                 "slug": "rutas-da-app"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "Compartindo as traduccións entre cliente e servidor",
+                "slug": "compartindo-as-traduccins-entre-cliente-e-servidor"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "REST routes",
+                "slug": "rest-routes"
               },
               "depth": 2
             }
@@ -1354,8 +2470,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 1,
-                    "title": "Rest component",
-                    "slug": "rest-component",
+                    "title": "RestComponent",
+                    "slug": "restcomponent",
                     "isFileHeader": true
                   },
                   "depth": 1,
@@ -1371,7 +2487,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     }
                   ]
                 },
-                "title": "Rest component"
+                "title": "RestComponent"
               },
               "depth": 3,
               "outline": [
@@ -1708,6 +2824,89 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "depth": 2
                 }
               ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/libs/utils/rest.js",
+                "projectPath": "libs/utils/rest.js",
+                "targetPath": "libs/utils/rest",
+                "pageTitle": "libs/utils/rest",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "RestUtils",
+                    "slug": "restutils",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Lóxica do módulo",
+                        "slug": "lxica-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Exportamos ó módulo",
+                        "slug": "exportamos--mdulo"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "RestUtils"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Lóxica do módulo",
+                    "slug": "lxica-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Exportamos ó módulo",
+                    "slug": "exportamos--mdulo"
+                  },
+                  "depth": 2
+                }
+              ]
             }
           ]
         }
@@ -1847,10 +3046,95 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                                 "projectPath": "public/assets/js/admin/app/controllers/apartments.js",
                                 "targetPath": "public/assets/js/admin/app/controllers/apartments",
                                 "pageTitle": "public/assets/js/admin/app/controllers/apartments",
-                                "title": "apartments"
+                                "firstHeader": {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 1,
+                                    "title": "ApartmentsController",
+                                    "slug": "apartmentscontroller",
+                                    "isFileHeader": true
+                                  },
+                                  "depth": 1,
+                                  "children": [
+                                    {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 2,
+                                        "title": "Rutas",
+                                        "slug": "rutas"
+                                      },
+                                      "depth": 2
+                                    }, {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 2,
+                                        "title": "Controladores",
+                                        "slug": "controladores"
+                                      },
+                                      "depth": 2,
+                                      "children": [
+                                        {
+                                          "type": "heading",
+                                          "data": {
+                                            "level": 3,
+                                            "title": "Controlador da páxina inicial",
+                                            "slug": "controlador-da-pxina-inicial"
+                                          },
+                                          "depth": 3
+                                        }, {
+                                          "type": "heading",
+                                          "data": {
+                                            "level": 3,
+                                            "title": "Controlador do formulario",
+                                            "slug": "controlador-do-formulario"
+                                          },
+                                          "depth": 3
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                "title": "ApartmentsController"
                               },
                               "depth": 7,
-                              "outline": []
+                              "outline": [
+                                {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 2,
+                                    "title": "Rutas",
+                                    "slug": "rutas"
+                                  },
+                                  "depth": 2
+                                }, {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 2,
+                                    "title": "Controladores",
+                                    "slug": "controladores"
+                                  },
+                                  "depth": 2,
+                                  "children": [
+                                    {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 3,
+                                        "title": "Controlador da páxina inicial",
+                                        "slug": "controlador-da-pxina-inicial"
+                                      },
+                                      "depth": 3
+                                    }, {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 3,
+                                        "title": "Controlador do formulario",
+                                        "slug": "controlador-do-formulario"
+                                      },
+                                      "depth": 3
+                                    }
+                                  ]
+                                }
+                              ]
                             }, {
                               "type": "file",
                               "data": {
@@ -1863,16 +3147,16 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                                   "foldPrefix": "^",
                                   "name": "JavaScript"
                                 },
-                                "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/controllers/dashboard.js",
-                                "projectPath": "public/assets/js/admin/app/controllers/dashboard.js",
-                                "targetPath": "public/assets/js/admin/app/controllers/dashboard",
-                                "pageTitle": "public/assets/js/admin/app/controllers/dashboard",
+                                "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/controllers/bookings.js",
+                                "projectPath": "public/assets/js/admin/app/controllers/bookings.js",
+                                "targetPath": "public/assets/js/admin/app/controllers/bookings",
+                                "pageTitle": "public/assets/js/admin/app/controllers/bookings",
                                 "firstHeader": {
                                   "type": "heading",
                                   "data": {
                                     "level": 1,
-                                    "title": "Dashboard Controller",
-                                    "slug": "dashboard-controller",
+                                    "title": "BookingsController",
+                                    "slug": "bookingscontroller",
                                     "isFileHeader": true
                                   },
                                   "depth": 1,
@@ -1907,7 +3191,96 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                                     }
                                   ]
                                 },
-                                "title": "Dashboard Controller"
+                                "title": "BookingsController"
+                              },
+                              "depth": 7,
+                              "outline": [
+                                {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 2,
+                                    "title": "Rutas",
+                                    "slug": "rutas"
+                                  },
+                                  "depth": 2
+                                }, {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 2,
+                                    "title": "Controladores",
+                                    "slug": "controladores"
+                                  },
+                                  "depth": 2,
+                                  "children": [
+                                    {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 3,
+                                        "title": "Controlador da páxina inicial",
+                                        "slug": "controlador-da-pxina-inicial"
+                                      },
+                                      "depth": 3
+                                    }
+                                  ]
+                                }
+                              ]
+                            }, {
+                              "type": "file",
+                              "data": {
+                                "language": {
+                                  "nameMatchers": [".js"],
+                                  "pygmentsLexer": "javascript",
+                                  "multiLineComment": ["/*", "*", "*/"],
+                                  "singleLineComment": ["//"],
+                                  "ignorePrefix": "}",
+                                  "foldPrefix": "^",
+                                  "name": "JavaScript"
+                                },
+                                "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/controllers/dashboard.js",
+                                "projectPath": "public/assets/js/admin/app/controllers/dashboard.js",
+                                "targetPath": "public/assets/js/admin/app/controllers/dashboard",
+                                "pageTitle": "public/assets/js/admin/app/controllers/dashboard",
+                                "firstHeader": {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 1,
+                                    "title": "DashboardController",
+                                    "slug": "dashboardcontroller",
+                                    "isFileHeader": true
+                                  },
+                                  "depth": 1,
+                                  "children": [
+                                    {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 2,
+                                        "title": "Rutas",
+                                        "slug": "rutas"
+                                      },
+                                      "depth": 2
+                                    }, {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 2,
+                                        "title": "Controladores",
+                                        "slug": "controladores"
+                                      },
+                                      "depth": 2,
+                                      "children": [
+                                        {
+                                          "type": "heading",
+                                          "data": {
+                                            "level": 3,
+                                            "title": "Controlador da páxina inicial",
+                                            "slug": "controlador-da-pxina-inicial"
+                                          },
+                                          "depth": 3
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                "title": "DashboardController"
                               },
                               "depth": 7,
                               "outline": [
@@ -2062,48 +3435,385 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                                   "foldPrefix": "^",
                                   "name": "JavaScript"
                                 },
-                                "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/services/users.js",
-                                "projectPath": "public/assets/js/admin/app/services/users.js",
-                                "targetPath": "public/assets/js/admin/app/services/users",
-                                "pageTitle": "public/assets/js/admin/app/services/users",
-                                "title": "users"
+                                "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/services/apartment.js",
+                                "projectPath": "public/assets/js/admin/app/services/apartment.js",
+                                "targetPath": "public/assets/js/admin/app/services/apartment",
+                                "pageTitle": "public/assets/js/admin/app/services/apartment",
+                                "firstHeader": {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 1,
+                                    "title": "ApartmentService",
+                                    "slug": "apartmentservice",
+                                    "isFileHeader": true
+                                  },
+                                  "depth": 1,
+                                  "children": [
+                                    {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 2,
+                                        "title": "Loxica do modelo",
+                                        "slug": "loxica-do-modelo"
+                                      },
+                                      "depth": 2
+                                    }
+                                  ]
+                                },
+                                "title": "ApartmentService"
                               },
                               "depth": 7,
-                              "outline": []
+                              "outline": [
+                                {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 2,
+                                    "title": "Loxica do modelo",
+                                    "slug": "loxica-do-modelo"
+                                  },
+                                  "depth": 2
+                                }
+                              ]
+                            }, {
+                              "type": "file",
+                              "data": {
+                                "language": {
+                                  "nameMatchers": [".js"],
+                                  "pygmentsLexer": "javascript",
+                                  "multiLineComment": ["/*", "*", "*/"],
+                                  "singleLineComment": ["//"],
+                                  "ignorePrefix": "}",
+                                  "foldPrefix": "^",
+                                  "name": "JavaScript"
+                                },
+                                "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/services/country.js",
+                                "projectPath": "public/assets/js/admin/app/services/country.js",
+                                "targetPath": "public/assets/js/admin/app/services/country",
+                                "pageTitle": "public/assets/js/admin/app/services/country",
+                                "firstHeader": {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 1,
+                                    "title": "CountryService",
+                                    "slug": "countryservice",
+                                    "isFileHeader": true
+                                  },
+                                  "depth": 1,
+                                  "children": [
+                                    {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 2,
+                                        "title": "Loxica do modelo",
+                                        "slug": "loxica-do-modelo"
+                                      },
+                                      "depth": 2
+                                    }
+                                  ]
+                                },
+                                "title": "CountryService"
+                              },
+                              "depth": 7,
+                              "outline": [
+                                {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 2,
+                                    "title": "Loxica do modelo",
+                                    "slug": "loxica-do-modelo"
+                                  },
+                                  "depth": 2
+                                }
+                              ]
+                            }, {
+                              "type": "file",
+                              "data": {
+                                "language": {
+                                  "nameMatchers": [".js"],
+                                  "pygmentsLexer": "javascript",
+                                  "multiLineComment": ["/*", "*", "*/"],
+                                  "singleLineComment": ["//"],
+                                  "ignorePrefix": "}",
+                                  "foldPrefix": "^",
+                                  "name": "JavaScript"
+                                },
+                                "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/services/province.js",
+                                "projectPath": "public/assets/js/admin/app/services/province.js",
+                                "targetPath": "public/assets/js/admin/app/services/province",
+                                "pageTitle": "public/assets/js/admin/app/services/province",
+                                "firstHeader": {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 1,
+                                    "title": "ProvinceService",
+                                    "slug": "provinceservice",
+                                    "isFileHeader": true
+                                  },
+                                  "depth": 1,
+                                  "children": [
+                                    {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 2,
+                                        "title": "Loxica do modelo",
+                                        "slug": "loxica-do-modelo"
+                                      },
+                                      "depth": 2
+                                    }
+                                  ]
+                                },
+                                "title": "ProvinceService"
+                              },
+                              "depth": 7,
+                              "outline": [
+                                {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 2,
+                                    "title": "Loxica do modelo",
+                                    "slug": "loxica-do-modelo"
+                                  },
+                                  "depth": 2
+                                }
+                              ]
+                            }, {
+                              "type": "file",
+                              "data": {
+                                "language": {
+                                  "nameMatchers": [".js"],
+                                  "pygmentsLexer": "javascript",
+                                  "multiLineComment": ["/*", "*", "*/"],
+                                  "singleLineComment": ["//"],
+                                  "ignorePrefix": "}",
+                                  "foldPrefix": "^",
+                                  "name": "JavaScript"
+                                },
+                                "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/services/service.js",
+                                "projectPath": "public/assets/js/admin/app/services/service.js",
+                                "targetPath": "public/assets/js/admin/app/services/service",
+                                "pageTitle": "public/assets/js/admin/app/services/service",
+                                "firstHeader": {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 1,
+                                    "title": "ServiceService",
+                                    "slug": "serviceservice",
+                                    "isFileHeader": true
+                                  },
+                                  "depth": 1,
+                                  "children": [
+                                    {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 2,
+                                        "title": "Loxica do modelo",
+                                        "slug": "loxica-do-modelo"
+                                      },
+                                      "depth": 2
+                                    }
+                                  ]
+                                },
+                                "title": "ServiceService"
+                              },
+                              "depth": 7,
+                              "outline": [
+                                {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 2,
+                                    "title": "Loxica do modelo",
+                                    "slug": "loxica-do-modelo"
+                                  },
+                                  "depth": 2
+                                }
+                              ]
+                            }, {
+                              "type": "file",
+                              "data": {
+                                "language": {
+                                  "nameMatchers": [".js"],
+                                  "pygmentsLexer": "javascript",
+                                  "multiLineComment": ["/*", "*", "*/"],
+                                  "singleLineComment": ["//"],
+                                  "ignorePrefix": "}",
+                                  "foldPrefix": "^",
+                                  "name": "JavaScript"
+                                },
+                                "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/services/spot.js",
+                                "projectPath": "public/assets/js/admin/app/services/spot.js",
+                                "targetPath": "public/assets/js/admin/app/services/spot",
+                                "pageTitle": "public/assets/js/admin/app/services/spot",
+                                "firstHeader": {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 1,
+                                    "title": "SpotService",
+                                    "slug": "spotservice",
+                                    "isFileHeader": true
+                                  },
+                                  "depth": 1,
+                                  "children": [
+                                    {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 2,
+                                        "title": "Loxica do modelo",
+                                        "slug": "loxica-do-modelo"
+                                      },
+                                      "depth": 2
+                                    }
+                                  ]
+                                },
+                                "title": "SpotService"
+                              },
+                              "depth": 7,
+                              "outline": [
+                                {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 2,
+                                    "title": "Loxica do modelo",
+                                    "slug": "loxica-do-modelo"
+                                  },
+                                  "depth": 2
+                                }
+                              ]
+                            }, {
+                              "type": "file",
+                              "data": {
+                                "language": {
+                                  "nameMatchers": [".js"],
+                                  "pygmentsLexer": "javascript",
+                                  "multiLineComment": ["/*", "*", "*/"],
+                                  "singleLineComment": ["//"],
+                                  "ignorePrefix": "}",
+                                  "foldPrefix": "^",
+                                  "name": "JavaScript"
+                                },
+                                "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/services/town.js",
+                                "projectPath": "public/assets/js/admin/app/services/town.js",
+                                "targetPath": "public/assets/js/admin/app/services/town",
+                                "pageTitle": "public/assets/js/admin/app/services/town",
+                                "firstHeader": {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 1,
+                                    "title": "TownService",
+                                    "slug": "townservice",
+                                    "isFileHeader": true
+                                  },
+                                  "depth": 1,
+                                  "children": [
+                                    {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 2,
+                                        "title": "Loxica do modelo",
+                                        "slug": "loxica-do-modelo"
+                                      },
+                                      "depth": 2
+                                    }
+                                  ]
+                                },
+                                "title": "TownService"
+                              },
+                              "depth": 7,
+                              "outline": [
+                                {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 2,
+                                    "title": "Loxica do modelo",
+                                    "slug": "loxica-do-modelo"
+                                  },
+                                  "depth": 2
+                                }
+                              ]
+                            }, {
+                              "type": "file",
+                              "data": {
+                                "language": {
+                                  "nameMatchers": [".js"],
+                                  "pygmentsLexer": "javascript",
+                                  "multiLineComment": ["/*", "*", "*/"],
+                                  "singleLineComment": ["//"],
+                                  "ignorePrefix": "}",
+                                  "foldPrefix": "^",
+                                  "name": "JavaScript"
+                                },
+                                "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/services/user.js",
+                                "projectPath": "public/assets/js/admin/app/services/user.js",
+                                "targetPath": "public/assets/js/admin/app/services/user",
+                                "pageTitle": "public/assets/js/admin/app/services/user",
+                                "firstHeader": {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 1,
+                                    "title": "UserService",
+                                    "slug": "userservice",
+                                    "isFileHeader": true
+                                  },
+                                  "depth": 1,
+                                  "children": [
+                                    {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 2,
+                                        "title": "Loxica do modelo",
+                                        "slug": "loxica-do-modelo"
+                                      },
+                                      "depth": 2
+                                    }
+                                  ]
+                                },
+                                "title": "UserService"
+                              },
+                              "depth": 7,
+                              "outline": [
+                                {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 2,
+                                    "title": "Loxica do modelo",
+                                    "slug": "loxica-do-modelo"
+                                  },
+                                  "depth": 2
+                                }
+                              ]
                             }
                           ]
                         }
                       ]
-                    }, {
-                      "type": "folder",
+                    }
+                  ]
+                }, {
+                  "type": "folder",
+                  "data": {
+                    "path": "public/assets/js/resources",
+                    "title": "resources"
+                  },
+                  "depth": 4,
+                  "children": [
+                    {
+                      "type": "file",
                       "data": {
-                        "path": "public/assets/js/admin/i18n",
-                        "title": "i18n"
+                        "language": {
+                          "nameMatchers": [".js"],
+                          "pygmentsLexer": "javascript",
+                          "multiLineComment": ["/*", "*", "*/"],
+                          "singleLineComment": ["//"],
+                          "ignorePrefix": "}",
+                          "foldPrefix": "^",
+                          "name": "JavaScript"
+                        },
+                        "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/resources/locale-es.js",
+                        "projectPath": "public/assets/js/resources/locale-es.js",
+                        "targetPath": "public/assets/js/resources/locale-es",
+                        "pageTitle": "public/assets/js/resources/locale-es",
+                        "title": "locale-es"
                       },
                       "depth": 5,
-                      "children": [
-                        {
-                          "type": "file",
-                          "data": {
-                            "language": {
-                              "nameMatchers": [".js"],
-                              "pygmentsLexer": "javascript",
-                              "multiLineComment": ["/*", "*", "*/"],
-                              "singleLineComment": ["//"],
-                              "ignorePrefix": "}",
-                              "foldPrefix": "^",
-                              "name": "JavaScript"
-                            },
-                            "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/i18n/locale-es.js",
-                            "projectPath": "public/assets/js/admin/i18n/locale-es.js",
-                            "targetPath": "public/assets/js/admin/i18n/locale-es",
-                            "pageTitle": "public/assets/js/admin/i18n/locale-es",
-                            "title": "locale-es"
-                          },
-                          "depth": 6,
-                          "outline": []
-                        }
-                      ]
+                      "outline": []
                     }
                   ]
                 }, {
@@ -2317,77 +4027,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "slug": "bootstrap"
           },
           "depth": 2
-        }
-      ]
-    }, {
-      "type": "folder",
-      "data": {
-        "path": "test",
-        "title": "test"
-      },
-      "depth": 1,
-      "children": [
-        {
-          "type": "folder",
-          "data": {
-            "path": "test/models",
-            "title": "models"
-          },
-          "depth": 2,
-          "children": [
-            {
-              "type": "file",
-              "data": {
-                "language": {
-                  "nameMatchers": [".js"],
-                  "pygmentsLexer": "javascript",
-                  "multiLineComment": ["/*", "*", "*/"],
-                  "singleLineComment": ["//"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "^",
-                  "name": "JavaScript"
-                },
-                "sourcePath": "/Users/daniel/Sites/Renting.js/test/models/users.js",
-                "projectPath": "test/models/users.js",
-                "targetPath": "test/models/users",
-                "pageTitle": "test/models/users",
-                "firstHeader": {
-                  "type": "heading",
-                  "data": {
-                    "level": 1,
-                    "title": "Auth test",
-                    "slug": "auth-test",
-                    "isFileHeader": true
-                  },
-                  "depth": 1,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 2,
-                        "title": "Dependencias do modulo",
-                        "slug": "dependencias-do-modulo"
-                      },
-                      "depth": 2
-                    }
-                  ]
-                },
-                "title": "Auth test"
-              },
-              "depth": 3,
-              "outline": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Dependencias do modulo",
-                    "slug": "dependencias-do-modulo"
-                  },
-                  "depth": 2
-                }
-              ]
-            }
-          ]
         }
       ]
     }

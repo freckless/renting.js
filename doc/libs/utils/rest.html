@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><title>libs/utils/rest</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="libs/utils/rest"><meta name="groc-project-path" content="libs/utils/rest.js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">libs/utils/rest.js</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="restutils">RestUtils</h1>
+<p>Estas utilidades utilizanse para engadir routas a servicios rest
+de forma sinxela.</p></div></div><div class="code"><div class="wrapper"><span class="hljs-pi">'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="dependencias-do-mdulo">Dependencias do módulo</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> _ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'lodash'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="lxica-do-mdulo">Lóxica do módulo</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> RestUtils = {
+    addRoutes: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(resource, routes)</span> {</span>
+        <span class="hljs-keyword">if</span> ( ! routes[<span class="hljs-string">'/'</span>+resource]) routes[<span class="hljs-string">'/'</span>+resource] = {};
+        <span class="hljs-keyword">if</span> ( ! routes[<span class="hljs-string">'/'</span>+resource+<span class="hljs-string">'/:id'</span>]) routes[<span class="hljs-string">'/'</span>+resource+<span class="hljs-string">'/:id'</span>] = {};
+
+        _.extend(routes[<span class="hljs-string">'/'</span>+resource], {
+            get: resource+<span class="hljs-string">'#find_all'</span>,
+            post: resource+<span class="hljs-string">'#create'</span>
+        });
+
+        _.extend(routes[<span class="hljs-string">'/'</span>+resource+<span class="hljs-string">'/:id'</span>], {
+            get: resource+<span class="hljs-string">'#find_one'</span>,
+            put: resource+<span class="hljs-string">'#update'</span>,
+            <span class="hljs-keyword">delete</span>: resource+<span class="hljs-string">'#remove'</span>
+        });
+
+        <span class="hljs-keyword">return</span> routes;
+    }
+};</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="exportamos--mdulo">Exportamos ó módulo</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper">module.exports = RestUtils;</div></div></div></div></body></html>

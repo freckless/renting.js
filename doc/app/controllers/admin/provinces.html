@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><title>app/controllers/admin/provinces</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../"><meta name="groc-document-path" content="app/controllers/admin/provinces"><meta name="groc-project-path" content="app/controllers/admin/provinces.js"><link rel="stylesheet" type="text/css" media="all" href="../../../assets/style.css"><script type="text/javascript" src="../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">app/controllers/admin/provinces.js</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="adminprovincescontroller">AdminProvincesController</h1>
+<p>Controlador que utilizaremos como API para a creción, modificación
+e borrado de provincias dende o panel de xestión.</p></div></div><div class="code"><div class="wrapper"><span class="hljs-pi">
+'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="dependencias-do-mdulo">Dependencias do módulo</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> config = global.config,
+    AdminControllerBase = <span class="hljs-built_in">require</span>(config.paths.controllers + <span class="hljs-string">'admin/base.js'</span>),
+    restComponent = <span class="hljs-built_in">require</span>(config.paths.components + <span class="hljs-string">'rest.js'</span>),
+    mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>),
+    Province = mongoose.model(<span class="hljs-string">'Province'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="accins-do-controlador">Accións do controlador</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> AdminProvincesController = <span class="hljs-keyword">new</span> AdminControllerBase({
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="facemos-o-controlador-rest-c-modelo-user">Facemos o controlador REST có modelo User</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper">AdminProvincesController = restComponent.call(
+    AdminProvincesController,
+    Province,
+    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res, next)</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Ordeamos os resultados polo nome</p></div></div><div class="code"><div class="wrapper">        <span class="hljs-keyword">this</span>.sort({<span class="hljs-string">'name'</span>: <span class="hljs-number">1</span>});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Se existe o parámetro country na consulta,
+devolvemos só as provincias para ese pais.</p></div></div><div class="code"><div class="wrapper">        <span class="hljs-keyword">if</span> (req.query.country) {
+            <span class="hljs-keyword">this</span>.where({country: req.query.country});
+        }
+        
+        next();
+    }
+);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="exportamos-o-modulo">Exportamos o modulo</h3></div></div></div><div class="segment"><div class="code"><div class="wrapper">module.exports = AdminProvincesController;</div></div></div></div></body></html>

@@ -624,6 +624,10 @@ input[type=checkbox] {
 div.images {
   padding-bottom: 6px; }
   div.images div.image {
+    width: 200px;
+    height: 210px;
+    padding: 10px;
+    float: left;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px; }
@@ -640,5 +644,20 @@ div.images {
       position: absolute;
       margin-top: -26px;
       margin-left: 4px; }
+
+.as-sortable-placeholder {
+  float: left;
+  background-color: #ddd;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  height: 206px;
+  width: 200px; }
+
+.as-sortable-drag {
+  opacity: 0; }
+
+.as-sortable-hidden {
+  display: none; }
 
 /*# sourceMappingURL=admin.css.map */

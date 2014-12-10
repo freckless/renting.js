@@ -6,10 +6,10 @@
             <h3 class="panel-title">{{'admin.apartments.images' | translate}}</h3>
         </div>
         <div class="panel-body">
-            <div class="images row">
+            <div class="images row" data-as-sortable ng-model="images">
                 <div class="col-xs-12" ng-if="images.length < 1">{{'admin.apartments.no_images'|translate}}</div>
-                <div class="col-xs-3 image" ng-repeat="image in images">
-                    <img ng-src="img/apartments/thumb/{{image.file}}" />
+                <div class="image" ng-repeat="image in images" data-as-sortable-item>
+                    <img ng-src="img/apartments/thumb/{{image.file}}" data-as-sortable-item-handle/>
                     <div class="buttons">
                         <button class="btn btn-danger btn-xs" ng-click="deleteImage($index)"><i class="fa fa-remove"></i> {{'admin.delete'|translate}}</button>
                     </div>
@@ -17,13 +17,14 @@
                         <input placeholder="{{'languages.'+language | translate}}" ng-model="image.description[language]" ng-repeat="language in $available_languages" type="text" class="form-control input-sm"/>
                     </div>
                 </div>
+                <div class="clearfix"></div>
             </div>
             <button class="btn btn-primary btn-upload" upload-button
                     url="/admin/apartments/upload"
                     param="image"
                     data="formData"
                     accept=".jpg,.jpeg,.png,.gif"
-                    multiple="allowMultipleFiles"
+                    multiple=""
                     on-upload="uploadStart(files)"
                     on-complete="uploadComplete(response)">
                 <i class="fa fa-upload fa-fw"></i> &nbsp; {{'admin.upload' |translate}}

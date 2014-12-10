@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head><title>public/assets/js/resources/locale-es</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../../"><meta name="groc-document-path" content="public/assets/js/resources/locale-es"><meta name="groc-project-path" content="public/assets/js/resources/locale-es.js"><link rel="stylesheet" type="text/css" media="all" href="../../../../assets/style.css"><script type="text/javascript" src="../../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">public/assets/js/resources/locale-es.js</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-pi">'use strict'</span>;
+
+angular.module(<span class="hljs-string">"ngLocale"</span>, [], [<span class="hljs-string">"$provide"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($provide)</span> {</span>
+    <span class="hljs-keyword">var</span> PLURAL_CATEGORY = {ZERO: <span class="hljs-string">"zero"</span>, ONE: <span class="hljs-string">"one"</span>, TWO: <span class="hljs-string">"two"</span>, FEW: <span class="hljs-string">"few"</span>, MANY: <span class="hljs-string">"many"</span>, OTHER: <span class="hljs-string">"other"</span>};
+    $provide.value(<span class="hljs-string">"$locale"</span>, {
+        <span class="hljs-string">"DATETIME_FORMATS"</span>: {
+            <span class="hljs-string">"AMPMS"</span>: [
+                <span class="hljs-string">"a.m."</span>,
+                <span class="hljs-string">"p.m."</span>
+            ],
+            <span class="hljs-string">"DAY"</span>: [
+                <span class="hljs-string">"domingo"</span>,
+                <span class="hljs-string">"lunes"</span>,
+                <span class="hljs-string">"martes"</span>,
+                <span class="hljs-string">"mi\u00e9rcoles"</span>,
+                <span class="hljs-string">"jueves"</span>,
+                <span class="hljs-string">"viernes"</span>,
+                <span class="hljs-string">"s\u00e1bado"</span>
+            ],
+            <span class="hljs-string">"MONTH"</span>: [
+                <span class="hljs-string">"enero"</span>,
+                <span class="hljs-string">"febrero"</span>,
+                <span class="hljs-string">"marzo"</span>,
+                <span class="hljs-string">"abril"</span>,
+                <span class="hljs-string">"mayo"</span>,
+                <span class="hljs-string">"junio"</span>,
+                <span class="hljs-string">"julio"</span>,
+                <span class="hljs-string">"agosto"</span>,
+                <span class="hljs-string">"septiembre"</span>,
+                <span class="hljs-string">"octubre"</span>,
+                <span class="hljs-string">"noviembre"</span>,
+                <span class="hljs-string">"diciembre"</span>
+            ],
+            <span class="hljs-string">"SHORTDAY"</span>: [
+                <span class="hljs-string">"dom"</span>,
+                <span class="hljs-string">"lun"</span>,
+                <span class="hljs-string">"mar"</span>,
+                <span class="hljs-string">"mi\u00e9"</span>,
+                <span class="hljs-string">"jue"</span>,
+                <span class="hljs-string">"vie"</span>,
+                <span class="hljs-string">"s\u00e1b"</span>
+            ],
+            <span class="hljs-string">"SHORTMONTH"</span>: [
+                <span class="hljs-string">"ene"</span>,
+                <span class="hljs-string">"feb"</span>,
+                <span class="hljs-string">"mar"</span>,
+                <span class="hljs-string">"abr"</span>,
+                <span class="hljs-string">"may"</span>,
+                <span class="hljs-string">"jun"</span>,
+                <span class="hljs-string">"jul"</span>,
+                <span class="hljs-string">"ago"</span>,
+                <span class="hljs-string">"sep"</span>,
+                <span class="hljs-string">"oct"</span>,
+                <span class="hljs-string">"nov"</span>,
+                <span class="hljs-string">"dic"</span>
+            ],
+            <span class="hljs-string">"fullDate"</span>: <span class="hljs-string">"EEEE, d 'de' MMMM 'de' y"</span>,
+            <span class="hljs-string">"longDate"</span>: <span class="hljs-string">"d 'de' MMMM 'de' y"</span>,
+            <span class="hljs-string">"medium"</span>: <span class="hljs-string">"dd/MM/yyyy HH:mm:ss"</span>,
+            <span class="hljs-string">"mediumDate"</span>: <span class="hljs-string">"dd/MM/yyyy"</span>,
+            <span class="hljs-string">"mediumTime"</span>: <span class="hljs-string">"HH:mm:ss"</span>,
+            <span class="hljs-string">"short"</span>: <span class="hljs-string">"dd/MM/yy HH:mm"</span>,
+            <span class="hljs-string">"shortDate"</span>: <span class="hljs-string">"dd/MM/yy"</span>,
+            <span class="hljs-string">"shortTime"</span>: <span class="hljs-string">"HH:mm"</span>
+        },
+        <span class="hljs-string">"NUMBER_FORMATS"</span>: {
+            <span class="hljs-string">"CURRENCY_SYM"</span>: <span class="hljs-string">"\u20ac"</span>,
+            <span class="hljs-string">"DECIMAL_SEP"</span>: <span class="hljs-string">","</span>,
+            <span class="hljs-string">"GROUP_SEP"</span>: <span class="hljs-string">"."</span>,
+            <span class="hljs-string">"PATTERNS"</span>: [
+                {
+                    <span class="hljs-string">"gSize"</span>: <span class="hljs-number">3</span>,
+                    <span class="hljs-string">"lgSize"</span>: <span class="hljs-number">3</span>,
+                    <span class="hljs-string">"macFrac"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-string">"maxFrac"</span>: <span class="hljs-number">3</span>,
+                    <span class="hljs-string">"minFrac"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-string">"minInt"</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-string">"negPre"</span>: <span class="hljs-string">"-"</span>,
+                    <span class="hljs-string">"negSuf"</span>: <span class="hljs-string">""</span>,
+                    <span class="hljs-string">"posPre"</span>: <span class="hljs-string">""</span>,
+                    <span class="hljs-string">"posSuf"</span>: <span class="hljs-string">""</span>
+                },
+                {
+                    <span class="hljs-string">"gSize"</span>: <span class="hljs-number">3</span>,
+                    <span class="hljs-string">"lgSize"</span>: <span class="hljs-number">3</span>,
+                    <span class="hljs-string">"macFrac"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-string">"maxFrac"</span>: <span class="hljs-number">2</span>,
+                    <span class="hljs-string">"minFrac"</span>: <span class="hljs-number">2</span>,
+                    <span class="hljs-string">"minInt"</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-string">"negPre"</span>: <span class="hljs-string">"-"</span>,
+                    <span class="hljs-string">"negSuf"</span>: <span class="hljs-string">"\u00a0\u00a4"</span>,
+                    <span class="hljs-string">"posPre"</span>: <span class="hljs-string">""</span>,
+                    <span class="hljs-string">"posSuf"</span>: <span class="hljs-string">"\u00a0\u00a4"</span>
+                }
+            ]
+        },
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"es"</span>,
+        <span class="hljs-string">"pluralCat"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(n)</span> {</span>  <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) {   <span class="hljs-keyword">return</span> PLURAL_CATEGORY.ONE;  }  <span class="hljs-keyword">return</span> PLURAL_CATEGORY.OTHER;}
+    });
+}]);</div></div></div></div></body></html>

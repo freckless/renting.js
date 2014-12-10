@@ -1,7 +1,8 @@
 <!DOCTYPE html><html lang="en"><head><title>config/routes</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="config/routes"><meta name="groc-project-path" content="config/routes.js"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">config/routes.js</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="rutas">Rutas</h1></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Neste arquivo están as rutas por defecto da app
 se queremos engadir novas accións públicas debemos
 de engadilas a este arquivo.</p></div></div><div class="code"><div class="wrapper"><span class="hljs-pi">
-'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="rutas-da-app">Rutas da app</h2>
+'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="dependencias-do-mdulo">Dependencias do módulo</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> config = global.config,
+    rest = <span class="hljs-built_in">require</span>(config.paths.utils + <span class="hljs-string">'rest.js'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="rutas-da-app">Rutas da app</h2>
 <p>Para que a acción do controlador poda ser executada debe nomearse action_{{acción}}<br>
 Ex. a acción index deberá nomearse action_index no controlador.</p>
 <pre><code>
@@ -22,16 +23,19 @@ Ex. a acción index deberá nomearse action_index no controlador.</p>
     },
     <span class="hljs-string">'/admin/logout'</span>: {
         get: <span class="hljs-string">'admin#logout'</span>
-    },
-    <span class="hljs-string">'/admin/users'</span>: {
-        get: <span class="hljs-string">'admin/users#find_all'</span>,
-        post: <span class="hljs-string">'admin/users#create'</span>
-    },
-    <span class="hljs-string">'/admin/users/:id'</span>: {
-        get: <span class="hljs-string">'admin/users#find_one'</span>,
-        put: <span class="hljs-string">'admin/users#update'</span>,
-        <span class="hljs-keyword">delete</span>: <span class="hljs-string">'admin/users#remove'</span>
+    },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Rutas extra para os apartamentos no panel de xestión</p></div></div><div class="code"><div class="wrapper">    <span class="hljs-string">'/admin/apartments/upload'</span>: {
+        post: <span class="hljs-string">'admin/apartments#upload'</span>
     }
-};
+};</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="compartindo-as-traduccins-entre-cliente-e-servidor">Compartindo as traduccións entre cliente e servidor</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper">routes[<span class="hljs-string">'/locale'</span>] = {
+    get: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+        res.json(global.i18n.translations);
+    }
+};</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="rest-routes">REST routes</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper">routes = rest.addRoutes(<span class="hljs-string">'admin/users'</span>, routes);
+routes = rest.addRoutes(<span class="hljs-string">'admin/apartments'</span>, routes);
+routes = rest.addRoutes(<span class="hljs-string">'admin/spots'</span>, routes);
+routes = rest.addRoutes(<span class="hljs-string">'admin/countries'</span>, routes);
+routes = rest.addRoutes(<span class="hljs-string">'admin/provinces'</span>, routes);
+routes = rest.addRoutes(<span class="hljs-string">'admin/towns'</span>, routes);
+routes = rest.addRoutes(<span class="hljs-string">'admin/services'</span>, routes);
 
 module.exports = routes;</div></div></div></div></body></html>
