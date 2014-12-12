@@ -10,6 +10,11 @@
         </tr>
     </thead>
     <tbody>
+        <tr ng-show="apartments.length < 1">
+            <td colspan="4">
+                {{'admin.apartments.no_apartments_blocks' | translate}}
+            </td>
+        </tr>
         <tr ng-repeat="apartment in apartments">
             <td>{{apartment.name}}</td>
             <td>{{apartment.province.name}} <i class="fa fa-angle-right"></i> {{apartment.town.name}}</td>

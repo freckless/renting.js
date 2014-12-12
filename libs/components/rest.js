@@ -74,6 +74,7 @@ var restComponent = function(Model, customize_query) {
                 var newdata = _.extend(data, req.body);
                 newdata.save(function(err) {
                     if (err) {
+                        console.log(err);
                         res.json({
                             status: 'error',
                             message: 'Some problem has been ocurred updating data',

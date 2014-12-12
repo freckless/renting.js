@@ -23,6 +23,9 @@ angular.module('adminApp').config(['$routeProvider',
                     // Creamos el nuevo Usuario
                     User: function(UserService) {
                         return new UserService();
+                    },
+                    Countries: function(CountryService) {
+                        return CountryService.query();
                     }
                 }
             }).
@@ -33,6 +36,9 @@ angular.module('adminApp').config(['$routeProvider',
                     // Obtenemos el usuario que se va a utilizar utilizando el parámetro id
                     User: function(UserService, $route) {
                         return UserService.get({id: $route.current.params.id}).$promise;
+                    },
+                    Countries: function(CountryService) {
+                        return CountryService.query();
                     }
                 }
             });
@@ -65,7 +71,7 @@ angular.module('adminApp').controller('UsersIndexCtrl', function($scope, $rootSc
  * Definimos el controlador encargado de mostrar los datos del usuario en un formulario
  * si estamos editandolo y guardarlos
  */
-angular.module('adminApp').controller('UsersFormCtrl', function($scope, $rootScope, $filter, $location, $flash, User) {
+angular.module('adminApp').controller('UsersFormCtrl', function($scope, $rootScope, $filter, $location, $flash, User, Countries) {
     // Definimos la sección actual
     $rootScope.current_section = 'users';
 
@@ -78,6 +84,9 @@ angular.module('adminApp').controller('UsersFormCtrl', function($scope, $rootSco
         3: 'owner',
         4: 'customer'
     };
+
+    // Definimos os paises
+    $scope.countries = Countries;
 
     // Añadimos el usuario a $scope
     $scope.user = User;
@@ -108,7 +117,13 @@ angular.module('adminApp').controller('UsersFormCtrl', function($scope, $rootSco
         if ($scope.user._id) {
             $scope.user.$update(function() {
                 $flash.set('success', 'admin.changes_has_been_saved');
-                $location.path('/users');
+
+                // Se o usuario non é administrador voltamos o dashboard, se o é, a páxina de usuarios
+                if ($rootScope.user.group > 2) {
+                    $location.path('/');
+                } else {
+                    $location.path('/users');
+                }
             });
         } else {
             $scope.user.$save(function() {

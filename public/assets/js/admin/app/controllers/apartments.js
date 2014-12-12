@@ -16,8 +16,12 @@ angular.module('adminApp').config(['$routeProvider',
                 templateUrl: 'assets/js/admin/views/apartments/index.html',
                 controller: 'ApartmentsIndexCtrl',
                 resolve: {
-                    Apartments: function(ApartmentService) {
-                        return ApartmentService.query().$promise;
+                    Apartments: function(ApartmentService, $rootScope) {
+                        if ($rootScope.user.group < 3) {
+                            return ApartmentService.query().$promise;
+                        } else {
+                            return ApartmentService.query({user_id: $rootScope.user._id}).$promise;
+                        }
                     }
                 }
             }).
@@ -25,8 +29,8 @@ angular.module('adminApp').config(['$routeProvider',
                 templateUrl: 'assets/js/admin/views/apartments/form.html',
                 controller: 'ApartmentsFormCtrl',
                 resolve: {
-                    Apartment: function(ApartmentService) {
-                        return new ApartmentService({services: []});
+                    Apartment: function(ApartmentService, $rootScope) {
+                        return new ApartmentService({services: [], user: $rootScope.user._id});
                     },
                     Spots: function(SpotService) {
                         return SpotService.query().$promise;
@@ -83,12 +87,24 @@ angular.module('adminApp').config(['$routeProvider',
 
 // ###Controlador da páxina inicial
 // Controlador encargado de mostrar a páxina inicial
-angular.module('adminApp').controller('ApartmentsIndexCtrl', function($rootScope, $scope, Apartments) {
+angular.module('adminApp').controller('ApartmentsIndexCtrl', function($rootScope, $filter, $flash, $scope, Apartments) {
     // Definimos la sección actual
     $rootScope.current_section = 'apartments';
 
     // Definimos la lista de apartamentos
     $scope.apartments = Apartments;
+
+    // Eliminar un apartamento
+    $scope.deleteApartment = function($index) {
+        if (confirm($filter('translate')('admin.are_you_sure'))) {
+            $scope.apartments[$index].$delete(function() {
+                $scope.apartments.splice($index, 1);
+                $flash.set('success', $filter('translate')('admin.apartments.apartment_has_been_delete'));
+                $flash.show();
+            });
+        }
+    }
+
 });
 
 // ###Controlador do formulario

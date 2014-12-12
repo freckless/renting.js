@@ -15,9 +15,9 @@ var AdminBaseController = function(methods){
 };
 
 AdminBaseController.prototype = {
-    before: function(req, res, next) {
+    super_before: function(req, res, next) {
         AuthComponent.getUser(req, res, function (user) {
-            if (user && [1, 2].indexOf(user.group) > -1) {
+            if (user && [1, 2, 3].indexOf(user.group) > -1) {
                 next();
             } else {
                 if (user) {
@@ -31,6 +31,9 @@ AdminBaseController.prototype = {
                 }
             }
         });
+    },
+    before: function(req, res, next) {
+        this.super_before(req, res, next);
     },
     after: function(req, res, next) { next(); },
     extend: function(methods) {

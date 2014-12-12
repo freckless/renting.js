@@ -14,11 +14,17 @@ var config = global.config,
 
 // ##Accións do controlador
 var AdminUsersController = new AdminControllerBase({
-
 });
 
 // ##Facemos o controlador REST có modelo User
-AdminUsersController = restComponent.call(AdminUsersController, User);
+AdminUsersController = restComponent.call(AdminUsersController, User, function(req, res, next) {
+    // Se non é administrador so lle deixamos acceder o seu perfil
+    if (res.locals.user.group > 2 && (typeof(req.params.id) == 'undefined' || req.params.id != res.locals.user._id)) {
+        res.status(403).send('Forbidden');
+    } else {
+        next();
+    }
+});
 
 // ###Exportamos o modulo
 module.exports = AdminUsersController;

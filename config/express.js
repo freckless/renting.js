@@ -47,12 +47,6 @@ module.exports = function(app) {
         level: 9
     }));
 
-    // Se estamos en entorno de desenrolo activamos o logger para ver
-    // as consultas que se fan en cada momento.
-    if (process.env.NODE_ENV === 'development') {
-        app.use(morgan('dev'));
-    }
-
     // Buscamos recursos státicos que podan responder a consulta e se non cargamos
     // o necesario para tratar de responder a consulta
     app.use(serve_favicon(config.paths.webroot + '/favicon.ico'));
@@ -110,4 +104,10 @@ module.exports = function(app) {
 
     // Lanzamos o enrutador para redireccionar cada consulta o controlador correspondente
     app.use(router.init(app));
+
+    // Se estamos en entorno de desenrolo activamos o logger para ver
+    // as consultas que se fan en cada momento.
+    if (process.env.NODE_ENV === 'development') {
+        app.use(morgan('dev'));
+    }
 };

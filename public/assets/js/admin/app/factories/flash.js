@@ -21,7 +21,6 @@ angular.module('adminApp').factory('$flash', function($rootScope) {
             show();
         },
         set: function(type, message) {
-            console.log('here-set');
             queue.push({
                 type: type,
                 message: message

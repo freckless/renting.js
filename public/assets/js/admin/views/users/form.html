@@ -57,8 +57,10 @@
                         <input type="text" class="form-control" id="input-phone" ng-model="user.phone"/>
                     </div>
                     <div class="form-group">
-                        <label for="input-country">{{'admin.users._country' | translate}}</label>
-                        <input type="text" class="form-control" id="input-country" ng-model="user.country" required/>
+                        <label for="input-country">{{'admin.apartments._country' | translate}}</label>
+                        <select class="form-control" id="input-country" ng-model="user.country" ng-options="country._id as country.name[$translate.use()] for country in countries" ng-change="loadProvinces()" required>
+                            <option value="">{{'admin.select_one' | translate}}</option>
+                        </select>
                     </div>
                     <div class="row">
                         <div class="col-xs-9">

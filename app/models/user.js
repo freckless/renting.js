@@ -26,7 +26,6 @@ var UserSchema = new Schema({
     'city': String,
     'zipcode': String,
     'address': String,
-    'country': String,
     'company': String,
     'born_at': { 'type': Date, 'required': true },
     'sex': String,
@@ -34,7 +33,10 @@ var UserSchema = new Schema({
     'document': { 'type': String, 'number': String },
     'newsletter': Boolean,
     'created_at': Date,
-    'modified_at': Date
+    'modified_at': Date,
+
+    /** Relacións **/
+    'country': {'type': Schema.Types.ObjectId, ref: 'Country'}
 });
 
 // ##Campos virtuais

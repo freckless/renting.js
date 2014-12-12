@@ -47,6 +47,7 @@ var ApartmentSchema = new Schema({
         'description': DBUtils.localized_field() // Campo localizable
     }],
     /* Relacións */
+    'user': {'type': Schema.Types.ObjectId, ref: 'User'},
     'country': {'type': Schema.Types.ObjectId, ref: 'Country'},
     'town': {'type': Schema.Types.ObjectId, ref: 'Town'},
     'province': {'type': Schema.Types.ObjectId, ref: 'Province'},

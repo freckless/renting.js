@@ -1,4 +1,4 @@
-// Auth component
+    // Auth component
 // ==============
 // Este component ocuparase  do relacionado ca authenticación dos usuarios
 // e engadirá á resposta da consulta os datos do usuario se é que está logueado.
