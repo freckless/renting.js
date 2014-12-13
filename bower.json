@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "dependencies": {
+    "lodash": "latest",
     "jquery": "latest",
     "retinajs": "latest",
     "bootstrap": "latest",

@@ -7,6 +7,7 @@
 
 // ##Dependencias do módulo
 var config = global.config,
+    _ = require('lodash'),
     mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     DBUtils = require(config.paths.utils + 'database.js');
@@ -24,11 +25,11 @@ var ApartmentSchema = new Schema({
     'apartments': [{
         'quantity': Number,
         'rooms': Number,
-        'minimum': Number,
-        'maximum': Number,
         'minimum_stay': Number,
         'comment': String,
         'on_demand': Boolean,
+        'minimum': Number,
+        'maximum': Number,
         'seasons': [{
             'price': Number,
             'from': Date,
@@ -53,6 +54,26 @@ var ApartmentSchema = new Schema({
     'province': {'type': Schema.Types.ObjectId, ref: 'Province'},
     'spot': {type: Schema.Types.ObjectId, ref: 'Spot'},
     'services': [{type: Schema.Types.ObjectId, ref: 'Service'}]
+});
+
+// ##Callbacks
+// ###Antes de gardar
+ApartmentSchema.pre('save', function(next) {
+    DBUtils.get_valid_url.apply(this, ['Apartment', 'url', 'name', function() {
+        next();
+    }]);
+});
+
+// ##Virtuals
+// ###Precio más bajo para hoy
+ApartmentSchema.virtual('lowest_price_for_today').get(function() {
+    var lowest_price = 0;
+    _.each(this.apartments, function(apartment) {
+        _.each(apartment.seasons, function(season) {
+            lowest_price = lowest_price == 0 || season.price < lowest_price ? season.price : lowest_price;
+        });
+    });
+    return lowest_price;
 });
 
 // Exportamos o modelo

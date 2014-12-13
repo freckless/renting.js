@@ -25,7 +25,7 @@
                             <p class="help-block">{{'admin.users.fill_just_for_change'|translate}}</p>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div ng-if="user.group < 3" class="form-group">
                         <label for="input-group">{{'admin.users._group' | translate}}</label>
                         <select ng-model="user.group" ng-init="user.group=''+user.group" ng-options="key as 'admin.users.groups.'+value | translate for (key, value) in groups" class="form-control" id="input-group" required></select>
                     </div>
@@ -33,6 +33,25 @@
                         <label for="input-mail">{{'admin.users._mail' | translate}}</label>
                         <input type="email" class="form-control" id="input-mail" ng-model="user.mail" required/>
                     </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{'admin.users._profile_image' | translate}}</h3>
+                </div>
+                <div class="panel-body form-user-profile-image">
+                    <div>
+                        <img ng-src="img/profiles/{{user.image || 'no-avatar.png'}}" />
+                    </div>
+                    <button class="btn btn-primary btn-upload" upload-button
+                            url="/admin/users/upload"
+                            param="image"
+                            data="formData"
+                            accept=".jpg,.jpeg,.png,.gif"
+                            on-upload="uploadStart(files)"
+                            on-complete="uploadComplete(response)">
+                        <i class="fa fa-upload fa-fw"></i> &nbsp; {{'admin.upload' |translate}}
+                    </button>
                 </div>
             </div>
         </div>

@@ -14,6 +14,7 @@ module.exports = {
     'go_back': 'Volver',
     'cancel': 'Cancelar',
     'save': 'Guardar',
+    'search': 'Buscar',
     'duplicate': 'Duplicar',
     'upload': 'Subir desde el ordenador',
     'are_you_sure': '¿Estás seguro/a?',
@@ -28,6 +29,7 @@ module.exports = {
         'creating': 'Nuevo usuario',
         'fill_just_for_change': 'Solo es necesario rellenarla para cambiarla',
         'profile': 'Perfil',
+        'no_profile_image': 'No se ha definido ninguna imagen de perfil todavía',
         '_account_info': 'Información de la cuenta',
         '_personal_info': 'Información personal',
         '_username': 'Usuario',
@@ -44,6 +46,7 @@ module.exports = {
         '_zip': 'Cód. Postal',
         '_address': 'Dirección',
         '_borndate': 'Fecha de nacimiento',
+        '_profile_image': 'Imagen de perfil',
         'groups': {
             'root': 'Root',
             'admin': 'Administrador',
@@ -59,6 +62,7 @@ module.exports = {
         'editing_block': 'Editando bloque de apartamentos',
         'creating_block': 'Nuevo bloque de apartamentos',
         'no_apartments_blocks': 'No se ha introducido ningún bloque de apartamentos',
+        'no_apartments_after_filter': 'No hemos encontrado ningún apartamento que cumpla con los filtros de búsqueda',
         'apartments_block_info': 'Información del bloque de apartamentos',
         'address_not_be_shown_on_the_website': 'La dirección no será mostrada en la página web',
         'pictures': 'Imágenes',
@@ -100,7 +104,8 @@ module.exports = {
         '_on_demand': 'Bajo petición',
         '_from': 'Desde',
         '_to': 'Hasta',
-        '_price': 'Precio'
+        '_price': 'Precio',
+        '_owner': 'Propietario'
     },
     'dashboard': {
         'title': 'Dashboard'

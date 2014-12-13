@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>404 | <%= config.name %></title>
+    <title><%= $t('website.error_404') %> | <%= config.name %></title>
+    <%- html.js('/libs/retinajs/dist/retina.min.js') %>
+    <%- asset.css('website.css') %>
 </head>
-<body>
-    <h1>Error 404: Not found</h1>
+<body class="error">
+    <div class="error">
+        <div class="logo"><%- asset.img('logo.png') %></div>
+        <h1><%= $t('website.error_404') %></h1>
+        <a href="/"><%= $t('website.back_to_main') %></a>
+    </div>
 </body>
 </html>

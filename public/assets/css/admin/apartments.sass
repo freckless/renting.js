@@ -35,7 +35,7 @@ div.apartments-types
     a
         margin-right: 6px
 
-input[type=checkbox]
+input[type=checkbox].checkbox
     margin: 4px 0
     width: 24px
     height: 24px
@@ -89,13 +89,24 @@ div.images
             margin-top: -26px
             margin-left: 4px
 
+div.apartments-types
+    .btn
+        margin-bottom: 6px
+
+span.capacity-tag
+    &:after
+        content: ', '
+    &:last-child
+        &:after
+            content: ''
+
 // Sortable
 
-.as-sortable-item, .as-sortable-placeholder
+// .as-sortable-item, .as-sortable-placeholder
 
-.as-sortable-item
+// .as-sortable-item
 
-.as-sortable-item-handle
+// .as-sortable-item-handle
 
 .as-sortable-placeholder
     float: left

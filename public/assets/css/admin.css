@@ -463,14 +463,14 @@ div.page-loader {
   position: absolute;
   margin-left: -50px;
   left: 50%;
-  top: 14px; }
+  top: 13px; }
   div.page-loader i.fa {
-    width: 28px;
+    width: 29px;
     height: 26px;
-    -webkit-animation: spin 0.8s infinite linear;
-    -moz-animation: spin 0.8s infinite linear;
-    -o-animation: spin 0.8s infinite linear;
-    animation: spin 0.8s infinite linear; }
+    -webkit-animation: spin 1s infinite linear;
+    -moz-animation: spin 1s infinite linear;
+    -o-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear; }
 
 div.aside {
   position: fixed;
@@ -493,6 +493,15 @@ div.aside {
     div.aside ul.nav-sidebar li.active a {
       color: #fff;
       background-color: #428bca; }
+
+nav.navbar img.profile-image {
+  width: 32px;
+  height: 32px;
+  margin: -10px 6px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+  border: 2px solid white; }
 
 div.main {
   padding-left: 40px;
@@ -589,7 +598,7 @@ div.apartments-types {
   div.apartments-types a {
     margin-right: 6px; }
 
-input[type=checkbox] {
+input[type=checkbox].checkbox {
   margin: 4px 0;
   width: 24px;
   height: 24px; }
@@ -605,7 +614,6 @@ input[type=checkbox] {
   margin: 0;
   opacity: 0;
   filter: alpha(opacity=0);
-  transform: translate(-300px, 0) scale(4);
   -webkit-transform: translate(-300px, 0) scale(4);
   -ms-transform: translate(-300px, 0) scale(4);
   -o-transform: translate(-300px, 0) scale(4);
@@ -645,6 +653,14 @@ div.images {
       margin-top: -26px;
       margin-left: 4px; }
 
+div.apartments-types .btn {
+  margin-bottom: 6px; }
+
+span.capacity-tag:after {
+  content: ", "; }
+span.capacity-tag:last-child:after {
+  content: ""; }
+
 .as-sortable-placeholder {
   float: left;
   background-color: #ddd;
@@ -659,5 +675,15 @@ div.images {
 
 .as-sortable-hidden {
   display: none; }
+
+div.form-user-profile-image {
+  text-align: center; }
+  div.form-user-profile-image img {
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    margin: 0 0 10px; }
 
 /*# sourceMappingURL=admin.css.map */

@@ -24,6 +24,9 @@ var routes = {
     '/': {
         get: 'home#index'
     },
+    '/apartment/:url': {
+        get: 'apartments#show'
+    },
     // Rutas do panel de xestion
     '/admin': {
         get: 'admin/app#index'
@@ -38,6 +41,10 @@ var routes = {
     // Rutas extra para os apartamentos no panel de xestión
     '/admin/apartments/upload': {
         post: 'admin/apartments#upload'
+    },
+    // Rutas extra para os usuarios no panel de xestión
+    '/admin/users/upload': {
+        post: 'admin/users#upload'
     }
 };
 

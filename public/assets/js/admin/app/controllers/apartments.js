@@ -16,12 +16,11 @@ angular.module('adminApp').config(['$routeProvider',
                 templateUrl: 'assets/js/admin/views/apartments/index.html',
                 controller: 'ApartmentsIndexCtrl',
                 resolve: {
-                    Apartments: function(ApartmentService, $rootScope) {
-                        if ($rootScope.user.group < 3) {
-                            return ApartmentService.query().$promise;
-                        } else {
-                            return ApartmentService.query({user_id: $rootScope.user._id}).$promise;
-                        }
+                    Apartments: function(ApartmentService) {
+                        return ApartmentService.query().$promise;
+                    },
+                    Countries: function(CountryService) {
+                        return CountryService.query().$promise;
                     }
                 }
             }).
@@ -40,6 +39,9 @@ angular.module('adminApp').config(['$routeProvider',
                     },
                     Services: function(ServiceService) {
                         return ServiceService.query().$promise;
+                    },
+                    Owners: function(UserService) {
+                        return UserService.query({group: 3}).$promise;
                     }
                 }
             }).
@@ -47,8 +49,8 @@ angular.module('adminApp').config(['$routeProvider',
                 templateUrl: 'assets/js/admin/views/apartments/form.html',
                 controller: 'ApartmentsFormCtrl',
                 resolve: {
-                    Apartment: function(ApartmentService, $route) {
-                        return ApartmentService.get({id: $route.current.params.id});
+                    Apartment: function($rootScope, ApartmentService, $route) {
+                        return ApartmentService.get({id: $route.current.params.id}).$promise;
                     },
                     Spots: function(SpotService) {
                         return SpotService.query().$promise;
@@ -58,6 +60,9 @@ angular.module('adminApp').config(['$routeProvider',
                     },
                     Services: function(ServiceService) {
                         return ServiceService.query().$promise;
+                    },
+                    Owners: function(UserService) {
+                        return UserService.query({group: 3}).$promise;
                     }
                 }
             }).
@@ -65,7 +70,7 @@ angular.module('adminApp').config(['$routeProvider',
                 templateUrl: 'assets/js/admin/views/apartments/apartments.html',
                 controller: 'ApartmentsApartmentsCtrl',
                 resolve: {
-                    Apartment: function(ApartmentService, $route) {
+                    Apartment: function($rootScope, ApartmentService, $route) {
                         return ApartmentService.get({id: $route.current.params.id}).$promise;
                     }
                 }
@@ -74,7 +79,7 @@ angular.module('adminApp').config(['$routeProvider',
                 templateUrl: 'assets/js/admin/views/apartments/images.html',
                 controller: 'ApartmentsImagesCtrl',
                 resolve: {
-                    Apartment: function(ApartmentService, $route) {
+                    Apartment: function($rootScope, ApartmentService, $route) {
                         return ApartmentService.get({id: $route.current.params.id}).$promise;
                     }
                 }
@@ -87,12 +92,52 @@ angular.module('adminApp').config(['$routeProvider',
 
 // ###Controlador da páxina inicial
 // Controlador encargado de mostrar a páxina inicial
-angular.module('adminApp').controller('ApartmentsIndexCtrl', function($rootScope, $filter, $flash, $scope, Apartments) {
+angular.module('adminApp').controller('ApartmentsIndexCtrl', function($rootScope, $filter, $flash, $scope, Apartments, Countries, ProvinceService, TownService) {
     // Definimos la sección actual
     $rootScope.current_section = 'apartments';
 
     // Definimos la lista de apartamentos
     $scope.apartments = Apartments;
+
+    // Definimos los datos necesarios para la búsqueda
+    $scope.search = $rootScope.apartment_search || {};
+    $scope.countries = Countries;
+    $scope.provinces = $scope.towns = [];
+
+    // Gardamos a busqueda no rootscope
+    $scope.$watch('search', function() {
+        $rootScope.apartment_search = $scope.search;
+    });
+
+    // Evento para cargar as provincias o seleccionar o pais
+    $scope.$watch('search.country', function(country) {
+        if (country) {
+            $scope.provinces = ProvinceService.query({country: country});
+        } else {
+            $scope.provinces = $scope.towns = [];
+            delete($scope.search.country);
+            delete($scope.search.province);
+            delete($scope.search.town);
+        }
+    });
+
+    // Evento para cargar as cidades o seleccionar a provincia
+    $scope.$watch('search.province', function(province) {
+        if (province) {
+            $scope.towns = TownService.query({province: province});
+        } else {
+            $scope.towns = [];
+            delete($scope.search.province);
+            delete($scope.search.town);
+        }
+    });
+
+    // Evento para remover o atributo da cidade se e igual a null
+    $scope.$watch('search.town', function(town) {
+        if ( ! town) {
+            delete($scope.search.town);
+        }
+    });
 
     // Eliminar un apartamento
     $scope.deleteApartment = function($index) {
@@ -103,13 +148,12 @@ angular.module('adminApp').controller('ApartmentsIndexCtrl', function($rootScope
                 $flash.show();
             });
         }
-    }
-
+    };
 });
 
 // ###Controlador do formulario
 // Controlador encargado de crear/modificar bloques de apartamentos
-angular.module('adminApp').controller('ApartmentsFormCtrl', function($rootScope, $scope, $translate, $flash, $location, Apartment, Spots, Countries, Services, ProvinceService, TownService) {
+angular.module('adminApp').controller('ApartmentsFormCtrl', function($rootScope, $scope, $translate, $filter, $flash, $location, Apartment, Spots, Countries, Services, ProvinceService, TownService, Owners) {
     // Definimos la sección actual
     $rootScope.current_section = 'apartments';
 
@@ -118,6 +162,9 @@ angular.module('adminApp').controller('ApartmentsFormCtrl', function($rootScope,
 
     // Definimos el apartamento en $scope
     $scope.apartment = Apartment;
+
+    // Definimos os propietarios
+    $scope.owners = Owners;
 
     // Definimos os emplazamentos
     $scope.spots = Spots;
@@ -323,7 +370,7 @@ angular.module('adminApp').controller('ApartmentsApartmentsCtrl', function($root
 
     // Función para cancelar a creación / edición dun apartamento
     $scope.cancelApartment = function() {
-        if (confirm($filter('translate')('admin.are_you_sure'))) {
+        if ($scope.apartmentForm.$pristine || confirm($filter('translate')('admin.are_you_sure'))) {
             $scope.apartment = $scope.apartment_index = null;
         }
     };

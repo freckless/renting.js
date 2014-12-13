@@ -40,8 +40,8 @@ i18nComponent.prototype = {
       // Tamén nos locals por se se necesita acceder
       res.locals.i18n = global.i18n;
 
-      // Creamos un alias nos "locals" o que nomeamos "_" para traduccir dende as vistas
-      res.locals._ = global.i18n.translate;
+      // Creamos un alias nos "locals" o que nomeamos "$t" para traduccir dende as vistas
+      res.locals.$t = global.i18n.translate;
 
       // Continuamos coa execución de middlewares
       next();
@@ -103,12 +103,13 @@ i18nComponent.prototype = {
     var parts = [];
     var str = string;
     while (str.indexOf('.') > -1) {
-        parts = str.split('.');
-        str = parts.splice(1, 1).join('.');
-        translation = translation[parts[0]];
-        if (typeof(translation) === 'undefined') {
-            return string;
-        }
+      parts = str.split('.');
+      var part = parts.splice(0, 1);
+      str = parts.join('.');
+      translation = translation[part];
+      if (typeof(translation) === 'undefined') {
+          return string;
+      }
     }
 
     if (typeof(translation[str]) !== 'undefined') {

@@ -22,6 +22,7 @@ var UserSchema = new Schema({
     'mail': { 'type': String, 'required': true, 'index': true },
     'firstname': { 'type': String, 'required': true },
     'lastname': { 'type': String, 'required': true },
+    'image': String,
     'phone': String,
     'city': String,
     'zipcode': String,

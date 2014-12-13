@@ -126,12 +126,26 @@ angular.module('adminApp').controller('UsersFormCtrl', function($scope, $rootSco
                 }
             });
         } else {
-            $scope.user.$save(function() {
+            $scope.user.$save(function () {
                 $flash.set('success', 'admin.changes_has_been_saved');
                 $location.path('/users');
             });
         }
-        
+    };
+
+    $scope.uploadStart = function() {};
+
+    // Callback para cando termina de subir unha imaxe
+    $scope.uploadComplete = function(response) {
+        $scope.user.image = response.data;
+        $scope.form.$setDirty();
+    };
+
+    // Función para eliminar a imaxe
+    $scope.deleteImage = function() {
+        if (confirm($filter('translate')('admin.are_you_sure'))) {
+            $scope.user.image = null;
+        }
     };
 
     // Cancelamos a acción e voltamos atrás sen gardar ningún cambio

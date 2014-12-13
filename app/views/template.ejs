@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Renting.js</title>
-  <%- html.js('/libs/jquery/dist/jquery.min.js', '/libs/retinajs/dist/retina.min.js') %>
+  <%- html.js(
+          '/libs/jquery/dist/jquery.min.js',
+          '/libs/retinajs/dist/retina.min.js'
+  ) %>
   <%- asset.css('website.css') %>
   <%- asset.js(
     'website/plugins/animated_sprite.js', // Sprites animados
@@ -20,7 +23,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div id="logo">
-            <%- asset.img('renting-logo.png') %>
+            <%- asset.img('logo.png') %>
           </div>
           <div id="languages">
             <% for (var x = 0; x < config.language.available.length; x++) { var language = config.language.available[x]; %>
@@ -29,7 +32,7 @@
           </div>
           <nav id="main-nav">
             <ul>
-              <li><%- html.anchor('#', _('website.register_your_apartment')) %></li>
+              <li><%- html.anchor('#', $t('website.register_your_apartment')) %></li>
             </ul>
           </nav>
         </div>
@@ -40,7 +43,20 @@
     <%- body %>
   </div>
   <footer>
-    
+    <div class="container">
+      <div class="col-xs-3">
+        <h4>Atención al cliente</h4>
+      </div>
+      <div class="col-xs-3">
+        <h4>Sobre Renting.js</h4>
+      </div>
+      <div class="col-xs-3">
+        <h4>Síguenos en</h4>
+      </div>
+      <div class="col-xs-3">
+        <h4>Pago seguro</h4>
+      </div>
+    </div>
   </footer>
 </body>
 </html>

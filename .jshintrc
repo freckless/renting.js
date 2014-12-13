@@ -33,7 +33,8 @@
         "expect",
         "$",
         "google",
-        "jQuery"
+        "jQuery",
+        '_'
     ],
     "indent": 4,
     "devel": true,

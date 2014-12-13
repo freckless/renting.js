@@ -6,13 +6,15 @@
 var config = global.config,
     _ = require('lodash'),
     html_helper = require(config.paths.helpers + 'html.js'),
-    asset_helper = require(config.paths.helpers + 'asset.js');
+    asset_helper = require(config.paths.helpers + 'asset.js'),
+    formatter_helper = require(config.paths.helpers + 'formatter.js');
 
 var helpers = {
     // Pasamos a configuración da app
     config: config.app,
     html: html_helper,
-    asset: asset_helper
+    asset: asset_helper,
+    formatter: formatter_helper
 };
 
 // Engadimos todos os helpers a resposta para acceder

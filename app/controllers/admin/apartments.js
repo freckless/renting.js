@@ -73,12 +73,7 @@ var AdminApartmentsController = new AdminControllerBase({
 // ##Facemos o controlador REST có modelo User
 AdminApartmentsController = restComponent.call(AdminApartmentsController, Apartment, function(req, res, next) {
     if (res.locals.user.group > 2) {
-        if (req.query.user_id) {
-            this.where('user', req.query.user_id);
-        } else {
-            res.status(403).send('Forbidden');
-            return false;
-        }
+        this.where('user', res.locals.user._id);
     }
 
     if (req.action === 'find_all') {

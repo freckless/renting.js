@@ -7,8 +7,8 @@
     <div class="panel-body">
         <div class="apartments-types">
             <a href ng-class="{active: apartment_index == $index}" ng-click="editApartment($index)" class="btn btn-default" ng-repeat="apartment in apartments">{{apartment.minimum}}-{{apartment.maximum}}{{apartment.comment ? ' ('+apartment.comment+')' : ''}}</a>
+            <a href ng-click="addApartment()" class="btn btn-primary"><i class="fa fa-fw fa-plus"></i> {{ 'admin.add' | translate }}</a>
         </div>
-        <a href ng-click="addApartment()" class="btn btn-primary"><i class="fa fa-fw fa-plus"></i> {{ 'admin.add' | translate }}</a>
         <div class="apartment" ng-show="apartment !== null">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -83,7 +83,7 @@
                             </thead>
                             <tbody>
                             <tr ng-show="apartment.closed.length < 1">
-                                <td colspan="3">{{'admin.apartments.not_closed_dates'|translate}}</td>
+                                <td colspan="4">{{'admin.apartments.not_closed_dates'|translate}}</td>
                             </tr>
                             <tr ng-show="apartment.closed.length > 0" ng-repeat="closed in apartment.closed">
                                 <td>{{closed.from|date}}</td>

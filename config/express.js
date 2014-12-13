@@ -7,6 +7,7 @@
 
 // ##Dependencias do módulo
 var config = global.config,
+    lodash = require('lodash'),
     multiparty = require('connect-multiparty'),
     compression = require('compression'),
     morgan = require('morgan'),
@@ -56,6 +57,7 @@ module.exports = function(app) {
     app.set('views', config.paths.root + '/app/views');
     app.engine('ejs', ejs.renderFile);
     app.set('view engine', 'ejs');
+    app.set('layout', 'template');
     app.use(ejs_layouts);
 
     // ##Configuramos os middlewares dos que vai a facer uso o servidor.
@@ -90,6 +92,12 @@ module.exports = function(app) {
     // Engadimos a consulta á resposta para poder acceder a ela dende as vistas ou controladores.
     app.use(function(req, res, next) {
         res.locals.req = req;
+        next();
+    });
+
+    // Engadimos lodash ós locals para acceder a el dende as vistas
+    app.use(function(req, res, next) {
+        res.locals._ = lodash;
         next();
     });
 

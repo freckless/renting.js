@@ -13,6 +13,7 @@
     <%- html.js(
             /* Librerias */
             '/libs/angular/angular.min.js',
+            '/libs/lodash/dist/lodash.min.js',
             '/libs/jquery/dist/jquery.min.js',
             '/libs/bootstrap/dist/js/bootstrap.min.js',
             '/libs/angular-bootstrap/ui-bootstrap.min.js',
@@ -34,7 +35,7 @@
             '/assets/js/admin/app.js'
     ) %>
 </head>
-<body class="app" ng-init="user=<%= JSON.stringify(user) %>;config=<%= JSON.stringify(config) %>">
+<body class="app" ng-init="user=<%= JSON.stringify(user._id) %>;config=<%= JSON.stringify(config) %>">
     <!-- Launch the app -->
     <header ng-include="'/assets/js/admin/views/partials/header.html'"></header>
     <div class="container-fluid">

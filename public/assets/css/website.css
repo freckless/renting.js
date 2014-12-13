@@ -440,6 +440,9 @@ svg.icon {
   svg.icon.white *.main-color {
     fill: white; }
 
+html > body {
+  min-height: 100%; }
+
 body {
   font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
   font-size: 0.875em;
@@ -447,6 +450,24 @@ body {
   color: #444;
   margin: 0px;
   padding: 0px; }
+  body.error div.error {
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    margin-top: -100px; }
+    body.error div.error a {
+      padding: 10px;
+      display: inline-block;
+      background-color: #66aeff;
+      text-decoration: none;
+      color: white;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px; }
+      body.error div.error a:hover, body.error div.error a.active {
+        background-color: #0078ff; }
   body header {
     position: fixed;
     z-index: 100;
@@ -485,7 +506,7 @@ body {
           color: #fff;
           cursor: default; }
         body header div#languages a:hover {
-          background-color: #3393ff;
+          background-color: #66aeff;
           color: white; }
     body header nav#main-nav {
       position: absolute;
@@ -512,6 +533,19 @@ body {
 div#page {
   margin-top: 70px; }
 
+footer {
+  -webkit-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.05);
+  background-color: #f6f6f6;
+  border-top: 1px solid #dddddd;
+  padding: 30px 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0px; }
+  footer h4 {
+    margin: 0px; }
+
 section#home div#top-image {
   height: 400px; }
   section#home div#top-image div#slogan {
@@ -530,13 +564,68 @@ section#home div#top-image {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
     font-weight: 600; }
     section#home div#top-image div#slogan span.hl {
-      color: #3393ff; }
-section#home div#apartments-list {
-  height: 1000px;
+      color: #66aeff; }
+section#home div#home-body {
   position: relative;
   z-index: 1;
   -webkit-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1);
   box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1); }
+section#home div.apartments-list div.apartment {
+  position: relative;
+  margin-bottom: 20px; }
+  section#home div.apartments-list div.apartment a.apartment-link {
+    text-decoration: none; }
+    section#home div.apartments-list div.apartment a.apartment-link:hover div.name, section#home div.apartments-list div.apartment a.apartment-link:active div.name {
+      color: #0078ff; }
+  section#home div.apartments-list div.apartment div.price {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: right;
+    color: #000;
+    padding: 2px 6px; }
+    section#home div.apartments-list div.apartment div.price span.price {
+      font-weight: 400;
+      font-size: 1.2em;
+      color: #0078ff; }
+  section#home div.apartments-list div.apartment div.image img {
+    width: 100%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px; }
+  section#home div.apartments-list div.apartment div.name {
+    color: #66aeff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  section#home div.apartments-list div.apartment div.location {
+    color: #AAA; }
+
+section#apartment div.nav-tabs:after {
+  display: block;
+  content: " ";
+  clear: both; }
+section#apartment div.nav-tabs div.tab {
+  width: 25%;
+  float: left; }
+  section#apartment div.nav-tabs div.tab:last-child a {
+    border-right-width: 1px; }
+  section#apartment div.nav-tabs div.tab.active a {
+    color: #0078ff;
+    background-color: #f6f6f6; }
+  section#apartment div.nav-tabs div.tab a {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #888;
+    background-color: white;
+    line-height: 36px;
+    border: 1px solid #dddddd;
+    border-right-width: 0px; }
 
 /*# sourceMappingURL=website.css.map */

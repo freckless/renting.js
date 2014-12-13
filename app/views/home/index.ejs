@@ -1,14 +1,32 @@
 <section id="home">
     <div id="top-image">
         <div class="parallax" data-image="/img/top-image.jpg">
-            <div id="slogan" class="content"><%- _('website.enjoy_your_home_anyway', { 'hls': '<span class="hl">', 'hle': '</span>' }) %></div>
+            <div id="slogan" class="content"><%- $t('website.enjoy_your_home_anyway', { 'hls': '<span class="hl">', 'hle': '</span>' }) %></div>
         </div>
     </div>
-    <div id="apartments-list">
+    <div id="home-body">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h2><%- _('website.our_recomendations') %></h2>
+                    <h2><%- $t('website.our_recomendations') %></h2>
+                </div>
+                <div class="apartments-list">
+                    <% _.each(apartments, function(apartment) { %>
+                        <% var image = apartment.images.length > 0 ? apartment.images[0].file : '../no-image.png'; %>
+                        <div class="col-xs-6 col-md-3 apartment">
+                            <a class="apartment-link" href="<%= '/apartment/'+apartment.url %>">
+                                <div class="price">
+                                    <span class="price"><%= formatter.currency(apartment.lowest_price_for_today) %></span><br>
+                                    <%= $t('website.apartments.each_nigth') %>
+                                </div>
+                                <div class="image">
+                                    <%- html.img('/img/apartments/thumb/'+image) %>
+                                </div>
+                                <div class="name"><%= apartment.name %></div>
+                                <div class="location"><%- apartment.province.name+', '+apartment.country.name[i18n.language] %></div>
+                            </a>
+                        </div>
+                    <% }) %>
                 </div>
             </div>
         </div>

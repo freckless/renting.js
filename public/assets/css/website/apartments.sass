@@ -1,0 +1,32 @@
+@import '../resources/utils'
+@import 'colors'
+
+section#apartment
+  div.nav-tabs
+    &:after
+      display: block
+      content: ' '
+      clear: both
+
+    div.tab
+      width: 25%
+      float: left
+
+      &:last-child
+        a
+          border-right-width: 1px
+
+      &.active
+        a
+          color: $main-color
+          background-color: lighten($lighter-grey, 10%)
+
+      a
+        text-align: center
+        display: block
+        text-decoration: none
+        color: $grey
+        background-color: white
+        line-height: 36px
+        border: 1px solid $lighter-grey
+        border-right-width: 0px

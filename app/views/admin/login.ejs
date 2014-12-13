@@ -14,17 +14,17 @@
       <div id="login-pane">
         <div class="header">
           <%- asset.icon('lock', 'apps/admin/icons.svg', 'xl') %>
-          <h2><%- _('admin.admin_pane') %></h2>
+          <h2><%- $t('admin.admin_pane') %></h2>
         </div>
         <div class="content">
           <form action="/admin/login" method="post" class="form-signin">
-            <input type="text" name="username" class="form-control input-lg" placeholder="<%= _('admin.username') %>" autofocus>
-            <input type="password" name="password" class="form-control input-lg" placeholder="<%= _('admin.password') %>">
+            <input type="text" name="username" class="form-control input-lg" placeholder="<%= $t('admin.username') %>" autofocus>
+            <input type="password" name="password" class="form-control input-lg" placeholder="<%= $t('admin.password') %>">
             <label class="checkbox">
               <input type="checkbox" name="remember_me" value="true">
-              <%= _('admin.remember_me') %>
+              <%= $t('admin.remember_me') %>
             </label>
-            <button class="btn btn-primary btn-block" type="submit"><%= _('admin.sign_in') %></button>
+            <button class="btn btn-primary btn-block" type="submit"><%= $t('admin.sign_in') %></button>
           </form>
         </div>
       </div>

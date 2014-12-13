@@ -11,7 +11,7 @@ angular.module('adminApp').config([
         $translateProvider.preferredLanguage('es');
 
         $locationProvider.hashPrefix('!');
-        
+
         $routeProvider.otherwise({
             redirectTo: '/'
         });
@@ -19,12 +19,19 @@ angular.module('adminApp').config([
 ]);
 
 // #Configuramos a execución da app "adminApp"
-angular.module('adminApp').run(['$rootScope', '$location', '$translate', '$locale',
-    function($rootScope, $location, $translate, $locale) {
+angular.module('adminApp').run(function($rootScope, $timeout, $location, $translate, $locale, UserService) {
         $rootScope.$location = $location;
         $rootScope.$translate = $translate;
         $rootScope.$locale = $locale;
         $rootScope.$available_languages = ['es', 'en'];
+
+        // Cargamos os datos do usuario
+        $timeout(function() {
+            console.log($rootScope.user);
+            UserService.get({id: $rootScope.user}).$promise.then(function(User) {
+                $rootScope.user = User;
+            });
+        });
 
         // Definimos eventos para saber dende as vistas se se están
         // a cargar datos, arquivos ou algunha ruta.
@@ -35,4 +42,4 @@ angular.module('adminApp').run(['$rootScope', '$location', '$translate', '$local
             $rootScope.is_loading = false;
         });
     }
-]);
+);

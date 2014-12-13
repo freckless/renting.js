@@ -72,6 +72,7 @@ var restComponent = function(Model, customize_query) {
         this.query(req, res, function(query) {
             query.exec(function(err, data) {
                 var newdata = _.extend(data, req.body);
+
                 newdata.save(function(err) {
                     if (err) {
                         console.log(err);
