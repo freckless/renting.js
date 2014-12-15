@@ -2,8 +2,10 @@
 node_modules
 public/libs
 public/img/apartments/*.*
+public/img/apartments/xl/*
 public/img/apartments/original/*
 public/img/apartments/thumb/*
+public/img/profiles/*
 config/env/development.js
 config/env/testing.js
 config/env/production.js
