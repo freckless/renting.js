@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en"><head><title>app/controllers/bookings</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="app/controllers/bookings"><meta name="groc-project-path" content="app/controllers/bookings.js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">app/controllers/bookings.js</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="bookingscontroller">BookingsController</h1>
+<p>Controlador que utilizaremos para a páxina principal do portal</p></div></div><div class="code"><div class="wrapper"><span class="hljs-pi">
+'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="dependencias-do-mdulo">Dependencias do módulo</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> config = global.config,
+    mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>),
+    _ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'lodash'</span>),
+    Apartment = mongoose.model(<span class="hljs-string">'Apartment'</span>),
+    Booking = mongoose.model(<span class="hljs-string">'Booking'</span>),
+    Country = mongoose.model(<span class="hljs-string">'Country'</span>),
+    BaseController = <span class="hljs-built_in">require</span>(config.paths.controllers + <span class="hljs-string">'base.js'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="accins-do-controlador">Accións do controlador</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> BookingsController = <span class="hljs-keyword">new</span> BaseController({
+    action_details: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+        Apartment.findOne({url: req.params.apartment_block}).populate([<span class="hljs-string">'user'</span>, <span class="hljs-string">'country'</span>, <span class="hljs-string">'province'</span>, <span class="hljs-string">'town'</span>]).exec(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, apartment)</span> {</span>
+            <span class="hljs-keyword">if</span> (err || ! apartment) {
+                res.status(<span class="hljs-number">404</span>);
+                res.render(<span class="hljs-string">'404'</span>);
+            } <span class="hljs-keyword">else</span> {
+                apartment.availableApartmentsFor(req.params.from, req.params.to, req.params.people, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(available_apartments)</span> {</span>
+                    <span class="hljs-keyword">var</span> selected_apartment = <span class="hljs-literal">null</span>;
+                    _.each(available_apartments.apartments, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(available_apartment)</span> {</span>
+                        <span class="hljs-keyword">if</span> (available_apartment._id.equals(req.params.apartment)) {
+                            selected_apartment = available_apartment;
+                        } <span class="hljs-keyword">else</span> {
+                            <span class="hljs-keyword">return</span>;
+                        }
+                    });
+
+                    <span class="hljs-keyword">var</span> errors = {};
+                    <span class="hljs-keyword">if</span> (req.cookies.errors) {
+                        errors = req.cookies.errors;
+                        res.cookie(<span class="hljs-string">'errors'</span>, {});
+                    }
+
+                    <span class="hljs-keyword">if</span> ( ! selected_apartment) {
+                        req.flash(<span class="hljs-string">'danger'</span>, global.i18n.translate(<span class="hljs-string">'flash.apartment_not_available'</span>));
+                        res.redirect(<span class="hljs-string">'/'</span>);
+                    } <span class="hljs-keyword">else</span> {
+                        Country.find().exec(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, countries)</span> {</span>
+                            res.render(<span class="hljs-string">'bookings/details'</span>, {
+                                errors: errors,
+                                apartment: apartment,
+                                selected_apartment: selected_apartment,
+                                from: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-built_in">parseInt</span>(req.params.from)),
+                                to: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-built_in">parseInt</span>(req.params.to)),
+                                people: req.params.people,
+                                countries: countries
+                            });
+                        });
+                    }
+                });
+            }
+        });
+    },
+    action_create: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+        Apartment.findOne({_id: req.body.apartment_block}).populate([<span class="hljs-string">'user'</span>, <span class="hljs-string">'country'</span>, <span class="hljs-string">'province'</span>, <span class="hljs-string">'town'</span>]).exec(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, apartment)</span> {</span>
+            apartment.availableApartmentsFor(req.body.from, req.body.to, req.body.people, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(available_apartments)</span> {</span>
+                <span class="hljs-keyword">var</span> selected_apartment = <span class="hljs-literal">null</span>;
+
+                _.each(available_apartments.apartments, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(available_apartment)</span> {</span>
+                    <span class="hljs-keyword">if</span> (available_apartment._id.equals(req.body.apartment)) {
+                        selected_apartment = available_apartment;
+                    } <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">return</span>;
+                    }
+                });
+
+                <span class="hljs-keyword">if</span> ( ! selected_apartment) {
+                    req.flash(<span class="hljs-string">'danger'</span>, global.i18n.translate(<span class="hljs-string">'flash.apartment_not_available'</span>));
+                    res.redirect(<span class="hljs-string">'/'</span>);
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">var</span> days = [];
+                    _.each(selected_apartment.stay_prices, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(price)</span> {</span>
+                        days.push({
+                            day: price.date,
+                            price: price.price
+                        });
+                    });
+                    <span class="hljs-keyword">var</span> booking = <span class="hljs-keyword">new</span> Booking({
+                        from: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-built_in">parseInt</span>(req.body.from)),
+                        to: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-built_in">parseInt</span>(req.body.to)),
+                        people: req.body.people,
+                        confirmed: apartment.on_demand || selected_apartment.on_demand ? <span class="hljs-literal">false</span> : <span class="hljs-literal">true</span>,
+                        paid: <span class="hljs-number">0</span>,
+                        days: days,
+                        total: selected_apartment.stay_total,
+                        customer: res.locals.user._id,
+                        owner: apartment.user,
+                        apartment_block: apartment._id,
+                        apartment: selected_apartment._id
+                    });
+                    booking.save(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, booking)</span> {</span>
+                        <span class="hljs-keyword">if</span> (booking.confirmed) {
+                            res.render(<span class="hljs-string">'bookings/finished'</span>, {
+                                apartment: apartment,
+                                booking: booking
+                            });
+                        } <span class="hljs-keyword">else</span> {
+                            res.render(<span class="hljs-string">'bookings/finished'</span>, {
+                                apartment: apartment,
+                                booking: booking
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    }
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="exportamos-o-mdulo">Exportamos o módulo</h3></div></div></div><div class="segment"><div class="code"><div class="wrapper">module.exports = BookingsController;</div></div></div></div></body></html>

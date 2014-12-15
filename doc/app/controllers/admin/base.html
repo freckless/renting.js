@@ -8,9 +8,9 @@ administración xa que proporciona autenticación.</p></div></div><div class="co
 };
 
 AdminBaseController.prototype = {
-    before: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res, next)</span> {</span>
+    super_before: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res, next)</span> {</span>
         AuthComponent.getUser(req, res, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(user)</span> {</span>
-            <span class="hljs-keyword">if</span> (user &amp;&amp; [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>].indexOf(user.group) &gt; -<span class="hljs-number">1</span>) {
+            <span class="hljs-keyword">if</span> (user &amp;&amp; [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].indexOf(user.group) &gt; -<span class="hljs-number">1</span>) {
                 next();
             } <span class="hljs-keyword">else</span> {
                 <span class="hljs-keyword">if</span> (user) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Si é un usuario sen privilexios diriximolo ó index</p></div></div><div class="code"><div class="wrapper">                    req.flash(global.i18n.translate(<span class="hljs-string">'access_not_granted'</span>));
@@ -20,6 +20,9 @@ AdminBaseController.prototype = {
                 }
             }
         });
+    },
+    before: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res, next)</span> {</span>
+        <span class="hljs-keyword">this</span>.super_before(req, res, next);
     },
     after: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res, next)</span> {</span> next(); },
     extend: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(methods)</span> {</span>

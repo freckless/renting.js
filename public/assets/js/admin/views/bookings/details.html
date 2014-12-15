@@ -1,0 +1,15 @@
+<a href class="pull-left" back-button><i class="fa fa-2x fa-fw fa-angle-left"></i></a>
+<h1 class="page-header">{{'admin.bookings.'+action | translate}}</h1>
+<h3>Reserva</h3>
+<strong>Desde:</strong> {{booking.from | date}}<br>
+<strong>Hasta:</strong> {{booking.from | date}}<br>
+<strong>Personas:</strong> {{booking.people}}<br>
+<strong>Confirmada:</strong> {{booking.confirmed ? 'Si' : '_No'}}<br>
+<strong>Total:</strong> {{booking.total | currency:'€'}}<br>
+<strong>Pagado:</strong> {{booking.paid | currency:'€'}}
+
+<h3>Usuario</h3>
+<strong>Nombre:</strong> {{booking.customer.firstname}}<br>
+<strong>Apellidos:</strong> {{booking.customer.lastname}}<br>
+<strong>Correo Electrónico:</strong> {{booking.customer.mail}}<br>
+<strong>Teléfono:</strong> {{booking.customer.phone}}

@@ -1,8 +1,24 @@
 <!DOCTYPE html><html lang="en"><head><title>app/controllers/home</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="app/controllers/home"><meta name="groc-project-path" content="app/controllers/home.js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">app/controllers/home.js</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="homecontroller">HomeController</h1>
 <p>Controlador que utilizaremos para a páxina principal do portal</p></div></div><div class="code"><div class="wrapper"><span class="hljs-pi">
 'use strict'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="dependencias-do-mdulo">Dependencias do módulo</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> config = global.config,
+    mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>),
+    _ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'lodash'</span>),
+    Apartment = mongoose.model(<span class="hljs-string">'Apartment'</span>),
     BaseController = <span class="hljs-built_in">require</span>(config.paths.controllers + <span class="hljs-string">'base.js'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="accins-do-controlador">Accións do controlador</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> HomeController = <span class="hljs-keyword">new</span> BaseController({
     action_index: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
-        res.render(<span class="hljs-string">'home/index'</span>, { layout: <span class="hljs-string">'template'</span> });
+        Apartment.find({featured: <span class="hljs-literal">true</span>}).select({
+            name: <span class="hljs-literal">true</span>,
+            <span class="hljs-string">'apartments.seasons.price'</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-string">'apartments.seasons.from'</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-string">'apartments.seasons.to'</span>: <span class="hljs-literal">true</span>,
+            images: <span class="hljs-literal">true</span>,
+            url: <span class="hljs-literal">true</span>,
+            country: <span class="hljs-literal">true</span>,
+            province: <span class="hljs-literal">true</span>
+        }).populate([<span class="hljs-string">'country'</span>, <span class="hljs-string">'province'</span>]).exec(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, data)</span> {</span>
+            <span class="hljs-keyword">if</span> (err) { res.status(<span class="hljs-number">500</span>).send(err); <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; }
+            <span class="hljs-keyword">var</span> random_apartments = _.shuffle(data).slice(<span class="hljs-number">0</span>, <span class="hljs-number">12</span>);
+            res.render(<span class="hljs-string">'home/index'</span>, { apartments: random_apartments });
+        });
     }
 });</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="exportamos-o-mdulo">Exportamos o módulo</h3></div></div></div><div class="segment"><div class="code"><div class="wrapper">module.exports = HomeController;</div></div></div></div></body></html>

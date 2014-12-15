@@ -19,7 +19,11 @@ var AdminBookingsController = new AdminControllerBase({
 // ##Facemos o controlador REST có modelo User
 AdminBookingsController = restComponent.call(AdminBookingsController, Booking, function(req, res, next) {
     this.populate(['customer']);
-    this.where('apartment_block', req.query.apartment_block)
+
+    if (req.query.apartment_block) {
+        this.where('apartment_block', req.query.apartment_block)
+    }
+    
     // Se non é administrador so lle deixamos acceder as reservas dos seus apartamentos
     if (res.locals.user.group > 2) {
         this.where('owner', res.locals.user._id);

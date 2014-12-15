@@ -8,11 +8,48 @@ xestionalas (confirmar, cancelar...)</p></div></div><div class="code"><div class
         $routeProvider.
             when(<span class="hljs-string">'/bookings'</span>, {
                 templateUrl: <span class="hljs-string">'assets/js/admin/views/bookings/index.html'</span>,
-                controller: <span class="hljs-string">'BookingsIndexCtrl'</span>
+                controller: <span class="hljs-string">'BookingsIndexCtrl'</span>,
+                resolve: {
+                    Apartments: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($q, ApartmentService, BookingService)</span> {</span>
+                        <span class="hljs-keyword">var</span> apartmentsDeferred = $q.defer();
+                        <span class="hljs-keyword">var</span> bookingsDeferred = $q.defer();
+
+                        ApartmentService.query(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(apartments)</span> {</span>
+                            apartmentsDeferred.resolve(apartments)
+                        });
+
+                        <span class="hljs-keyword">var</span> resolvedApartments = <span class="hljs-number">0</span>;
+                        <span class="hljs-keyword">var</span> apartmentsWithBookings = [];
+                        apartmentsDeferred.promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(apartments)</span> {</span>
+                            angular.forEach(apartments, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(apartment, key)</span> {</span>
+                                BookingService.query({apartment_block: apartment._id}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(bookings)</span> {</span>
+                                    <span class="hljs-keyword">if</span> (bookings.length &gt; <span class="hljs-number">0</span>) {
+                                        apartment.bookings = bookings;
+                                        apartmentsWithBookings.push(apartment);
+                                    }
+                                    <span class="hljs-keyword">if</span> (++resolvedApartments == apartments.length) {
+                                        bookingsDeferred.resolve(apartmentsWithBookings);
+                                    }
+                                })
+                            });
+                        });
+
+                        <span class="hljs-keyword">return</span> bookingsDeferred.promise;
+                    },
+                    Countries: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(CountryService)</span> {</span>
+                        <span class="hljs-keyword">return</span> CountryService.query().$promise;
+                    }
+                }
             });
     }
 ]);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="controladores">Controladores</h2>
 <p>Creamos os controladores necesarios para manexar as vistas</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="controlador-da-pxina-inicial">Controlador da páxina inicial</h3>
-<p>Controlador encargado de mostrar a páxina inicial</p></div></div><div class="code"><div class="wrapper">angular.module(<span class="hljs-string">'adminApp'</span>).controller(<span class="hljs-string">'BookingsIndexCtrl'</span>, [<span class="hljs-string">'$rootScope'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($rootScope)</span> {</span>
+<p>Controlador encargado de mostrar a páxina inicial</p></div></div><div class="code"><div class="wrapper">angular.module(<span class="hljs-string">'adminApp'</span>).controller(<span class="hljs-string">'BookingsIndexCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($rootScope, $scope, Apartments)</span> {</span>
     $rootScope.current_section = <span class="hljs-string">'bookings'</span>;
-}]);</div></div></div></div></body></html>
+
+    $scope.apartments = Apartments;
+
+    $scope.justWithBookings = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(apartment)</span> {</span>
+        <span class="hljs-keyword">return</span> apartment.bookings ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    };
+});</div></div></div></div></body></html>

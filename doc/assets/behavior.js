@@ -406,6 +406,111 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/controllers/admin/bookings.js",
+                    "projectPath": "app/controllers/admin/bookings.js",
+                    "targetPath": "app/controllers/admin/bookings",
+                    "pageTitle": "app/controllers/admin/bookings",
+                    "firstHeader": {
+                      "type": "heading",
+                      "data": {
+                        "level": 1,
+                        "title": "AdminBookingsController",
+                        "slug": "adminbookingscontroller",
+                        "isFileHeader": true
+                      },
+                      "depth": 1,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Dependencias do módulo",
+                            "slug": "dependencias-do-mdulo"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Accións do controlador",
+                            "slug": "accins-do-controlador"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
+                            "title": "Facemos o controlador REST có modelo User",
+                            "slug": "facemos-o-controlador-rest-c-modelo-user"
+                          },
+                          "depth": 2,
+                          "children": [
+                            {
+                              "type": "heading",
+                              "data": {
+                                "level": 3,
+                                "title": "Exportamos o modulo",
+                                "slug": "exportamos-o-modulo"
+                              },
+                              "depth": 3
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "title": "AdminBookingsController"
+                  },
+                  "depth": 4,
+                  "outline": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Accións do controlador",
+                        "slug": "accins-do-controlador"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Facemos o controlador REST có modelo User",
+                        "slug": "facemos-o-controlador-rest-c-modelo-user"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Exportamos o modulo",
+                            "slug": "exportamos-o-modulo"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }
+                  ]
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
                     "sourcePath": "/Users/daniel/Sites/Renting.js/app/controllers/admin/countries.js",
                     "projectPath": "app/controllers/admin/countries.js",
                     "targetPath": "app/controllers/admin/countries",
@@ -965,6 +1070,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                           "type": "heading",
                           "data": {
                             "level": 2,
+                            "title": "Dependencias da acción upload",
+                            "slug": "dependencias-da-accin-upload"
+                          },
+                          "depth": 2
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 2,
                             "title": "Facemos o controlador REST có modelo User",
                             "slug": "facemos-o-controlador-rest-c-modelo-user"
                           },
@@ -1007,6 +1120,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "type": "heading",
                       "data": {
                         "level": 2,
+                        "title": "Dependencias da acción upload",
+                        "slug": "dependencias-da-accin-upload"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
                         "title": "Facemos o controlador REST có modelo User",
                         "slug": "facemos-o-controlador-rest-c-modelo-user"
                       },
@@ -1022,6 +1143,95 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                           "depth": 3
                         }
                       ]
+                    }
+                  ]
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/controllers/apartments.js",
+                "projectPath": "app/controllers/apartments.js",
+                "targetPath": "app/controllers/apartments",
+                "pageTitle": "app/controllers/apartments",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "ApartmentsController",
+                    "slug": "apartmentscontroller",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Accións do controlador",
+                        "slug": "accins-do-controlador"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Exportamos o módulo",
+                            "slug": "exportamos-o-mdulo"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "title": "ApartmentsController"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Accións do controlador",
+                    "slug": "accins-do-controlador"
+                  },
+                  "depth": 2,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Exportamos o módulo",
+                        "slug": "exportamos-o-mdulo"
+                      },
+                      "depth": 3
                     }
                   ]
                 }
@@ -1084,6 +1294,95 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "level": 2,
                     "title": "Dependencias do módulo",
                     "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Exportamos o módulo",
+                        "slug": "exportamos-o-mdulo"
+                      },
+                      "depth": 3
+                    }
+                  ]
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/controllers/bookings.js",
+                "projectPath": "app/controllers/bookings.js",
+                "targetPath": "app/controllers/bookings",
+                "pageTitle": "app/controllers/bookings",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "BookingsController",
+                    "slug": "bookingscontroller",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Accións do controlador",
+                        "slug": "accins-do-controlador"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Exportamos o módulo",
+                            "slug": "exportamos-o-mdulo"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "title": "BookingsController"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Accións do controlador",
+                    "slug": "accins-do-controlador"
                   },
                   "depth": 2,
                   "children": [
@@ -1188,6 +1487,95 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   ]
                 }
               ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/controllers/users.js",
+                "projectPath": "app/controllers/users.js",
+                "targetPath": "app/controllers/users",
+                "pageTitle": "app/controllers/users",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "UsersController",
+                    "slug": "userscontroller",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Accións do controlador",
+                        "slug": "accins-do-controlador"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Exportamos o módulo",
+                            "slug": "exportamos-o-mdulo"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "title": "UsersController"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Accións do controlador",
+                    "slug": "accins-do-controlador"
+                  },
+                  "depth": 2,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Exportamos o módulo",
+                        "slug": "exportamos-o-mdulo"
+                      },
+                      "depth": 3
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }, {
@@ -1238,6 +1626,66 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "^",
                       "name": "JavaScript"
                     },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/lang/en/dates.js",
+                    "projectPath": "app/lang/en/dates.js",
+                    "targetPath": "app/lang/en/dates",
+                    "pageTitle": "app/lang/en/dates",
+                    "title": "dates"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/lang/en/flash.js",
+                    "projectPath": "app/lang/en/flash.js",
+                    "targetPath": "app/lang/en/flash",
+                    "pageTitle": "app/lang/en/flash",
+                    "title": "flash"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/lang/en/languages.js",
+                    "projectPath": "app/lang/en/languages.js",
+                    "targetPath": "app/lang/en/languages",
+                    "pageTitle": "app/lang/en/languages",
+                    "title": "languages"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
                     "sourcePath": "/Users/daniel/Sites/Renting.js/app/lang/en/website.js",
                     "projectPath": "app/lang/en/website.js",
                     "targetPath": "app/lang/en/website",
@@ -1273,6 +1721,46 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "targetPath": "app/lang/es/admin",
                     "pageTitle": "app/lang/es/admin",
                     "title": "admin"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/lang/es/dates.js",
+                    "projectPath": "app/lang/es/dates.js",
+                    "targetPath": "app/lang/es/dates",
+                    "pageTitle": "app/lang/es/dates",
+                    "title": "dates"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "/Users/daniel/Sites/Renting.js/app/lang/es/flash.js",
+                    "projectPath": "app/lang/es/flash.js",
+                    "targetPath": "app/lang/es/flash",
+                    "pageTitle": "app/lang/es/flash",
+                    "title": "flash"
                   },
                   "depth": 4,
                   "outline": []
@@ -1370,6 +1858,95 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "slug": "esquema-de-datos-do-modelo"
                       },
                       "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Callbacks",
+                        "slug": "callbacks"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Antes de gardar",
+                            "slug": "antes-de-gardar"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Virtuals",
+                        "slug": "virtuals"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Precio más bajo para hoy",
+                            "slug": "precio-ms-bajo-para-hoy"
+                          },
+                          "depth": 3
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Imaxen principal",
+                            "slug": "imaxen-principal"
+                          },
+                          "depth": 3
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Capacidade do apartamento",
+                            "slug": "capacidade-do-apartamento"
+                          },
+                          "depth": 3
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Número de habitacións",
+                            "slug": "nmero-de-habitacins"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Método especials",
+                        "slug": "mtodo-especials"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Método para obter o texto localizado ou o fallback se non está definido TODO",
+                            "slug": "mtodo-para-obter-o-texto-localizado-ou-o-fallback-se-non-est-definido-todo"
+                          },
+                          "depth": 3
+                        }, {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Método para obter os apartamentos disponibles para un rango de data e unha ocupación de persoas",
+                            "slug": "mtodo-para-obter-os-apartamentos-disponibles-para-un-rango-de-data-e-unha-ocupacin-de-persoas"
+                          },
+                          "depth": 3
+                        }
+                      ]
                     }
                   ]
                 },
@@ -1393,6 +1970,222 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "slug": "esquema-de-datos-do-modelo"
                   },
                   "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Callbacks",
+                    "slug": "callbacks"
+                  },
+                  "depth": 2,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Antes de gardar",
+                        "slug": "antes-de-gardar"
+                      },
+                      "depth": 3
+                    }
+                  ]
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Virtuals",
+                    "slug": "virtuals"
+                  },
+                  "depth": 2,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Precio más bajo para hoy",
+                        "slug": "precio-ms-bajo-para-hoy"
+                      },
+                      "depth": 3
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Imaxen principal",
+                        "slug": "imaxen-principal"
+                      },
+                      "depth": 3
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Capacidade do apartamento",
+                        "slug": "capacidade-do-apartamento"
+                      },
+                      "depth": 3
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Número de habitacións",
+                        "slug": "nmero-de-habitacins"
+                      },
+                      "depth": 3
+                    }
+                  ]
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Método especials",
+                    "slug": "mtodo-especials"
+                  },
+                  "depth": 2,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Método para obter o texto localizado ou o fallback se non está definido TODO",
+                        "slug": "mtodo-para-obter-o-texto-localizado-ou-o-fallback-se-non-est-definido-todo"
+                      },
+                      "depth": 3
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Método para obter os apartamentos disponibles para un rango de data e unha ocupación de persoas",
+                        "slug": "mtodo-para-obter-os-apartamentos-disponibles-para-un-rango-de-data-e-unha-ocupacin-de-persoas"
+                      },
+                      "depth": 3
+                    }
+                  ]
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/app/models/booking.js",
+                "projectPath": "app/models/booking.js",
+                "targetPath": "app/models/booking",
+                "pageTitle": "app/models/booking",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "BookingModel",
+                    "slug": "bookingmodel",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Esquema de datos do modelo",
+                        "slug": "esquema-de-datos-do-modelo"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Relacións",
+                            "slug": "relacins"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Callbacks",
+                        "slug": "callbacks"
+                      },
+                      "depth": 2,
+                      "children": [
+                        {
+                          "type": "heading",
+                          "data": {
+                            "level": 3,
+                            "title": "Antes de gardar",
+                            "slug": "antes-de-gardar"
+                          },
+                          "depth": 3
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "title": "BookingModel"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Esquema de datos do modelo",
+                    "slug": "esquema-de-datos-do-modelo"
+                  },
+                  "depth": 2,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Relacións",
+                        "slug": "relacins"
+                      },
+                      "depth": 3
+                    }
+                  ]
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Callbacks",
+                    "slug": "callbacks"
+                  },
+                  "depth": 2,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Antes de gardar",
+                        "slug": "antes-de-gardar"
+                      },
+                      "depth": 3
+                    }
+                  ]
                 }
               ]
             }, {
@@ -1784,6 +2577,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "type": "heading",
                       "data": {
                         "level": 2,
+                        "title": "Callbacks",
+                        "slug": "callbacks"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
                         "title": "Validacións",
                         "slug": "validacins"
                       },
@@ -1844,6 +2645,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "level": 2,
                     "title": "Campos virtuais",
                     "slug": "campos-virtuais"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Callbacks",
+                    "slug": "callbacks"
                   },
                   "depth": 2
                 }, {
@@ -2608,6 +3417,73 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   ]
                 },
                 "title": "Helper para os Assets"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Dependencias do módulo",
+                    "slug": "dependencias-do-mdulo"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Lóxica do helper",
+                    "slug": "lxica-do-helper"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
+                "sourcePath": "/Users/daniel/Sites/Renting.js/libs/helpers/formatter.js",
+                "projectPath": "libs/helpers/formatter.js",
+                "targetPath": "libs/helpers/formatter",
+                "pageTitle": "libs/helpers/formatter",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Helper para formatear datos",
+                    "slug": "helper-para-formatear-datos",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Dependencias do módulo",
+                        "slug": "dependencias-do-mdulo"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Lóxica do helper",
+                        "slug": "lxica-do-helper"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "Helper para formatear datos"
               },
               "depth": 3,
               "outline": [
@@ -3486,6 +4362,57 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                                   "foldPrefix": "^",
                                   "name": "JavaScript"
                                 },
+                                "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/services/booking.js",
+                                "projectPath": "public/assets/js/admin/app/services/booking.js",
+                                "targetPath": "public/assets/js/admin/app/services/booking",
+                                "pageTitle": "public/assets/js/admin/app/services/booking",
+                                "firstHeader": {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 1,
+                                    "title": "BookingService",
+                                    "slug": "bookingservice",
+                                    "isFileHeader": true
+                                  },
+                                  "depth": 1,
+                                  "children": [
+                                    {
+                                      "type": "heading",
+                                      "data": {
+                                        "level": 2,
+                                        "title": "Loxica do modelo",
+                                        "slug": "loxica-do-modelo"
+                                      },
+                                      "depth": 2
+                                    }
+                                  ]
+                                },
+                                "title": "BookingService"
+                              },
+                              "depth": 7,
+                              "outline": [
+                                {
+                                  "type": "heading",
+                                  "data": {
+                                    "level": 2,
+                                    "title": "Loxica do modelo",
+                                    "slug": "loxica-do-modelo"
+                                  },
+                                  "depth": 2
+                                }
+                              ]
+                            }, {
+                              "type": "file",
+                              "data": {
+                                "language": {
+                                  "nameMatchers": [".js"],
+                                  "pygmentsLexer": "javascript",
+                                  "multiLineComment": ["/*", "*", "*/"],
+                                  "singleLineComment": ["//"],
+                                  "ignorePrefix": "}",
+                                  "foldPrefix": "^",
+                                  "name": "JavaScript"
+                                },
                                 "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/admin/app/services/country.js",
                                 "projectPath": "public/assets/js/admin/app/services/country.js",
                                 "targetPath": "public/assets/js/admin/app/services/country",
@@ -3836,6 +4763,26 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                           "foldPrefix": "^",
                           "name": "JavaScript"
                         },
+                        "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/website/apartments.js",
+                        "projectPath": "public/assets/js/website/apartments.js",
+                        "targetPath": "public/assets/js/website/apartments",
+                        "pageTitle": "public/assets/js/website/apartments",
+                        "title": "apartments"
+                      },
+                      "depth": 5,
+                      "outline": []
+                    }, {
+                      "type": "file",
+                      "data": {
+                        "language": {
+                          "nameMatchers": [".js"],
+                          "pygmentsLexer": "javascript",
+                          "multiLineComment": ["/*", "*", "*/"],
+                          "singleLineComment": ["//"],
+                          "ignorePrefix": "}",
+                          "foldPrefix": "^",
+                          "name": "JavaScript"
+                        },
                         "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/website/home.js",
                         "projectPath": "public/assets/js/website/home.js",
                         "targetPath": "public/assets/js/website/home",
@@ -3889,6 +4836,26 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                             "targetPath": "public/assets/js/website/plugins/animated_sprite",
                             "pageTitle": "public/assets/js/website/plugins/animated_sprite",
                             "title": "animated_sprite"
+                          },
+                          "depth": 6,
+                          "outline": []
+                        }, {
+                          "type": "file",
+                          "data": {
+                            "language": {
+                              "nameMatchers": [".js"],
+                              "pygmentsLexer": "javascript",
+                              "multiLineComment": ["/*", "*", "*/"],
+                              "singleLineComment": ["//"],
+                              "ignorePrefix": "}",
+                              "foldPrefix": "^",
+                              "name": "JavaScript"
+                            },
+                            "sourcePath": "/Users/daniel/Sites/Renting.js/public/assets/js/website/plugins/gallery.js",
+                            "projectPath": "public/assets/js/website/plugins/gallery.js",
+                            "targetPath": "public/assets/js/website/plugins/gallery",
+                            "pageTitle": "public/assets/js/website/plugins/gallery",
+                            "title": "gallery"
                           },
                           "depth": 6,
                           "outline": []

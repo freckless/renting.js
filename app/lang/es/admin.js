@@ -23,6 +23,8 @@ module.exports = {
     'object_has_been_removed': 'Eliminado correctamente',
     'select_one': 'Elije una opción de la lista',
     'not_available': 'No disponible',
+    'details': 'Detalles',
+    'confirm': 'Confirmar',
     'users': {
         'title': 'Usuarios',
         'editing': 'Editando usuario',
@@ -112,6 +114,7 @@ module.exports = {
         'title': 'Dashboard'
     },
     'bookings': {
+        'details': 'Detalles',
         'title': 'Reservas',
         'from': 'Entrada',
         'to': 'Salida',

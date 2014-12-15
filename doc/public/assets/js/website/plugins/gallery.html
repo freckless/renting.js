@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en"><head><title>public/assets/js/website/plugins/gallery</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../../../"><meta name="groc-document-path" content="public/assets/js/website/plugins/gallery"><meta name="groc-project-path" content="public/assets/js/website/plugins/gallery.js"><link rel="stylesheet" type="text/css" media="all" href="../../../../../assets/style.css"><script type="text/javascript" src="../../../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">public/assets/js/website/plugins/gallery.js</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-pi">'use strict'</span>;
+
+(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($)</span>{</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Plugin definition *</p></div></div><div class="code"><div class="wrapper">    $.fn.gallery = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">if</span> ($(<span class="hljs-keyword">this</span>).data(<span class="hljs-string">'gallery'</span>)) <span class="hljs-keyword">return</span> $(<span class="hljs-keyword">this</span>).data(<span class="hljs-string">'gallery'</span>);
+            <span class="hljs-keyword">var</span> container = $(<span class="hljs-keyword">this</span>);
+
+            <span class="hljs-keyword">var</span> gallery = <span class="hljs-keyword">new</span> Gallery(container);
+            gallery.init();
+
+            container.data(<span class="hljs-string">'gallery'</span>, gallery);
+            <span class="hljs-keyword">return</span> gallery;
+        });
+    };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Class definition *</p></div></div><div class="code"><div class="wrapper">    <span class="hljs-keyword">var</span> Gallery = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(container)</span> {</span>
+        <span class="hljs-keyword">this</span>.container = container;
+        <span class="hljs-keyword">this</span>.gallery = $(<span class="hljs-string">'#gallery'</span>);
+        <span class="hljs-keyword">this</span>.images = [];
+        <span class="hljs-keyword">this</span>.current = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>.isOpen = <span class="hljs-literal">false</span>;
+    };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Class prototype *</p></div></div><div class="code"><div class="wrapper">    Gallery.prototype = {
+        init: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">this</span>.createImages();
+            <span class="hljs-keyword">this</span>.bindContainerEvents();
+        },
+        createImages: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>;
+            <span class="hljs-keyword">this</span>.images = [];
+            <span class="hljs-keyword">this</span>.gallery.find(<span class="hljs-string">'.images'</span>).html(<span class="hljs-string">''</span>);
+            <span class="hljs-keyword">this</span>.container.find(<span class="hljs-string">'.image img'</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                <span class="hljs-keyword">var</span> image = {thumb: $(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">'src'</span>), image: $(<span class="hljs-keyword">this</span>).data(<span class="hljs-string">'image'</span>), description: $(<span class="hljs-keyword">this</span>).data(<span class="hljs-string">'tooltip'</span>)}
+                self.images.push(image);
+                self.gallery.find(<span class="hljs-string">'.images'</span>).append($(<span class="hljs-string">'&lt;img class="image" /&gt;'</span>).attr(<span class="hljs-string">'src'</span>, image.thumb));
+            });
+        },
+        bindContainerEvents: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>;
+            <span class="hljs-keyword">this</span>.container.find(<span class="hljs-string">'.image'</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                self.open($(<span class="hljs-keyword">this</span>).index());
+            });
+        },
+        open: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(index)</span> {</span>
+            <span class="hljs-keyword">this</span>.createImages();
+            <span class="hljs-keyword">this</span>.gallery.data(<span class="hljs-string">'gallery'</span>, <span class="hljs-keyword">this</span>);
+            <span class="hljs-keyword">this</span>.gallery.show();
+            <span class="hljs-keyword">this</span>.go(index);
+        },
+        close: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">this</span>.gallery.hide();
+            <span class="hljs-keyword">this</span>.current = <span class="hljs-literal">null</span>;
+        },
+        next: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">if</span> (++<span class="hljs-keyword">this</span>.current &lt; <span class="hljs-keyword">this</span>.images.length) {
+                <span class="hljs-keyword">this</span>.go(<span class="hljs-keyword">this</span>.current);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">this</span>.go(<span class="hljs-number">0</span>);
+            }
+        },
+        prev: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">if</span> (--<span class="hljs-keyword">this</span>.current &gt;= <span class="hljs-number">0</span>) {
+                <span class="hljs-keyword">this</span>.go(<span class="hljs-keyword">this</span>.current);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">this</span>.go(<span class="hljs-keyword">this</span>.images.length - <span class="hljs-number">1</span>);
+            }
+        },
+        go: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(index)</span> {</span>
+            <span class="hljs-keyword">this</span>.current = index;
+            <span class="hljs-keyword">this</span>.gallery.find(<span class="hljs-string">'.main-image img'</span>).attr(<span class="hljs-string">'src'</span>, <span class="hljs-keyword">this</span>.images[index].image);
+            <span class="hljs-keyword">this</span>.gallery.find(<span class="hljs-string">'.images img.active'</span>).removeClass(<span class="hljs-string">'active'</span>);
+            <span class="hljs-keyword">this</span>.gallery.find(<span class="hljs-string">'.images img'</span>).eq(index).addClass(<span class="hljs-string">'active'</span>);
+            <span class="hljs-keyword">this</span>.centerThumbnail();
+        },
+        centerThumbnail: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            <span class="hljs-keyword">var</span> page_width = <span class="hljs-keyword">this</span>.gallery.find(<span class="hljs-string">'.images'</span>).innerWidth();
+            <span class="hljs-keyword">var</span> thumbnail_x = <span class="hljs-keyword">this</span>.gallery.find(<span class="hljs-string">'.images img.active'</span>).position().left;
+            <span class="hljs-keyword">var</span> image_width = <span class="hljs-keyword">this</span>.gallery.find(<span class="hljs-string">'.images img.active'</span>).outerWidth() + <span class="hljs-number">2</span>;
+
+            <span class="hljs-keyword">var</span> position_percent = thumbnail_x / page_width * <span class="hljs-number">100</span>;
+
+            <span class="hljs-keyword">var</span> left = <span class="hljs-number">0</span>;
+
+            <span class="hljs-keyword">if</span> (thumbnail_x &gt; page_width / <span class="hljs-number">2</span>) {
+                <span class="hljs-keyword">if</span> (position_percent &gt; <span class="hljs-number">50</span>) {
+                    left = (position_percent - <span class="hljs-number">50</span>) / <span class="hljs-number">100</span> * page_width;
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (position_percent &lt; <span class="hljs-number">50</span>) {
+                    left = (<span class="hljs-number">50</span> - position_percent) / <span class="hljs-number">100</span> * page_width;
+                }
+                left += image_width / <span class="hljs-number">2</span>;
+            }
+
+            <span class="hljs-keyword">this</span>.gallery.find(<span class="hljs-string">'.images'</span>).clearQueue().animate({
+                left: -left
+            });
+        }
+    };
+
+    $().ready(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Gallery Events *</p></div></div><div class="code"><div class="wrapper">        $(<span class="hljs-string">'#gallery'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-string">'.close'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            $(<span class="hljs-string">'#gallery'</span>).data(<span class="hljs-string">'gallery'</span>).close();
+        });
+        $(<span class="hljs-string">'#gallery'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-string">'.right'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            $(<span class="hljs-string">'#gallery'</span>).data(<span class="hljs-string">'gallery'</span>).next();
+        });
+        $(<span class="hljs-string">'#gallery'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-string">'.left'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            $(<span class="hljs-string">'#gallery'</span>).data(<span class="hljs-string">'gallery'</span>).prev();
+        });
+        $(<span class="hljs-string">'#gallery .images'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-string">'.image'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            $(<span class="hljs-string">'#gallery'</span>).data(<span class="hljs-string">'gallery'</span>).go($(<span class="hljs-keyword">this</span>).index());
+        });
+    });
+
+})(jQuery);</div></div></div></div></body></html>

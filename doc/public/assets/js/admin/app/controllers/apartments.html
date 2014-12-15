@@ -12,6 +12,9 @@ tarifas, imaxes, etc...</p></div></div><div class="code"><div class="wrapper"><s
                 resolve: {
                     Apartments: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(ApartmentService)</span> {</span>
                         <span class="hljs-keyword">return</span> ApartmentService.query().$promise;
+                    },
+                    Countries: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(CountryService)</span> {</span>
+                        <span class="hljs-keyword">return</span> CountryService.query().$promise;
                     }
                 }
             }).
@@ -19,8 +22,8 @@ tarifas, imaxes, etc...</p></div></div><div class="code"><div class="wrapper"><s
                 templateUrl: <span class="hljs-string">'assets/js/admin/views/apartments/form.html'</span>,
                 controller: <span class="hljs-string">'ApartmentsFormCtrl'</span>,
                 resolve: {
-                    Apartment: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(ApartmentService)</span> {</span>
-                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ApartmentService({services: []});
+                    Apartment: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(ApartmentService, $rootScope)</span> {</span>
+                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ApartmentService({services: [], user: $rootScope.user._id});
                     },
                     Spots: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(SpotService)</span> {</span>
                         <span class="hljs-keyword">return</span> SpotService.query().$promise;
@@ -30,6 +33,9 @@ tarifas, imaxes, etc...</p></div></div><div class="code"><div class="wrapper"><s
                     },
                     Services: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(ServiceService)</span> {</span>
                         <span class="hljs-keyword">return</span> ServiceService.query().$promise;
+                    },
+                    Owners: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(UserService)</span> {</span>
+                        <span class="hljs-keyword">return</span> UserService.query({group: <span class="hljs-number">3</span>}).$promise;
                     }
                 }
             }).
@@ -37,8 +43,8 @@ tarifas, imaxes, etc...</p></div></div><div class="code"><div class="wrapper"><s
                 templateUrl: <span class="hljs-string">'assets/js/admin/views/apartments/form.html'</span>,
                 controller: <span class="hljs-string">'ApartmentsFormCtrl'</span>,
                 resolve: {
-                    Apartment: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(ApartmentService, $route)</span> {</span>
-                        <span class="hljs-keyword">return</span> ApartmentService.get({id: $route.current.params.id});
+                    Apartment: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($rootScope, ApartmentService, $route)</span> {</span>
+                        <span class="hljs-keyword">return</span> ApartmentService.get({id: $route.current.params.id}).$promise;
                     },
                     Spots: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(SpotService)</span> {</span>
                         <span class="hljs-keyword">return</span> SpotService.query().$promise;
@@ -48,6 +54,9 @@ tarifas, imaxes, etc...</p></div></div><div class="code"><div class="wrapper"><s
                     },
                     Services: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(ServiceService)</span> {</span>
                         <span class="hljs-keyword">return</span> ServiceService.query().$promise;
+                    },
+                    Owners: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(UserService)</span> {</span>
+                        <span class="hljs-keyword">return</span> UserService.query({group: <span class="hljs-number">3</span>}).$promise;
                     }
                 }
             }).
@@ -55,7 +64,7 @@ tarifas, imaxes, etc...</p></div></div><div class="code"><div class="wrapper"><s
                 templateUrl: <span class="hljs-string">'assets/js/admin/views/apartments/apartments.html'</span>,
                 controller: <span class="hljs-string">'ApartmentsApartmentsCtrl'</span>,
                 resolve: {
-                    Apartment: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(ApartmentService, $route)</span> {</span>
+                    Apartment: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($rootScope, ApartmentService, $route)</span> {</span>
                         <span class="hljs-keyword">return</span> ApartmentService.get({id: $route.current.params.id}).$promise;
                     }
                 }
@@ -64,7 +73,7 @@ tarifas, imaxes, etc...</p></div></div><div class="code"><div class="wrapper"><s
                 templateUrl: <span class="hljs-string">'assets/js/admin/views/apartments/images.html'</span>,
                 controller: <span class="hljs-string">'ApartmentsImagesCtrl'</span>,
                 resolve: {
-                    Apartment: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(ApartmentService, $route)</span> {</span>
+                    Apartment: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($rootScope, ApartmentService, $route)</span> {</span>
                         <span class="hljs-keyword">return</span> ApartmentService.get({id: $route.current.params.id}).$promise;
                     }
                 }
@@ -72,9 +81,42 @@ tarifas, imaxes, etc...</p></div></div><div class="code"><div class="wrapper"><s
     }
 ]);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="controladores">Controladores</h2>
 <p>Creamos os controladores necesarios para manexar as vistas</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="controlador-da-pxina-inicial">Controlador da páxina inicial</h3>
-<p>Controlador encargado de mostrar a páxina inicial</p></div></div><div class="code"><div class="wrapper">angular.module(<span class="hljs-string">'adminApp'</span>).controller(<span class="hljs-string">'ApartmentsIndexCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($rootScope, $scope, Apartments)</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos la sección actual</p></div></div><div class="code"><div class="wrapper">    $rootScope.current_section = <span class="hljs-string">'apartments'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos la lista de apartamentos</p></div></div><div class="code"><div class="wrapper">    $scope.apartments = Apartments;
+<p>Controlador encargado de mostrar a páxina inicial</p></div></div><div class="code"><div class="wrapper">angular.module(<span class="hljs-string">'adminApp'</span>).controller(<span class="hljs-string">'ApartmentsIndexCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($rootScope, $filter, $flash, $scope, Apartments, Countries, ProvinceService, TownService)</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos la sección actual</p></div></div><div class="code"><div class="wrapper">    $rootScope.current_section = <span class="hljs-string">'apartments'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos la lista de apartamentos</p></div></div><div class="code"><div class="wrapper">    $scope.apartments = Apartments;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos los datos necesarios para la búsqueda</p></div></div><div class="code"><div class="wrapper">    $scope.search = $rootScope.apartment_search || {};
+    $scope.countries = Countries;
+    $scope.provinces = $scope.towns = [];</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Gardamos a busqueda no rootscope</p></div></div><div class="code"><div class="wrapper">    $scope.$watch(<span class="hljs-string">'search'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        $rootScope.apartment_search = $scope.search;
+    });</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Evento para cargar as provincias o seleccionar o pais</p></div></div><div class="code"><div class="wrapper">    $scope.$watch(<span class="hljs-string">'search.country'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(country)</span> {</span>
+        <span class="hljs-keyword">if</span> (country) {
+            $scope.provinces = ProvinceService.query({country: country});
+        } <span class="hljs-keyword">else</span> {
+            $scope.provinces = $scope.towns = [];
+            <span class="hljs-keyword">delete</span>($scope.search.country);
+            <span class="hljs-keyword">delete</span>($scope.search.province);
+            <span class="hljs-keyword">delete</span>($scope.search.town);
+        }
+    });</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Evento para cargar as cidades o seleccionar a provincia</p></div></div><div class="code"><div class="wrapper">    $scope.$watch(<span class="hljs-string">'search.province'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(province)</span> {</span>
+        <span class="hljs-keyword">if</span> (province) {
+            $scope.towns = TownService.query({province: province});
+        } <span class="hljs-keyword">else</span> {
+            $scope.towns = [];
+            <span class="hljs-keyword">delete</span>($scope.search.province);
+            <span class="hljs-keyword">delete</span>($scope.search.town);
+        }
+    });</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Evento para remover o atributo da cidade se e igual a null</p></div></div><div class="code"><div class="wrapper">    $scope.$watch(<span class="hljs-string">'search.town'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(town)</span> {</span>
+        <span class="hljs-keyword">if</span> ( ! town) {
+            <span class="hljs-keyword">delete</span>($scope.search.town);
+        }
+    });</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Eliminar un apartamento</p></div></div><div class="code"><div class="wrapper">    $scope.deleteApartment = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($index)</span> {</span>
+        <span class="hljs-keyword">if</span> (confirm($filter(<span class="hljs-string">'translate'</span>)(<span class="hljs-string">'admin.are_you_sure'</span>))) {
+            $scope.apartments[$index].$<span class="hljs-keyword">delete</span>(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                $scope.apartments.splice($index, <span class="hljs-number">1</span>);
+                $flash.set(<span class="hljs-string">'success'</span>, $filter(<span class="hljs-string">'translate'</span>)(<span class="hljs-string">'admin.apartments.apartment_has_been_delete'</span>));
+                $flash.show();
+            });
+        }
+    };
 });</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="controlador-do-formulario">Controlador do formulario</h3>
-<p>Controlador encargado de crear/modificar bloques de apartamentos</p></div></div><div class="code"><div class="wrapper">angular.module(<span class="hljs-string">'adminApp'</span>).controller(<span class="hljs-string">'ApartmentsFormCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($rootScope, $scope, $translate, $flash, $location, Apartment, Spots, Countries, Services, ProvinceService, TownService)</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos la sección actual</p></div></div><div class="code"><div class="wrapper">    $rootScope.current_section = <span class="hljs-string">'apartments'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos o idioma de edición por defecto</p></div></div><div class="code"><div class="wrapper">    $scope.active_language = $translate.use();</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos el apartamento en $scope</p></div></div><div class="code"><div class="wrapper">    $scope.apartment = Apartment;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos os emplazamentos</p></div></div><div class="code"><div class="wrapper">    $scope.spots = Spots;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos os servicios dispoñibles</p></div></div><div class="code"><div class="wrapper">    $scope.services = Services;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos os paises</p></div></div><div class="code"><div class="wrapper">    $scope.countries = Countries;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos as provincias e cidades en blanco xa que só se cargarán o elexir os campos maiores</p></div></div><div class="code"><div class="wrapper">    $scope.provinces = $scope.towns = [];</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Cambiar o idioma de edición</p></div></div><div class="code"><div class="wrapper">    $scope.setActiveLanguage = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(language)</span> {</span>
+<p>Controlador encargado de crear/modificar bloques de apartamentos</p></div></div><div class="code"><div class="wrapper">angular.module(<span class="hljs-string">'adminApp'</span>).controller(<span class="hljs-string">'ApartmentsFormCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($rootScope, $scope, $translate, $filter, $flash, $location, Apartment, Spots, Countries, Services, ProvinceService, TownService, Owners)</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos la sección actual</p></div></div><div class="code"><div class="wrapper">    $rootScope.current_section = <span class="hljs-string">'apartments'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos o idioma de edición por defecto</p></div></div><div class="code"><div class="wrapper">    $scope.active_language = $translate.use();</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos el apartamento en $scope</p></div></div><div class="code"><div class="wrapper">    $scope.apartment = Apartment;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos os propietarios</p></div></div><div class="code"><div class="wrapper">    $scope.owners = Owners;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos os emplazamentos</p></div></div><div class="code"><div class="wrapper">    $scope.spots = Spots;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos os servicios dispoñibles</p></div></div><div class="code"><div class="wrapper">    $scope.services = Services;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos os paises</p></div></div><div class="code"><div class="wrapper">    $scope.countries = Countries;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos as provincias e cidades en blanco xa que só se cargarán o elexir os campos maiores</p></div></div><div class="code"><div class="wrapper">    $scope.provinces = $scope.towns = [];</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Cambiar o idioma de edición</p></div></div><div class="code"><div class="wrapper">    $scope.setActiveLanguage = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(language)</span> {</span>
         $scope.active_language = language;
     };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Cargar as provincias relacionadas ó pais</p></div></div><div class="code"><div class="wrapper">    $scope.loadProvinces = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
         <span class="hljs-keyword">var</span> country = $scope.apartment.country;
@@ -197,10 +239,10 @@ dos datos do apartamento.</p></div></div><div class="code"><div class="wrapper">
 angular.module(<span class="hljs-string">'adminApp'</span>).controller(<span class="hljs-string">'ApartmentsApartmentsCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($rootScope, $timeout, $filter, $flash, $location, $scope, Apartment, ApartmentService)</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos a sección actual</p></div></div><div class="code"><div class="wrapper">    $rootScope.current_section = <span class="hljs-string">'apartments'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos a variable hasChanges para notificar a vista cando hay cambios.</p></div></div><div class="code"><div class="wrapper">    $scope.hasChanges = <span class="hljs-literal">false</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos o index do apartamento actual</p></div></div><div class="code"><div class="wrapper">    $scope.apartment_index = <span class="hljs-literal">null</span>;
     $scope.apartment = <span class="hljs-literal">null</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos o bloque de apartamentos</p></div></div><div class="code"><div class="wrapper">    $scope.apartment_block = Apartment;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>E tamén os apartamentos do bloque de apartamentos</p></div></div><div class="code"><div class="wrapper">    $scope.apartments = Apartment.apartments || [];</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Función para gardar o bloque de apartamentos na base de datos</p></div></div><div class="code"><div class="wrapper">    $scope.saveApartmentsBlock = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Cargamos o bloque de apartamentos de novo por se sufriu algún cambio exterior</p></div></div><div class="code"><div class="wrapper">        ApartmentService.get({id: Apartment._id}).$promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Apartment)</span> {</span>
             Apartment.apartments = $scope.apartments;
-            <span class="hljs-comment">/*Apartment.$update(function() {
-                $flash.set('success', 'admin.changes_has_been_saved');
-                $location.path('/apartments');
-            })*/</span>
+            Apartment.$update(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                $flash.set(<span class="hljs-string">'success'</span>, <span class="hljs-string">'admin.changes_has_been_saved'</span>);
+                window.history.back();
+            });
         });
     };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Función para engadir un novo apartamento</p></div></div><div class="code"><div class="wrapper">    $scope.addApartment = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
         $scope.apartment = {
@@ -208,7 +250,7 @@ angular.module(<span class="hljs-string">'adminApp'</span>).controller(<span cla
             closed:[]
         };
     };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Función para cancelar a creación / edición dun apartamento</p></div></div><div class="code"><div class="wrapper">    $scope.cancelApartment = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
-        <span class="hljs-keyword">if</span> (confirm($filter(<span class="hljs-string">'translate'</span>)(<span class="hljs-string">'admin.are_you_sure'</span>))) {
+        <span class="hljs-keyword">if</span> ($scope.apartmentForm.$pristine || confirm($filter(<span class="hljs-string">'translate'</span>)(<span class="hljs-string">'admin.are_you_sure'</span>))) {
             $scope.apartment = $scope.apartment_index = <span class="hljs-literal">null</span>;
         }
     };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Función para gardar o apartamento</p></div></div><div class="code"><div class="wrapper">    $scope.saveApartment = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
@@ -307,19 +349,13 @@ usuario se está seguro de cancelar.</p></div></div><div class="code"><div class
 
 angular.module(<span class="hljs-string">'adminApp'</span>).controller(<span class="hljs-string">'ApartmentsImagesCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($rootScope, $scope, $filter, $flash, $location, Apartment, ApartmentService)</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos a sección actual</p></div></div><div class="code"><div class="wrapper">    $rootScope.current_section = <span class="hljs-string">'apartments'</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Definimos o apartamento e as imaxes</p></div></div><div class="code"><div class="wrapper">    $scope.apartment = Apartment;
     $scope.images = Apartment.images || [];
-    $scope.uploading = [];
-
-    $scope.uploadStart = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(files)</span> {</span>
-        $scope.uploading.push(files);
-    };
-
-    $scope.deleteImage = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($index)</span> {</span>
+    $scope.uploading = [];</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Gardamos os arquivos que se van a subir nun array para mostralos</p></div></div><div class="code"><div class="wrapper">    $scope.uploadStart = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(files)</span> {</span>
+        $scope.uploading = files;
+    };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Función para eliminar unha imaxe</p></div></div><div class="code"><div class="wrapper">    $scope.deleteImage = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($index)</span> {</span>
         <span class="hljs-keyword">if</span> (confirm($filter(<span class="hljs-string">'translate'</span>)(<span class="hljs-string">'admin.are_you_sure'</span>))) {
             $scope.images.splice($index, <span class="hljs-number">1</span>);
         }
-    };
-
-    $scope.uploadComplete = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(response)</span> {</span>
+    };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Callback para cando termina de subir unha imaxe</p></div></div><div class="code"><div class="wrapper">    $scope.uploadComplete = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(response)</span> {</span>
         <span class="hljs-keyword">var</span> images = [];
         $.each(response.data, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(index, item)</span> {</span>
             images.push({
@@ -327,5 +363,17 @@ angular.module(<span class="hljs-string">'adminApp'</span>).controller(<span cla
             });
         });
         $scope.images = $scope.images.concat(images);
+    };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Función para gardar os datos na base de datos</p></div></div><div class="code"><div class="wrapper">    $scope.saveImages = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Cargamos o bloque de apartamentos de novo por se sufriu algún cambio exterior</p></div></div><div class="code"><div class="wrapper">        ApartmentService.get({id: Apartment._id}).$promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(Apartment)</span> {</span>
+            Apartment.images = $scope.images;
+            Apartment.$update(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                $flash.set(<span class="hljs-string">'success'</span>, <span class="hljs-string">'admin.changes_has_been_saved'</span>);
+                window.history.back();
+            })
+        });
+    };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Función para cancelar e voltar atrás</p></div></div><div class="code"><div class="wrapper">    $scope.cancel = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+        <span class="hljs-keyword">if</span> ( ! confirm($filter(<span class="hljs-string">'translate'</span>)(<span class="hljs-string">'admin.are_you_sure'</span>))) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+        window.history.back();
     };
 });</div></div></div></div></body></html>

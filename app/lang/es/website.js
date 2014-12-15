@@ -6,6 +6,8 @@ module.exports = {
   'our_recomendations': 'Nuestras recomendaciones',
   'error_404': 'Parece que no encontramos lo que estás buscando',
   'back_to_main': 'Volver a la página principal',
+  'search_results': 'Resultados de la búsqueda',
+  'no_apartments': 'No hemos encontrado apartamentos para tu búsqueda',
   'go_back': 'Volver',
   'select_one': 'Elige uno de la lista',
   'users': {
@@ -32,6 +34,7 @@ module.exports = {
     'change_booking_info': 'Modificar datos',
     'book_details': 'Ver más detalles',
     'make_booking_on_demand': 'Consultar disponibilidad',
+    'place': 'Lugar',
     'make_booking': 'Hacer reserva',
     'not_available': 'Este apartamento no está disponible para las fechas indicadas',
     'cancel_conditions': 'Condiciones de cancelación',
@@ -52,6 +55,7 @@ module.exports = {
   },
   'apartments': {
     'each_nigth': 'la noche',
+    'complete_stay': 'la estancia',
     'rooms': ':rooms Dormitorio:plural',
     'people': 'De :minimum a :maximum personas',
     'location': 'Ubicación del apartamento',

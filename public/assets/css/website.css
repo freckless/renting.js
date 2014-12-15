@@ -367,23 +367,77 @@ footer {
 
 section#home div#top-image {
   height: 400px; }
-  section#home div#top-image div#slogan {
+  section#home div#top-image div#top-content {
     position: absolute;
-    top: 50%;
-    left: 0px;
-    right: 0px;
-    margin-top: -50px;
-    height: 100px;
     width: 100%;
-    line-height: 50px;
-    z-index: 2;
-    text-align: center;
-    font-size: 2.71429em;
-    color: white;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-    font-weight: 600; }
-    section#home div#top-image div#slogan span.hl {
-      color: #66aeff; }
+    top: 0px;
+    z-index: 2; }
+    section#home div#top-image div#top-content div#search {
+      background-color: rgba(255, 255, 255, 0.8);
+      height: 400px; }
+      section#home div#top-image div#top-content div#search form {
+        padding: 40px 10px 0; }
+      section#home div#top-image div#top-content div#search div.form-group {
+        margin-bottom: 10px; }
+        section#home div#top-image div#top-content div#search div.form-group div.div-from, section#home div#top-image div#top-content div#search div.form-group div.div-to, section#home div#top-image div#top-content div#search div.form-group div.div-people, section#home div#top-image div#top-content div#search div.form-group div.div-place {
+          padding: 0 10px;
+          float: left;
+          width: 100%; }
+        section#home div#top-image div#top-content div#search div.form-group div.icon {
+          position: absolute;
+          padding: 4px; }
+          section#home div#top-image div#top-content div#search div.form-group div.icon svg {
+            fill: #888; }
+        section#home div#top-image div#top-content div#search div.form-group label {
+          line-height: 30px;
+          font-weight: 400;
+          display: block; }
+        section#home div#top-image div#top-content div#search div.form-group input {
+          border: 1px solid #dddddd;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          line-height: 26px;
+          height: 30px;
+          width: 100%;
+          padding: 2px 6px 2px 32px;
+          font-size: 1.14286em; }
+        section#home div#top-image div#top-content div#search div.form-group div.div-place input {
+          padding-left: 6px; }
+        section#home div#top-image div#top-content div#search div.form-group div.button {
+          padding: 10px;
+          margin-top: 10px; }
+          section#home div#top-image div#top-content div#search div.form-group div.button button {
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #66aeff;
+            height: 40px;
+            width: 100%;
+            border: 0px;
+            color: white;
+            font-size: 1.14286em;
+            font-weight: 300; }
+            section#home div#top-image div#top-content div#search div.form-group div.button button:hover {
+              background-color: #0078ff; }
+    section#home div#top-image div#top-content div#slogan {
+      position: relative;
+      height: 400px; }
+      section#home div#top-image div#top-content div#slogan div.slc {
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        top: 50%;
+        margin-top: -50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 2.71429em;
+        color: white;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        font-weight: 600; }
+        section#home div#top-image div#top-content div#slogan div.slc span.hl {
+          color: #66aeff; }
 section#home div#home-body {
   position: relative;
   z-index: 1;
@@ -441,7 +495,7 @@ section#apartment div#fixed-bar {
     font-weight: 400;
     font-size: 1.14286em; }
 section#apartment div#top-image {
-  height: 700px;
+  height: 500px;
   cursor: pointer; }
 section#apartment div#apartment-info {
   position: absolute;

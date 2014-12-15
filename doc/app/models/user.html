@@ -14,25 +14,29 @@ datos na base de datos e tamén de xestionar as suas relacións.</p></div></div>
     <span class="hljs-string">'mail'</span>: { <span class="hljs-string">'type'</span>: <span class="hljs-built_in">String</span>, <span class="hljs-string">'required'</span>: <span class="hljs-literal">true</span>, <span class="hljs-string">'index'</span>: <span class="hljs-literal">true</span> },
     <span class="hljs-string">'firstname'</span>: { <span class="hljs-string">'type'</span>: <span class="hljs-built_in">String</span>, <span class="hljs-string">'required'</span>: <span class="hljs-literal">true</span> },
     <span class="hljs-string">'lastname'</span>: { <span class="hljs-string">'type'</span>: <span class="hljs-built_in">String</span>, <span class="hljs-string">'required'</span>: <span class="hljs-literal">true</span> },
+    <span class="hljs-string">'image'</span>: <span class="hljs-built_in">String</span>,
     <span class="hljs-string">'phone'</span>: <span class="hljs-built_in">String</span>,
     <span class="hljs-string">'city'</span>: <span class="hljs-built_in">String</span>,
     <span class="hljs-string">'zipcode'</span>: <span class="hljs-built_in">String</span>,
     <span class="hljs-string">'address'</span>: <span class="hljs-built_in">String</span>,
-    <span class="hljs-string">'country'</span>: <span class="hljs-built_in">String</span>,
     <span class="hljs-string">'company'</span>: <span class="hljs-built_in">String</span>,
-    <span class="hljs-string">'born_at'</span>: { <span class="hljs-string">'type'</span>: <span class="hljs-built_in">Date</span>, <span class="hljs-string">'required'</span>: <span class="hljs-literal">true</span> },
     <span class="hljs-string">'sex'</span>: <span class="hljs-built_in">String</span>,
     <span class="hljs-string">'picture'</span>: <span class="hljs-built_in">String</span>,
     <span class="hljs-string">'document'</span>: { <span class="hljs-string">'type'</span>: <span class="hljs-built_in">String</span>, <span class="hljs-string">'number'</span>: <span class="hljs-built_in">String</span> },
     <span class="hljs-string">'newsletter'</span>: <span class="hljs-built_in">Boolean</span>,
-    <span class="hljs-string">'created_at'</span>: <span class="hljs-built_in">Date</span>,
-    <span class="hljs-string">'modified_at'</span>: <span class="hljs-built_in">Date</span>
+    <span class="hljs-string">'created_at'</span>: { <span class="hljs-string">'type'</span>: <span class="hljs-built_in">Date</span>, <span class="hljs-string">'default'</span>: <span class="hljs-built_in">Date</span>.now() },
+    <span class="hljs-string">'modified_at'</span>: <span class="hljs-built_in">Date</span>,</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Relacións *</p></div></div><div class="code"><div class="wrapper">    <span class="hljs-string">'country'</span>: {<span class="hljs-string">'type'</span>: Schema.Types.ObjectId, ref: <span class="hljs-string">'Country'</span>}
 });</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="campos-virtuais">Campos virtuais</h2>
 <p>O campo password non existe na base de datos xa que este se garda
 como unha cadena encriptada polo tanto, esta función serve para
 encriptar o password é gardalo no campo hashed_password sen ter que
 manexar estos datos no controlador ou componente.</p></div></div><div class="code"><div class="wrapper">UserSchema.virtual(<span class="hljs-string">'password'</span>).set(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(password)</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Creamos unha nova salt (frase secreta)</p></div></div><div class="code"><div class="wrapper">    <span class="hljs-keyword">this</span>.salt = <span class="hljs-keyword">this</span>.makeSalt();</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Codificamos o password</p></div></div><div class="code"><div class="wrapper">    <span class="hljs-keyword">this</span>.hashed_password = <span class="hljs-keyword">this</span>.encryptPassword(password);
-});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="validacins">Validacións</h2>
+});
+UserSchema.virtual(<span class="hljs-string">'commercial_name'</span>).get(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.company) <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.company;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.firstname+<span class="hljs-string">' '</span>+<span class="hljs-keyword">this</span>.lastname;
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="callbacks">Callbacks</h2>
+<p>Funcións que executaremos antes de gardar, validar, etc...</p></div></div><div class="code"><div class="wrapper">UserSchema.pre(<span class="hljs-string">'save'</span>, DBUtils.update_document_dates);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="validacins">Validacións</h2>
 <p>Configuramos as validacións adicionais necesarias</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="o-nome-de-usuario-debe-ser-nico">O nome de usuario debe ser único</h3></div></div></div><div class="segment"><div class="code"><div class="wrapper">UserSchema.path(<span class="hljs-string">'username'</span>).validate(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val, callback)</span> {</span>
     DBUtils.validate_uniqueness.apply(<span class="hljs-keyword">this</span>, [<span class="hljs-string">'User'</span>, <span class="hljs-string">'username'</span>, val, callback]);
 }, <span class="hljs-string">'Username should be unique'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="o-e-mail-debe-ser-nico">O e-mail debe ser único</h3></div></div></div><div class="segment"><div class="code"><div class="wrapper">UserSchema.path(<span class="hljs-string">'mail'</span>).validate(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val, callback)</span> {</span>

@@ -41,9 +41,16 @@ angular.module('adminApp').config(['$routeProvider',
                         });
 
                         return bookingsDeferred.promise;
-                    },
-                    Countries: function(CountryService) {
-                        return CountryService.query().$promise;
+                    }
+                }
+            }).
+            when('/bookings/details/:id', {
+                templateUrl: 'assets/js/admin/views/bookings/details.html',
+                controller: 'BookingsDetailsCtrl',
+                resolve: {
+                    Booking: function(BookingService, $route) {
+                        console.log($route);
+                        return BookingService.get({id: $route.current.params.id}).$promise;
                     }
                 }
             });
@@ -55,12 +62,39 @@ angular.module('adminApp').config(['$routeProvider',
 
 // ###Controlador da páxina inicial
 // Controlador encargado de mostrar a páxina inicial
-angular.module('adminApp').controller('BookingsIndexCtrl', function($rootScope, $scope, Apartments) {
+angular.module('adminApp').controller('BookingsIndexCtrl', function($rootScope, $scope, $flash, $filter, Apartments) {
     $rootScope.current_section = 'bookings';
 
     $scope.apartments = Apartments;
 
-    $scope.justWithBookings = function(apartment) {
-        return apartment.bookings ? true : false;
-    };
+    $scope.confirmBooking = function($apartment, $index) {
+        if (confirm($filter('translate')('admin.are_you_sure'))) {
+            $scope.apartments[$apartment].bookings[$index].confirmed = true;
+            $scope.apartments[$apartment].bookings[$index].$update(function() {
+                $flash.set('success', 'admin.changes_has_been_saved');
+                $flash.show();
+            });
+        }
+    }
+
+    $scope.deleteBooking = function($apartment, $index) {
+        if (confirm($filter('translate')('admin.are_you_sure'))) {
+            $scope.apartments[$apartment].bookings[$index].$delete(function() {
+                $flash.set('success', 'admin.object_has_been_removed');
+                $flash.show();
+                $scope.apartments[$apartment].bookings.splice($index, 1);
+                if ($scope.apartments[$apartment].bookings.length < 1) {
+                    $scope.apartments.splice($apartment, 1);
+                }
+            });
+        }
+    }
+});
+
+// ###Controlador da páxina de details
+// Controlador encargado de mostrar os detalles da reserva
+angular.module('adminApp').controller('BookingsDetailsCtrl', function($rootScope, $scope, Booking) {
+    $rootScope.current_section = 'bookings';
+    $scope.action = 'details';
+    $scope.booking = Booking;
 });

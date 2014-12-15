@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="booking in apartment.bookings">
+            <tr ng-init="$apartment_index = $index" ng-repeat="booking in apartment.bookings">
                 <td>{{booking.from|date}}</td>
                 <td>{{booking.to|date}}</td>
                 <td style="text-align: center;">{{booking.people}}</td>
@@ -26,7 +26,11 @@
                 <td>{{booking.total|currency:'€'}}</td>
                 <td>{{booking.paid|currency:'€'}}</td>
                 <td>{{booking.customer.firstname}} {{booking.customer.lastname}} ({{booking.customer.username}})</td>
-                <td></td>
+                <td style="text-align: right;">
+                    <a href ng-click="$location.path('/bookings/details/{{booking._id}}')" class="btn btn-xs btn-default" tooltip="{{ 'admin.details' | translate }}"><i class="fa fa-fw fa-search"></i></a>
+                    <a href ng-click="confirmBooking($apartment_index, $index)" ng-show="!booking.confirmed" class="btn btn-xs btn-success" tooltip="{{ 'admin.confirm' | translate }}"><i class="fa fa-fw fa-check"></i></a>
+                    <a href ng-click="deleteBooking($apartment_index, $index)" class="btn btn-xs btn-danger" tooltip="{{ 'admin.delete' | translate }}"><i class="fa fa-fw fa-times"></i></a>
+                </td>
             </tr>
         </tbody>
     </table>

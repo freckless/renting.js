@@ -63,8 +63,10 @@ servicio REST ós controladores que sexa preciso.</p></div></div><div class="cod
         <span class="hljs-keyword">this</span>.query(req, res, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(query)</span> {</span>
             query.exec(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, data)</span> {</span>
                 <span class="hljs-keyword">var</span> newdata = _.extend(data, req.body);
+
                 newdata.save(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span> {</span>
                     <span class="hljs-keyword">if</span> (err) {
+                        console.log(err);
                         res.json({
                             status: <span class="hljs-string">'error'</span>,
                             message: <span class="hljs-string">'Some problem has been ocurred updating data'</span>,

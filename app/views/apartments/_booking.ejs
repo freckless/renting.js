@@ -1,4 +1,4 @@
-<% if (apartments !== null && apartments.apartments.length < 1) { %>
+<% if (apartments !== null && apartments.apartments && apartments.apartments.length < 1) { %>
 <div class="booking-not-available">
     <%= $t('website.bookings.not_available') %>
 </div>
@@ -24,7 +24,7 @@
         <button type="submit"><%= $t('website.bookings.calculate_total') %></button>
     </form>
 </div>
-<% if (apartments && apartments.apartments.length > 0) { %>
+<% if (apartments && apartments.apartments && apartments.apartments.length > 0) { %>
     <div class="booking-avilables">
         <div class="booking-info">
             <div class="text">

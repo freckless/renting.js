@@ -23,9 +23,10 @@ var HomeController = new BaseController({
             country: true,
             province: true
         }).populate(['country', 'province']).exec(function(err, data) {
+            var search = req.cookies.search ? req.cookies.search : {};
             if (err) { res.status(500).send(err); return false; }
             var random_apartments = _.shuffle(data).slice(0, 12);
-            res.render('home/index', { apartments: random_apartments });
+            res.render('home/index', { apartments: random_apartments, search: search });
         });
     }
 });

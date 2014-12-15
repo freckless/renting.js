@@ -27,9 +27,40 @@ a axudar a manexar datos dos modelos, etc...</p></div></div><div class="code"><d
     localized_field: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
         <span class="hljs-keyword">var</span> fields = {};
         _.each(config.app.language.available, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(language)</span> {</span>
-            fields[language] = <span class="hljs-built_in">String</span>
+            fields[language] = <span class="hljs-built_in">String</span>;
         });
 
         <span class="hljs-keyword">return</span> fields;
+    },
+    get_valid_url: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(model_name, url_field, value_field, callback)</span> {</span>
+        <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>;
+        <span class="hljs-keyword">var</span> index = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">var</span> model = mongoose.model(model_name);
+        <span class="hljs-keyword">var</span> url = <span class="hljs-keyword">this</span>[value_field].replace(<span class="hljs-regexp">/[^a-z0-9]+/gi</span>, <span class="hljs-string">'-'</span>).replace(<span class="hljs-regexp">/^-*|-*$/g</span>, <span class="hljs-string">''</span>).toLowerCase();
+        <span class="hljs-keyword">var</span> query = {
+            _id: {$ne: <span class="hljs-keyword">this</span>._id}
+        };
+
+        <span class="hljs-keyword">var</span> check_unique = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            query[url_field] = url+(index &gt; <span class="hljs-number">0</span> ? <span class="hljs-string">'-'</span>+index : <span class="hljs-string">''</span>);
+            model.find(query).exec(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, data)</span> {</span>
+                <span class="hljs-keyword">if</span> (err) { console.log(err); }
+                <span class="hljs-keyword">if</span> (data.length &gt; <span class="hljs-number">0</span>) {
+                    index++;
+                    check_unique();
+                } <span class="hljs-keyword">else</span> {
+                    self[url_field] = query[url_field];
+                    callback.apply(self);
+                }
+            });
+        };
+
+        check_unique();
+    },
+    update_document_dates: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(callback)</span> {</span>
+        <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+        <span class="hljs-keyword">if</span> ( ! <span class="hljs-keyword">this</span>.created_at) { <span class="hljs-keyword">this</span>.created_at = now };
+        <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">this</span>._id ) { <span class="hljs-keyword">this</span>.modified_at = now };
+        callback();
     }
 };</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Exportamos os axudantes creados</p></div></div><div class="code"><div class="wrapper">module.exports = DatabaseHelpers;</div></div></div></div></body></html>

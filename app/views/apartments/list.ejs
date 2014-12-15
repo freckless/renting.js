@@ -46,16 +46,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h2><%- $t('website.our_recomendations') %></h2>
+                    <h2><%- $t('website.search_results') %></h2>
                 </div>
                 <div class="apartments-list">
+                    <% if (apartments.length < 1) { %>
+                    <div class="col-xs-12">
+                        <h3><%- $t('website.no_apartments') %></h3>
+                    </div>
+                    <% } %>
                     <% _.each(apartments, function(apartment) { %>
                         <% var image = apartment.images.length > 0 ? apartment.images[0].file : '../no-image.png'; %>
                         <div class="col-xs-6 col-md-3 apartment">
                             <a class="apartment-link" href="<%= '/apartment/'+apartment.url %>">
                                 <div class="price">
-                                    <span class="price"><%= formatter.currency(apartment.lowest_price_for_today) %></span><br>
-                                    <%= $t('website.apartments.each_nigth') %>
+                                    <% if (apartment.stay_total) { %>
+                                        <span class="price"><%= formatter.currency(apartment.stay_total) %></span><br>
+                                        <%= $t('website.apartments.complete_stay') %>
+                                    <% } else { %>
+                                        <span class="price"><%= formatter.currency(apartment.lowest_price_for_today) %></span><br>
+                                        <%= $t('website.apartments.each_nigth') %>
+                                    <% } %>
                                 </div>
                                 <div class="image">
                                     <%- html.img('/img/apartments/thumb/'+image) %>
