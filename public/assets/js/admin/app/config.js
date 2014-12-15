@@ -27,7 +27,6 @@ angular.module('adminApp').run(function($rootScope, $timeout, $location, $transl
 
         // Cargamos os datos do usuario
         $timeout(function() {
-            console.log($rootScope.user);
             UserService.get({id: $rootScope.user}).$promise.then(function(User) {
                 $rootScope.user = User;
             });

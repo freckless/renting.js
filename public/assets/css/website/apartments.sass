@@ -2,31 +2,256 @@
 @import 'colors'
 
 section#apartment
-  div.nav-tabs
-    &:after
-      display: block
-      content: ' '
-      clear: both
+  div#fixed-bar
+    height: 40px
+    position: fixed
+    display: none
+    top: 70px
+    left: 0px
+    right: 0px
+    z-index: 2
+    color: white
+    line-height: 40px
+    background-color: rgba($dark-main-color, 0.95)
 
-    div.tab
-      width: 25%
+    div.apartment-name
       float: left
+      font-weight: 400
+      font-size: em(16px, 14px)
 
-      &:last-child
-        a
-          border-right-width: 1px
+  div#top-image
+    height: 700px
+    cursor: pointer
 
-      &.active
-        a
-          color: $main-color
+  div#apartment-info
+    position: absolute
+    text-align: right
+    padding: 20px 0
+    bottom: 0px
+    right: 0px
+    z-index: 1
+    background-color: rgba(255, 255, 255, 0.9)
+    +border-radius-top(6px)
+
+    div.item
+      text-align: center
+      display: inline-block
+      margin: 0 10px
+      padding: 0 10px
+
+      div.icon
+        svg
+          fill: $grey
+          width: 40px
+          height: 40px
+
+      div.text
+        color: $dark-grey
+
+  div#apartment-body
+    position: relative
+    z-index: 1
+    +drop-shadow(0, -2px, 2px, 0.1)
+    padding: 20px 0
+
+    div.apartment-header
+      height: 120px
+      padding: 10px 0
+      margin-bottom: 20px
+      position: relative
+
+      div.user-profile-image
+        width: 100px
+        height: 100px
+
+        img
+          width: 100%
+          +border-radius(50px)
+
+      div.main-info
+        position: absolute
+        top: 0px
+        left: 140px
+
+        h2
+          margin: 10px 0 4px
+
+          span.keys
+            display: inline-block
+            font-size: 0.8em
+            margin-left: 4px
+            color: $light-grey
+
+            i
+              display: inline-block
+              margin: 0 -2px
+              &.active
+                color: $main-color
+
+        div.owner
+          margin: 0 0 4px
+          font-size: em(18px, 14px)
+          color: $grey
+          font-weight: 300
+
+        div.location
+          font-weight: 300
+          color: $light-grey
+
+          i
+            color: $grey
+
+  div.booking-sidebar
+    text-align: center
+
+    div.booking-not-available
+      padding: 10px
+      border: 1px solid $main-color
+      +border-radius(6px)
+      background-color: lighten(desaturate($light-main-color, 30%), 20%)
+      margin-bottom: 10px
+
+    div.booking-avilables
+      div.booking-info
+        div.item
+          border-bottom: 1px solid $lighter-grey
+          height: 40px
+          line-height: 40px
+          padding: 0 10px
+
+          div.key
+            float: left
+            font-weight: 400
+            color: $main-color
+          div.value
+            float: right
+        div.icon
+          svg
+            width: 64px
+            height: 64px
+            fill: $dark-main-color
+
+      div.apartments
+        margin: 2px 0 0
+
+        div.apartment
+          padding: 20px 10px 10px
+          margin-bottom: 2px
           background-color: lighten($lighter-grey, 10%)
 
+          div.price
+            font-size: 2em
+            margin-top: 10px
+
+          div.booking-buttons
+            margin-top: 10px
+            a.make-booking, a.make-booking-on-demand
+              +border-radius(4px)
+              display: inline-block
+              line-height: 30px
+              cursor: pointer
+              background-color: $light-main-color
+              height: 30px
+              padding: 0 10px
+              color: white
+              font-weight: 300
+              text-decoration: none
+
+              &:hover
+                background-color: $main-color
+
+    div.booking-change-dates
+      text-align: center
+      margin-top: 20px
+
       a
-        text-align: center
-        display: block
-        text-decoration: none
+        display: inline-block
+        +border-radius(4px)
+        cursor: pointer
+        background-color: $lighter-grey
+        border: 1px solid $grey
         color: $grey
-        background-color: white
-        line-height: 36px
-        border: 1px solid $lighter-grey
-        border-right-width: 0px
+        height: 40px
+        line-height: 40px
+        padding: 0 15px
+        font-size: em(16px, 14px)
+        font-weight: 300
+        text-decoration: none
+
+        &:hover
+          background-color: $light-grey
+          color: white
+
+    div.booking-form
+      div.form-group
+        div.div-from, div.div-to, div.div-people
+          padding: 0 10px
+          float: left
+          width: 100%
+
+        margin-bottom: 10px
+
+        div.icon
+          position: absolute
+          padding: 4px
+
+          svg
+            fill: $grey
+
+        label
+          line-height: 30px
+          font-weight: 400
+          display: block
+
+        input
+          border: 1px solid $lighter-grey
+          +border-radius(4px)
+          line-height: 26px
+          height: 30px
+          width: 100%
+          padding: 2px 2px 2px 30px
+          font-size: em(16px, 14px)
+
+    button
+      +border-radius(4px)
+      cursor: pointer
+      background-color: $light-main-color
+      height: 40px
+      width: 100%
+      border: 0px
+      color: white
+      font-size: em(16px, 14px)
+      font-weight: 300
+      
+      &:hover
+        background-color: $main-color
+
+  div.description, div.location
+    text-align: justify
+
+    p
+      margin: 0 0 6px
+
+  div.gallery
+    margin: 0 -2px 10px
+
+    div.images div.image
+      padding: 2px 2px
+      line-height: 0px
+
+      img
+        cursor: pointer
+        width: 100%
+
+
+  div.services
+    div.service
+      color: $grey
+
+      svg
+        vertical-align: -16px
+        margin-right: 6px
+        height: 42px
+        width: 42px
+        +border-radius(6px)
+        fill: black

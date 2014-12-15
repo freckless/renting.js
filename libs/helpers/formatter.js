@@ -31,6 +31,14 @@ var helper = {
         }
         // Obtemos o número con duas posicións decimais (,) e o separador de miles (.)
         return helper.decimal(number, 2, ',', '.')+symbol;
+    },
+    nl2p: function(text) {
+        if (typeof text === 'undefined') return '';
+        return '<p>'+text.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1</p><p>$2')+'</p>';
+    },
+    nl2br: function(text) {
+        if (typeof text === 'undefined') return '';
+        return text.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br>$2');
     }
 };
 

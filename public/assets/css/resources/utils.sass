@@ -8,6 +8,15 @@
 @function img-url($file)
   @return url(img-path($file))
 
+// No selectable
+=no-selectable
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
 // Mixins
 =border-radius($radius: 2px)
   -webkit-border-radius: $radius
@@ -69,6 +78,13 @@
   transition-delay: $properties
   -webkit-transition-delay: $properties
   -moz-transition-delay: $properties
+
+=transform($transform)
+  -webkit-transform: $transform
+  -moz-transform: $transform
+  -ms-transform: $transform
+  -o-transform: $transform
+  transform: $transform
 
 =blur($pixels: 5px)
   filter: blur($pixels) /* Someday, sigh ... */

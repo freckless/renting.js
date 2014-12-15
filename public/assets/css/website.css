@@ -1,385 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700);
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-.container, .container-fluid {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 10px;
-  padding-right: 10px; }
-
-.row {
-  margin-left: -10px;
-  margin-right: -10px;
-  margin-bottom: 10px; }
-
-[class^="col-"] {
-  position: relative;
-  min-height: 1px;
-  padding-left: 10px;
-  padding-right: 10px; }
-
-[class^="col-xs"] {
-  float: left; }
-
-[class^="col-xs-"] {
-  float: left; }
-
-.col-xs-1 {
-  width: 8.33333%; }
-
-.col-xs-offset-1 {
-  margin-left: 8.33333%; }
-
-.col-xs-2 {
-  width: 16.66667%; }
-
-.col-xs-offset-2 {
-  margin-left: 16.66667%; }
-
-.col-xs-3 {
-  width: 25%; }
-
-.col-xs-offset-3 {
-  margin-left: 25%; }
-
-.col-xs-4 {
-  width: 33.33333%; }
-
-.col-xs-offset-4 {
-  margin-left: 33.33333%; }
-
-.col-xs-5 {
-  width: 41.66667%; }
-
-.col-xs-offset-5 {
-  margin-left: 41.66667%; }
-
-.col-xs-6 {
-  width: 50%; }
-
-.col-xs-offset-6 {
-  margin-left: 50%; }
-
-.col-xs-7 {
-  width: 58.33333%; }
-
-.col-xs-offset-7 {
-  margin-left: 58.33333%; }
-
-.col-xs-8 {
-  width: 66.66667%; }
-
-.col-xs-offset-8 {
-  margin-left: 66.66667%; }
-
-.col-xs-9 {
-  width: 75%; }
-
-.col-xs-offset-9 {
-  margin-left: 75%; }
-
-.col-xs-10 {
-  width: 83.33333%; }
-
-.col-xs-offset-10 {
-  margin-left: 83.33333%; }
-
-.col-xs-11 {
-  width: 91.66667%; }
-
-.col-xs-offset-11 {
-  margin-left: 91.66667%; }
-
-.col-xs-12 {
-  width: 100%; }
-
-.col-xs-offset-12 {
-  margin-left: 100%; }
-
-@media screen and (max-width: 768px) {
-  .hide-xs {
-    display: none; }
-
-  .show-xs {
-    display: auto; } }
-@media screen and (min-width: 768px) {
-  .container {
-    width: 750px; }
-
-  [class^="col-sm-"] {
-    float: left; }
-
-  .col-sm-1 {
-    width: 8.33333%; }
-
-  .col-sm-offset-1 {
-    margin-left: 8.33333%; }
-
-  .col-sm-2 {
-    width: 16.66667%; }
-
-  .col-sm-offset-2 {
-    margin-left: 16.66667%; }
-
-  .col-sm-3 {
-    width: 25%; }
-
-  .col-sm-offset-3 {
-    margin-left: 25%; }
-
-  .col-sm-4 {
-    width: 33.33333%; }
-
-  .col-sm-offset-4 {
-    margin-left: 33.33333%; }
-
-  .col-sm-5 {
-    width: 41.66667%; }
-
-  .col-sm-offset-5 {
-    margin-left: 41.66667%; }
-
-  .col-sm-6 {
-    width: 50%; }
-
-  .col-sm-offset-6 {
-    margin-left: 50%; }
-
-  .col-sm-7 {
-    width: 58.33333%; }
-
-  .col-sm-offset-7 {
-    margin-left: 58.33333%; }
-
-  .col-sm-8 {
-    width: 66.66667%; }
-
-  .col-sm-offset-8 {
-    margin-left: 66.66667%; }
-
-  .col-sm-9 {
-    width: 75%; }
-
-  .col-sm-offset-9 {
-    margin-left: 75%; }
-
-  .col-sm-10 {
-    width: 83.33333%; }
-
-  .col-sm-offset-10 {
-    margin-left: 83.33333%; }
-
-  .col-sm-11 {
-    width: 91.66667%; }
-
-  .col-sm-offset-11 {
-    margin-left: 91.66667%; }
-
-  .col-sm-12 {
-    width: 100%; }
-
-  .col-sm-offset-12 {
-    margin-left: 100%; }
-
-  .hide-sm {
-    display: none; }
-
-  .show-sm {
-    display: auto; } }
-@media screen and (min-width: 992px) {
-  .container {
-    width: 970px; }
-
-  [class^="col-md-"] {
-    float: left; }
-
-  .col-md-1 {
-    width: 8.33333%; }
-
-  .col-md-offset-1 {
-    margin-left: 8.33333%; }
-
-  .col-md-2 {
-    width: 16.66667%; }
-
-  .col-md-offset-2 {
-    margin-left: 16.66667%; }
-
-  .col-md-3 {
-    width: 25%; }
-
-  .col-md-offset-3 {
-    margin-left: 25%; }
-
-  .col-md-4 {
-    width: 33.33333%; }
-
-  .col-md-offset-4 {
-    margin-left: 33.33333%; }
-
-  .col-md-5 {
-    width: 41.66667%; }
-
-  .col-md-offset-5 {
-    margin-left: 41.66667%; }
-
-  .col-md-6 {
-    width: 50%; }
-
-  .col-md-offset-6 {
-    margin-left: 50%; }
-
-  .col-md-7 {
-    width: 58.33333%; }
-
-  .col-md-offset-7 {
-    margin-left: 58.33333%; }
-
-  .col-md-8 {
-    width: 66.66667%; }
-
-  .col-md-offset-8 {
-    margin-left: 66.66667%; }
-
-  .col-md-9 {
-    width: 75%; }
-
-  .col-md-offset-9 {
-    margin-left: 75%; }
-
-  .col-md-10 {
-    width: 83.33333%; }
-
-  .col-md-offset-10 {
-    margin-left: 83.33333%; }
-
-  .col-md-11 {
-    width: 91.66667%; }
-
-  .col-md-offset-11 {
-    margin-left: 91.66667%; }
-
-  .col-md-12 {
-    width: 100%; }
-
-  .col-md-offset-12 {
-    margin-left: 100%; }
-
-  .hide-md {
-    display: none; }
-
-  .show-md {
-    display: auto; } }
-@media screen and (min-width: 1170px) {
-  .container {
-    width: 1170px; }
-
-  [class^="col-lg-"] {
-    float: left; }
-
-  .col-lg-1 {
-    width: 8.33333%; }
-
-  .col-lg-offset-1 {
-    margin-left: 8.33333%; }
-
-  .col-lg-2 {
-    width: 16.66667%; }
-
-  .col-lg-offset-2 {
-    margin-left: 16.66667%; }
-
-  .col-lg-3 {
-    width: 25%; }
-
-  .col-lg-offset-3 {
-    margin-left: 25%; }
-
-  .col-lg-4 {
-    width: 33.33333%; }
-
-  .col-lg-offset-4 {
-    margin-left: 33.33333%; }
-
-  .col-lg-5 {
-    width: 41.66667%; }
-
-  .col-lg-offset-5 {
-    margin-left: 41.66667%; }
-
-  .col-lg-6 {
-    width: 50%; }
-
-  .col-lg-offset-6 {
-    margin-left: 50%; }
-
-  .col-lg-7 {
-    width: 58.33333%; }
-
-  .col-lg-offset-7 {
-    margin-left: 58.33333%; }
-
-  .col-lg-8 {
-    width: 66.66667%; }
-
-  .col-lg-offset-8 {
-    margin-left: 66.66667%; }
-
-  .col-lg-9 {
-    width: 75%; }
-
-  .col-lg-offset-9 {
-    margin-left: 75%; }
-
-  .col-lg-10 {
-    width: 83.33333%; }
-
-  .col-lg-offset-10 {
-    margin-left: 83.33333%; }
-
-  .col-lg-11 {
-    width: 91.66667%; }
-
-  .col-lg-offset-11 {
-    margin-left: 91.66667%; }
-
-  .col-lg-12 {
-    width: 100%; }
-
-  .col-lg-offset-12 {
-    margin-left: 100%; }
-
-  .hide-lg {
-    display: none; }
-
-  .show-lg {
-    display: auto; } }
-.clearfix:before, .clearfix:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after {
-  content: " ";
-  display: table; }
-.clearfix:after, .container:after, .container-fluid:after, .row:after {
-  clear: both; }
-
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
-
-.pull-left {
-  float: left !important; }
-
-.pull-right {
-  float: right !important; }
-
-.hide {
-  display: none !important; }
-
-.show {
-  display: block !important; }
-
 .animatedSprite {
   overflow: hidden;
   position: relative; }
@@ -440,16 +59,191 @@ svg.icon {
   svg.icon.white *.main-color {
     fill: white; }
 
-html > body {
-  min-height: 100%; }
+div#gallery {
+  position: fixed;
+  z-index: 101;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  div#gallery div.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer; }
+    div#gallery div.close svg {
+      width: 50px;
+      height: 50px;
+      fill: white; }
+  div#gallery div.right, div#gallery div.left, div#gallery div.images-left, div#gallery div.images-right {
+    position: absolute;
+    top: 45%;
+    margin-top: -25px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 102; }
+    div#gallery div.right.left, div#gallery div.left.left, div#gallery div.images-left.left, div#gallery div.images-right.left {
+      left: 2%; }
+    div#gallery div.right.right, div#gallery div.left.right, div#gallery div.images-left.right, div#gallery div.images-right.right {
+      right: 2%; }
+    div#gallery div.right svg, div#gallery div.left svg, div#gallery div.images-left svg, div#gallery div.images-right svg {
+      width: 50px;
+      height: 50px;
+      fill: white; }
+  div#gallery div.main-image {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 10%;
+    bottom: 20%;
+    z-index: 101; }
+    div#gallery div.main-image img {
+      max-width: 80%;
+      max-height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+  div#gallery div.images-list {
+    position: absolute;
+    border-top: 2px solid black;
+    top: 85%;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 20px 20px;
+    background-color: rgba(0, 0, 0, 0.4); }
+    div#gallery div.images-list div.images {
+      position: relative;
+      height: 100%;
+      width: auto;
+      white-space: nowrap; }
+      div#gallery div.images-list div.images img {
+        cursor: pointer;
+        border: 2px solid black;
+        height: 80%;
+        margin: 10px; }
+        div#gallery div.images-list div.images img.active {
+          border: 2px solid white !important; }
+        div#gallery div.images-list div.images img:hover {
+          border: 2px solid #AAA; }
+
+.ui-datepicker {
+  width: 240px;
+  position: absolute;
+  display: none;
+  padding: 10px;
+  margin-top: 10px;
+  z-index: 100;
+  background-color: white;
+  border: 1px solid #336399;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px; }
+  .ui-datepicker .ui-datepicker-header {
+    margin: -10px -10px 0;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    background-color: #336399;
+    border-top-right-radius: 2px;
+    -moz-border-radius-topright: 2px;
+    -webkit-border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    -moz-border-radius-topleft: 2px;
+    -webkit-border-top-left-radius: 2px;
+    padding: 0 10px; }
+    .ui-datepicker .ui-datepicker-header::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: -6px;
+      left: 10px;
+      width: 20px;
+      height: 20px;
+      background-color: #336399;
+      z-index: -1;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg); }
+    .ui-datepicker .ui-datepicker-header .ui-datepicker-prev {
+      float: left;
+      cursor: pointer; }
+      .ui-datepicker .ui-datepicker-header .ui-datepicker-prev span.ui-icon::before {
+        color: white;
+        content: "<";
+        font-family: renting-icons;
+        font-family: renting-icons; }
+    .ui-datepicker .ui-datepicker-header .ui-datepicker-next {
+      float: right;
+      cursor: pointer; }
+      .ui-datepicker .ui-datepicker-header .ui-datepicker-next span.ui-icon::before {
+        color: white;
+        content: ">";
+        font-family: renting-icons;
+        font-family: renting-icons; }
+    .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
+      font-size: 15px;
+      font-weight: 300;
+      color: white;
+      color: white; }
+  .ui-datepicker table.ui-datepicker-calendar {
+    width: 100%;
+    margin: 10px 0 0; }
+    .ui-datepicker table.ui-datepicker-calendar th, .ui-datepicker table.ui-datepicker-calendar td {
+      text-align: center;
+      height: 26px;
+      line-height: 26px;
+      width: 26px;
+      width: 26px; }
+    .ui-datepicker table.ui-datepicker-calendar td.ui-state-disabled span {
+      color: #AAA;
+      color: #AAA; }
+    .ui-datepicker table.ui-datepicker-calendar td a {
+      text-decoration: none;
+      color: black;
+      margin: 1px;
+      display: block;
+      background-color: #dddddd;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px; }
+      .ui-datepicker table.ui-datepicker-calendar td a.ui-state-active {
+        color: white;
+        background-color: #0078ff;
+        background-color: #0078ff; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+
+body, input, textarea, button {
+  font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
+  font-weight: 300; }
+
+div.wrapper {
+  min-height: 100%;
+  position: relative; }
 
 body {
-  font-family: "Roboto Slab", "Georgia", "Times New Roman", serif;
-  font-size: 0.875em;
-  font-weight: 300;
-  color: #444;
-  margin: 0px;
-  padding: 0px; }
+  color: #444; }
   body.error div.error {
     text-align: center;
     width: 100%;
@@ -479,6 +273,10 @@ body {
     -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); }
+    body header div.flash-messages {
+      position: absolute;
+      top: 10px;
+      left: 180px; }
     body header div#logo {
       position: absolute;
       top: 10px;
@@ -489,7 +287,7 @@ body {
     body header div#languages {
       position: absolute;
       right: 20px;
-      top: 10px;
+      top: 34px;
       color: #000;
       font-size: 1em; }
       body header div#languages a {
@@ -530,19 +328,40 @@ body {
             body header nav#main-nav ul li a:hover {
               text-decoration: underline; }
 
+div#top-image {
+  position: relative; }
+  div#top-image div.container {
+    position: relative; }
+  div#top-image a.go_back {
+    z-index: 1;
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    padding: 8px 12px;
+    background-color: #66aeff;
+    text-decoration: none;
+    color: white; }
+    div#top-image a.go_back:hover {
+      background-color: #0078ff; }
+
 div#page {
-  margin-top: 70px; }
+  padding-top: 70px;
+  padding-bottom: 120px; }
+
+.clearfix {
+  clear: both; }
 
 footer {
+  position: absolute;
+  bottom: 0px;
+  height: 120px;
   -webkit-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.05);
   box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.05);
   background-color: #f6f6f6;
   border-top: 1px solid #dddddd;
   padding: 30px 0;
-  position: absolute;
-  width: 100%;
-  bottom: 0px; }
+  width: 100%; }
   footer h4 {
     margin: 0px; }
 
@@ -580,7 +399,7 @@ section#home div.apartments-list div.apartment {
       color: #0078ff; }
   section#home div.apartments-list div.apartment div.price {
     position: absolute;
-    right: 15px;
+    right: 20px;
     top: 5px;
     background-color: rgba(255, 255, 255, 0.8);
     -webkit-border-radius: 5px;
@@ -606,26 +425,336 @@ section#home div.apartments-list div.apartment {
   section#home div.apartments-list div.apartment div.location {
     color: #AAA; }
 
-section#apartment div.nav-tabs:after {
-  display: block;
-  content: " ";
-  clear: both; }
-section#apartment div.nav-tabs div.tab {
-  width: 25%;
-  float: left; }
-  section#apartment div.nav-tabs div.tab:last-child a {
-    border-right-width: 1px; }
-  section#apartment div.nav-tabs div.tab.active a {
-    color: #0078ff;
-    background-color: #f6f6f6; }
-  section#apartment div.nav-tabs div.tab a {
+section#apartment div#fixed-bar {
+  height: 40px;
+  position: fixed;
+  display: none;
+  top: 70px;
+  left: 0px;
+  right: 0px;
+  z-index: 2;
+  color: white;
+  line-height: 40px;
+  background-color: rgba(51, 99, 153, 0.95); }
+  section#apartment div#fixed-bar div.apartment-name {
+    float: left;
+    font-weight: 400;
+    font-size: 1.14286em; }
+section#apartment div#top-image {
+  height: 700px;
+  cursor: pointer; }
+section#apartment div#apartment-info {
+  position: absolute;
+  text-align: right;
+  padding: 20px 0;
+  bottom: 0px;
+  right: 0px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-top-right-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  -webkit-border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px; }
+  section#apartment div#apartment-info div.item {
     text-align: center;
-    display: block;
-    text-decoration: none;
-    color: #888;
-    background-color: white;
-    line-height: 36px;
-    border: 1px solid #dddddd;
-    border-right-width: 0px; }
+    display: inline-block;
+    margin: 0 10px;
+    padding: 0 10px; }
+    section#apartment div#apartment-info div.item div.icon svg {
+      fill: #888;
+      width: 40px;
+      height: 40px; }
+    section#apartment div#apartment-info div.item div.text {
+      color: #444; }
+section#apartment div#apartment-body {
+  position: relative;
+  z-index: 1;
+  -webkit-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1);
+  padding: 20px 0; }
+  section#apartment div#apartment-body div.apartment-header {
+    height: 120px;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    position: relative; }
+    section#apartment div#apartment-body div.apartment-header div.user-profile-image {
+      width: 100px;
+      height: 100px; }
+      section#apartment div#apartment-body div.apartment-header div.user-profile-image img {
+        width: 100%;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px; }
+    section#apartment div#apartment-body div.apartment-header div.main-info {
+      position: absolute;
+      top: 0px;
+      left: 140px; }
+      section#apartment div#apartment-body div.apartment-header div.main-info h2 {
+        margin: 10px 0 4px; }
+        section#apartment div#apartment-body div.apartment-header div.main-info h2 span.keys {
+          display: inline-block;
+          font-size: 0.8em;
+          margin-left: 4px;
+          color: #AAA; }
+          section#apartment div#apartment-body div.apartment-header div.main-info h2 span.keys i {
+            display: inline-block;
+            margin: 0 -2px; }
+            section#apartment div#apartment-body div.apartment-header div.main-info h2 span.keys i.active {
+              color: #0078ff; }
+      section#apartment div#apartment-body div.apartment-header div.main-info div.owner {
+        margin: 0 0 4px;
+        font-size: 1.28571em;
+        color: #888;
+        font-weight: 300; }
+      section#apartment div#apartment-body div.apartment-header div.main-info div.location {
+        font-weight: 300;
+        color: #AAA; }
+        section#apartment div#apartment-body div.apartment-header div.main-info div.location i {
+          color: #888; }
+section#apartment div.booking-sidebar {
+  text-align: center; }
+  section#apartment div.booking-sidebar div.booking-not-available {
+    padding: 10px;
+    border: 1px solid #0078ff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    background-color: #d4e4f7;
+    margin-bottom: 10px; }
+  section#apartment div.booking-sidebar div.booking-avilables div.booking-info div.item {
+    border-bottom: 1px solid #dddddd;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px; }
+    section#apartment div.booking-sidebar div.booking-avilables div.booking-info div.item div.key {
+      float: left;
+      font-weight: 400;
+      color: #0078ff; }
+    section#apartment div.booking-sidebar div.booking-avilables div.booking-info div.item div.value {
+      float: right; }
+  section#apartment div.booking-sidebar div.booking-avilables div.booking-info div.icon svg {
+    width: 64px;
+    height: 64px;
+    fill: #336399; }
+  section#apartment div.booking-sidebar div.booking-avilables div.apartments {
+    margin: 2px 0 0; }
+    section#apartment div.booking-sidebar div.booking-avilables div.apartments div.apartment {
+      padding: 20px 10px 10px;
+      margin-bottom: 2px;
+      background-color: #f6f6f6; }
+      section#apartment div.booking-sidebar div.booking-avilables div.apartments div.apartment div.price {
+        font-size: 2em;
+        margin-top: 10px; }
+      section#apartment div.booking-sidebar div.booking-avilables div.apartments div.apartment div.booking-buttons {
+        margin-top: 10px; }
+        section#apartment div.booking-sidebar div.booking-avilables div.apartments div.apartment div.booking-buttons a.make-booking, section#apartment div.booking-sidebar div.booking-avilables div.apartments div.apartment div.booking-buttons a.make-booking-on-demand {
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          display: inline-block;
+          line-height: 30px;
+          cursor: pointer;
+          background-color: #66aeff;
+          height: 30px;
+          padding: 0 10px;
+          color: white;
+          font-weight: 300;
+          text-decoration: none; }
+          section#apartment div.booking-sidebar div.booking-avilables div.apartments div.apartment div.booking-buttons a.make-booking:hover, section#apartment div.booking-sidebar div.booking-avilables div.apartments div.apartment div.booking-buttons a.make-booking-on-demand:hover {
+            background-color: #0078ff; }
+  section#apartment div.booking-sidebar div.booking-change-dates {
+    text-align: center;
+    margin-top: 20px; }
+    section#apartment div.booking-sidebar div.booking-change-dates a {
+      display: inline-block;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #dddddd;
+      border: 1px solid #888;
+      color: #888;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 15px;
+      font-size: 1.14286em;
+      font-weight: 300;
+      text-decoration: none; }
+      section#apartment div.booking-sidebar div.booking-change-dates a:hover {
+        background-color: #AAA;
+        color: white; }
+  section#apartment div.booking-sidebar div.booking-form div.form-group {
+    margin-bottom: 10px; }
+    section#apartment div.booking-sidebar div.booking-form div.form-group div.div-from, section#apartment div.booking-sidebar div.booking-form div.form-group div.div-to, section#apartment div.booking-sidebar div.booking-form div.form-group div.div-people {
+      padding: 0 10px;
+      float: left;
+      width: 100%; }
+    section#apartment div.booking-sidebar div.booking-form div.form-group div.icon {
+      position: absolute;
+      padding: 4px; }
+      section#apartment div.booking-sidebar div.booking-form div.form-group div.icon svg {
+        fill: #888; }
+    section#apartment div.booking-sidebar div.booking-form div.form-group label {
+      line-height: 30px;
+      font-weight: 400;
+      display: block; }
+    section#apartment div.booking-sidebar div.booking-form div.form-group input {
+      border: 1px solid #dddddd;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      line-height: 26px;
+      height: 30px;
+      width: 100%;
+      padding: 2px 2px 2px 30px;
+      font-size: 1.14286em; }
+  section#apartment div.booking-sidebar button {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #66aeff;
+    height: 40px;
+    width: 100%;
+    border: 0px;
+    color: white;
+    font-size: 1.14286em;
+    font-weight: 300; }
+    section#apartment div.booking-sidebar button:hover {
+      background-color: #0078ff; }
+section#apartment div.description, section#apartment div.location {
+  text-align: justify; }
+  section#apartment div.description p, section#apartment div.location p {
+    margin: 0 0 6px; }
+section#apartment div.gallery {
+  margin: 0 -2px 10px; }
+  section#apartment div.gallery div.images div.image {
+    padding: 2px 2px;
+    line-height: 0px; }
+    section#apartment div.gallery div.images div.image img {
+      cursor: pointer;
+      width: 100%; }
+section#apartment div.services div.service {
+  color: #888; }
+  section#apartment div.services div.service svg {
+    vertical-align: -16px;
+    margin-right: 6px;
+    height: 42px;
+    width: 42px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    fill: black; }
+
+section#bookings {
+  padding-top: 100px;
+  text-align: center; }
+  section#bookings div.image {
+    display: inline-block;
+    overflow: hidden;
+    border: 2px solid white;
+    width: 200px;
+    height: 200px;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px; }
+    section#bookings div.image img {
+      height: 200px;
+      margin-left: -40px; }
+  section#bookings div.name h2 {
+    margin-bottom: 5px; }
+  section#bookings div.info {
+    margin-bottom: 60px;
+    color: #888; }
+    section#bookings div.info i {
+      color: #444; }
+  section#bookings div.booking-info {
+    padding-top: 20px;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd; }
+    section#bookings div.booking-info div.left {
+      text-align: right; }
+    section#bookings div.booking-info div.right {
+      text-align: left; }
+    section#bookings div.booking-info div.item {
+      margin-bottom: 10px; }
+      section#bookings div.booking-info div.item div.title {
+        color: #0078ff;
+        font-size: 1.28571em; }
+      section#bookings div.booking-info div.item div.value {
+        color: #888;
+        font-size: 1.14286em; }
+  section#bookings div.cancel-conditions {
+    border-bottom: 1px solid #dddddd;
+    padding-top: 6px;
+    padding-bottom: 20px; }
+    section#bookings div.cancel-conditions ul {
+      list-style-type: none;
+      padding: 0px;
+      margin: 0px; }
+      section#bookings div.cancel-conditions ul li {
+        margin: 0px;
+        padding: 0px;
+        line-height: 30px; }
+  section#bookings div.success-message {
+    margin: 40px 0;
+    font-size: 1.71429em; }
+  section#bookings div.help-block {
+    width: 600px;
+    padding: 10px;
+    border: 1px solid #66aeff;
+    background-color: #cce4ff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0 auto 20px; }
+  section#bookings div.user {
+    margin-bottom: 100px;
+    padding-top: 6px; }
+    section#bookings div.user div.login, section#bookings div.user div.register {
+      background-color: #eaeaea;
+      padding: 10px 10px 20px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px; }
+    section#bookings div.user .form div.form-group {
+      margin-bottom: 10px; }
+      section#bookings div.user .form div.form-group label {
+        display: block;
+        text-align: left;
+        font-weight: 400;
+        line-height: 30px; }
+      section#bookings div.user .form div.form-group input, section#bookings div.user .form div.form-group select {
+        border: 1px solid #dddddd;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        line-height: 26px;
+        height: 30px;
+        width: 100%;
+        padding: 2px 6px;
+        font-size: 1.14286em; }
+        section#bookings div.user .form div.form-group input.error, section#bookings div.user .form div.form-group select.error {
+          border-color: #b92c28; }
+  section#bookings button[type=submit] {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #66aeff;
+    height: 40px;
+    width: 100%;
+    border: 0px;
+    color: white;
+    font-size: 1.14286em;
+    font-weight: 300; }
+    section#bookings button[type=submit]:hover {
+      background-color: #0078ff; }
 
 /*# sourceMappingURL=website.css.map */

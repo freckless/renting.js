@@ -1,0 +1,93 @@
+<% if (apartments !== null && apartments.apartments.length < 1) { %>
+<div class="booking-not-available">
+    <%= $t('website.bookings.not_available') %>
+</div>
+<% } %>
+<div class="booking-form form" <%- apartments && apartments.apartments.length > 0 ? 'style="display: none;"': '' %>>
+    <form action method="POST" autocomplete="off">
+        <div class="from form-group row" style="padding: 0 5px">
+            <div class="div-from">
+                <label for="input-from"><%= $t('website.bookings.from') %></label>
+                <div class="icon"><%- asset.icon('calendar', 'icons.svg') %></div><input value="<%= search.from_timestamp ? moment(new Date(parseInt(search.from_timestamp))).format($t('dates.short')) : '' %>" autocomplete="off" type="text" id="input-from" />
+                <input value="<%= search.from_timestamp || '' %>" name="from_timestamp" id="input-from-timestamp" type="hidden"/>
+            </div>
+            <div class="div-to">
+                <label for="input-to"><%= $t('website.bookings.to') %></label>
+                <div class="icon"><%- asset.icon('calendar', 'icons.svg') %></div><input value="<%= search.to_timestamp ? moment(new Date(parseInt(search.to_timestamp))).format($t('dates.short')) : '' %>" autocomplete="off" type="text" id="input-to" />
+                <input value="<%= search.to_timestamp || '' %>" name="to_timestamp" id="input-to-timestamp" type="hidden"/>
+            </div>
+            <div class="div-people">
+                <label for="input-people"><%= $t('website.bookings.people') %></label>
+                <div class="icon"><%- asset.icon('people', 'icons.svg') %></div><input value="<%= search.people || '' %>" autocomplete="off" type="text" id="input-people" name="people" />
+            </div>
+        </div>
+        <button type="submit"><%= $t('website.bookings.calculate_total') %></button>
+    </form>
+</div>
+<% if (apartments && apartments.apartments.length > 0) { %>
+    <div class="booking-avilables">
+        <div class="booking-info">
+            <div class="text">
+                <div class="item">
+                    <div class="key">
+                      <%= $t('website.bookings.from') %>:
+                    </div>
+                    <div class="value">
+                        <%- moment(apartments.from).format($t('dates.short')) %>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="key">
+                        <%= $t('website.bookings.to') %>:
+                    </div>
+                    <div class="value">
+                        <%- moment(apartments.to).format($t('dates.short')) %>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="key">
+                        <%= $t('website.bookings.people') %>:
+                    </div>
+                    <div class="value">
+                        <%- apartments.people %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="apartments">
+            <% _.each(apartments.apartments, function(ap) { %>
+            <div class="apartment">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <%- asset.icon('people', 'icons.svg') %><br>
+                        <%= ap.minimum+' - '+ap.maximum %>
+                    </div>
+                    <div class="col-xs-6">
+                        <%- asset.icon('rooms', 'icons.svg') %><br>
+                        <%= $t('website.apartments.rooms', {rooms: ap.rooms, plural: ap.rooms > 1 ? 's' : ''}) %>
+                    </div>
+                    <div class="col-xs-12 price">
+                        <%- formatter.currency(ap.stay_total) %>
+                    </div>
+                    <% if (ap.comment) { %>
+                    <div class="col-xs-12">
+                        <%= ap.comment %>
+                    </div>
+                    <% } %>
+                    <div class="col-xs-12">
+                        <div class="booking-buttons">
+                            <a class="make-booking" href="/bookings/<%= apartment.url+'/'+ap._id+'/'+search.from_timestamp+'/'+search.to_timestamp+'/'+search.people %>"><%= $t('website.bookings.book_details') %></a>
+                            <% if (ap.on_demand) { %>
+                                <span title="<%= $t('website.bookings.on_demand') %>"><i class="fa fa-info-circle"></i></span>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+    <div class="booking-change-dates">
+        <a href="#" class="change-booking-info"><%= $t('website.bookings.change_booking_info') %></a>
+    </div>
+<% } %>

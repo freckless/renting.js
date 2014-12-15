@@ -20,6 +20,7 @@ i18nComponent.prototype = {
   response: null, // A resposta
   language: null, // A lingua en uso
   fallback: null, // A lingua en caso de faltar unha traducción
+  locale: null,
   translations: {}, // As traduccións
   init: function(req, res, next) {
     // Gardamos os datos da consulta e da resposta
@@ -76,6 +77,9 @@ i18nComponent.prototype = {
         }
       }
     }
+
+    // Definimos o "locale" para o idioma elexido
+    this.locale = config.app.language.locales[this.language];
     // Gardamos o idioma nunha cookie para non detectalo nas proximas entradas (Unha semana dende a última visita)
     this.response.cookie('language', this.language, { maxAge: 604800000 });
   },

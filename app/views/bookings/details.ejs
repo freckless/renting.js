@@ -1,0 +1,189 @@
+<section id="bookings">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="image">
+                    <%- html.img('/img/apartments/'+apartment.main_image) %>
+                </div>
+                <div class="name">
+                    <h2><%= apartment.name %></h2>
+                </div>
+                <div class="info">
+                    <i class="fa fa-map-marker"></i>
+                <span class="country">
+                <%= apartment.country.name[i18n.language] %>
+                </span><i class="fa fa-angle-right"></i>
+                <span class="country">
+                    <%= apartment.province.name %>
+                </span><i class="fa fa-angle-right"></i>
+                <span class="country">
+                    <%= apartment.town.name %>
+                </span>
+                </div>
+                <div class="booking-info">
+                    <div class="row">
+                        <div class="col-xs-6 left">
+                            <div class="item">
+                                <div class="title"><%= $t('website.bookings.from') %></div>
+                                <div class="value"><%= moment(from).format($t('dates.short')) %></div>
+                            </div>
+                            <div class="item">
+                                <div class="title"><%= $t('website.bookings.to') %></div>
+                                <div class="value"><%= moment(to).format($t('dates.short')) %></div>
+                            </div>
+                            <div class="item">
+                                <div class="title"><%= $t('website.bookings.people') %></div>
+                                <div class="value"><%= people %></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 right">
+                            <div class="item">
+                                <div class="title"><%= $t('website.bookings.total') %></div>
+                                <div class="value"><%= formatter.currency(selected_apartment.stay_total) %></div>
+                            </div>
+                            <div class="item">
+                                <div class="title"><%= $t('website.bookings.pay_now') %></div>
+                                <div class="value"><%= formatter.currency(selected_apartment.stay_total * 0.3) %></div>
+                            </div>
+                            <div class="item">
+                                <div class="title"><%= $t('website.bookings.pay_on_apartment') %></div>
+                                <div class="value"><%= formatter.currency(selected_apartment.stay_total * 0.7) %></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cancel-conditions">
+                    <h3><%= $t('website.bookings.cancel_conditions') %></h3>
+                    <ul>
+                        <% _.each($t('website.bookings.cancel_conditions_lines'), function(cancel_condition) { %>
+                        <li><%- cancel_condition %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+                <div class="user">
+                    <h3><%= $t('website.bookings.user_info_and_booking') %></h3>
+                    <% if (typeof user === 'undefined' || ! user) { %>
+                        <div class="col-xs-3">
+                            <h4><%= $t('website.bookings.already_have_an_account') %></h4>
+                            <div class="login">
+                                <div class="col-xs-12">
+                                    <form action="/users/login" method="POST" class="form">
+                                        <input type="hidden" name="redirect" value="<%= req.originalUrl %>" />
+                                        <div class="form-group">
+                                            <label for="login-username-input"><%= $t('website.users.username') %></label>
+                                            <input type="text" name="username" id="login-username-input" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="login-password-input"><%= $t('website.users.password') %></label>
+                                            <input type="password" name="password" id="login-password-input" />
+                                        </div>
+                                        <button type="submit" style="margin-top: 10px"><%= $t('website.users.login') %></button>
+                                    </form>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-9">
+                            <h4><%= $t('website.bookings.create_an_account') %></h4>
+                            <div class="register">
+                                <form action="/users/register" method="POST" class="form">
+                                    <input type="hidden" name="redirect" value="<%= req.originalUrl %>" />
+                                    <div class="col-xs-6">
+                                        <div class="form-group">
+                                            <label for="create-username-input"><%= $t('website.users.username') %></label>
+                                            <input type="text"<%= errors.username ? ' class="error"' : ''%> name="username" id="create-username-input" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="create-password-input"><%= $t('website.users.password') %></label>
+                                            <input type="password"<%= errors.password ? ' class="error"' : ''%> name="password" id="create-password-input" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="create-email-input"><%= $t('website.users.email') %></label>
+                                            <input type="text"<%= errors.email ? ' class="error"' : ''%> name="mail" id="create-email-input" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="create-phone-input"><%= $t('website.users.phone') %></label>
+                                            <input type="text"<%= errors.phone ? ' class="error"' : ''%> name="phone" id="create-phone-input" />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group" style="margin-bottom: 0px">
+                                            <div class="row" style="margin-bottom: 0px">
+                                                <div class="col-xs-5">
+                                                    <div class="form-group">
+                                                        <label for="create-firstname-input"><%= $t('website.users.firstname') %></label>
+                                                        <input type="text"<%= errors.firstname ? ' class="error"' : ''%> name="firstname" id="create-firstname-input" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-7">
+                                                    <div class="form-group">
+                                                        <label for="create-lastname-input"><%= $t('website.users.lastname') %></label>
+                                                        <input type="text"<%= errors.lastname ? ' class="error"' : ''%> name="lastname" id="create-lastname-input" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="create-country-input"><%= $t('website.users.country') %></label>
+                                            <select type="text"<%= errors.country ? ' class="error"' : ''%>  name="country" id="create-country-input">
+                                                <option value=""><%= $t('website.select_one') %></option>
+                                                <% _.each(countries, function(country) { %>
+                                                <option value="<%= country._id %>"><%= country.name[i18n.language] %></option>
+                                                <% }); %>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 0px">
+                                            <div class="row" style="margin-bottom: 0px">
+                                                <div class="col-xs-8">
+                                                    <div class="form-group">
+                                                        <label for="create-town-input"><%= $t('website.users.town') %></label>
+                                                        <input type="text"<%= errors.town ? ' class="error"' : ''%>  name="town" id="create-town-input" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <div class="form-group">
+                                                        <label for="create-zipcode-input"><%= $t('website.users.zipcode') %></label>
+                                                        <input type="text"<%= errors.zipcode ? ' class="error"' : ''%>  name="zipcode" id="create-zipcode-input" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="create-address-input"><%= $t('website.users.address') %></label>
+                                            <input type="text"<%= errors.address ? ' class="error"' : ''%>   name="address" id="create-address-input" />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12" style="margin-top: 10px">
+                                        <button type="submit"><%= $t('website.users.register') %></button>
+                                    </div>
+                                </form>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    <% } else { %>
+                        <div style="margin-top: 20px">
+                            <% if (apartment.on_demand || selected_apartment.on_demand) { %>
+                            <div class="help-block">
+                                <%= $t('website.bookings.on_demand') %>
+                            </div>
+                            <% } %>
+                            <div class="col-xs-4 col-xs-offset-4">
+                                <form action method="POST">
+                                    <input name="apartment_block" value="<%= apartment._id %>" type="hidden"/>
+                                    <input name="apartment" value="<%= selected_apartment._id %>" type="hidden"/>
+                                    <input name="from" value="<%= from.getTime() %>" type="hidden"/>
+                                    <input name="to" value="<%= to.getTime() %>" type="hidden"/>
+                                    <input name="people" value="<%= people %>" type="hidden"/>
+                                    <button type="submit">
+                                        <%= apartment.on_demand || selected_apartment.on_demand ? $t('website.bookings.make_booking_on_demand') : $t('website.bookings.make_booking') %>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    <% } %>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

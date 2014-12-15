@@ -28,12 +28,11 @@ var UserSchema = new Schema({
     'zipcode': String,
     'address': String,
     'company': String,
-    'born_at': { 'type': Date, 'required': true },
     'sex': String,
     'picture': String,
     'document': { 'type': String, 'number': String },
     'newsletter': Boolean,
-    'created_at': Date,
+    'created_at': { 'type': Date, 'default': Date.now() },
     'modified_at': Date,
 
     /** Relacións **/
@@ -51,6 +50,14 @@ UserSchema.virtual('password').set(function(password) {
     // Codificamos o password
     this.hashed_password = this.encryptPassword(password);
 });
+UserSchema.virtual('commercial_name').get(function() {
+    if (this.company) return this.company;
+    return this.firstname+' '+this.lastname;
+});
+
+// ##Callbacks
+// Funcións que executaremos antes de gardar, validar, etc...
+UserSchema.pre('save', DBUtils.update_document_dates);
 
 // ##Validacións
 // Configuramos as validacións adicionais necesarias

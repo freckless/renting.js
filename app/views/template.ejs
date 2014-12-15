@@ -1,62 +1,77 @@
 <!doctype html>
 <html lang="<%= typeof(lang) !== 'undefined' ? lang : 'es' %>">
 <head>
-  <meta charset="UTF-8">
-  <title>Renting.js</title>
-  <%- html.js(
-          '/libs/jquery/dist/jquery.min.js',
-          '/libs/retinajs/dist/retina.min.js'
-  ) %>
-  <%- asset.css('website.css') %>
-  <%- asset.js(
-    'website/plugins/animated_sprite.js', // Sprites animados
-    'website/plugins/loader.js', // Animación de carga
-    'website/plugins/parallax.js', // Efecto parallax
-    'website/plugins/svg_injector.js', // Iconos en formato SVG
-    'website/layout.js', // Scripts para o deseño en xeral
-    'website/home.js' // Home
-  ) %>
+    <meta charset="UTF-8">
+    <title>Renting.js</title>
+    <!-- libs -->
+    <%- html.js(
+            '/libs/jquery/dist/jquery.min.js',
+            '/libs/jquery-ui/jquery-ui.min.js',
+            '/libs/jquery-ui/ui/minified/i18n/datepicker-' + (i18n.locale) + '.min.js',
+            '/libs/retinajs/dist/retina.min.js'
+    ) %>
+    <%- html.css(
+            '/libs/fontawesome/css/font-awesome.min.css',
+            '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'
+    ) %>
+
+    <!-- Assets -->
+    <%- asset.css('website.css') %>
+    <%- asset.js(
+            'website/plugins/animated_sprite.js', // Sprites animados
+            'website/plugins/loader.js', // Animación de carga
+            'website/plugins/parallax.js', // Efecto parallax
+            'website/plugins/svg_injector.js', // Iconos en formato SVG
+            'website/plugins/gallery.js', // Galería de imaxes
+            'website/layout.js', // Scripts para o deseño en xeral
+            'website/home.js', // Home
+            'website/apartments.js' // Apartamentos
+    ) %>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div id="logo">
-            <%- asset.img('logo.png') %>
-          </div>
-          <div id="languages">
-            <% for (var x = 0; x < config.language.available.length; x++) { var language = config.language.available[x]; %>
-              <%- html.anchor('/language/'+language, language.toUpperCase(), { class: i18n.language == language ? 'active' : '' }) %>
-            <% } %>
-          </div>
-          <nav id="main-nav">
-            <ul>
-              <li><%- html.anchor('#', $t('website.register_your_apartment')) %></li>
-            </ul>
-          </nav>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div id="logo">
+                        <%- html.anchor('/', asset.img('logo.png')) %>
+                    </div>
+                    <%- include widgets/flash-messages %>
+                    <div id="languages">
+                        <% for (var x = 0; x < config.language.available.length; x++) { var language = config.language.available[x]; %>
+                        <%- html.anchor('/language/' + language, language.toUpperCase(), {class: i18n.language == language ? 'active' : ''}) %>
+                        <% } %>
+                    </div>
+                    <!--<nav id="main-nav">
+                <ul>
+                  <li><%- html.anchor('#', $t('website.register_your_apartment')) %></li>
+                </ul>
+              </nav>-->
+                </div>
+            </div>
         </div>
-      </div>
+    </header>
+    <div id="page">
+        <%- body %>
     </div>
-  </header>
-  <div id="page">
-    <%- body %>
-  </div>
-  <footer>
-    <div class="container">
-      <div class="col-xs-3">
-        <h4>Atención al cliente</h4>
-      </div>
-      <div class="col-xs-3">
-        <h4>Sobre Renting.js</h4>
-      </div>
-      <div class="col-xs-3">
-        <h4>Síguenos en</h4>
-      </div>
-      <div class="col-xs-3">
-        <h4>Pago seguro</h4>
-      </div>
-    </div>
-  </footer>
+    <footer>
+        <div class="container">
+            <div class="col-xs-3">
+                <h4>Atención al cliente</h4>
+            </div>
+            <div class="col-xs-3">
+                <h4>Sobre Renting.js</h4>
+            </div>
+            <div class="col-xs-3">
+                <h4>Síguenos en</h4>
+            </div>
+            <div class="col-xs-3">
+                <h4>Pago seguro</h4>
+            </div>
+        </div>
+    </footer>
+</div>
+<%- include widgets/gallery %>
 </body>
 </html>

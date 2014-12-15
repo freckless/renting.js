@@ -40,6 +40,7 @@ module.exports = {
         '_group': 'Tipo de usuario',
         '_firstname': 'Nombre',
         '_lastname': 'Apellidos',
+        '_company': 'Empresa',
         '_phone': 'Teléfono',
         '_country': 'Pais',
         '_city': 'Ciudad',
@@ -111,6 +112,13 @@ module.exports = {
         'title': 'Dashboard'
     },
     'bookings': {
-        'title': 'Reservas'
+        'title': 'Reservas',
+        'from': 'Entrada',
+        'to': 'Salida',
+        'people': 'Personas',
+        'total': 'Total',
+        'user': 'Usuario',
+        'confirmed': 'Confirmado',
+        'paid': 'Pagado'
     }
 };

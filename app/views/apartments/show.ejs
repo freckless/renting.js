@@ -1,20 +1,109 @@
 <section id="apartment">
-    <div id="home-body">
+    <div id="fixed-bar">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h2><%= apartment.name %></h2>
-                </div>
-                <div class="col-xs-12 col-sm-9">
-                    <div class="nav-tabs">
-                        <div class="tab active"><%- html.anchor('#resume', $t('website.apartments.resume')) %></div>
-                        <div class="tab"><%- html.anchor('#services', $t('website.apartments.services')) %></div>
-                        <div class="tab"><%- html.anchor('#map', $t('website.apartments.map')) %></div>
-                        <div class="tab"><%- html.anchor('#conditions', $t('website.apartments.conditions')) %></div>
+                    <div class="apartment-name">
+                        <%= apartment.name %>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-3">
-
+            </div>
+        </div>
+    </div>
+    <div id="top-image">
+        <div class="parallax" data-gravity="center" data-width="1200" data-height="800" data-image="/img/apartments/xl/<%= apartment.main_image %>"></div>
+        <div class="container">
+            <a class="go_back" href="javascript:window.history.back()">
+                <i class="fa fa-angle-left"></i>&nbsp;
+                <%= $t('website.go_back') %>
+            </a>
+            <div id="apartment-info">
+                <div class="people item">
+                    <div class="icon">
+                        <%- asset.icon('people', 'icons.svg') %>
+                    </div>
+                    <div class="text">
+                        <%= $t('website.apartments.people', apartment.capacity) %>
+                    </div>
+                </div>
+                <div class="rooms item">
+                    <div class="icon">
+                        <%- asset.icon('rooms', 'icons.svg') %>
+                    </div>
+                    <div class="text">
+                        <%= $t('website.apartments.rooms', {rooms: apartment.max_rooms, plural: apartment.max_rooms > 1 ? 's' : ''}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="apartment-body">
+        <div class="apartment-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-xs-12 col-md-9">
+                        <div class="user-profile-image">
+                            <%- html.img('/img/profiles/'+(apartment.user.image ? apartment.user.image : 'no-image.png')) %>
+                        </div>
+                        <div class="main-info">
+                            <h2>
+                                <%= apartment.name %>
+                                <span class="keys">
+                                <i class="fa fa-key <%= apartment.keys > 0 ? 'active' : ''%>"></i>
+                                <i class="fa fa-key <%= apartment.keys > 1 ? 'active' : ''%>"></i>
+                                <i class="fa fa-key <%= apartment.keys > 2 ? 'active' : ''%>"></i>
+                                <i class="fa fa-key <%= apartment.keys > 3 ? 'active' : ''%>"></i>
+                                <i class="fa fa-key <%= apartment.keys > 4 ? 'active' : ''%>"></i>
+                            </span>
+                            </h2>
+                            <div class="owner"><%= apartment.user.commercial_name %></div>
+                            <div class="location">
+                                <%= apartment.country.name[i18n.language] %> <i class="fa fa-angle-right"></i>
+                                <%= apartment.province.name %> <i class="fa fa-angle-right"></i>
+                                <%= apartment.town.name %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 col-md-3">
+                        <div class="booking-sidebar">
+                            <% include _booking %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-md-9">
+                    <h3 style="margin-top: 0px"><%= $t('website.apartments.location') %></h3>
+                    <div class="location">
+                        <%- formatter.nl2p(apartment.location[i18n.language] || apartment.location[i18n.fallback]) %>
+                    </div>
+                    <h3><%= $t('website.apartments.description') %></h3>
+                    <div class="description">
+                        <%- formatter.nl2p(apartment.description[i18n.language] || apartment.description[i18n.fallback]) %>
+                    </div>
+                    <h3><%= $t('website.apartments.images') %></h3>
+                    <div class="gallery row">
+                        <div class="images">
+                            <% _.each(apartment.images, function(image) { %>
+                                <div class="col-xs-6 col-md-4 col-lg-3 image">
+                                    <%- html.img('/img/apartments/thumb/'+image.file, {'data-image': '/img/apartments/'+image.file, 'data-tooltip': image.description[i18n.locale] || ''}) %>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </div>
+                    <h3><%= $t('website.apartments.services') %></h3>
+                    <div class="services container-fluid">
+                        <div class="row">
+                            <% _.each(apartment.services, function(service) { %>
+                            <div class="col-xs-12 col-sm-6 col-md-4 service">
+                                <%- asset.icon(service.key, 'services.svg') %>
+                                <%= service.name[i18n.language] %>
+                            </div>
+                            <% }); %>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

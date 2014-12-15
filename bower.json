@@ -5,6 +5,7 @@
   "dependencies": {
     "lodash": "latest",
     "jquery": "latest",
+    "jquery-ui": "latest",
     "retinajs": "latest",
     "bootstrap": "latest",
     "fontawesome": "latest",

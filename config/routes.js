@@ -25,7 +25,22 @@ var routes = {
         get: 'home#index'
     },
     '/apartment/:url': {
-        get: 'apartments#show'
+        get: 'apartments#show',
+        post: 'apartments#show'
+    },
+    '/bookings/:apartment_block/:apartment/:from/:to/:people': {
+        get: 'bookings#details',
+        post: 'bookings#create'
+    },
+    '/search': {
+        get: 'apartments#search',
+        post: 'apartments#search'
+    },
+    '/users/login': {
+        post: 'users#perform_login'
+    },
+    '/users/register': {
+        post: 'users#register'
     },
     // Rutas do panel de xestion
     '/admin': {
@@ -63,5 +78,6 @@ routes = rest.addRoutes('admin/countries', routes);
 routes = rest.addRoutes('admin/provinces', routes);
 routes = rest.addRoutes('admin/towns', routes);
 routes = rest.addRoutes('admin/services', routes);
+routes = rest.addRoutes('admin/bookings', routes);
 
 module.exports = routes;

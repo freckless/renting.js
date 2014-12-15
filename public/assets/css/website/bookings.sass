@@ -1,0 +1,121 @@
+@import colors
+@import ../resources/utils
+
+section#bookings
+  padding-top: 100px
+  text-align: center
+
+  div.image
+    display: inline-block
+    overflow: hidden
+    border: 2px solid white
+    width: 200px
+    height: 200px
+    +drop-shadow(0, 0, 2px, 0.4)
+    +border-radius(100px)
+
+    img
+      height: 200px
+      margin-left: -40px
+
+  div.name
+    h2
+      margin-bottom: 5px
+
+  div.info
+    margin-bottom: 60px
+    color: $grey
+
+    i
+      color: $dark-grey
+
+  div.booking-info
+    padding-top: 20px
+    border-top: 1px solid $lighter-grey
+    border-bottom: 1px solid $lighter-grey
+
+    div.left
+      text-align: right
+
+    div.right
+      text-align: left
+
+    div.item
+      margin-bottom: 10px
+      div.title
+        color: $main-color
+        font-size: em(18px, 14px)
+      div.value
+        color: $grey
+        font-size: em(16px, 14px)
+
+  div.cancel-conditions
+    border-bottom: 1px solid $lighter-grey
+    padding-top: 6px
+    padding-bottom: 20px
+    ul
+      list-style-type: none
+      padding: 0px
+      margin: 0px
+      
+      li
+        margin: 0px
+        padding: 0px
+        line-height: 30px
+
+  div.success-message
+    margin: 40px 0
+    font-size: em(24px, 14px)
+
+  div.help-block
+    width: 600px
+    padding: 10px
+    border: 1px solid $light-main-color
+    background-color: lighten($light-main-color, 20%)
+    +border-radius(10px)
+    margin: 0 auto 20px
+
+  div.user
+    margin-bottom: 100px
+    padding-top: 6px
+
+    div.login, div.register
+      background-color: lighten($lighter-grey, 5%)
+      padding: 10px 10px 20px
+      +border-radius(10px)
+
+    .form
+      div.form-group
+        margin-bottom: 10px
+        
+        label
+          display: block
+          text-align: left
+          font-weight: 400
+          line-height: 30px
+
+        input, select
+          border: 1px solid $lighter-grey
+          +border-radius(4px)
+          line-height: 26px
+          height: 30px
+          width: 100%
+          padding: 2px 6px
+          font-size: em(16px, 14px)
+
+          &.error
+            border-color: #b92c28
+
+  button[type=submit]
+    +border-radius(4px)
+    cursor: pointer
+    background-color: $light-main-color
+    height: 40px
+    width: 100%
+    border: 0px
+    color: white
+    font-size: em(16px, 14px)
+    font-weight: 300
+
+    &:hover
+      background-color: $main-color

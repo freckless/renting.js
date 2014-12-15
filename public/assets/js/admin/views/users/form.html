@@ -25,7 +25,7 @@
                             <p class="help-block">{{'admin.users.fill_just_for_change'|translate}}</p>
                         </div>
                     </div>
-                    <div ng-if="user.group < 3" class="form-group">
+                    <div ng-if="$root.user.group < 3" class="form-group">
                         <label for="input-group">{{'admin.users._group' | translate}}</label>
                         <select ng-model="user.group" ng-init="user.group=''+user.group" ng-options="key as 'admin.users.groups.'+value | translate for (key, value) in groups" class="form-control" id="input-group" required></select>
                     </div>
@@ -72,6 +72,10 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="input-company">{{'admin.users._company' | translate}}</label>
+                        <input type="text" class="form-control" id="input-company" ng-model="user.company"/>
+                    </div>
+                    <div class="form-group">
                         <label for="input-phone">{{'admin.users._phone' | translate}}</label>
                         <input type="text" class="form-control" id="input-phone" ng-model="user.phone"/>
                     </div>
@@ -103,8 +107,7 @@
                                datepicker-popup="{{ $locale.DATETIME_FORMATS.mediumDate }}"
                                datepicker-options="dateOptions"
                                show-button-bar="false"
-                               ng-focus="openDatePicker()"
-                               required/>
+                               ng-focus="openDatePicker()" />
                     </div>
                 </div>
             </div>

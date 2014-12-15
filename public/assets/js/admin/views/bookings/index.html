@@ -1,1 +1,33 @@
 <h1 class="page-header">{{ 'admin.bookings.title' | translate }}</h1>
+<div ng-repeat="apartment in apartments">
+    <h3>{{apartment.name}}</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{{'admin.bookings.from'|translate}}</th>
+                <th>{{'admin.bookings.to'|translate}}</th>
+                <th>{{'admin.bookings.people'|translate}}</th>
+                <th style="text-align: center;">{{'admin.bookings.confirmed'|translate}}</th>
+                <th>{{'admin.bookings.total'|translate}}</th>
+                <th>{{'admin.bookings.paid'|translate}}</th>
+                <th>{{'admin.bookings.user'|translate}}</th>
+                <th style="text-align: right; width: 120px">{{'admin.options'|translate}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="booking in apartment.bookings">
+                <td>{{booking.from|date}}</td>
+                <td>{{booking.to|date}}</td>
+                <td style="text-align: center;">{{booking.people}}</td>
+                <td style="text-align: center;">
+                    <i class="fa fa-check" ng-show="booking.confirmed"></i>
+                    <i class="fa fa-times" ng-hide="booking.confirmed"></i>
+                </td>
+                <td>{{booking.total|currency:'€'}}</td>
+                <td>{{booking.paid|currency:'€'}}</td>
+                <td>{{booking.customer.firstname}} {{booking.customer.lastname}} ({{booking.customer.username}})</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

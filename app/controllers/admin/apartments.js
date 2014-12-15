@@ -35,23 +35,30 @@ var AdminApartmentsController = new AdminControllerBase({
                 // Creamos un arquivo coa imaxe orixinal
                 fs.writeFile(path.join(images_path, 'original', filename), data, function() {
                     // Creamos unha imaxe de 1200 x 800
-                    imagemagick.resize({
+                    imagemagick.crop({
                         srcPath: path.join(images_path, 'original', filename),
-                        dstPath: path.join(images_path, filename),
+                        dstPath: path.join(images_path, 'xl', filename),
                         width: 1200,
                         height: 800
                     }, function() {
-                        // E por último creamos unha miniatura de 320 x 210
-                        imagemagick.crop({
-                            srcPath: path.join(images_path, filename),
-                            dstPath: path.join(images_path, 'thumb', filename),
-                            width: 320,
-                            height: 210
+                        imagemagick.resize({
+                            srcPath: path.join(images_path, 'original', filename),
+                            dstPath: path.join(images_path, filename),
+                            width: 1200,
+                            height: 800
                         }, function() {
-                            // E gardamos os datos do arquivo no array
-                            callback(null, filename);
+                            // E por último creamos unha miniatura de 320 x 210
+                            imagemagick.crop({
+                                srcPath: path.join(images_path, filename),
+                                dstPath: path.join(images_path, 'thumb', filename),
+                                width: 320,
+                                height: 210
+                            }, function() {
+                                // E gardamos os datos do arquivo no array
+                                callback(null, filename);
+                            });
                         });
-                    });
+                    })
                 });
             });
         };

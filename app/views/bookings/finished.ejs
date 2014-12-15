@@ -1,0 +1,65 @@
+<section id="bookings">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="image">
+                    <%- html.img('/img/apartments/'+apartment.main_image) %>
+                </div>
+                <div class="name">
+                    <h2><%= apartment.name %></h2>
+                </div>
+                <div class="info">
+                    <i class="fa fa-map-marker"></i>
+                <span class="country">
+                <%= apartment.country.name[i18n.language] %>
+                </span><i class="fa fa-angle-right"></i>
+                <span class="country">
+                    <%= apartment.province.name %>
+                </span><i class="fa fa-angle-right"></i>
+                <span class="country">
+                    <%= apartment.town.name %>
+                </span>
+                </div>
+                <div class="success-message">
+                    <% if (booking.confirmed) { %>
+                        <%= $t('website.bookings.confirmed') %>
+                    <% } else { %>
+                        <%= $t('website.bookings.waiting_confirmation') %>
+                    <% } %>
+                </div>
+                <div class="booking-info">
+                    <div class="row">
+                        <div class="col-xs-6 left">
+                            <div class="item">
+                                <div class="title"><%= $t('website.bookings.from') %></div>
+                                <div class="value"><%= moment(booking.from).format($t('dates.short')) %></div>
+                            </div>
+                            <div class="item">
+                                <div class="title"><%= $t('website.bookings.to') %></div>
+                                <div class="value"><%= moment(booking.to).format($t('dates.short')) %></div>
+                            </div>
+                            <div class="item">
+                                <div class="title"><%= $t('website.bookings.people') %></div>
+                                <div class="value"><%= booking.people %></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 right">
+                            <div class="item">
+                                <div class="title"><%= $t('website.bookings.total') %></div>
+                                <div class="value"><%= formatter.currency(booking.total) %></div>
+                            </div>
+                            <div class="item">
+                                <div class="title"><%= $t('website.bookings.pay_now') %></div>
+                                <div class="value"><%= formatter.currency(booking.total * 0.3) %></div>
+                            </div>
+                            <div class="item">
+                                <div class="title"><%= $t('website.bookings.pay_on_apartment') %></div>
+                                <div class="value"><%= formatter.currency(booking.total * 0.7) %></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

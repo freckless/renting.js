@@ -1,0 +1,9 @@
+<% if (flash) { %>
+<div class="flash-messages">
+    <% for (type in flash) { %>
+    <div class="alert alert-<%= type %>">
+        <%- flash[type] %>
+    </div>
+    <% } %>
+</div>
+<% } %>

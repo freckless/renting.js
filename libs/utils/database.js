@@ -66,6 +66,12 @@ var DatabaseHelpers = {
         };
 
         check_unique();
+    },
+    update_document_dates: function(callback) {
+        var now = new Date();
+        if ( ! this.created_at) { this.created_at = now };
+        if ( this._id ) { this.modified_at = now };
+        callback();
     }
 };
 

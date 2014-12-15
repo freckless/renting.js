@@ -16,6 +16,8 @@ var HomeController = new BaseController({
         Apartment.find({featured: true}).select({
             name: true,
             'apartments.seasons.price': true,
+            'apartments.seasons.from': true,
+            'apartments.seasons.to': true,
             images: true,
             url: true,
             country: true,
